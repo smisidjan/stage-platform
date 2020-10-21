@@ -43,9 +43,6 @@
     "conduction/commongroundbundle": {
         "version": "dev-master"
     },
-    "conduction/landkitbundle": {
-        "version": "dev-main"
-    },
     "conduction/nldesignbundle": {
         "version": "dev-master"
     },

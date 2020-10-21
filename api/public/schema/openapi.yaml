@@ -1,21 +1,21 @@
 openapi: 3.0.2
 info:
-  title: 'Proto Applicatie NL Design'
+  title: 'ID Vault'
   version: V1.0
   description: |
     API Details
-    - Component: Proto Applicatie NL Design
-    - Reference: pan
+    - Component: ID Vault
+    - Reference: id-vault
     - Enviroment: dev
     - Version: V1.0
-    - Repository: [online](https://github.com/ConductionNL/pan) / [zip](https://github.com/ConductionNL/pan/archive/master.zip)
-    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
-    - Datamodel: [postman](/schema/pan.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
+    - Repository: [online](https://github.com/ConductionNL/id-vault) / [zip](https://github.com/ConductionNL/id-vault/archive/master.zip)
+    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/id-vault-php) 
+    - Datamodel: [postman](/schema/id-vault.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
     Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.         
     
 paths:
-  /audit_trails:
+  /api/audit_trails:
     get:
       tags:
         - AuditTrail
@@ -534,7 +534,7 @@ paths:
               parameters:
                 id: '$response.body#/id'
               operationId: getAuditTrailItem
-              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /audit_trails/{id}`.'
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /api/audit_trails/{id}`.'
         400:
           description: 'Invalid input'
         404:
@@ -611,7 +611,7 @@ paths:
           name: X-NLX-Audit-Clarification
           description: 'A clarification as to why a request has been made  (doelbinding)'
           in: header
-  '/audit_trails/{id}':
+  '/api/audit_trails/{id}':
     get:
       tags:
         - AuditTrail
@@ -1012,7 +1012,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AuditTrail-write'
         description: 'The updated AuditTrail resource'
-  /change_logs:
+  /api/change_logs:
     get:
       tags:
         - ChangeLog
@@ -1416,7 +1416,7 @@ paths:
               parameters:
                 id: '$response.body#/id'
               operationId: getChangeLogItem
-              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /change_logs/{id}`.'
+              description: 'The `id` value returned in the response can be used as the `id` parameter in `GET /api/change_logs/{id}`.'
         400:
           description: 'Invalid input'
         404:
@@ -1493,7 +1493,7 @@ paths:
           name: X-NLX-Audit-Clarification
           description: 'A clarification as to why a request has been made  (doelbinding)'
           in: header
-  '/change_logs/{id}':
+  '/api/change_logs/{id}':
     get:
       tags:
         - ChangeLog
@@ -2391,12 +2391,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-21 06:23:44'
+        example: '2020-10-21 08:50:35'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-21 06:23:44'
+        example: '2020-10-21 08:50:35'
     required: []
   AuditTrail-write:
     properties:
@@ -2444,12 +2444,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-21 06:23:44'
+        example: '2020-10-21 08:50:35'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-21 06:23:44'
+        example: '2020-10-21 08:50:35'
     required: []
   ChangeLog-write:
     properties:
@@ -2490,8 +2490,8 @@ securityDefinitions:
 host: irc.zaakonline.nl
 servers:
   -
-    name: zuid-drecht.nl
-    url: pan.dev.zuid-drecht.nl
+    name: id-vault.com
+    url: id-vault.dev.id-vault.com
 externalDocs:
   -
     description: 'OAS Documentatie'
