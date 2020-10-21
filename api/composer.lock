@@ -878,12 +878,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ConductionNL/RocketBundle.git",
-                "reference": "8776b14cc73f177b32883aec344df4271cb13503"
+                "reference": "6b93a786ea429bd2bd092858eda18473de7cd794"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ConductionNL/RocketBundle/zipball/8776b14cc73f177b32883aec344df4271cb13503",
-                "reference": "8776b14cc73f177b32883aec344df4271cb13503",
+                "url": "https://api.github.com/repos/ConductionNL/RocketBundle/zipball/6b93a786ea429bd2bd092858eda18473de7cd794",
+                "reference": "6b93a786ea429bd2bd092858eda18473de7cd794",
                 "shasum": ""
             },
             "require": {
@@ -921,7 +921,7 @@
                 "symfony",
                 "theme"
             ],
-            "time": "2020-10-19T05:20:00+00:00"
+            "time": "2020-10-20T05:10:51+00:00"
         },
         {
             "name": "dasprid/enum",
