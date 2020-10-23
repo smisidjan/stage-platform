@@ -15,7 +15,7 @@ use Symfony\Component\Serializer\SerializerInterface;
  *
  * Class ApiController
  *
- * @Route("/")
+ * @Route("/stages")
  */
 class StageController extends AbstractController
 {
