@@ -24,7 +24,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/")
      */
-    public function index()
+    public function indexAction()
     {
        $variable = $this->container;
 
