@@ -1,6 +1,6 @@
 <?php
 
-// src/Controller/UserController.php
+// src/Controller/InternshipController.php
 
 namespace App\Controller;
 
@@ -17,13 +17,13 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * The Procces test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
+ * The InternshipController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
  *
- * Class UserController
+ * Class InternshipController
  *
- * @Route("/users")
+ * @Route("/internships")
  */
-class UserController extends AbstractController
+class InternshipController extends AbstractController
 {
     /**
      * @Route("/")

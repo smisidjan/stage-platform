@@ -1,6 +1,6 @@
 <?php
 
-// src/Controller/UserController.php
+// src/Controller/DashboardController.php
 
 namespace App\Controller;
 
@@ -17,13 +17,13 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * The Procces test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
+ * The DashboardController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
  *
- * Class UserController
+ * Class DashboardController
  *
- * @Route("/users")
+ * @Route("/dashboard")
  */
-class UserController extends AbstractController
+class DashboardController extends AbstractController
 {
     /**
      * @Route("/")

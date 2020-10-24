@@ -3,7 +3,7 @@ entries:
   id-vault:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-10-23T14:20:28.3743547Z"
+    created: "2020-10-24T07:29:05.4081809Z"
     description: '&quot;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&quot;'
     digest: 3d80d65caaebb45f5fe6f2bf1bd5ce9d64b04e20071e37d7cd003c7a50b65ca5
@@ -16,7 +16,7 @@ entries:
   pan:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-10-23T14:20:28.3840207Z"
+    created: "2020-10-24T07:29:05.4126957Z"
     description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
       beschikbaar.
     digest: af79687f76ac24cf2308cff9f06520199541d78894e9366050589a5dc56c49a9
@@ -26,4 +26,17 @@ entries:
     urls:
     - pan-0.1.0.tgz
     version: 0.1.0
-generated: "2020-10-23T14:20:28.3662643Z"
+  stage-platform:
+  - apiVersion: v1
+    appVersion: V1.0
+    created: "2020-10-24T07:29:05.4170954Z"
+    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+      beschikbaar.
+    digest: db7ac56143153327f18c42bcb3cc8a00d8aadc9416acda02137bd5fcb43a621d
+    home: www.stage-platform.com
+    icon: www.stage-platform.com
+    name: stage-platform
+    urls:
+    - stage-platform-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-10-24T07:29:05.4032533Z"
