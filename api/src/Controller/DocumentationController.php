@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
  *
  * Class DocumentationController
  *
- * @Route("/")
+ * @Route("/docs")
  */
 class DocumentationController extends AbstractController
 {
