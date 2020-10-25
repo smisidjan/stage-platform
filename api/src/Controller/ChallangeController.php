@@ -28,4 +28,16 @@ class ChallangeController extends AbstractController
 
         return $variables;
     }
+
+
+    /**
+     * @Route("/{id}")
+     * @Template
+     */
+    public function challangeAction($id)
+    {
+        $variables = [];
+
+        return $variables;
+    }
 }
