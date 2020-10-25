@@ -9,23 +9,12 @@
             <a href="#sidebarMenu" class="fas fa-times" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation"></a>
         </div>
     </div>
+
     <ul class="nav flex-column mt-4">
-        <li class="nav-item active"><a href="../dashboard/dashboard.html" class="nav-link"><span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span> <span>Overview</span></a></li>
-        <li class="nav-item"><a href="../dashboard/messages.html" class="nav-link d-flex align-items-center justify-content-between"><span><span class="sidebar-icon"><span class="fas fa-inbox"></span></span> Messages </span><span class="badge badge-md badge-danger badge-pill">4</span></a></li>
-        <li class="nav-item"><a href="../dashboard/traffic-sources.html" class="nav-link"><span class="sidebar-icon"><span class="fas fa-chart-line"></span></span> <span>Traffic & Engagement</span></a></li>
-        <li class="nav-item"><a href="../dashboard/app-analysis.html" class="nav-link"><span class="sidebar-icon"><span class="fas fa-tablet-alt"></span></span> <span>App Analysis</span></a></li>
-        <li class="nav-item"><a href="../dashboard/users.html" class="nav-link"><span class="sidebar-icon"><span class="fas fa-user-check"></span></span> <span>Users List</span></a></li>
-        <li class="nav-item"><a href="../dashboard/transactions.html" class="nav-link"><span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span> <span>Transactions</span></a></li>
-        <li class="nav-item"><a href="../dashboard/tasks.html" class="nav-link"><span class="sidebar-icon"><span class="fas fa-clipboard-list"></span></span> <span>Task List</span></a></li>
-        <li class="nav-item"><a href="../dashboard/settings.html" class="nav-link"><span class="sidebar-icon"><span class="fas fa-cog"></span></span> <span>Settings</span></a></li>
-        <li class="nav-item"><a class="nav-link collapsed d-flex justify-content-between align-items-center" href="#submenu-app" data-toggle="collapse" data-target="#submenu-app"><span><span class="sidebar-icon"><span class="fas fa-pager"></span></span> Dropdown </span><span class="link-arrow"><span class="fas fa-chevron-right"></span></span></a>
-            <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
-                <ul class="flex-column nav">
-                    <li class="nav-item"><a class="nav-link" href="#"><span>First Item</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><span>Second Item</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><span>Third Item</span></a></li>
-                </ul>
-            </div>
-        </li>
+        <li class="nav-item active"><a href="{{ path('app_dashboard_index') }}" class="nav-link"><span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span> <span>{{ 'overview'|trans|capitalize }}</span></a></li>
+        <li class="nav-item"><a href="{{ path('app_dashboard_tutorials') }}" class="nav-link d-flex align-items-center justify-content-between"><span><span class="sidebar-icon"><span class="fas fa-inbox"></span></span>{{ 'tutorials'|trans|capitalize }}</span><span class="badge badge-md badge-danger badge-pill">4</span></a></li>
+        <li class="nav-item"><a href="{{ path('app_dashboard_challanges') }}" class="nav-link"><span class="sidebar-icon"><span class="fas fa-chart-line"></span></span> <span>{{ 'challanges'|trans|capitalize }}</span></a></li>
+        <li class="nav-item"><a href="{{ path('app_dashboard_internships') }}" class="nav-link"><span class="sidebar-icon"><span class="fas fa-tablet-alt"></span></span> <span>{{ 'internships'|trans|capitalize }}</span></a></li>
+        <li class="nav-item"><a href="{{ path('app_dashboard_teams') }}" class="nav-link"><span class="sidebar-icon"><span class="fas fa-tablet-alt"></span></span> <span>{{ 'teams'|trans|capitalize }}</span></a></li>
     </ul>
 </div>
