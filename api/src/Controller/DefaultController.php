@@ -35,6 +35,26 @@ class DefaultController extends AbstractController
 
         return $variables;
     }
+    /**
+     * @Route("/login")
+     * @Template
+     */
+    public function loginAction()
+    {
+        $variables = [];
+
+        return $variables;
+    }
+    /**
+     * @Route("/register")
+     * @Template
+     */
+    public function registerAction()
+    {
+        $variables = [];
+
+        return $variables;
+    }
 
 
 
