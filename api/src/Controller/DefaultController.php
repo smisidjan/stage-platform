@@ -4,16 +4,9 @@
 
 namespace App\Controller;
 
-use Conduction\CommonGroundBundle\Service\ApplicationService;
 //use App\Service\RequestService;
-use Conduction\CommonGroundBundle\Service\CommonGroundService;
-use function GuzzleHttp\Promise\all;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -35,6 +28,7 @@ class DefaultController extends AbstractController
 
         return $variables;
     }
+
     /**
      * @Route("/login")
      * @Template
@@ -45,6 +39,7 @@ class DefaultController extends AbstractController
 
         return $variables;
     }
+
     /**
      * @Route("/register")
      * @Template
@@ -55,7 +50,4 @@ class DefaultController extends AbstractController
 
         return $variables;
     }
-
-
-
 }
