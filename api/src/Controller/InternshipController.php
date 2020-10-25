@@ -36,6 +36,17 @@ class InternshipController extends AbstractController
         return $variables;
     }
 
+    /**
+     * @Route("/{id}")
+     * @Template
+     */
+    public function positionAction($id)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
 
 
 }
