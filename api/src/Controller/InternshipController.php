@@ -36,8 +36,9 @@ class InternshipController extends AbstractController
         $variables['query'] = $request->query->all();
         $variables['post'] = $request->request->all();
 
-        // Get resource
-        $variables['resources'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+        // Get resource Stages
+        $variables['resource'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+
 
         return $variables;
     }
@@ -46,7 +47,7 @@ class InternshipController extends AbstractController
      * @Route("/{id}")
      * @Template
      */
-    public function positionAction($id)
+    public function positionAction(Session $session, Request $request, ApplicationService $applicationService, CommonGroundService $commonGroundService, ParameterBagInterface $params, $id)
     {
         $variables = [];
 
