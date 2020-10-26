@@ -1,6 +1,6 @@
 <?php
 
-// src/Controller/ChallangeController.php
+// src/Controller/ChallengeController.php
 
 namespace App\Controller;
 
@@ -10,13 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * The ChallangeController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
+ * The ChallengeController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
  *
- * Class ChallangeController
+ * Class ChallengeController
  *
- * @Route("/challanges")
+ * @Route("/challenges")
  */
-class ChallangeController extends AbstractController
+class ChallengeController extends AbstractController
 {
     /**
      * @Route("/")
@@ -34,7 +34,7 @@ class ChallangeController extends AbstractController
      * @Route("/{id}")
      * @Template
      */
-    public function challangeAction($id)
+    public function challengeAction($id)
     {
         $variables = [];
 
