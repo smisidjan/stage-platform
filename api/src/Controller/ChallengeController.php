@@ -8,10 +8,9 @@ namespace App\Controller;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * The ChallengeController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
@@ -26,16 +25,13 @@ class ChallengeController extends AbstractController
      * @Route("/")
      * @Template
      */
-    public function indexAction(Session $session, Request $request, CommonGroundService $commonGroundService, ParameterBagInterface $params, string $slug = 'home')
+    public function indexAction(Request $request, CommonGroundService $commonGroundService)
     {
-        $variables = [];
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        // Lets provide this data to the template
-        $variables['query'] = $request->query->all();
-        $variables['post'] = $request->request->all();
-
-        // Get resource
-        $variables['resources'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
+        // Get resource challenges (known as tender component side)
+        $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
 
         return $variables;
     }
@@ -45,9 +41,12 @@ class ChallengeController extends AbstractController
      * @Route("/{id}")
      * @Template
      */
-    public function challengeAction($id)
+    public function challengeAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
         $variables = [];
+
+        // Get resource challenges (known as tender component side)
+        $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
 
         return $variables;
     }

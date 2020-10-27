@@ -32,19 +32,14 @@
     <section class="section section-md pb-0">
         <div class="container z-2 mt-n9 mt-lg-n11">
             <div class="row">
-                {% for tender in resources %}
+                {% for challenge in challenges %}
                     <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
                         <div class="card bg-white border-light shadow-soft p-4 rounded">
-                            <a href="{{ path('app_challenge_challenge', {id: 'test'}) }}"><img src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt=""></a>
-                            <div class="card-body p-0 pt-4">
-                                {% if tender.name is defined and tender.name is not empty %}
-                                <a href="{{ path('app_challenge_challenge', {id: 'test'}) }}" class="h3">{{ tender.name }}</a>
-                                {% endif %}
+                            <a href="{{ path('app_challenge_challenge', {id: challenge.id}) }}"><img src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt=""></a>
+                            <div class="card-body p-0 pt-4"><a href="{{ path('app_challenge_challenge', {id: challenge.id}) }}" class="h3">{{ challenge.name }}</a>
                                 <div class="d-flex align-items-center my-4"><img class="avatar avatar-sm rounded-circle" src="/bundles/rocket/assets/img/team/profile-picture-2.jpg" alt="">
                                     <h6 class="text-muted small ml-2 mb-0">James Curran</h6></div>
-                                {% if tender.description is defined and tender.description is not empty %}
-                                <p class="mb-0">{{ tender.description }}</p>
-                                {% endif %}
+                                <p class="mb-0">{{ challenge.description }}</p>
                             </div>
                         </div>
                     </div>
