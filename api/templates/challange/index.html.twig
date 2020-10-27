@@ -7,13 +7,13 @@
                 <div class="col-12 col-md-10 text-center">
                     <h1 class="mb-3">{{ 'challanges'|trans|capitalize }}</h1>
                     <p class="lead px-lg-5 mb-5">{{ 'find the perfect challange for you or your team'|trans|capitalize }}.</p>
-                    <form action="#">
+                    <form action="{{ path('app_challange_index', query) }}">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
                             <div class="row align-items-center">
                                 <div class="col">
                                     <div class="input-group input-group-merge shadow-none">
                                         <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0"><i class="fas fa-search"></i></span></div>
-                                        <input type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for challanges'|trans|capitalize }}..." required="">
+                                        <input name="search" id="search "type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for challanges'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
                                     </div>
                                 </div>
                                 <div class="col-auto">
