@@ -35,7 +35,7 @@ class TeamController extends AbstractController
      * @Route("/{id}")
      * @Template
      */
-    public function teamssAction(CommonGroundService $commonGroundService, Request $request, $id)
+    public function teamAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
 
