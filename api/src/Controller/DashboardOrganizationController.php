@@ -81,7 +81,7 @@ class DashboardOrganizationController extends AbstractController
      * @Route("/challenges")
      * @Template
      */
-    public function challengesAction()
+    public function challengesAction(Request $request, CommonGroundService $commonGroundService)
     {
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
@@ -93,7 +93,7 @@ class DashboardOrganizationController extends AbstractController
      * @Route("/challenges/{id}")
      * @Template
      */
-    public function challengeAction()
+    public function challengeAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
         $variables = [];
 
