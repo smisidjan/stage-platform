@@ -37,8 +37,13 @@
                         <div class="card bg-white border-light shadow-soft p-4 rounded">
                             <a href="{{ path('app_challenge_challenge', {id: challenge.id}) }}"><img src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt=""></a>
                             <div class="card-body p-0 pt-4"><a href="{{ path('app_challenge_challenge', {id: challenge.id}) }}" class="h3">{{ challenge.name }}</a>
-                                <div class="d-flex align-items-center my-4"><img class="avatar avatar-sm rounded-circle" src="/bundles/rocket/assets/img/team/profile-picture-2.jpg" alt="">
-                                    <h6 class="text-muted small ml-2 mb-0">James Curran</h6></div>
+                                {% if challenge.submitters is defined and challenge.submitters is not empty %}
+                                    <div class="d-flex align-items-center my-4"><img class="avatar avatar-sm rounded-circle" src="/bundles/rocket/assets/img/team/profile-picture-2.jpg" alt="">
+                                    <h6 class="text-muted small ml-2 mb-0">{{ challenge.submitters[0] }}</h6></div>
+                                {% endif %}
+                                {% if challenge.dateClose is defined and challenge.dateClose is not empty %}
+                                    <div class="d-flex align-items-center my-4"><h6 class="text-muted small ml-2 mb-0">{{ challenge.dateClose|date("d-m-Y", "Europe/Paris") }}</h6></div>
+                                {% endif %}
                                 <p class="mb-0">{{ challenge.description }}</p>
                             </div>
                         </div>
