@@ -130,28 +130,27 @@ class DashboardOrganizationController extends AbstractController
     public function challengeAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
         $variables = [];
-
-        // Get resource challenges (known as tender component side)
+        
         if($id != 'new'){
+            // Get resource challenges (known as tender component side)
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
         }
         else{
             $variables['challenge'] = [];
         }
-        
+
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
 
             // Add the post data to the already aquired resource data
-            $resource = array_merge($variables['resource'], $resource);
+            $resource = array_merge($variables['resource'], $resource );
 
             // Save to the commonground component
             $variables['resource'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders']);
-
-            return $this->redirectToRoute('app_dashboardorganization_challenges');
         }
         return $variables;
+
     }
 
     /**
