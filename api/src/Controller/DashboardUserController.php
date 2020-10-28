@@ -23,8 +23,10 @@ class DashboardUserController extends AbstractController
      * @Route("/")
      * @Template
      */
-    public function indexAction()
+    public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $variables = [];
+
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
@@ -35,8 +37,10 @@ class DashboardUserController extends AbstractController
      * @Route("/tutorials")
      * @Template
      */
-    public function tutorialsAction()
+    public function tutorialsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $variables = [];
+
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
@@ -47,7 +51,7 @@ class DashboardUserController extends AbstractController
      * @Route("/tutorials/{id}")
      * @Template
      */
-    public function tutorialAction()
+    public function tutorialAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
 
@@ -58,8 +62,10 @@ class DashboardUserController extends AbstractController
      * @Route("/internships")
      * @Template
      */
-    public function internshipsAction()
+    public function internshipsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $variables = [];
+
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
@@ -70,7 +76,7 @@ class DashboardUserController extends AbstractController
      * @Route("/internships/{id}")
      * @Template
      */
-    public function internshipAction()
+    public function internshipAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
 
@@ -78,11 +84,13 @@ class DashboardUserController extends AbstractController
     }
 
     /**
-     * @Route("/challanges")
+     * @Route("/challenges")
      * @Template
      */
-    public function challangesAction()
+    public function challengesAction(Request $request, CommonGroundService $commonGroundService)
     {
+        $variables = [];
+
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
@@ -90,10 +98,10 @@ class DashboardUserController extends AbstractController
     }
 
     /**
-     * @Route("/challanges/{id}")
+     * @Route("/challenges/{id}")
      * @Template
      */
-    public function challangeAction()
+    public function challengeAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
         $variables = [];
 
@@ -104,8 +112,10 @@ class DashboardUserController extends AbstractController
      * @Route("/teams")
      * @Template
      */
-    public function teamsAction()
+    public function teamsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $variables = [];
+
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
@@ -116,7 +126,7 @@ class DashboardUserController extends AbstractController
      * @Route("/teams/{id}")
      * @Template
      */
-    public function teamAction()
+    public function teamAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
 
