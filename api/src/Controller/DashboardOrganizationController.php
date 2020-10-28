@@ -59,7 +59,12 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         // Get resource tutorial
-        $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
+        if($id != 'new'){
+            $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
+        }
+        else{
+            $variables['tutorial'] = [];
+        }
 
         return $variables;
     }
@@ -90,7 +95,12 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         // Get resource Interschip
-        $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings','id'=>$id]);
+        if($id != 'new'){
+            $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings','id'=>$id]);
+        }
+        else{
+            $variables['internship'] = [];
+        }
 
 
         return $variables;
@@ -122,7 +132,12 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         // Get resource challenges (known as tender component side)
-        $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+        if($id != 'new'){
+            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+        }
+        else{
+            $variables['challenge'] = [];
+        }
 
         return $variables;
     }
@@ -149,8 +164,6 @@ class DashboardOrganizationController extends AbstractController
      */
     public function teamAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
-        $variables = [];
-
         $variables = [];
 
         return $variables;

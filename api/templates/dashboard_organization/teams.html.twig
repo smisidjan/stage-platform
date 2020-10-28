@@ -19,17 +19,21 @@
 
     <div class="d-lg-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <div class="col-auto d-flex justify-content-between pl-0 mb-4 mb-lg-0">
-            <div class="mr-lg-3"><a href="#" class="btn btn-secondary"><span class="fas fa-plus mr-2"></span><span>New Tasks</span></a></div>
-            <div class="btn-group"><a class="btn btn-primary text-white" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Archive"><span class="fas fa-archive"></span></a> <a class="btn btn-primary text-white" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Report Spam"><span class="fas fa-exclamation-circle"></span></a> <a class="btn btn-primary text-white" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete"><span class="fas fa-trash-alt"></span></a></div>
-        </div>
+            <div class="mr-lg-3"><a href="{{ path('app_dashboardorganization_team', {id: 'new'}) }}" class="btn btn-secondary"><span class="fas fa-plus mr-2"></span><span>New Team</span></a></div>
+         </div>
         <div class="col-12 col-lg-6 px-0">
+            <form action="{{ path('app_dashboardorganization_teams', query) }}">
             <div class="form-group mb-0">
                 <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text"><span class="fas fa-search"></span></span>
                     </div>
-                    <input class="form-control" placeholder="Search Tasks Here" type="text">
+                    <input name="search" id="search" class="form-control" placeholder="Search Tasks Here" type="text" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-block btn-primary "> {{ 'search'|trans|capitalize }}</button>
+                    </div>
                 </div>
             </div>
+            </form>
         </div>
     </div>
     <div class="border bg-white border-light shadow-sm py-1 rounded">
