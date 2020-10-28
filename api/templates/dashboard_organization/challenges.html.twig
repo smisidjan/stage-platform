@@ -7,13 +7,13 @@
         <div class="d-block mb-4 mb-md-0">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                    <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
-                    <li class="breadcrumb-item"><a href="#">Dashbboard</a></li>
-                    <li class="breadcrumb-item active">Challanges</li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span class="fas fa-home"></span></a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
+                    <li class="breadcrumb-item active">{{ 'Challenges'|trans|capitalize }}</li>
                 </ol>
             </nav>
-            <h2 class="h4">Challanges</h2>
-                <p class="mb-0">[text about what a challange is is]</p>
+            <h2 class="h4">Challenges</h2>
+                <p class="mb-0">[text about what a challenge is is]</p>
         </div>
     </div>
 
