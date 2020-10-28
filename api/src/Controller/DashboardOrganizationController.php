@@ -138,7 +138,19 @@ class DashboardOrganizationController extends AbstractController
         else{
             $variables['challenge'] = [];
         }
+        
+        // Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
 
+            // Add the post data to the already aquired resource data
+            $resource = array_merge($variables['resource'], $resource);
+
+            // Save to the commonground component
+            $variables['resource'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders']);
+
+            return $this->redirectToRoute('app_dashboardorganization_challenges');
+        }
         return $variables;
     }
 
@@ -163,6 +175,17 @@ class DashboardOrganizationController extends AbstractController
      * @Template
      */
     public function teamAction(CommonGroundService $commonGroundService, Request $request, $id)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/settings")
+     * @Template
+     */
+    public function settingsAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
 

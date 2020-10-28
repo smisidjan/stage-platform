@@ -21,11 +21,11 @@
     <meta property="twitter:description" content="Rocket is a premium SaaS Bootstrap 4 Dashboard template featuring over 27 presentational and technical pages including pricing, support, team, careers and many more.">
     <meta property="twitter:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/rocket/rocket-preview.jpg">
 
-    <link rel="apple-touch-icon" sizes="120x120" href="/bundles/rocket/assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/bundles/rocket/assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/bundles/rocket/assets/img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/bundles/rocket/assets/img/favicon/conduction.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/bundles/rocket/assets/img/favicon/conduction.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/bundles/rocket/assets/img/favicon/conduction.png">
     <link rel="manifest" href="/bundles/rocket/assets/img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/bundles/rocket/assets/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+    <link rel="mask-icon" href="/bundles/rocket/assets/img/favicon/conduction.png" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <link type="text/css" href="/bundles/rocket/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -35,6 +35,22 @@
 </head>
 
 <body>
+<!-- breadcrumbs -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span
+                            class="fas fa-home"></span></a></li>
+                <li class="breadcrumb-item"><a
+                        href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
+                <li class="breadcrumb-item active"><a
+                        href="{{ path('app_dashboardorganization_settings') }}">{{ 'settings'|trans|capitalize }}</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
 
 
 <div class="preloader bg-soft flex-column justify-content-center align-items-center">
