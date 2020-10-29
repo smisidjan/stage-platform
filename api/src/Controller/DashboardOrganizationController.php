@@ -86,17 +86,17 @@ class DashboardOrganizationController extends AbstractController
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             //array legen voor posten van nieuwe stage
-            $variables['internships'] = [];
+            $variables['internship'] = [];
             //array waar mn form inzit
             $resource = $request->request->all();
 
             $resource['standardHours'] = (int)$resource['standardHours'];
 
             // Add the post data to the already aquired internship data
-            $resource = array_merge($variables['internships'], $resource);
+            $resource = array_merge($variables['internship'], $resource);
 
             // Save to the commonground component
-            $variables['internships'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'job_postings']);
+            $variables['internship'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'job_postings']);
         }
 
         return $variables;
