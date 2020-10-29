@@ -7,6 +7,7 @@ namespace App\Controller;
 //use App\Service\RequestService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -48,6 +49,13 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
+        // Get resource tutorial
+        if ($id != 'new') {
+            $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
+        } else {
+            $variables['tutorial'] = [];
+        }
+
         return $variables;
     }
 
@@ -70,6 +78,13 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
+        // Get resource Interschip
+        if ($id != 'new') {
+            $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        } else {
+            $variables['internship'] = [];
+        }
+
         return $variables;
     }
 
@@ -91,6 +106,13 @@ class DashboardOrganizationController extends AbstractController
     public function challangeAction()
     {
         $variables = [];
+
+        // Get resource challenges (known as tender component side)
+        if ($id != 'new') {
+            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+        } else {
+            $variables['challenge'] = [];
+        }
 
         return $variables;
     }

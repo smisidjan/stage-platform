@@ -7,6 +7,7 @@ namespace App\Controller;
 //use App\Service\RequestService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -37,7 +38,9 @@ class TeamController extends AbstractController
     {
         $variables = [];
 
+        // Get resource Interschip
+        $variables['team'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+
         return $variables;
     }
-
 }

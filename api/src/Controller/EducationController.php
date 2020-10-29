@@ -7,6 +7,7 @@ namespace App\Controller;
 //use App\Service\RequestService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -66,7 +67,7 @@ class EducationController extends AbstractController
      * @Route("/programs/{id}")
      * @Template
      */
-    public function programAction($id = null)
+    public function programAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
 

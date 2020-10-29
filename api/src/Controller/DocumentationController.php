@@ -4,7 +4,6 @@
 
 namespace App\Controller;
 
-//use App\Service\RequestService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,6 +24,9 @@ class DocumentationController extends AbstractController
     public function indexAction()
     {
         $variables = [];
+
+        // Get resource Interschips
+        $variables['interships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         return $variables;
     }
