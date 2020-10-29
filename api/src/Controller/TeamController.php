@@ -4,7 +4,7 @@
 
 namespace App\Controller;
 
-//use App\Service\RequestService;
+use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,18 +23,19 @@ class TeamController extends AbstractController
      * @Route("/")
      * @Template
      */
-    public function indexAction()
+    public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
-        $variables = [];
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         return $variables;
     }
 
     /**
-     * @Route("/teams/{id}")
+     * @Route("/{id}")
      * @Template
      */
-    public function teamssAction()
+    public function teamAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
 
