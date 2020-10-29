@@ -7,10 +7,9 @@ namespace App\Controller;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
+
 /**
  * The InternshipController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
  *
@@ -44,11 +43,8 @@ class InternshipController extends AbstractController
         $variables = [];
 
         // Get resource Interschip
-        $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings','id'=>$id]);
+        $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
         return $variables;
     }
-
-
-
 }

@@ -7,8 +7,8 @@ namespace App\Controller;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * The TeamController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
@@ -40,9 +40,8 @@ class TeamController extends AbstractController
         $variables = [];
 
         // Get resource Interschip
-        $variables['team'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings','id'=>$id]);
+        $variables['team'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
         return $variables;
     }
-
 }
