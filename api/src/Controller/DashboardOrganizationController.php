@@ -7,8 +7,8 @@ namespace App\Controller;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * The DashboardController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
@@ -59,10 +59,9 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         // Get resource tutorial
-        if($id != 'new'){
+        if ($id != 'new') {
             $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
-        }
-        else{
+        } else {
             $variables['tutorial'] = [];
         }
 
@@ -95,13 +94,11 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         // Get resource Interschip
-        if($id != 'new'){
-            $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings','id'=>$id]);
-        }
-        else{
+        if ($id != 'new') {
+            $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        } else {
             $variables['internship'] = [];
         }
-
 
         return $variables;
     }
@@ -132,10 +129,9 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         // Get resource challenges (known as tender component side)
-        if($id != 'new'){
+        if ($id != 'new') {
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
-        }
-        else{
+        } else {
             $variables['challenge'] = [];
         }
 
