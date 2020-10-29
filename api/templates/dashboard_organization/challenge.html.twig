@@ -31,14 +31,14 @@
                         <div class="col-md-8 mb-3">
                             <div class="form-group">
                                 <label for="name">{{ 'Challenge name'|trans|capitalize }}</label>
-                                <input class="form-control" id="name" type="text" placeholder="Enter the challenge name"
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Enter the challenge name"
                                        required="">
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
                                 <label for="submitters[]">{{ 'submitter'|trans|capitalize }}</label>
-                                <input class="form-control" id="submitters[]" type="text" required="">
+                                <input class="form-control" id="submitters[]" name="submitters[]" type="text" required="">
                             </div>
                         </div>
                     </div>
@@ -54,29 +54,29 @@
                         <div class="col-md-8 mb-3">
                             <div class="form-group">
                                 <label for="selectionCritera">{{ 'selection critera'|trans|capitalize }}</label>
-                                <textarea class="form-control" id="selectionCritera"></textarea>
+                                <textarea class="form-control" id="selectionCritera" name="selectionCritera"></textarea>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
                                 <label for="budget">{{ 'budget'|trans|capitalize }}</label>
-                                <input class="form-control" id="budget" type="number">
+                                <input class="form-control" id="budget" name="budget" type="number">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="documents">{{ 'documents'|trans|capitalize }}</label>
-                                <input class="form-control" id="documents" type="file">
+                                <label for="documents[]">{{ 'documents'|trans|capitalize }}</label>
+                                <input class="form-control" id="documents[]" name="documents[]" type="file">
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                <label for="dateClose">{{ 'close date'|trans|capitalize }}</label>
-                                <input class="form-control" id="dateClose" type="date" required="">
-                            </div>
-                        </div>
+{#                        <div class="col-md-6 mb-3">#}
+{#                            <div class="form-group">#}
+{#                                <label for="dateClose">{{ 'close date'|trans|capitalize }}</label>#}
+{#                                <input class="form-control" id="dateClose" name="dateClose" type="date" required="">#}
+{#                            </div>#}
+{#                        </div>#}
                     </div>
 
                     <div class="mt-3">

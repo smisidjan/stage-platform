@@ -50,7 +50,7 @@
                     <div class="mb-2">
                         <h3 class="h5">{{ challenge.name }}</h3>
                     </div>
-                    <div><a href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}" class="font-weight-bold text-dark"><span class="font-weight-normal text-gray">[summery]</span></a></div>
+                    <div><a href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}" class="font-weight-bold text-dark"><span class="font-weight-normal text-gray">{{ challenge.description }}</span></a></div>
                 </div>
                 <div class="col-10 col-sm-2 col-lg-2 col-xl-2 d-none d-lg-block d-xl-inline-flex align-items-center ml-lg-auto text-right justify-content-end px-md-0">
                     <div class="btn-group ml-md-3">
@@ -58,7 +58,7 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}"><span class="fas fa-edit mr-2"></span>{{ 'Edit'|trans|capitalize }}</a>
                             <a class="dropdown-item" href="{{ path('app_challenge_challenge', {id: challenge.id}) }}"><span class="fas fa-edit mr-2"></span>{{ 'View online'|trans|capitalize }}</a>
-                            <a class="dropdown-item text-danger" href="#"><span class="fas fa-trash-alt mr-2"></span>{{ 'Delete'|trans|capitalize }}</a>
+                            <a class="dropdown-item text-danger" href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}"><span class="fas fa-trash-alt mr-2"></span>{{ 'Delete'|trans|capitalize }}</a>
                         </div>
                     </div>
                 </div>

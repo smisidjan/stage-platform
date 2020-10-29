@@ -117,6 +117,19 @@ class DashboardOrganizationController extends AbstractController
         // Get resource challenges (known as tender component side)
         $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
 
+        // Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+
+//            // Add the post data to the already aquired resource data
+//            $resource = array_merge($variables['challenge'], $resource);
+
+            // Save to the commonground component
+            $variables['challenge'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders']);
+
+            return $this->redirectToRoute('app_dashboardorganization_challenges');
+        }
+
         return $variables;
     }
 
@@ -130,22 +143,29 @@ class DashboardOrganizationController extends AbstractController
 
         // Get resource challenges (known as tender component side)
         if ($id != 'new') {
-            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
         } else {
             $variables['challenge'] = [];
+
+            // Lets see if there is a post to procces
+            if ($request->isMethod('POST')) {
+                $resource = $request->request->all();
+
+                // Update to the commonground component
+                $variables['challenge'] = $commonGroundService->updateResource($resource, ['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+            }
+
         }
 
-        // Lets see if there is a post to procces
-        if ($request->isMethod('POST')) {
-            $resource = $request->request->all();
-
-            // Add the post data to the already aquired resource data
-            $resource = array_merge($variables['resource'], $resource );
-
-            // Save to the commonground component
-            $variables['resource'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders']);
-        }
         return $variables;
+
+//
+//
+//        //TODO rechten
+//        $this->commonGroundService->updateResource($resource, ['component'=>$component, 'type'=>$type, 'id'=>$id]);
+//        //TODO rechten
+//         $this->commonGroundService->deleteResource(null, ['component'=>$component, 'type'=>$type, 'id'=>$id]);
+
 
     }
 

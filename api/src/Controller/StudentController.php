@@ -28,8 +28,9 @@ class StudentController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        // Get resource Interschips
+        // Get resource Internships
         $variables['students'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+
 
         return $variables;
     }
@@ -42,8 +43,9 @@ class StudentController extends AbstractController
     {
         $variables = [];
 
-        // Get resource Interschip
+        // Get resource Internship
         $variables['student'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        $variables['person'] = $commonGroundService->getResource($variables['students']['person']);
 
         return $variables;
     }
