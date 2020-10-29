@@ -93,10 +93,10 @@ class DashboardOrganizationController extends AbstractController
             $resource['standardHours'] = (int)$resource['standardHours'];
 
             // Add the post data to the already aquired internship data
-            $resource = array_merge($variables['internships'], $resource );
+            $resource = array_merge($variables['internships'], $resource);
 
             // Save to the commonground component
-            $variables['internships'] = $commonGroundService->saveResource($resource , ['component' => 'mrc', 'type' => 'job_postings']);
+            $variables['internships'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'job_postings']);
         }
 
         return $variables;
@@ -109,14 +109,18 @@ class DashboardOrganizationController extends AbstractController
     public function internshipAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resource Interschip
         if($id != 'new'){
             $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings','id'=>$id]);
         }
-        else{
-            $variables['internship'] =[];
-        }
+        else {
+            $variables['internship'] = [];
+            //Get resources Organizations
+            $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+            }
 
 
         return $variables;

@@ -54,6 +54,22 @@
                                 <input class="form-control" id="standardHours" name="standardHours" type="text" step="1" pattern="\d+" placeholder="Uren per week voor de positie" required>
                             </div>
                         </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="hiringOrganization"> {{ 'organization'|trans|capitalize }} </label>
+                                <select class="form-control" id="hiringOrganization" name="hiringOrganization">
+                                    {% for bedrijf in organizations %}
+                                    <option value="{{ bedrijf['@id'] }}">{{ bedrijf.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="jobLocationType">Locatie van de stage</label>
+                                <input class="form-control" id="jobLocationType" type="text" placeholder="adres waar de stagair gaat werken" name="jobLocationType" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
