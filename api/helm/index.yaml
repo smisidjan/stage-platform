@@ -1,55 +1,16 @@
 apiVersion: v1
 entries:
-  id-vault:
-  - apiVersion: v1
-    appVersion: V1.0
-    created: "2020-10-29T12:02:41.5460685Z"
-    description: '&quot;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&quot;'
-    digest: 3d80d65caaebb45f5fe6f2bf1bd5ce9d64b04e20071e37d7cd003c7a50b65ca5
-    home: www.id-vault.com
-    icon: www.id-vault.com
-    name: id-vault
-    urls:
-    - id-vault-0.1.0.tgz
-    version: 0.1.0
-  pan:
-  - apiVersion: v1
-    appVersion: V1.0
-    created: "2020-10-29T12:02:41.5511138Z"
-    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
-      beschikbaar.
-    digest: af79687f76ac24cf2308cff9f06520199541d78894e9366050589a5dc56c49a9
-    home: www.zuid-drecht.nl
-    icon: www.zuid-drecht.nl
-    name: pan
-    urls:
-    - pan-0.1.0.tgz
-    version: 0.1.0
-  pc:
-  - apiVersion: v1
-    appVersion: V1.0
-    created: "2020-10-29T12:02:41.5561079Z"
-    description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
-      interface beschikbaar.&#039;'
-    digest: c860b1af96831908a11d8bcdcf01479cd2061a4aecaf26b5f9e23aa90f8a42c6
-    home: pc.zaakonline.nl
-    icon: pc.zaakonline.nl
-    name: pc
-    urls:
-    - pc-0.1.0.tgz
-    version: 0.1.0
   stage-platform:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2020-10-29T12:02:41.5632382Z"
-    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
-      beschikbaar.
-    digest: 399dabf9b41d8e03590aa726ffa5e63c94fa0b609de11a3a452511c0277749ec
+    created: "2020-10-29T12:39:22.752569Z"
+    description: '&quot;Naast deze JSON rest API is er ook een [graphql](/graphql)
+      interface beschikbaar.&quot;'
+    digest: c82eadad6f80d14f62bbfe7ca0a083a196c10a026b05bab1edecc9d972ecb12c
     home: www.stage-platform.com
     icon: www.stage-platform.com
     name: stage-platform
     urls:
     - stage-platform-0.1.0.tgz
     version: 0.1.0
-generated: "2020-10-29T12:02:41.539962Z"
+generated: "2020-10-29T12:39:22.7449032Z"
