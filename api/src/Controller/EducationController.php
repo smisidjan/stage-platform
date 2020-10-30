@@ -41,7 +41,13 @@ class EducationController extends AbstractController
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resource tutorials (known as cources component side)
-        $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'], $variables['query'])['hydra:member'];
+        $variables['tutorials'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'], $variables['query'])['hydra:member'];
+        $variables['types'] = [];
+        foreach($variables['tutorials'] as $tutorial){
+            if(key_exists('additionalType', $tutorial) && $tutorial['additionalType'] != null && !in_array(strtolower($tutorial['additionalType']), $variables['types'])){
+                $variables['types'][] = strtolower($tutorial['additionalType']);
+            }
+        }
 
         return $variables;
     }
@@ -85,6 +91,35 @@ class EducationController extends AbstractController
 
         // Get resource program
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'programs', 'id' => $id]);
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/courses")
+     * @Template
+     */
+    public function coursesAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+
+        // Get resources programs
+        $variables['programs'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'], $variables['query'])['hydra:member'];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/programs/{id}")
+     * @Template
+     */
+    public function courseAction(CommonGroundService $commonGroundService, Request $request, $id)
+    {
+        $variables = [];
+
+        // Get resource program
+        $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
 
         return $variables;
     }
