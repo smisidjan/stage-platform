@@ -43,8 +43,8 @@ class EducationController extends AbstractController
         // Get resource tutorials (known as cources component side)
         $variables['tutorials'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'], $variables['query'])['hydra:member'];
         $variables['types'] = [];
-        foreach($variables['tutorials'] as $tutorial){
-            if(key_exists('additionalType', $tutorial) && $tutorial['additionalType'] != null && !in_array(strtolower($tutorial['additionalType']), $variables['types'])){
+        foreach ($variables['tutorials'] as $tutorial) {
+            if (key_exists('additionalType', $tutorial) && $tutorial['additionalType'] != null && !in_array(strtolower($tutorial['additionalType']), $variables['types'])) {
                 $variables['types'][] = strtolower($tutorial['additionalType']);
             }
         }
