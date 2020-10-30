@@ -6,11 +6,11 @@ settings:
   registryBase: docker.io/conduction
   projectName: stage-platform
   name: stage-platform
-  title: ID Vault
+  title: Stage platform
   version: V1.0
   majorVersion: v1
-  id: 31a2ad29-ee03-4aa9-be81-abf1fda7bbcc
-  description: 'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'
+  id: 5265828b-85fb-4ad5-acd5-ade4da3fc593
+  description: '&quot;Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.&quot;'
   type: application
   repro: https://github.com/ConductionNL/stage-platform
   demo: dev.stage-platform.com
@@ -29,8 +29,7 @@ settings:
   web: false
   internal: false
   debug: 1
-  cache: 1
-  url: http://localhost
+  cache: false
   sessionDuration: 900
   replicaCount: 1
   corsAllowOrigin: ['*']
