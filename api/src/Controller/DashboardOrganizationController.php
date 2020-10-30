@@ -4,11 +4,13 @@
 
 namespace App\Controller;
 
+use Conduction\CommonGroundBundle\CommonGroundBundle;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * The DashboardController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
@@ -117,6 +119,7 @@ class DashboardOrganizationController extends AbstractController
         // Get resource challenges (known as tender component side)
         $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
 
+
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
@@ -141,31 +144,22 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
-        // Get resource challenges (known as tender component side)
         if ($id != 'new') {
+            // Get resource challenges (known as tender component side)
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
+            $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'],['tender.id' => $id])['hydra:member'];
         } else {
-            $variables['challenge'] = [];
-
-            // Lets see if there is a post to procces
-            if ($request->isMethod('POST')) {
-                $resource = $request->request->all();
-
-                // Update to the commonground component
-                $variables['challenge'] = $commonGroundService->updateResource($resource, ['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
-            }
-
+            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders']);
         }
 
+//         Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+
+            // Update to the commonground component
+            $variables['challenge'] = $commonGroundService->updateResource($resource, ['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+        }
         return $variables;
-
-//
-//
-//        //TODO rechten
-//        $this->commonGroundService->updateResource($resource, ['component'=>$component, 'type'=>$type, 'id'=>$id]);
-//        //TODO rechten
-//         $this->commonGroundService->deleteResource(null, ['component'=>$component, 'type'=>$type, 'id'=>$id]);
-
 
     }
 

@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-10 col-lg-8 d-block px-0 mb-4 mb-md-0">
                     <div class="mb-2">
-                        <h3 class="h5">{{ challenge.name }}</h3>
+                        <h3 class="h5"><a href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}">{{ challenge.name }}</h3>
                     </div>
                     <div><a href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}" class="font-weight-bold text-dark"><span class="font-weight-normal text-gray">{{ challenge.description }}</span></a></div>
                 </div>
