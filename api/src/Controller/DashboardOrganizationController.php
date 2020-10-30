@@ -7,8 +7,8 @@ namespace App\Controller;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * The DashboardController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
@@ -59,9 +59,10 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         // Get resource tutorial
-        if ($id != 'new') {
+        if($id != 'new'){
             $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
-        } else {
+        }
+        else{
             $variables['tutorial'] = [];
         }
 
@@ -82,6 +83,22 @@ class DashboardOrganizationController extends AbstractController
         // Get resources Interschips
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
+        // Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            //array legen voor posten van nieuwe stage
+            $variables['internship'] = [];
+            //array waar mn form inzit
+            $resource = $request->request->all();
+
+            $resource['standardHours'] = (int)$resource['standardHours'];
+
+            // Add the post data to the already aquired internship data
+            $resource = array_merge($variables['internship'], $resource);
+
+            // Save to the commonground component
+            $variables['internship'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'job_postings']);
+        }
+
         return $variables;
     }
 
@@ -92,13 +109,19 @@ class DashboardOrganizationController extends AbstractController
     public function internshipAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resource Interschip
-        if ($id != 'new') {
-            $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
-        } else {
-            $variables['internship'] = [];
+        if($id != 'new'){
+            $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings','id'=>$id]);
         }
+        else {
+            $variables['internship'] = [];
+            //Get resources Organizations
+            $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+            }
+
 
         return $variables;
     }
@@ -129,9 +152,10 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         // Get resource challenges (known as tender component side)
-        if ($id != 'new') {
+        if($id != 'new'){
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
-        } else {
+        }
+        else{
             $variables['challenge'] = [];
         }
 
