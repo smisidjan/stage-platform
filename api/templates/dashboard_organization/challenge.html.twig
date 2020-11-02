@@ -27,6 +27,9 @@
             <div class="card card-body bg-white border-light shadow-sm mb-4">
                 <h2 class="h5 mb-4">General information</h2>
                 <form action="{{ path('app_dashboardorganization_challenges') }}" method="post">
+                    {% if challenge['@id'] is defined and challenge['@id'] is not empty %}
+                        <input type="hidden" name="@id" id="@id" value="{{ challenge['@id'] }}">
+                    {% endif %}
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-group">
@@ -34,7 +37,7 @@
                                 <input class="form-control" id="name" name="name" type="text"
                                        required=""
                                     {% if challenge.name is defined and challenge.name is not empty %}
-                                    placeholder="{{ challenge.name }}"{% endif %}>
+                                    value="{{ challenge.name }}" {% else %} placeholder="{{ 'your challenge name'|trans|capitalize }}"{% endif %}>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
