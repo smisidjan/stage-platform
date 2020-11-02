@@ -24,12 +24,18 @@
         <div class="col-12 col-xl-8">
             <div class="card card-body bg-white border-light shadow-sm mb-4">
                 <h2 class="h5 mb-4">General information</h2>
-                <form>
+                <form action="{{ path('app_dashboardorganization_tutorial') }}" method="post">
+                    {% if challenge['@id'] is defined and challenge['@id'] is not empty %}
+                        <input type="hidden" name="@id" id="@id" value="{{ challenge['@id'] }}">
+                    {% endif %}
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="first_name">Name</label>
-                                <input class="form-control" id="first_name" type="text" placeholder="Enter your first name" required="">
+                                <input class="form-control" id="name" name="name" type="text"
+                                       required=""
+                                    {% if tutorial.name is defined and tutorial.name is not empty %}
+                                    value="{{ tutorial.name }}" {% else %} placeholder="{{ 'your tutorial name'|trans|capitalize }}"{% endif %}>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
