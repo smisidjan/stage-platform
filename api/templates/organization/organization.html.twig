@@ -25,147 +25,216 @@
         <div class="container">
 
             <div class="bg-white pt-5 text-black">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-lg-10">
-                            <h2 class=" text-center">{{ 'description'|trans|capitalize }}</h2>
-                            <p class=" text-center">{% if organization.description|default %} {{ organization.description }} {% else %}
-                                    Lorem ipsum {% endif %}</p>
-                            {#                            <h2>{{ 'challenges'|trans|capitalize }}</h2>#}
-                            {#                            <ol>#}
-                            {#                            {% for chal in challenges %}#}
-                            {#                                <li>{{ chal.name }}</li>#}
-                            {#                            {% endfor %}#}
-                            {#                            </ol>#}
-                        </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <h2 class=" text-center">{{ 'description'|trans|capitalize }}</h2>
+                        <p class=" text-center">{% if organization.description|default %} {{ organization.description }} {% else %}
+                                Lorem ipsum {% endif %}</p>
                     </div>
-                    <div class="row justify-content-sm-center align-items-center py-3 mt-3">
-                        <div class="col-12 col-lg-8">
-                            <div class="row">
-                                <div class="col-9 col-md-6"><h6 class="font-weight-bolder d-inline mb-0 mr-3">
-                                        Share:</h6>
-                                    <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-twitter d-inline"><span
-                                            class="btn-inner-icon"><i class="fab fa-twitter"></i></span></button>
-                                    <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-facebook d-inline"><span
-                                            class="btn-inner-icon"><i class="fab fa-facebook-f"></i></span></button>
-                                    <button class="btn btn-sm btn-icon-only btn-pill btn-reddit d-inline"><span
-                                            class="btn-inner-icon"><i class="fab fa-reddit-alien"></i></span></button>
-                                </div>
-                                <div class="col-3 col-md-6 text-right"><i class="far fa-bookmark text-primary"
-                                                                          data-toggle="tooltip" data-placement="top"
-                                                                          title=""
-                                                                          data-original-title="Bookmark story"></i>
-                                </div>
+                </div>
+                <div class="row justify-content-sm-center align-items-center py-3 mt-3">
+                    <div class="col-12 col-lg-8">
+                        <div class="row">
+                            <div class="col-9 col-md-6"><h6 class="font-weight-bolder d-inline mb-0 mr-3">
+                                    Share:</h6>
+                                <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-twitter d-inline"><span
+                                        class="btn-inner-icon"><i class="fab fa-twitter"></i></span></button>
+                                <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-facebook d-inline"><span
+                                        class="btn-inner-icon"><i class="fab fa-facebook-f"></i></span></button>
+                                <button class="btn btn-sm btn-icon-only btn-pill btn-reddit d-inline"><span
+                                        class="btn-inner-icon"><i class="fab fa-reddit-alien"></i></span></button>
+                            </div>
+                            <div class="col-3 col-md-6 text-right"><i style="font-size: 27.5px" class="far fa-thumbs-up text-primary"
+                                                                      data-toggle="tooltip" data-placement="top"
+                                                                      title=""
+                                                                      data-original-title="Like organization"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
         </div>
     </section>
 
     {#  Challenges  #}
-    <section class="section section-lg pt-0">
-        <div class="container">
-            <div class="row justify-content-center mb-4">
-                <div class="col-12 col-lg-10">
-                    <h2 class=" mb-3 text-center">{{ 'challenges'|trans|capitalize }}</h2>
-                    <p class="lead text-center">{{ 'some challenges from this organziation might be interesting for you'|trans|capitalize }}.</p>
+    {% if challenges|default %}
+        <section class="section section-lg pt-0">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-12 col-lg-10">
+                        <h2 class=" mb-3 text-center">{{ 'challenges'|trans|capitalize }}</h2>
+                        <p class="lead text-center">{{ 'some challenges from this organziation might be interesting for you'|trans|capitalize~'.' }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
+                <div class="row justify-content-center">
 
-                {% if challenges|default %}
-                    {% for chal in challenges|slice(0, 3) %}
-                        <div class="col-12 col-lg-10 mb-4">
-                            <div class="card bg-white border-light shadow-soft">
-                                <div class="card-body p-4 pt-lg-4 pb-lg-3">
-                                    <div class="row">
-                                        <div class="col-12 col-md-6 mb-4 mb-lg-0">
-                                            <h3 class="mb-3">{{ chal.name|capitalize }}</h3>
-                                            {% if chal.description|default %}
-                                                <p class="text-gray mb-4">
-                                                    {{ chal.description|capitalize }}
-                                                </p>
-                                            {% endif %}
-                                            <div class="d-flex">
-                                                <a href="#" class="stretched-link"><i
-                                                        class="fas fa-map-marker-alt"></i><span class="h6 text-sm ml-2">Sillicon Valley, CA</span></a>
+                    {% if challenges|default %}
+                        {% for chal in challenges|slice(0, 5) %}
+                            <div class="col-12 col-lg-10 mb-4">
+                                <div class="card bg-white border-light shadow-soft">
+                                    <div class="card-body p-4 pt-lg-4 pb-lg-3">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 mb-4 mb-lg-0">
+                                                <h3 class="mb-3">{{ chal.name|capitalize }}</h3>
+                                                {% if chal.description|default %}
+                                                    <p class="text-gray mb-4">
+                                                        {{ chal.description|capitalize }}
+                                                    </p>
+                                                {% endif %}
+                                                <div class="d-flex">
+                                                    {#<a href="#" class="stretched-link">#}<i
+                                                        class="fas fa-map-marker-alt"></i><span
+                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
 
-                                                {% if chal.budget|default %}
-                                                <span class="ml-4"><i class="fas fa-money-bill text-secondary"></i>
+                                                    {% if chal.budget|default %}
+                                                        <span class="ml-4"><i
+                                                                class="fas fa-money-bill text-secondary"></i>
                                                     <span class="h6 text-sm ml-2">&euro; {{ chal.budget~',-' }}</span>
                                                 </span>
-                                                {% endif %}
+                                                    {% endif %}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
-                                            <a href="{{ path('app_challenge_challenge', {id: chal.id}) }}"
-                                               class="btn btn-secondary mr-3 animate-up-2 m-0">Apply</a>
-                                            <a href="{{ path('app_challenge_challenge', {id: chal.id}) }}" class="btn btn-primary animate-up-2 m-0"><i
-                                                    class="fas fa-clipboard-list mr-2"></i>See Details</a>
+                                            <div
+                                                class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
+                                                <a href="{{ path('app_challenge_challenge', {id: chal.id}) }}"
+                                                   class="btn btn-secondary mr-3 animate-up-2 m-0">{{ 'apply'|trans|capitalize }}</a>
+                                                <a href="{{ path('app_challenge_challenge', {id: chal.id}) }}"
+                                                   class="btn btn-primary animate-up-2 m-0"><i
+                                                        class="fas fa-clipboard-list mr-2"></i>{{ 'view'|trans|capitalize }}
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
+                        {% endfor %}
+                    {% endif %}
 
-            </div>
-        </div>
-    </section>
-
-{#  Programs  #}
-    <section class="section section-lg pt-0">
-        <div class="container">
-            <div class="row justify-content-center mb-4">
-                <div class="col-12 col-lg-10">
-                    <h2 class=" mb-3 text-center">{{ 'programs'|trans|capitalize }}</h2>
-                    <p class="lead text-center">{{ 'some programs from this organziation might be interesting for you'|trans|capitalize }}.</p>
                 </div>
             </div>
-            <div class="row justify-content-center">
+        </section>
+    {% endif %}
 
-                {% if programs|default %}
-                    {% for prog in programs|slice(0, 3) %}
-                        <div class="col-12 col-lg-10 mb-4">
-                            <div class="card bg-white border-light shadow-soft">
-                                <div class="card-body p-4 pt-lg-4 pb-lg-3">
-                                    <div class="row">
-                                        <div class="col-12 col-md-6 mb-4 mb-lg-0">
-                                            <h3 class="mb-3">{{ prog.name|capitalize }}</h3>
-                                            {% if prog.description|default %}
-                                                <p class="text-gray mb-4">
-                                                    {{ prog.description|capitalize }}
-                                                </p>
-                                            {% endif %}
-                                            <div class="d-flex">
-                                                <a href="#" class="stretched-link"><i
-                                                        class="fas fa-map-marker-alt"></i><span class="h6 text-sm ml-2">Sillicon Valley, CA</span></a>
 
-{#                                                {% if chal.budget|default %}#}
-{#                                                <span class="ml-4"><i class="fas fa-money-bill text-secondary"></i>#}
-{#                                                    <span class="h6 text-sm ml-2">&euro; {{ chal.budget~',-' }}</span>#}
-{#                                                </span>#}
-{#                                                {% endif %}#}
+    {#  Programs  #}
+    {% if programs|default %}
+        <section class="section section-lg pt-0">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-12 col-lg-10">
+                        <h2 class=" mb-3 text-center">{{ 'programs'|trans|capitalize }}</h2>
+                        <p class="lead text-center">{{ 'some programs from this organziation might be interesting for you'|trans|capitalize~'.' }}</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+
+                    {% if programs|default %}
+                        {% for prog in programs|slice(0, 5) %}
+                            <div class="col-12 col-lg-10 mb-4">
+                                <div class="card bg-white border-light shadow-soft">
+                                    <div class="card-body p-4 pt-lg-4 pb-lg-3">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 mb-4 mb-lg-0">
+                                                <h3 class="mb-3">{{ prog.name|capitalize }}</h3>
+                                                {% if prog.description|default %}
+                                                    <p class="text-gray mb-4">
+                                                        {{ prog.description|capitalize }}
+                                                    </p>
+                                                {% endif %}
+                                                <div class="d-flex">
+                                                    {#<a href="#" class="stretched-link">#}<i
+                                                        class="fas fa-map-marker-alt"></i><span
+                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
+
+                                                    {#                                                {% if chal.budget|default %}#}
+                                                    {#                                                <span class="ml-4"><i class="fas fa-money-bill text-secondary"></i>#}
+                                                    {#                                                    <span class="h6 text-sm ml-2">&euro; {{ chal.budget~',-' }}</span>#}
+                                                    {#                                                </span>#}
+                                                    {#                                                {% endif %}#}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
-                                            <a href="{{ path('app_education_program', {id: prog.id}) }}"
-                                               class="btn btn-secondary mr-3 animate-up-2 m-0">Apply</a>
-                                            <a href="{{ path('app_education_program', {id: prog.id}) }}" class="btn btn-primary animate-up-2 m-0"><i
-                                                    class="fas fa-clipboard-list mr-2"></i>See Details</a>
+                                            <div
+                                                class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
+                                                <a href="{{ path('app_education_program', {id: prog.id}) }}"
+                                                   class="btn btn-secondary mr-3 animate-up-2 m-0">{{ 'apply'|trans|capitalize }}</a>
+                                                <a href="{{ path('app_education_program', {id: prog.id}) }}"
+                                                   class="btn btn-primary animate-up-2 m-0"><i
+                                                        class="fas fa-clipboard-list mr-2"></i>{{ 'view'|trans|capitalize }}
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
+                        {% endfor %}
+                    {% endif %}
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
+
+
+
+    {#  Job postings  #}
+    {% if jobPostings|default %}
+        <section class="section section-lg pt-0">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-12 col-lg-10">
+                        <h2 class=" mb-3 text-center">{{ 'vacancies'|trans|capitalize }}</h2>
+                        <p class="lead text-center">{{ 'some vacancies from this organziation might be interesting for you'|trans|capitalize~'.' }}</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+
+                    {% if jobPostings|default %}
+                        {% for job in jobPostings|slice(0, 5) %}
+                            <div class="col-12 col-lg-10 mb-4">
+                                <div class="card bg-white border-light shadow-soft">
+                                    <div class="card-body p-4 pt-lg-4 pb-lg-3">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 mb-4 mb-lg-0">
+                                                <h3 class="mb-3">{{ job.name|capitalize }}</h3>
+                                                {% if job.description|default %}
+                                                    <p class="text-gray mb-4">
+                                                        {{ job.description|capitalize }}
+                                                    </p>
+                                                {% endif %}
+                                                <div class="d-flex">
+                                                    {#<a href="#" class="stretched-link">#}<i
+                                                        class="fas fa-map-marker-alt"></i><span
+                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
+
+                                                    {% if job.standardHours|default and job.employmentType|default %}
+                                                        <span class="ml-4"><i class="fas fa-clock text-secondary"></i>
+                                                                                                        <span
+                                                                                                            class="h6 text-sm ml-2">{{ job.employmentType|capitalize~' '~job.standardHours~' '~'hours'|trans }}</span>
+                                                                                                    </span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
+                                                <a href="#"
+                                                   class="btn btn-secondary mr-3 animate-up-2 m-0">{{ 'apply'|trans|capitalize }}</a>
+                                                <a href="#"
+                                                   class="btn btn-primary animate-up-2 m-0"><i
+                                                        class="fas fa-clipboard-list mr-2"></i>{{ 'view'|trans|capitalize }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+        </section>
+    {% endif %}
 
 {% endblock %}
