@@ -6,10 +6,10 @@
         <div class="d-block mb-4 mb-md-0">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                    <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
-                    <li class="breadcrumb-item"><a href="#">Dashbboard</a></li>
-                    <li class="breadcrumb-item"><a href="#">Positions</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Position</li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span class="fas fa-home"></span></a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_dashboardorganization_internships') }}">{{ 'Positions'|trans|capitalize }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ 'Position'|trans|capitalize }}</li>
                 </ol>
             </nav>
             <h2 class="h4">[name]</h2>

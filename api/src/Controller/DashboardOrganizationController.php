@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
  * The DashboardController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
  *
@@ -137,6 +138,20 @@ class DashboardOrganizationController extends AbstractController
         // Get resource challenges (known as tender component side)
         $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
 
+
+        // Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+
+//            // Add the post data to the already aquired resource data
+//            $resource = array_merge($variables['challenge'], $resource);
+
+            // Save to the commonground component
+            $variables['challenge'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders']);
+
+            return $this->redirectToRoute('app_dashboardorganization_challenges');
+        }
+
         return $variables;
     }
 
@@ -148,14 +163,23 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
-        // Get resource challenges (known as tender component side)
         if ($id != 'new') {
-            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+            // Get resource challenges (known as tender component side)
+            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
+            $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'],['tender.id' => $id])['hydra:member'];
         } else {
-            $variables['challenge'] = [];
+            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders']);
         }
 
+//         Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+
+            // Update to the commonground component
+            $variables['challenge'] = $commonGroundService->updateResource($resource, ['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+        }
         return $variables;
+
     }
 
     /**
@@ -179,6 +203,17 @@ class DashboardOrganizationController extends AbstractController
      * @Template
      */
     public function teamAction(CommonGroundService $commonGroundService, Request $request, $id)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/settings")
+     * @Template
+     */
+    public function settingsAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
 
