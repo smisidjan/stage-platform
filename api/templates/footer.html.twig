@@ -5,7 +5,7 @@
             <div class="col-lg-4 mb-4 mb-lg-0">
                 <a class="footer-brand mr-lg-5 d-flex" href="/bundles/rocket/index.html">
                     <img src="/bundles/rocket/assets/img/brand/light.svg" class="mr-3" alt="Footer logo">
-                    <h4>Rocket</h4>
+                    <h4>{% if app_name|default %}{{ app_name|trans|capitalize }}{% else %}Stage platform{% endif %}</h4>
                 </a>
                 <p class="my-4">Conduction Acedemy provides both matchmaking and an online internschip platform</p>
                 <div class="dropdown mb-4 mb-lg-0">
