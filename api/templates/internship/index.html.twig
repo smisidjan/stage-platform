@@ -54,14 +54,14 @@
                 <div class="col-12 col-md-6 col-lg-2">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fab fa-sun"></span></div>
+                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-sun"></span></div>
                             <h6 class="text-gray mb-0"> {{ 'seizoen'|capitalize }} </h6></div>
                     </a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-2">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fab fa-cloudversify"></span></div>
+                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-network-wired"></span></div>
                             <h6 class="text-gray mb-0"> {{ 'Stage'|capitalize }} </h6></div>
                     </a>
                 </div>
@@ -90,7 +90,7 @@
                                         <p class="stretched-link"><i class="fas fa-map-marker-alt"></i><span class="h6 text-sm ml-2">{{ internship.jobLocationType|trans|capitalize }}</span></p>
                                         <span class="ml-4"><i class="fas fa-building text-secondary"></i><span class="h6 text-sm ml-2">{{ commonground_resource(internship.hiringOrganization).name }}</span></span>
                                         <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span class="h6 text-sm ml-2"><br>{{ internship.employmentType|trans|capitalize }}</span></span>
-                                        <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span class="h6 text-sm ml-2">Uren per week: {{ internship.standardHours }}</span></span>
+                                        <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span title="Het aantal uren per week" class="h6 text-sm ml-2">{{ internship.standardHours }}</span></span>
                                         <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span class="h6 text-sm ml-2">Einddatum: {{ internship.validThrough|date("Y-m-d H:m") }}</span></span>
 
                                     </div>

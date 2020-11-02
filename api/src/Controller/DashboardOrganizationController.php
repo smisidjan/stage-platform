@@ -129,9 +129,9 @@ class DashboardOrganizationController extends AbstractController
             $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
         } else {
             $variables['internship'] = [];
+        }
             //Get resources Organizations
             $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
-        }
 
         return $variables;
     }
@@ -174,10 +174,12 @@ class DashboardOrganizationController extends AbstractController
             $resource = $request->request->all();
 
             // Add the post data to the already aquired resource data
-            $resource = array_merge($variables['resource'], $resource);
+            $resource = array_merge($variables['challenge'], $resource);
 
             // Update to the commonground component
             $variables['challenge'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+
+            return $this->redirect($this->generateUrl('app_dashboardorganization_challenges'));
         }
         return $variables;
     }
