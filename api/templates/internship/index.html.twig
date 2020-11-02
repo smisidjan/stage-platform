@@ -54,14 +54,14 @@
                 <div class="col-12 col-md-6 col-lg-2">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fab fa-sun"></span></div>
+                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-sun"></span></div>
                             <h6 class="text-gray mb-0"> {{ 'seizoen'|capitalize }} </h6></div>
                     </a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-2">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fab fa-cloudversify"></span></div>
+                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-network-wired"></span></div>
                             <h6 class="text-gray mb-0"> {{ 'Stage'|capitalize }} </h6></div>
                     </a>
                 </div>
@@ -87,11 +87,11 @@
                                     <h3 class="mb-3">{{ internship.name }}</h3>
                                     <p class="text-gray mb-4">[summary]</p>
                                     <div class="d-flex">
-                                        <p class="stretched-link"><i class="fas fa-map-marker-alt"></i><span class="h6 text-sm ml-2">{{ internship.jobLocationType }}</span></p>
-                                        <span class="ml-4"><i class="fas fa-building text-secondary"></i><span class="h6 text-sm ml-2">{{ internship.hiringOrganization }}</span></span>
-                                        <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span class="h6 text-sm ml-2">Dienstverband:<br>{{ internship.employmentType }}</span></span>
-                                        <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span class="h6 text-sm ml-2">Uren per week: {{ internship.standardHours }}</span></span>
-                                        <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span class="h6 text-sm ml-2">Einddatum: {{ internship.validThrough }}</span></span>
+                                        <p class="stretched-link"><i class="fas fa-map-marker-alt"></i><span class="h6 text-sm ml-2" title="De locatie van de stage">{{ internship.jobLocationType }}</span></p>
+                                        <span class="ml-4"><i class="fas fa-building text-secondary"></i><span title="Het bedrijf dat de positie aanbied" class="h6 text-sm ml-2">{{ internship.hiringOrganization }}</span></span>
+                                        <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span title="Het type werk wat wordt aangeboden" class="h6 text-sm ml-2">{{ internship.employmentType }}</span></span>
+                                        <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span title="Het aantal uren per week" class="h6 text-sm ml-2">{{ internship.standardHours }}</span></span>
+                                        <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span title="einddatum van het contract" class="h6 text-sm ml-2">{{ internship.validThrough }}</span></span>
 
                                     </div>
                                 </div>
