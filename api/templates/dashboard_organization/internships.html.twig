@@ -7,13 +7,13 @@
         <div class="d-block mb-4 mb-md-0">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                    <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
-                    <li class="breadcrumb-item"><a href="#">Dashbboard</a></li>
-                    <li class="breadcrumb-item active">Internships</li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span class="fas fa-home"></span></a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
+                    <li class="breadcrumb-item active">{{ 'Positions'|trans|capitalize }}</li>
                 </ol>
             </nav>
             <h2 class="h4">Internships</h2>
-            <p class="mb-0">[text about what a challange is is]</p>
+            <p class="mb-0">Alle posities die u heeft aangemaakt en waar u nieuwe kunt aanmaken</p>
         </div>
     </div>
 
@@ -48,7 +48,7 @@
                     </div>
                     <div class="col-10 col-lg-8 d-block px-0 mb-4 mb-md-0">
                         <div class="mb-2">
-                            <h3 class="h5">{{ internship.name }}</h3>
+                            <h3 class="h5"><a style="color: black" href="{{ path('app_dashboardorganization_internship', {id: internship.id}) }}">{{ internship.name }}</a></h3>
                         </div>
                         <div><a href="{{ path('app_dashboardorganization_internship', {id: internship.id}) }}" class="font-weight-bold text-dark"><span class="font-weight-normal text-gray">[summery]</span></a></div>
                     </div>

@@ -7,13 +7,13 @@
         <div class="d-block mb-4 mb-md-0">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                    <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
-                    <li class="breadcrumb-item"><a href="#">Dashbboard</a></li>
-                    <li class="breadcrumb-item active">Challanges</li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span class="fas fa-home"></span></a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
+                    <li class="breadcrumb-item active">{{ 'Challenges'|trans|capitalize }}</li>
                 </ol>
             </nav>
-            <h2 class="h4">Challanges</h2>
-                <p class="mb-0">[text about what a challange is is]</p>
+            <h2 class="h4">Challenges</h2>
+                <p class="mb-0">[text about what a challenge is is]</p>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
                     </div>
                     <input name="search" id="search" class="form-control" placeholder="Search Tasks Here" type="text" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-block btn-primary "> {{ 'search'|trans|capitalize }}</button>
+                        <button type="submit" class="btn btn-block btn-primary ">{{ 'search'|trans|capitalize }}</button>
                     </div>
                 </div>
             </div>
@@ -48,17 +48,17 @@
                 </div>
                 <div class="col-10 col-lg-8 d-block px-0 mb-4 mb-md-0">
                     <div class="mb-2">
-                        <h3 class="h5">{{ challenge.name }}</h3>
+                        <h3 class="h5"><a href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}">{{ challenge.name }}</h3>
                     </div>
-                    <div><a href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}" class="font-weight-bold text-dark"><span class="font-weight-normal text-gray">[summery]</span></a></div>
+                    <div><a href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}" class="font-weight-bold text-dark"><span class="font-weight-normal text-gray">{{ challenge.description }}</span></a></div>
                 </div>
                 <div class="col-10 col-sm-2 col-lg-2 col-xl-2 d-none d-lg-block d-xl-inline-flex align-items-center ml-lg-auto text-right justify-content-end px-md-0">
                     <div class="btn-group ml-md-3">
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#"><span class="fas fa-edit mr-2"></span>Edit</a>
-                            <a class="dropdown-item" href="{{ path('app_challenge_challenge', {id: challenge.id}) }}"><span class="fas fa-edit mr-2"></span>View online</a>
-                            <a class="dropdown-item text-danger" href="#"><span class="fas fa-trash-alt mr-2"></span>Delete</a>
+                            <a class="dropdown-item" href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}"><span class="fas fa-edit mr-2"></span>{{ 'Edit'|trans|capitalize }}</a>
+                            <a class="dropdown-item" href="{{ path('app_challenge_challenge', {id: challenge.id}) }}"><span class="fas fa-edit mr-2"></span>{{ 'View online'|trans|capitalize }}</a>
+                            <a class="dropdown-item text-danger" href="{{ path('app_dashboardorganization_challenge', {id: challenge.id}) }}"><span class="fas fa-trash-alt mr-2"></span>{{ 'Delete'|trans|capitalize }}</a>
                         </div>
                     </div>
                 </div>
