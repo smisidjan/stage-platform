@@ -4,7 +4,6 @@
 
 namespace App\Controller;
 
-use Conduction\CommonGroundBundle\CommonGroundBundle;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
