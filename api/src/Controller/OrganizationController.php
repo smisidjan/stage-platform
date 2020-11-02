@@ -1,6 +1,6 @@
 <?php
 
-// src/Controller/DefaultController.php
+// src/Controller/OrganizationController.php
 
 namespace App\Controller;
 
@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * The Procces test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
+ * This controller handles any pages with organization(s) as main subject.
  *
- * Class DefaultController
+ * Class OrganizationController
  *
- * @Route("/")
+ * @Route("/organizations")
  */
-class DefaultController extends AbstractController
+class OrganizationController extends AbstractController
 {
     /**
      * @Route("/")
@@ -25,30 +25,25 @@ class DefaultController extends AbstractController
      */
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
-        // On an index route we might want to filter based on user input
-        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+        $variables['slug'] = 'organizations';
+        $variables['h1'] = 'organizations';
+        $variables['organizations'] = $commonGroundService->getResourceList(['component'=>'wrc', 'type'=>'organizations'])['hydra:member'];
 
         return $variables;
     }
 
     /**
-     * @Route("/login")
+     * @Route("/{id}")
      * @Template
      */
-    public function loginAction(CommonGroundService $commonGroundService, Request $request)
+    public function organizationAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
-        $variables = [];
+        $variables['organization'] = $commonGroundService->getResource(['component'=>'wrc', 'type'=>'organizations', 'id'=>$id]);
+        $variables['challenges'] = $commonGroundService->getResourceList(['component'=>'chrc', 'type'=>'tenders'], ['submitters'=>$variables['organization']['@id']])['hydra:member'];
+//        $variables['programs'] = $commonGroundService->getResourceList(['component'=>'edu', 'type'=>'programs'], ['provider'=>$variables['organization']['@id']])['hydra:member'];
 
-        return $variables;
-    }
-
-    /**
-     * @Route("/register")
-     * @Template
-     */
-    public function registerAction(CommonGroundService $commonGroundService, Request $request)
-    {
-        $variables = [];
+        $variables['h1'] = $variables['organization']['name'];
+        $variables['slug'] = $variables['organization']['name'];
 
         return $variables;
     }
