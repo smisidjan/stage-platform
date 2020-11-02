@@ -1,0 +1,70 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <section class="section-header pt-7 pb-4 pb-lg-5 bg-primary text-white">
+        <div class="container mb-7">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 text-center">
+                    <div class="mb-4"><a href="./blog.html"
+                                         class="badge badge-md badge-secondary text-uppercase mr-2 px-3">Seo</a> <a
+                            href="./blog.html" class="badge badge-md badge-warning text-uppercase px-3">Marketing</a>
+                    </div>
+                    <h1 class="display-3 mb-4 px-lg-5">{% if h1|default %}{{ h1|capitalize }}{% else %}{{ 'organization'|trans|capitalize }}{% endif %}</h1>
+                    <div class="post-meta">
+                        <span
+                            class="post-date mr-3">{{ 'joined at'|trans|capitalize~' '~organization.dateCreated|date('Y-m-d', 'Europe/Amsterdam') }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pattern bottom"></div>
+    </section>
+
+    <section class="pb-lg-6">
+        <div class="container">
+
+            <div class="bg-white pt-5 text-black">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8">
+                            <h2>{{ 'description'|trans|capitalize }}</h2>
+                            <p>{% if organization.description|default %} {{ organization.description }} {% else %}
+                                    Lorem ipsum {% endif %}</p>
+                            <br>
+                            <h2>{{ 'challenges'|trans|capitalize }}</h2>
+                            <ol>
+                            {% for chal in challenges %}
+                                <li>{{ chal.name }}</li>
+                            {% endfor %}
+                            </ol>
+                            <h2>{{ 'tutorials'|trans|capitalize }}</h2>
+                        </div>
+                    </div>
+                    <div class="row justify-content-sm-center align-items-center py-3 mt-3">
+                        <div class="col-12 col-lg-8">
+                            <div class="row">
+                                <div class="col-9 col-md-6"><h6 class="font-weight-bolder d-inline mb-0 mr-3">
+                                        Share:</h6>
+                                    <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-twitter d-inline"><span
+                                            class="btn-inner-icon"><i class="fab fa-twitter"></i></span></button>
+                                    <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-facebook d-inline"><span
+                                            class="btn-inner-icon"><i class="fab fa-facebook-f"></i></span></button>
+                                    <button class="btn btn-sm btn-icon-only btn-pill btn-reddit d-inline"><span
+                                            class="btn-inner-icon"><i class="fab fa-reddit-alien"></i></span></button>
+                                </div>
+                                <div class="col-3 col-md-6 text-right"><i class="far fa-bookmark text-primary"
+                                                                          data-toggle="tooltip" data-placement="top"
+                                                                          title=""
+                                                                          data-original-title="Bookmark story"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
