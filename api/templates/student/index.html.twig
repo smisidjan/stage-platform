@@ -14,13 +14,20 @@
     </section>
     <section class="section section-lg pt-0">
         <div class="container mt-n8 mt-lg-n12 z-2">
+            {% for student in students %}
+            {% set person = commonground_resource(student.person) %}
             <div class="row mt-6 mt-md-n7">
                 <div class="col-md-6 col-lg-4">
                     <div class="profile-card mb-7">
                         <div class="card shadow-soft border-light text-center">
                             <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg" class="card-img-top" alt="image"></div>
                             <div class="card-body mt-n5">
-                                <h5 class="card-title">Don Hussey</h5>
+                                {% if person['@type'] == 'Ingeschrevenpersoon' %}
+                                    <span class="card__title">{{ person.naam.voornamen }} {{ person.naam.geslachtsnaam }}</span><br>
+                                    <span>{{ person.naam.aanschrijfwijze }}</span>
+                                {% else %}
+                                    <span class="card__title">{{ person.name }}</span><br>
+                                {% endif %}<br>
                                 <h6 class="card-subtitle">Director</h6>
                                 <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <ul class="social-buttons py-3">
@@ -33,151 +40,152 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="profile-card mb-7">
-                        <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-3.jpg" class="card-img-top" alt="image"></div>
-                            <div class="card-body mt-n5">
-                                <h5 class="card-title">[name]</h5>
-                                <h6 class="card-subtitle">[study]</h6>
-                                <p class="card-text my-2">[summery]</p>
-                                <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="profile-card mb-7">
-                        <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-2.jpg" class="card-img-top" alt="image"></div>
-                            <div class="card-body mt-n5">
-                                <h5 class="card-title">Joseph White</h5>
-                                <h6 class="card-subtitle">Co-Founder</h6>
-                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="profile-card mb-7">
-                        <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-4.jpg" class="card-img-top" alt="image"></div>
-                            <div class="card-body mt-n5">
-                                <h5 class="card-title">Larry Morrison</h5>
-                                <h6 class="card-subtitle">Director</h6>
-                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="profile-card mb-7">
-                        <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-5.jpg" class="card-img-top" alt="image"></div>
-                            <div class="card-body mt-n5">
-                                <h5 class="card-title">Michele Haskins</h5>
-                                <h6 class="card-subtitle">UI/UX Designer</h6>
-                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="profile-card mb-7">
-                        <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-6.jpg" class="card-img-top" alt="image"></div>
-                            <div class="card-body mt-n5">
-                                <h5 class="card-title">Andrew Carwile</h5>
-                                <h6 class="card-subtitle">Developer</h6>
-                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="profile-card mb-7 mb-lg-0">
-                        <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-3.jpg" class="card-img-top" alt="image"></div>
-                            <div class="card-body mt-n5">
-                                <h5 class="card-title">Patsy Freeman</h5>
-                                <h6 class="card-subtitle">UI/UX Designer</h6>
-                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="profile-card mb-7 mb-lg-0">
-                        <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-4.jpg" class="card-img-top" alt="image"></div>
-                            <div class="card-body mt-n5">
-                                <h5 class="card-title">Christopher Wood</h5>
-                                <h6 class="card-subtitle">Director</h6>
-                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="profile-card mb-7 mb-lg-0">
-                        <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg" class="card-img-top" alt="image"></div>
-                            <div class="card-body mt-n5">
-                                <h5 class="card-title">Richard Thomas</h5>
-                                <h6 class="card-subtitle">Developer</h6>
-                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-google-plus"><i class="fab fa-google-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{#                <div class="col-md-6 col-lg-4">#}
+{#                    <div class="profile-card mb-7">#}
+{#                        <div class="card shadow-soft border-light text-center">#}
+{#                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-3.jpg" class="card-img-top" alt="image"></div>#}
+{#                            <div class="card-body mt-n5">#}
+{#                                <h5 class="card-title">[name]</h5>#}
+{#                                <h6 class="card-subtitle">[study]</h6>#}
+{#                                <p class="card-text my-2">[summery]</p>#}
+{#                                <ul class="social-buttons py-3">#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 col-lg-4">#}
+{#                    <div class="profile-card mb-7">#}
+{#                        <div class="card shadow-soft border-light text-center">#}
+{#                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-2.jpg" class="card-img-top" alt="image"></div>#}
+{#                            <div class="card-body mt-n5">#}
+{#                                <h5 class="card-title">Joseph White</h5>#}
+{#                                <h6 class="card-subtitle">Co-Founder</h6>#}
+{#                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                                <ul class="social-buttons py-3">#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 col-lg-4">#}
+{#                    <div class="profile-card mb-7">#}
+{#                        <div class="card shadow-soft border-light text-center">#}
+{#                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-4.jpg" class="card-img-top" alt="image"></div>#}
+{#                            <div class="card-body mt-n5">#}
+{#                                <h5 class="card-title">Larry Morrison</h5>#}
+{#                                <h6 class="card-subtitle">Director</h6>#}
+{#                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                                <ul class="social-buttons py-3">#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 col-lg-4">#}
+{#                    <div class="profile-card mb-7">#}
+{#                        <div class="card shadow-soft border-light text-center">#}
+{#                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-5.jpg" class="card-img-top" alt="image"></div>#}
+{#                            <div class="card-body mt-n5">#}
+{#                                <h5 class="card-title">Michele Haskins</h5>#}
+{#                                <h6 class="card-subtitle">UI/UX Designer</h6>#}
+{#                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                                <ul class="social-buttons py-3">#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 col-lg-4">#}
+{#                    <div class="profile-card mb-7">#}
+{#                        <div class="card shadow-soft border-light text-center">#}
+{#                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-6.jpg" class="card-img-top" alt="image"></div>#}
+{#                            <div class="card-body mt-n5">#}
+{#                                <h5 class="card-title">Andrew Carwile</h5>#}
+{#                                <h6 class="card-subtitle">Developer</h6>#}
+{#                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                                <ul class="social-buttons py-3">#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 col-lg-4">#}
+{#                    <div class="profile-card mb-7 mb-lg-0">#}
+{#                        <div class="card shadow-soft border-light text-center">#}
+{#                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-3.jpg" class="card-img-top" alt="image"></div>#}
+{#                            <div class="card-body mt-n5">#}
+{#                                <h5 class="card-title">Patsy Freeman</h5>#}
+{#                                <h6 class="card-subtitle">UI/UX Designer</h6>#}
+{#                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                                <ul class="social-buttons py-3">#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 col-lg-4">#}
+{#                    <div class="profile-card mb-7 mb-lg-0">#}
+{#                        <div class="card shadow-soft border-light text-center">#}
+{#                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-4.jpg" class="card-img-top" alt="image"></div>#}
+{#                            <div class="card-body mt-n5">#}
+{#                                <h5 class="card-title">Christopher Wood</h5>#}
+{#                                <h6 class="card-subtitle">Director</h6>#}
+{#                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                                <ul class="social-buttons py-3">#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6 col-lg-4">#}
+{#                    <div class="profile-card mb-7 mb-lg-0">#}
+{#                        <div class="card shadow-soft border-light text-center">#}
+{#                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg" class="card-img-top" alt="image"></div>#}
+{#                            <div class="card-body mt-n5">#}
+{#                                <h5 class="card-title">Richard Thomas</h5>#}
+{#                                <h6 class="card-subtitle">Developer</h6>#}
+{#                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                                <ul class="social-buttons py-3">#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>#}
+{#                                    <li><a href="#" target="_blank" class="btn btn-link btn-google-plus"><i class="fab fa-google-plus"></i></a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
             </div>
+            {% endfor %}
         </div>
     </section>
     <section class="section section-lg pb-5 bg-soft">

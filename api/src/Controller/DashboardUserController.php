@@ -132,4 +132,15 @@ class DashboardUserController extends AbstractController
 
         return $variables;
     }
+
+    /**
+     * @Route("/settings")
+     * @Template
+     */
+    public function settingsAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $variables = [];
+
+        return $variables;
+    }
 }
