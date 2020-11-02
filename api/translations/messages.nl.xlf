@@ -1417,6 +1417,18 @@
         <source>you are now subscribed to the mailing list</source>
         <target>u staat nu ingeschreven voor deze mail lijst</target>
       </trans-unit>
+      <trans-unit id="3FAw21B" resname="search for organizations">
+        <source>search for organizations</source>
+        <target>zoek naar organisaties</target>
+      </trans-unit>
+      <trans-unit id="V21A5hA" resname="find any organization on the platform">
+        <source>find any organization on the platform</source>
+        <target>vind een organisatie op het platform</target>
+      </trans-unit>
+      <trans-unit id="O291bAs" resname="joined at">
+        <source>joined at</source>
+        <target>doet mee sinds</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
