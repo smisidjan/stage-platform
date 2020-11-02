@@ -62,6 +62,7 @@ class DashboardOrganizationController extends AbstractController
         if ($id != 'new') {
             // Get resource challenges (known as tender component side)
             $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id'=>$id]);
+            $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'],['courses.id' => $id])['hydra:member'];
         } else {
             $variables['tutorial'] = [];
         }
@@ -76,7 +77,6 @@ class DashboardOrganizationController extends AbstractController
             // Update to the commonground component
             $variables['tutorial'] = $commonGroundService->saveResource($resource, ['component' => 'edu', 'type' => 'courses', 'id' => $id]);
         }
-        return $variables;
 
         return $variables;
     }

@@ -24,7 +24,7 @@
         <div class="col-12 col-xl-8">
             <div class="card card-body bg-white border-light shadow-sm mb-4">
                 <h2 class="h5 mb-4">General information</h2>
-                <f action="{{ path('app_dashboardorganization_tutorial') }}" method="post">
+                <form action="{{ path('app_dashboardorganization_tutorial') }}" method="post">
                     {% if challenge['@id'] is defined and challenge['@id'] is not empty %}
                         <input type="hidden" name="@id" id="@id" value="{{ challenge['@id'] }}">
                     {% endif %}
