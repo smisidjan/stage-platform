@@ -40,7 +40,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
                 <h5>Subscribe</h5>
-                <p class="font-small">The latest Rocket news, articles, and resources, sent straight to your inbox every month.</p>
+                <p class="font-small">The latest {% if app_name|default %}{{ app_name }}{% else %}Rocket{% endif%} news, articles, and resources, sent straight to your inbox every month.</p>
                 <form action="#">
                     <div class="form-row">
                         <div class="col-8">
