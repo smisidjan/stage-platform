@@ -203,7 +203,7 @@
       </trans-unit>
       <trans-unit id=".euuMDh" resname="programs">
         <source>programs</source>
-        <target>programmas</target>
+        <target>programma's</target>
       </trans-unit>
       <trans-unit id="OKgeh_e" resname="person">
         <source>person</source>
@@ -1428,6 +1428,26 @@
       <trans-unit id="O291bAs" resname="joined at">
         <source>joined at</source>
         <target>doet mee sinds</target>
+      </trans-unit>
+      <trans-unit id="HB3Af21" resname="some challenges from this organziation might be interesting for you">
+        <source>some challenges from this organziation might be interesting for you</source>
+        <target>sommige challenges van deze organisatie kunnen interessant zijn voor je</target>
+      </trans-unit>
+      <trans-unit id="U87a12j" resname="some programs from this organziation might be interesting for you">
+        <source>some programs from this organziation might be interesting for you</source>
+        <target>sommige programma's van deze organisatie kunnen interessant zijn voor je</target>
+      </trans-unit>
+      <trans-unit id="po9An15" resname="some vacancies from this organziation might be interesting for you">
+        <source>some vacancies from this organziation might be interesting for you</source>
+        <target>sommige vacatures van deze organisatie kunnen interessant zijn voor je</target>
+      </trans-unit>
+      <trans-unit id="T32GH1f" resname="vacancies">
+        <source>vacancies</source>
+        <target>vacatures</target>
+      </trans-unit>
+      <trans-unit id="Asf321A" resname="apply">
+        <source>apply</source>
+        <target>inschrijven</target>
       </trans-unit>
     </body>
   </file>
