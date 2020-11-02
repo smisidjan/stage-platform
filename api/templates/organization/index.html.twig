@@ -2,114 +2,92 @@
 
 {% block content %}
 
-    <section class="section-header pt-7 pb-4 pb-lg-5 bg-primary text-white">
+    <section class="section-header bg-primary pb-7 pb-lg-10 text-white">
         <div class="container">
-            <h1>Organisaties</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 text-center">
+                    <h1 class="mb-3">{{ h1|trans|capitalize }}</h1>
+                    {% if p|default %}
+                        <p class="lead px-lg-5 mb-5">{{ 'find any organization on the platform'|trans|capitalize }}</p>
+                    {% endif %}
+                    <form action="#">
+                        <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <div class="input-group input-group-merge shadow-none">
+                                        <div class="input-group-prepend"><span
+                                                class="input-group-text bg-transparent border-0"><i
+                                                    class="fas fa-search" aria-hidden="true"></i></span></div>
+                                        <input name="search" id="searchNameDescInput" type="text"
+                                               class="form-control border-0 form-control-flush shadow-none pb-2"
+                                               placeholder="{{ 'search for organizations'|trans|capitalize~'...' }}"
+                                               required="">
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" id="filterButton" class="btn btn-block btn-primary rounded-pill">Zoeken</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+        <div class="pattern bottom"></div>
     </section>
 
-    <section class="pb-lg-6">
-        <div class="container">
+    <section class="section section-md pb-0">
+        <div class="container z-2 mt-n9 mt-lg-n11">
+            <div class="row">
 
-                <div class="d-lg-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-                    <div class="col-12 col-lg-6 px-0">
-                        <div class="form-group mb-0">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><span class="fas fa-search"></span></span>
-                                </div>
-                                <input class="form-control"
-                                       placeholder="{{ 'search organizations here'|trans|capitalize }}"
-                                       type="text">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% if organizations|default %}
+                    {% for org in organizations %}
 
-            {% for org in organizations %}
 
-                <div class="border bg-white border-light shadow-sm py-1 pb-3 rounded">
-                    <div class="card hover-state border-bottom rounded-0 py-3">
-                        <div class="card-body d-sm-flex align-items-center flex-wrap flex-lg-nowrap py-0 pl-sm-0">
-                            <div class="col-auto col-lg-2 text-left text-sm-center pl-0 pl-sm-4 mb-2 mb-sm-0">
-                                {#                        Checkbox input  #}
-                                {#                        <div class="form-check check-lg inbox-check mr-sm-2">#}
-                                {#                            <input class="form-check-input" type="checkbox" value="" id="mailCheck11">#}
-                                {#                            <label class="form-check-label" for="mailCheck11"></label>#}
-                                {#                        </div>#}
-                                <i class="fas fa-building" style="font-size: 40px"></i>
-                            </div>
-                            <div class="col-10 col-lg-8 d-block px-0 mb-4 mb-md-0">
-                                <div class="mb-2">
-                                    <h3 class="h5">{{ org.name|trans|capitalize }}</h3>
-                                    {#                            Time and status #}
-                                    {#                            <div class="d-block d-sm-flex">#}
-                                    {#                                <div>#}
-                                    {#                                    <h4 class="h6 font-weight-normal text-gray mb-3 mb-sm-0"><span#}
-                                    {#                                            class="fas fa-clock mr-2"></span>10:00 AM</h4>#}
-                                    {#                                </div>#}
-                                    {#                                <div class="ml-sm-3"><span#}
-                                    {#                                        class="badge super-badge badge-lg badge-warning">In Progress</span></div>#}
-                                    {#                            </div>#}
-                                </div>
-                                <div>
-                                    <a href="#" class="font-weight-bold text-dark">
-                                        <span class="font-weight-normal text-gray">{{ org.description|trans|capitalize }}</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div
-                                class="col-10 col-sm-2 col-lg-2 col-xl-2 d-none d-lg-block d-xl-inline-flex align-items-center ml-lg-auto text-right justify-content-end px-md-0">
-                                {#                        like/favourite button #}
-                                {#                        <div class="rating-star star-lg d-none d-lg-inline-block">#}
-                                {#                            <input type="checkbox" id="InboxStar11" name="star">#}
-                                {#                            <label class="rating-star-label" for="InboxStar11">#}
-                                {#                                <span class="sr-only">Star</span>#}
-                                {#                            </label>#}
-                                {#                        </div>#}
-                                {#                        drop down for editing and deleting #}
-                                {#                        <div class="btn-group ml-md-3">#}
-                                {#                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"#}
-                                {#                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-                                {#                                                <span class="icon icon-sm">#}
-                                {#                                                    <span class="fas fa-ellipsis-h icon-dark"></span>#}
-                                {#                                                </span>#}
-                                {#                                <span class="sr-only">Toggle Dropdown</span>#}
-                                {#                            </button>#}
-                                {#                            <div class="dropdown-menu dropdown-menu-right">#}
-                                {#                                <a class="dropdown-item" href="#"><span class="fas fa-edit mr-2"></span> Edit</a>#}
-                                {#                                <a class="dropdown-item text-warning" href="#"><span class="fas fa-star mr-2"></span>Important</a>#}
-                                {#                                <a class="dropdown-item text-danger" href="#"><span#}
-                                {#                                        class="fas fa-trash-alt mr-2"></span>Delete</a>#}
-                                {#                            </div>#}
-                                {#                        </div>#}
-                                <div class="">
-                                    <a href="{{ path('app_organization_organization', {id: org.id}) }}" target="_blank"
-                                       class="btn btn-primary btn-pricing-plan animate-up-2 mr-3"><i
-                                            class="fas fa-arrow-right mr-2" aria-hidden="true"></i>
-                                        {{ 'view'|trans|capitalize }}</a>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
+                            <div class="card bg-white border-light shadow-soft p-4 rounded">
+                                <a href="{{ path('app_organization_organization', {id: org.id}) }}"><img
+                                        src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300"
+                                        alt=""></a>
+                                <div class="card-body p-0 pt-4"><a
+                                        href="{{ path('app_organization_organization', {id: org.id}) }}"
+                                        class="h3">{{ org.name|capitalize }}</a>
+                                    {# Add contact person? #}
+{#                                    <div class="d-flex align-items-center my-4"><img#}
+{#                                            class="avatar avatar-sm rounded-circle"#}
+{#                                            src="/bundles/rocket/assets/img/team/profile-picture-2.jpg"#}
+{#                                            alt="">#}
+{#                                        <h6 class="text-muted small ml-2 mb-0">{{ org.name }}</h6></div>#}
+                                    <div class="d-flex align-items-center my-4"><h6
+                                            class="text-muted small ml-2 mb-0">{{ 'joined at'|trans|capitalize~': '~org.dateCreated|date('Y-m-d', 'Europe/Amsterdam') }}</h6>
+                                    </div>
+                                    {#                            <div class="d-flex align-items-center my-4"><h6 class="text-muted small ml-2 mb-0">Reward: 500.00</h6></div>#}
+                                    {% if org.description|default %}
+                                        <p class="mb-0">{{ org.description }}</p>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
+
+                    {% endfor %}
+
+                    <div class="d-flex justify-content-center w-100">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
                     </div>
-                </div>
 
-            {% endfor %}
+                {% endif %}
 
-            <div class="d-flex justify-content-center w-100">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
             </div>
-
         </div>
     </section>
 

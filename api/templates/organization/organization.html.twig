@@ -10,7 +10,7 @@
                                          class="badge badge-md badge-secondary text-uppercase mr-2 px-3">Seo</a> <a
                             href="./blog.html" class="badge badge-md badge-warning text-uppercase px-3">Marketing</a>
                     </div>
-                    <h1 class="display-3 mb-4 px-lg-5">{% if h1|default %}{{ h1|capitalize }}{% else %}{{ 'organization'|trans|capitalize }}{% endif %}</h1>
+                    <h1 class="h1 mb-4 px-lg-5">{% if h1|default %}{{ h1|capitalize }}{% else %}{{ 'organization'|trans|capitalize }}{% endif %}</h1>
                     <div class="post-meta">
                         <span
                             class="post-date mr-3">{{ 'joined at'|trans|capitalize~' '~organization.dateCreated|date('Y-m-d', 'Europe/Amsterdam') }}</span>
@@ -25,20 +25,17 @@
         <div class="container">
 
             <div class="bg-white pt-5 text-black">
-                <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-12 col-lg-8">
-                            <h2>{{ 'description'|trans|capitalize }}</h2>
-                            <p>{% if organization.description|default %} {{ organization.description }} {% else %}
+                        <div class="col-12 col-lg-10">
+                            <h2 class=" text-center">{{ 'description'|trans|capitalize }}</h2>
+                            <p class=" text-center">{% if organization.description|default %} {{ organization.description }} {% else %}
                                     Lorem ipsum {% endif %}</p>
-                            <br>
-                            <h2>{{ 'challenges'|trans|capitalize }}</h2>
-                            <ol>
-                            {% for chal in challenges %}
-                                <li>{{ chal.name }}</li>
-                            {% endfor %}
-                            </ol>
-                            <h2>{{ 'tutorials'|trans|capitalize }}</h2>
+                            {#                            <h2>{{ 'challenges'|trans|capitalize }}</h2>#}
+                            {#                            <ol>#}
+                            {#                            {% for chal in challenges %}#}
+                            {#                                <li>{{ chal.name }}</li>#}
+                            {#                            {% endfor %}#}
+                            {#                            </ol>#}
                         </div>
                     </div>
                     <div class="row justify-content-sm-center align-items-center py-3 mt-3">
@@ -64,6 +61,110 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    {#  Challenges  #}
+    <section class="section section-lg pt-0">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-12 col-lg-10">
+                    <h2 class=" mb-3 text-center">{{ 'challenges'|trans|capitalize }}</h2>
+                    <p class="lead text-center">{{ 'some challenges from this organziation might be interesting for you'|trans|capitalize }}.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+
+                {% if challenges|default %}
+                    {% for chal in challenges|slice(0, 3) %}
+                        <div class="col-12 col-lg-10 mb-4">
+                            <div class="card bg-white border-light shadow-soft">
+                                <div class="card-body p-4 pt-lg-4 pb-lg-3">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 mb-4 mb-lg-0">
+                                            <h3 class="mb-3">{{ chal.name|capitalize }}</h3>
+                                            {% if chal.description|default %}
+                                                <p class="text-gray mb-4">
+                                                    {{ chal.description|capitalize }}
+                                                </p>
+                                            {% endif %}
+                                            <div class="d-flex">
+                                                <a href="#" class="stretched-link"><i
+                                                        class="fas fa-map-marker-alt"></i><span class="h6 text-sm ml-2">Sillicon Valley, CA</span></a>
+
+                                                {% if chal.budget|default %}
+                                                <span class="ml-4"><i class="fas fa-money-bill text-secondary"></i>
+                                                    <span class="h6 text-sm ml-2">&euro; {{ chal.budget~',-' }}</span>
+                                                </span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
+                                            <a href="{{ path('app_challenge_challenge', {id: chal.id}) }}"
+                                               class="btn btn-secondary mr-3 animate-up-2 m-0">Apply</a>
+                                            <a href="{{ path('app_challenge_challenge', {id: chal.id}) }}" class="btn btn-primary animate-up-2 m-0"><i
+                                                    class="fas fa-clipboard-list mr-2"></i>See Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+{#  Programs  #}
+    <section class="section section-lg pt-0">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-12 col-lg-10">
+                    <h2 class=" mb-3 text-center">{{ 'programs'|trans|capitalize }}</h2>
+                    <p class="lead text-center">{{ 'some programs from this organziation might be interesting for you'|trans|capitalize }}.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+
+                {% if programs|default %}
+                    {% for prog in programs|slice(0, 3) %}
+                        <div class="col-12 col-lg-10 mb-4">
+                            <div class="card bg-white border-light shadow-soft">
+                                <div class="card-body p-4 pt-lg-4 pb-lg-3">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 mb-4 mb-lg-0">
+                                            <h3 class="mb-3">{{ prog.name|capitalize }}</h3>
+                                            {% if prog.description|default %}
+                                                <p class="text-gray mb-4">
+                                                    {{ prog.description|capitalize }}
+                                                </p>
+                                            {% endif %}
+                                            <div class="d-flex">
+                                                <a href="#" class="stretched-link"><i
+                                                        class="fas fa-map-marker-alt"></i><span class="h6 text-sm ml-2">Sillicon Valley, CA</span></a>
+
+{#                                                {% if chal.budget|default %}#}
+{#                                                <span class="ml-4"><i class="fas fa-money-bill text-secondary"></i>#}
+{#                                                    <span class="h6 text-sm ml-2">&euro; {{ chal.budget~',-' }}</span>#}
+{#                                                </span>#}
+{#                                                {% endif %}#}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
+                                            <a href="{{ path('app_education_program', {id: prog.id}) }}"
+                                               class="btn btn-secondary mr-3 animate-up-2 m-0">Apply</a>
+                                            <a href="{{ path('app_education_program', {id: prog.id}) }}" class="btn btn-primary animate-up-2 m-0"><i
+                                                    class="fas fa-clipboard-list mr-2"></i>See Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
         </div>
     </section>
 
