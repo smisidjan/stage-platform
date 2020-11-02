@@ -129,9 +129,9 @@ class DashboardOrganizationController extends AbstractController
             $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
         } else {
             $variables['internship'] = [];
+        }
             //Get resources Organizations
             $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
-        }
 
         return $variables;
     }
