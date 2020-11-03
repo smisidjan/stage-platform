@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * The DashboardController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
  *
@@ -62,7 +61,7 @@ class DashboardOrganizationController extends AbstractController
         if ($id != 'new') {
             // Get resource challenges (known as tender component side)
             $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id'=>$id]);
-            $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'],['courses.id' => $id])['hydra:member'];
+            $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['courses.id' => $id])['hydra:member'];
         } else {
             $variables['tutorial'] = [];
         }
@@ -130,8 +129,8 @@ class DashboardOrganizationController extends AbstractController
         } else {
             $variables['internship'] = [];
         }
-            //Get resources Organizations
-            $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+        //Get resources Organizations
+        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
 
         return $variables;
     }
@@ -164,7 +163,7 @@ class DashboardOrganizationController extends AbstractController
         if ($id != 'new') {
             // Get resource challenges (known as tender component side)
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
-            $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'],['tender.id' => $id])['hydra:member'];
+            $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'], ['tender.id' => $id])['hydra:member'];
         } else {
             $variables['challenge'] = [];
         }
@@ -174,11 +173,14 @@ class DashboardOrganizationController extends AbstractController
             $resource = $request->request->all();
 
             // Add the post data to the already aquired resource data
-            $resource = array_merge($variables['resource'], $resource);
+            $resource = array_merge($variables['challenge'], $resource);
 
             // Update to the commonground component
             $variables['challenge'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+
+            return $this->redirect($this->generateUrl('app_dashboardorganization_challenges'));
         }
+
         return $variables;
     }
 
