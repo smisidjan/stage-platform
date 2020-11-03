@@ -26,7 +26,10 @@
         <div class="col-12 col-xl-8">
             <div class="card card-body bg-white border-light shadow-sm mb-4">
                 <h2 class="h5 mb-4">General information</h2>
-                <form action="{{ path('app_dashboardorganization_challenges') }}" method="post">
+                <form action="{{ path('app_dashboardorganization_challenge', {id: challenge.id} ) }}" method="post">
+                    {% if challenge['@id'] is defined and challenge['@id'] is not empty %}
+                        <input type="hidden" name="@id" id="@id" value="{{ challenge['@id'] }}">
+                    {% endif %}
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-group">
@@ -34,16 +37,16 @@
                                 <input class="form-control" id="name" name="name" type="text"
                                        required=""
                                     {% if challenge.name is defined and challenge.name is not empty %}
-                                    placeholder="{{ challenge.name }}"{% endif %}>
+                                    value="{{ challenge.name }}" {% else %} placeholder="{{ 'your challenge name'|trans|capitalize }}"{% endif %}>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
                                 <label for="submitters[]">{{ 'submitter'|trans|capitalize }}</label>
                                 <input class="form-control" id="submitters[]" name="submitters[]" type="text"
-                                       required="">
-{#                                    {% if challenge.submitters is defined and challenge.submitters is not empty %}#}
-{#                                    placeholder="{{ challenge.submitters[] }}" disabled {% endif %}>#}
+                                       required=""
+                                    {% if challenge.submitters is defined and challenge.submitters is not empty %}
+                                    value="{{ challenge.submitters[0] }}" disabled {% endif %}>
                             </div>
                         </div>
                     </div>
@@ -51,37 +54,41 @@
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <label for="description">{{ 'description'|trans|capitalize }}</label>
-                                <textarea class="form-control" id="description" name="description" rows="3"
                                 {% if challenge.description is defined and challenge.description is not empty %}
-                                    placeholder="{{ challenge.description }}"{% endif %}></textarea>
+                                <input class="form-control" id="description" name="description" type="text"
+                                       value="{{ challenge.description }}"
+                                    {% else %}<textarea class="form-control" id="description" name="description" rows="3"></textarea>{% endif %}>
                             </div>
                         </div>
                     </div>
                     <div class="row align-items-center">
-                        <div class="col-md-8 mb-3">
+                        <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <label for="selectionCritera">{{ 'selection critera'|trans|capitalize }}</label>
-                                <textarea class="form-control" id="selectionCritera" name="selectionCritera"
                                 {% if challenge.selectionCritera is defined and challenge.selectionCritera is not empty %}
-                                    placeholder="{{ challenge.selectionCritera }}" disabled {% endif %}></textarea>
+                                <input class="form-control" id="selectionCritera" name="selectionCritera" type="text" value="{{ challenge.selectionCritera }}" disabled>
+                                {% else %} <textarea class="form-control" id="selectionCritera" name="selectionCritera"></textarea>{% endif %}
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="budget">{{ 'budget'|trans|capitalize }}</label>
-                                <input class="form-control" id="budget" name="budget" type="number"
-                                    {% if challenge.budget is defined and challenge.budget is not empty %}
-                                placeholder="{{ challenge.budget }}" disabled {% endif %}>
+                                <label for="documents[]">{{ 'documents'|trans|capitalize }}</label>
+                                    {% if challenge.documents is defined and challenge.documents is not empty %}
+                                <input class="form-control" id="documents[]" name="documents[]" type="text" value="{{ challenge.documents[0] }}" disabled>
+                                    {% else %}<input class="form-control" id="documents[]" name="documents[]" type="file">
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="documents[]">{{ 'documents'|trans|capitalize }}</label>
-                                <input class="form-control" id="documents[]" name="documents[]" type="file">
-{#                                    {% if challenge.documents is defined and challenge.documents is not empty %}#}
-{#                                placeholder="{{ challenge.documents[] }}" disabled {% endif %}>#}
+                                <label for="budget">{{ 'budget'|trans|capitalize }}</label>
+                                <input class="form-control" id="budget" name="budget" type="number"
+                                    {% if challenge.budget is defined and challenge.budget is not empty %}
+                                    value="{{ challenge.budget }}" disabled {% endif %}>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -89,12 +96,12 @@
                                 <label for="dateClose">{{ 'close date'|trans|capitalize }}</label>
                                 <input class="form-control" id="dateClose" name="dateClose" type="dateTime" required=""
                                     {% if challenge.dateClose is defined and challenge.dateClose is not empty %}
-                                placeholder="{{ challenge.dateClose }}" disabled{% endif %}>
+                                    value="{{ challenge.dateClose|date("d-m-Y", "Europe/Paris") }}" disabled {% endif %}>
                             </div>
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">Save All</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>

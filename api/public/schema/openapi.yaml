@@ -12,7 +12,7 @@ info:
     - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/stage-platform-php) 
     - Datamodel: [postman](/schema/stage-platform.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
-    "Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar."         
+    Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.         
     
 paths:
   /api/audit_trails:
@@ -2391,12 +2391,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-29 13:23:27'
+        example: '2020-10-30 10:16:44'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-29 13:23:27'
+        example: '2020-10-30 10:16:44'
     required: []
   AuditTrail-write:
     properties:
@@ -2444,12 +2444,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-29 13:23:27'
+        example: '2020-10-30 10:16:44'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-29 13:23:27'
+        example: '2020-10-30 10:16:44'
     required: []
   ChangeLog-write:
     properties:
