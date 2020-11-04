@@ -10,7 +10,7 @@
                     <div class="d-flex flex-column flex-lg-row justify-content-center">
                         <span class="h5 mb-3 mb-lg-0"><i class="fas fa-map-marker-alt"></i><span class="ml-3">{{ intership.jobLocationType }}</span></span>
                         <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-user-tie"></i><span class="ml-3">{{ intership.employmentType }}</span></span>
-                        <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-invoice-dollar"></i><span class="ml-3">[reward]</span></span>
+                        <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-invoice-dollar"></i><span class="ml-3">{{ intership.salaryCurrency }} {{ intership.baseSalary }}</span></span>
                     </div>
                 </div>
                 <div class="col col-12 text-center"><a href="{{ path('app_internship_index') }}" class="btn btn-secondary text-white animate-up-2 mr-3"><i class="fas fa-arrow-left mr-2"></i>See All Jobs</a>
@@ -38,7 +38,7 @@
                                 {# forloop voor de requirements die aan een jobposting zitten#}
                                 <li class="py-3 lead">
                                     <div class="media"><span class="icon icon-sm mr-3 mt-2"><i class="fas fa-plus-circle"></i></span>
-                                        <div> [requirement.name] en een link er naartoe</div>
+                                        <div>{{ intership.educationRequirements }}</div>
                                     </div>
                                 </li>
                                 {#endfor#}
