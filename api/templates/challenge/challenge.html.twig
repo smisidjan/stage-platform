@@ -230,37 +230,8 @@
                             <div class="mb-5 mb-lg-6 text-center">
                                 <h2 class="h1">{{ 'Apply for this Challenge'|trans|capitalize }}</h2></div>
                             <form action="{{ path('app_challenge_challenge', {id: challenge.id} ) }}" method="post">
-                                    <input type="hidden" name="challenge" id="challenge" value="{{ challenge['@id'] }}">
+                                    <input type="hidden" name="tender" id="tender" value="{{ challenge['id'] }}">
                                 <div class="row">
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <label class="form-label text-muted"
-                                                   for="name">{{ 'Name'|trans|capitalize }}<span
-                                                    class="text-danger">*</span></label>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
-                                                </div>
-                                                <input class="form-control" id="name" name="name" placeholder="{{ 'Name'|trans|capitalize }}"
-                                                       type="text" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <label class="form-label text-muted"
-                                                   for="description">{{ 'description'|trans|capitalize }}<span
-                                                    class="text-danger"></span></label>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
-                                                </div>
-                                                <input class="form-control" id="description" name="description"
-                                                       placeholder="{{ 'description'|trans|capitalize }}"
-                                                       type="text">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label class="form-label text-muted"
@@ -270,7 +241,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                                 </div>
-                                                <input class="form-control" id="submitters[]" name="submitters[]" type="file">
+                                                <input class="form-control" id="submitters[]" name="submitters[]" type="text">
                                             </div>
                                         </div>
                                     </div>

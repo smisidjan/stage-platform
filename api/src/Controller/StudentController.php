@@ -35,10 +35,10 @@ class StudentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}")
+     * @Route("/index/{id}")
      * @Template
      */
-    public function positionAction(CommonGroundService $commonGroundService, Request $request, $id)
+    public function portfolioAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
 

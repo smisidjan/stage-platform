@@ -20,7 +20,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="profile-card mb-7">
                         <div class="card shadow-soft border-light text-center">
-                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg" class="card-img-top" alt="image"></div>
+                            <a href="{{ path('app_student_portfolio', {id: student.id}) }}"><div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg" class="card-img-top" alt="image"></div></a>
                             <div class="card-body mt-n5">
                                 {% if person['@type'] == 'Ingeschrevenpersoon' %}
                                     <span class="card__title">{{ person.naam.voornamen }} {{ person.naam.geslachtsnaam }}</span><br>
@@ -31,10 +31,7 @@
                                 <h6 class="card-subtitle">Director</h6>
                                 <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <ul class="social-buttons py-3">
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-slack"><i class="fab fa-slack-hash"></i></a></li>
-                                    <li><a href="#" target="_blank" class="btn btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a></li>
+                                    <li><a href="{{ path('app_student_portfolio', {id: student.id}) }}" target="_blank"><i class="fas fa-file-user"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -44,13 +41,15 @@
             {% endfor %}
         </div>
     </section>
+    {% if not app.user %}
     <section class="section section-lg pb-5 bg-soft">
         <div class="container z-2">
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center">
-                    <h2 class="h1">Interested in joining the team?</h2>
-                    <p class="lead py-4 text-gray">One of our most important core values is to partner with our employees because we know they are instrumental in the success of the company.</p><a href="./careers.html" class="btn btn-lg btn-secondary animate-up-2">See job openings</a></div>
+                    <h2 class="h1">Interested in joining?</h2>
+                    <p class="lead py-4 text-gray">One of our most important core values is to partner with our employees because we know they are instrumental in the success of the company.</p><a href="{{ path('app_user_idvault') }}" class="btn btn-lg btn-secondary animate-up-2">{{ 'aanmelden'|trans|capitalize }}</a></div>
             </div>
         </div>
     </section>
+    {% endif %}
 {% endblock %}
