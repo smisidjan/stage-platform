@@ -155,13 +155,14 @@
         </div>
         {% if not app.user %}
             <div class="d-none d-lg-block">
-                <a href="{{ path('app_default_register') }}" target="_blank" class="btn btn-secondary btn-pricing-plan animate-up-2 mr-3"><i class="fas fa-rocket mr-2"></i>
+                <a href="{{ path('app_user_idvault') }}" class="btn btn-secondary btn-pricing-plan animate-up-2 mr-3"><i class="fas fa-rocket mr-2"></i>
                     {{ 'register'|trans|capitalize }}</a>
-                <a href="{{ path('app_default_login') }}" target="_blank" class="btn btn-outline-white btn-docs animate-up-2"><i class="fas fa-lock mr-2"></i>
+                <a href="{{ path('app_user_idvault') }}" class="btn btn-outline-white btn-docs animate-up-2"><i class="fas fa-lock mr-2"></i>
                     {{ 'login'|trans|capitalize }}</a>
             </div>
         {% else %}
 
+        <div class="d-none d-lg-block">
             <p>Hello</p>
 {#            <li class="nav-item dropdown">#}
 {#                <a href="#" class="nav-link dropdown-toggle" id="supportDropdown" data-toggle="dropdown" aria-expanded="false">#}
@@ -190,6 +191,7 @@
 {#                    </div>#}
 {#                </div>#}
 {#            </li>#}
+        </div>
         {%endif %}
         <div class="d-flex d-lg-none align-items-center ml-auto">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global"
