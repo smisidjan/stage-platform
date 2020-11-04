@@ -34,6 +34,26 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/logout")
+     * @Template
+     */
+    public function logoutAction(Session $session, Request $request)
+    {
+        $session->set('requestType', null);
+        $session->set('request', null);
+        $session->set('contact', null);
+        $session->set('organisation', null);
+        $session->invalidate();
+
+        $text = $this->translator->trans('U bent uitgelogd');
+
+        // Throw te actual flash
+        $this->flash->add('error', $text);
+
+        return $this->redirect($this->generateUrl('app_default_index'));
+    }
+
+    /**
      * @Route("/auth/idvault")
      * @Template
      */

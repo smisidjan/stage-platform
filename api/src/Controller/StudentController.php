@@ -31,7 +31,6 @@ class StudentController extends AbstractController
         // Get resource students
         $variables['students'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants'], $variables['query'])['hydra:member'];
 
-
         return $variables;
     }
 
