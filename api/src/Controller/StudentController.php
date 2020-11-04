@@ -43,9 +43,8 @@ class StudentController extends AbstractController
         $variables = [];
 
         // Get Resource student
-        $variables['resource'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants', 'id' => $id]);
-//        $variables['person'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants', ['person' => $variables['student']['@id']]]);
-        $variables['person'] = $commonGroundService->getResource($variables['resource']['person']);
+        $variables['student'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants', 'id' => $id]);
+        $variables['person'] = $commonGroundService->getResource($variables['student']['person']);
 
         return $variables;
     }
