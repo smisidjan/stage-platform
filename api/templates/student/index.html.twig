@@ -20,7 +20,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="profile-card mb-7">
                         <div class="card shadow-soft border-light text-center">
-                            <a href="{{ path('app_student_portfolio', {id: student.id}) }}"><div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg" class="card-img-top" alt="image"></div></a>
+                            <div class="profile-image"><img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg" class="card-img-top" alt="image"></div>
                             <div class="card-body mt-n5">
                                 {% if person['@type'] == 'Ingeschrevenpersoon' %}
                                     <span class="card__title">{{ person.naam.voornamen }} {{ person.naam.geslachtsnaam }}</span><br>
@@ -31,7 +31,7 @@
                                 <h6 class="card-subtitle">Director</h6>
                                 <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <ul class="social-buttons py-3">
-                                    <li><a href="{{ path('app_student_portfolio', {id: student.id}) }}" target="_blank"><i class="fas fa-file-user"></i></a></li>
+                                    <li><a href="{{ path('app_student_portfolio', {id: student.id}) }}" target="_blank"><i class="fas fa-file-user"></i> {{ 'portfolio'|trans|capitalize }}</a></li>
                                 </ul>
                             </div>
                         </div>
