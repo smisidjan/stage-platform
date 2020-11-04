@@ -106,6 +106,7 @@ class DashboardOrganizationController extends AbstractController
             $resource = $request->request->all();
 
             $resource['standardHours'] = (int) $resource['standardHours'];
+            $resource['baseSalary'] = (int) $resource['baseSalary'];
 
             // Add the post data to the already aquired internship data
             $resource = array_merge($variables['internship'], $resource);
