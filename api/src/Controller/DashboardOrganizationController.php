@@ -169,7 +169,7 @@ class DashboardOrganizationController extends AbstractController
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
             $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'], ['tender.id' => $id])['hydra:member'];
         } else {
-            $variables['challenge'] = [];
+            $variables['challenge'] = ['id' => 'new'];
         }
 
         // Lets see if there is a post to procces

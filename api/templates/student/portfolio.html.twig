@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 text-center mb-4 mb-lg-5">
-                    <h1 class="display-2 font-weight-extreme mb-4">Frontend Engineer</h1>
+                    <h1 class="display-2 font-weight-extreme mb-4">{{ person.name }}</h1>
                     <div class="d-flex flex-column flex-lg-row justify-content-center">
                         <span class="h5 mb-3 mb-lg-0"><i class="fas fa-map-marker-alt"></i><span class="ml-3">Sillicon Valley, CA</span></span>
                         <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-user-tie"></i><span class="ml-3">Full Time</span></span>
@@ -13,8 +13,8 @@
                     </div>
                 </div>
                 <div class="col col-12 text-center">
-                    <a href="./careers.html" class="btn btn-secondary text-white animate-up-2 mr-3"><i class="fas fa-arrow-left mr-2"></i>See All Jobs</a>
-                    <a href="#apply" class="btn btn-white text-primary animate-up-2"><i class="fas fa-clipboard-list mr-2"></i>Apply Now</a>
+                    <a href="{{ path('app_student_index') }}" class="btn btn-secondary text-white animate-up-2 mr-3"><i class="fas fa-arrow-left mr-2"></i>{{ 'See All Students'|trans|capitalize }}</a>
+                    <a href="#contact" class="btn btn-white text-primary animate-up-2"><i class="fad fa-address-book"></i> {{ 'Contact'|trans|capitalize }}</a>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                             <li class="py-3 lead"><div class="media"><span class="icon icon-sm text-success mr-3 mt-2"><i class="fas fa-check-circle"></i></span><div>Generous vacation package that increases with tenure in addition to sick days, personal days and your birthday off too!</div></div></li>
                             <li class="py-3 lead"><div class="media"><span class="icon icon-sm text-success mr-3 mt-2"><i class="fas fa-check-circle"></i></span><div>Strong company culture and happy work environment!</div></div></li>
                         </ul>
-                        <div id="apply" class="row">
+                        <div id="contact" class="row">
                             <div class="col">
                                 <!-- Card -->
                                 <div class="card bg-soft shadow-soft border-0 text-black py-4 p-lg-5">
@@ -56,55 +56,55 @@
                                             <div class="row">
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
-                                                        <label class="form-label text-muted" for="firstNameLabel">First Name <span class="text-danger">*</span></label>
+                                                        <label class="form-label text-muted" for="firstNameLabel">{{ 'First Name'|trans|capitalize }}<span class="text-danger">*</span></label>
                                                         <div class="input-group mb-4">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
                                                             </div>
-                                                            <input class="form-control" id="firstNameLabel" placeholder="First Name" type="text" required="">
+                                                            <input class="form-control" id="firstNameLabel" placeholder="{{ 'First Name'|trans|capitalize }}" type="text" required="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
-                                                        <label class="form-label text-muted" for="lastNameLabel">Last Name <span class="text-danger">*</span></label>
+                                                        <label class="form-label text-muted" for="lastNameLabel">{{ 'Last Name'|trans|capitalize }}<span class="text-danger">*</span></label>
                                                         <div class="input-group mb-4">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
                                                             </div>
-                                                            <input class="form-control" id="lastNameLabel" placeholder="Last Name" type="text" required="">
+                                                            <input class="form-control" id="lastNameLabel" placeholder="{{ 'Last Name'|trans|capitalize }}" type="text" required="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
-                                                        <label class="form-label text-muted" for="EmailLabel">Email <span class="text-danger">*</span></label>
+                                                        <label class="form-label text-muted" for="EmailLabel">{{ 'Email'|trans|capitalize }}<span class="text-danger">*</span></label>
                                                         <div class="input-group mb-4">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                                             </div>
-                                                            <input class="form-control" id="EmailLabel" placeholder="Can we get your email?" type="email" required="">
+                                                            <input class="form-control" id="EmailLabel" placeholder="{{ 'Can we get your email?'|trans|capitalize }}" type="email" required="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
-                                                        <label class="form-label text-muted" for="phonenumberLabel">Phone Number<span class="text-danger">*</span></label>
+                                                        <label class="form-label text-muted" for="phonenumberLabel">{{ 'Phone Number'|trans|capitalize }}<span class="text-danger">*</span></label>
                                                         <div class="input-group mb-4">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><i class="fas fa-phone-square-alt"></i></span>
                                                             </div>
-                                                            <input class="form-control" id="phonenumberLabel" placeholder="Phone number" type="number" required="">
+                                                            <input class="form-control" id="phonenumberLabel" placeholder="{{ 'Phone number'|trans|capitalize }}" type="number" required="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col col-12 mt-4">
                                                     <div class="form-group">
-                                                        <label class="form-label text-muted" for="phonenumberLabel">Few words... <span class="text-danger">*</span></label>
-                                                        <textarea class="form-control" placeholder="How'd you hear about Rocket?" id="message-2" rows="8" required=""></textarea>
+                                                        <label class="form-label text-muted" for="phonenumberLabel">Few words... {{ 'submit'|trans|capitalize }}<span class="text-danger">*</span></label>
+                                                        <textarea class="form-control" placeholder="How'd you hear about Rocket?{{ 'submit'|trans|capitalize }}" id="message-2" rows="8"></textarea>
                                                     </div>
                                                     <div class="text-center">
-                                                        <button type="submit" class="btn btn-secondary mt-4"><span class="mr-2"><i class="fas fa-paper-plane"></i></span> Submit Application</button>
+                                                        <button type="submit" class="btn btn-secondary mt-4"><span class="mr-2"><i class="fas fa-paper-plane"></i></span>{{ 'submit'|trans|capitalize }}</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -125,11 +125,12 @@
                     <h2 class="h2">{{ 'other students'|trans|capitalize }}</h2>
                 </div>
             </div>
+            {% for student in students %}
             <div class="row">
                 <div class="col-12 col-xl-4 mb-4">
                     <div class="card bg-white border-light shadow-soft p-3">
                         <div class="card-header p-4">
-                            <h3 class="mb-3 h4">Backend Engineer</h3>
+                            <h3 class="mb-3 h4">{{ person.name }}</h3>
                             <div class="d-flex small">
                                 <a href="./career-single.html" class="text-gray"><span class="icon-primary"><i class="fas fa-map-marker-alt"></i></span><span class="ml-2">Chicago, IL</span></a>
                                 <span class="icon-primary ml-4"><i class="fas fa-user-tie"></i><span class="ml-2 text-gray">Full Time</span></span>
@@ -140,13 +141,14 @@
                                 Integration of user-facing elements developed by a Themesberg-end developers with server side logic
                             </p>
                             <div class="d-flex">
-                                <a href="./career-single.html#apply" class="btn btn-sm btn-secondary mr-3 animate-up-2 px-3">Apply Now</a>
-                                <a href="./career-single.html" class="btn btn-sm btn-primary animate-up-2 px-3"><i class="fas fa-clipboard-list mr-2"></i>See Details</a>
+                                <a href="#contact" class="btn btn-sm btn-secondary mr-3 animate-up-2 px-3">{{ 'contact'|trans|capitalize }}</a>
+                                <a href="{{ path('app_student_portfolio', {id: student.id}) }}" class="btn btn-sm btn-primary animate-up-2 px-3"><i class="fas fa-clipboard-list mr-2"></i>{{ 'See Details'|trans|capitalize  }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </section>
 
