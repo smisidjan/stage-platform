@@ -42,6 +42,9 @@ class InternshipController extends AbstractController
     {
         $variables = [];
 
+        //get test user
+        $variables['employee'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'employees', 'id' => '8c654fb8-444c-41e6-a6d3-7fa58135ea46']);
+
         //get organizations id of current position
         $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
         //get all positions of that organizations
@@ -49,6 +52,17 @@ class InternshipController extends AbstractController
 
         // Get resource Intership
         $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+
+        // Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+            $resource['employee'] = '/employees/'.$resource['employee'];
+            $resource['jobPosting'] = '/job_postings/'.$resource['jobPosting'];
+
+            // Update to the commonground component
+            $variables['applications'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
+
+        }
         return $variables;
     }
 }
