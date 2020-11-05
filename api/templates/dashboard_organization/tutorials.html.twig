@@ -9,11 +9,11 @@
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                     <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span class="fas fa-home"></span></a></li>
                     <li class="breadcrumb-item"><a href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
-                    <li class="breadcrumb-item active">{{ 'Tutorials'|trans|capitalize }}</li>
+                    <li class="breadcrumb-item active">{{ 'tutorials'|trans|capitalize }}</li>
                 </ol>
             </nav>
             <h2 class="h4">Tutorials</h2>
-            <p class="mb-0">[text about what a challange is is]</p>
+            <p class="mb-0">[text about what a challenge is is]</p>
         </div>
     </div>
 
@@ -27,7 +27,8 @@
                 <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text"><span class="fas fa-search"></span></span>
                     </div>
-                    <input name="search" id="search" class="form-control" placeholder="Search tutorials Here" type="text" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                    <input name="search" id="search" class="form-control" placeholder="Search tutorials Here" type="text"
+                           {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-block btn-primary "> {{ 'search'|trans|capitalize }}</button>
                     </div>
