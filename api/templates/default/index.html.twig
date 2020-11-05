@@ -12,13 +12,15 @@
                     <!-- Button Modal -->
                     <div class="d-flex justify-content-center mb-6">
                         {% if not app.user %}
-                        <a href="{{ path('app_user_idvault') }}" class="btn btn-secondary animate-up-2 mr-4"><span class="fas fa-rocket mr-2 d-none d-sm-inline"></span> {{ 'Register'|trans|capitalize }}</a>
-                        <a href="{{ path('app_user_idvault') }}" class="btn btn-outline-white animate-up-2"><span class="fas fa-lock mr-2 d-none d-sm-inline"></span> {{ 'Login'|trans|capitalize }}</a>
+                        <a href="{{ path('app_user_idvault') }}" class="btn btn-secondary animate-up-2 mr-4"><span class="fas fa-rocket mr-2 d-none d-sm-inline"></span> {{ 'register'|trans|capitalize }}</a>
+                        <a href="{{ path('app_user_idvault') }}" class="btn btn-outline-white animate-up-2"><span class="fas fa-lock mr-2 d-none d-sm-inline"></span> {{ 'login'|trans|capitalize }}</a>
                         {% else %}
+                        <a href="{{ path('app_dashboard_index') }}" class="btn btn-secondary animate-up-2 mr-4"><span class="fas fa-rocket mr-2 d-none d-sm-inline"></span> {{ 'dashboard'|trans|capitalize }}</a>
+                        {% endif %}
                     </div>
                     <div class="d-flex justify-content-center flex-column mb-6">
                         <a href="https://themesberg.com" target="_blank">
-                            <img src="./bundles/rocket/assets/img/logo.PNG" class="d-block mx-auto mb-3" alt="Conduction Logo">
+                            <img src="/images/conduction2.PNG" class="d-block mx-auto mb-3" alt="Conduction Logo" style="width: 100px;">
                         </a>
                     </div>
                 </div>

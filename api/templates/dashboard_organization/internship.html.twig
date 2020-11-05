@@ -12,8 +12,13 @@
                     <li class="breadcrumb-item active" aria-current="page">{{ 'Position'|trans|capitalize }}</li>
                 </ol>
             </nav>
-            <h2 class="h4">[name]</h2>
-            <p class="mb-0">[text about what a position is]</p>
+            {% if internship['@id'] is defined and internship['@id'] is not empty %}
+            <h2 class="h4">{{ internship.name }} aanpassen</h2>
+            <p class="mb-0">Weizig hier uw vacature</p>
+            {% else %}
+            <h2 class="h4">Vacature plaatsen</h2>
+            <p class="mb-0">Plaats een nieuwe vacature via ons formulier</p>
+            {% endif %}
         </div>
     </div>
 
@@ -68,6 +73,37 @@
                                        placeholder="Uren per week voor de positie" {% endif %} required>
                             </div>
                         </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="salaryCurrency"> {{ 'salary currency'|trans|capitalize }} </label>
+                                <input class="form-control form-control-sm" id="salaryCurrency" name="salaryCurrency" type="text"
+                                    {% if internship.salaryCurrency is defined and internship.salaryCurrency is not empty %}
+                                        value="{{ internship.salaryCurrency }}"{% else %}
+                                        placeholder="Valuta waarin de medewerker betaald wordt (EUR,USD etc)" {% endif %} required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="baseSalary">{{ 'Maandsalaris'|trans|capitalize }}</label>
+                                <input class="form-control" id="baseSalary" name="baseSalary" type="text"
+                                    {% if internship.baseSalary is defined and internship.baseSalary is not empty %}
+                                        value="{{ internship.baseSalary }}"{% else %}
+                                        placeholder="Salaris voor de medewerker"{% endif %} required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="summary">{{ 'summary'|trans|capitalize }}</label>
+                                <input class="form-control" id="summary" name="summary" type="text"
+                                    {% if internship.summary is defined and internship.summary is not empty %}
+                                        value="{{ internship.summary }}"{% else %}
+                                        placeholder="Een korte omschrijving van de vacature"{% endif %} required>
+                            </div>
+                        </div>
+
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="hiringOrganization"> {{ 'organization'|trans|capitalize }} </label>
@@ -83,6 +119,17 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="educationRequirements">Opleiding</label>
+                                <input class="form-control" id="educationRequirements" type="text"
+                                    {% if internship.educationRequirements is defined and internship.educationRequirements is not empty %}
+                                        value="{{ internship.educationRequirements }}"{% else %}
+                                        placeholder="Opleiding + niveau die de solicitant dient te hebben" {% endif %} name="educationRequirements" required>
+                            </div>
+                        </div>
+
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="jobLocationType">Locatie van de stage</label>
@@ -119,7 +166,7 @@
                                 {% if internship.description is defined and internship.description is not empty %}
                                 <textarea class="form-control" id="description" name="description" rows="3" cols="6">{{ internship.description }}</textarea>
                                 {% else %}
-                                <textarea class="form-control" id="description" name="description" rows="3" cols="6"></textarea>{% endif %}
+                                <textarea class="form-control" id="description" name="description" placeholder="uitgebreide omschrijving van de vacature" rows="3" cols="6"></textarea>{% endif %}
                             </div>
                         </div>
                     </div>
@@ -388,6 +435,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
         <!-- right collum -->
         <div class="col-12 col-xl-4">

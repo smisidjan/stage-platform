@@ -143,4 +143,17 @@ class DashboardUserController extends AbstractController
 
         return $variables;
     }
+
+    /**
+     * @Route("/organizations")
+     * @Template
+     */
+    public function organizationsAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
+
 }
