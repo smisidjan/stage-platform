@@ -47,9 +47,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
@@ -65,8 +62,13 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="description">Content</label>
-                                <textarea class="form-control" id="courseCode" name="courseCode" rows="16"></textarea>
+                                <label for="content">{{ 'Tutorial content'|trans|capitalize }}</label>
+                                {% if tutorial.courseCode is defined and tutorial.courseCode is not empty %}
+                                    <textarea class="form-control" id="courseCode" name="courseCode" rows="3" cols="6">{{ tutorial.courseCode }}</textarea>
+                                {% else %}
+                                    <textarea class="form-control" id="courseCode" name="courseCode"
+                                              placeholder="The content of your tutorial will be displayed here"
+                                              rows="3" cols="6"></textarea>{% endif %}
                             </div>
                         </div>
                     </div>

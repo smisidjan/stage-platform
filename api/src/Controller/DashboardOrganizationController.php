@@ -84,6 +84,7 @@ class DashboardOrganizationController extends AbstractController
             return $this->redirect($this->generateUrl('app_dashboardorganization_tutorials'));
         }
 
+        
         return $variables;
     }
 
