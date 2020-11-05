@@ -42,9 +42,13 @@ class InternshipController extends AbstractController
     {
         $variables = [];
 
-        // Get resource Interschip
-        $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        //get organizations id of current position
+        $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
+        //get all positions of that organizations
+        $variables['positions'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'job_postings'], ['organization' => $organization])['hydra:member'];
 
+        // Get resource Intership
+        $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
         return $variables;
     }
 }
