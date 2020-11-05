@@ -45,7 +45,7 @@ class ChallengeController extends AbstractController
 
         // Get resource challenges (known as tender component side)
         $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
-        $variables['entry'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'entries'],['tender.id' => $id])['hydra:member'];
+        $variables['entry'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'entries'], ['tender.id' => $id])['hydra:member'];
 
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
@@ -53,7 +53,6 @@ class ChallengeController extends AbstractController
 
             // Update to the commonground component
             $variables['entry'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'entries']);
-
         }
 
         return $variables;
