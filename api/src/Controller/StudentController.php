@@ -38,14 +38,16 @@ class StudentController extends AbstractController
      * @Route("/{id}")
      * @Template
      */
-    public function positionAction(CommonGroundService $commonGroundService, Request $request, $id)
+    public function portfolioAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
 
+        // Get resource students
+        $variables['students'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants'])['hydra:member'];
+
         // Get Resource student
-        $variables['resource'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants', 'id' => $id]);
-//        $variables['person'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants', ['person' => $variables['student']['@id']]]);
-        $variables['person'] = $commonGroundService->getResource($variables['resource']['person']);
+        $variables['student'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants', 'id' => $id]);
+        $variables['person'] = $commonGroundService->getResource($variables['student']['person']);
 
         return $variables;
     }

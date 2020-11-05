@@ -33,10 +33,6 @@ class DashboardOrganizationController extends AbstractController
         return $variables;
     }
 
-
-
-
-
     /**
      * @Route("/tutorials")
      * @Template
@@ -88,10 +84,6 @@ class DashboardOrganizationController extends AbstractController
         return $variables;
     }
 
-
-
-
-
     /**
      * @Route("/internships")
      * @Template
@@ -114,6 +106,7 @@ class DashboardOrganizationController extends AbstractController
             $resource = $request->request->all();
 
             $resource['standardHours'] = (int) $resource['standardHours'];
+            $resource['baseSalary'] = (int) $resource['baseSalary'];
 
             // Add the post data to the already aquired internship data
             $resource = array_merge($variables['internship'], $resource);
@@ -177,7 +170,7 @@ class DashboardOrganizationController extends AbstractController
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
             $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'], ['tender.id' => $id])['hydra:member'];
         } else {
-            $variables['challenge'] = [];
+            $variables['challenge'] = ['id' => 'new'];
         }
 
         // Lets see if there is a post to procces
