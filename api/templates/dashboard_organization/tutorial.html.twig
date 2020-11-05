@@ -205,47 +205,213 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <div class="col-12 mb-4 mb-xl-0">
                     <div class="card card-body bg-white border-light">
-                        <h2 class="h5 mb-4">Alerts &amp; Notifications</h2>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-                                <div>
-                                    <h3 class="h6 mb-1">Company News</h3>
-                                    <p class="small pr-4">Get Rocket news, announcements, and product updates</p>
+                        <h2 class="h5 mb-4">Requirements</h2>
+
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th class="border-0">
+                                    <div class="form-check dashboard-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="userCheck55">
+                                        <label class="form-check-label" for="userCheck55"></label>
+                                    </div>
+                                </th>
+                                <th class="border-0">Name</th>
+                                <th class="border-0">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                {% if requirements is defined and requirements is not empty %}
+                                    {% for requirement in requirements %}
+                                        <td>
+                                            <div class="form-check dashboard-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="userCheck1">
+                                                <label class="form-check-label" for="userCheck1"></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="d-flex align-items-center"><img
+                                                    src="../../assets/img/team/profile-picture-1.jpg"
+                                                    class="user-avatar rounded-circle mr-3" alt="Avatar">
+                                                <div class="d-block"><span class="font-weight-bold">{{ participants.name }}</span>
+                                                    <div class="small text-gray">{{ participants.description }}</div>
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td><span class="font-weight-normal">{{ participants.created|date("d-m-Y", "Europe/Paris") }}</span></td>
+                                        <td><span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>Email</span>
+                                        </td>
+                                        <td><span class="font-weight-normal text-success">{{ participants.status }}</span></td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                                        class="icon icon-sm"><span
+                                                            class="fas fa-ellipsis-h icon-dark"></span> </span><span
+                                                        class="sr-only">Toggle Dropdown</span>
+                                                </button>
+
+                                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span
+                                                            class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a
+                                                        class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View
+                                                        Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
+                                            </div>
+
+                                            <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"
+                                               data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
+                                    {% endfor %}
+                                {% endif %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-4 mb-xl-0">
+                    <div class="card card-body bg-white border-light">
+                        <h2 class="h5 mb-4">Activities</h2>
+
+                        <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="border-0">
+                                <div class="form-check dashboard-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="userCheck55">
+                                    <label class="form-check-label" for="userCheck55"></label>
                                 </div>
-                                <div>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="user-notification-1" checked="checked">
-                                        <label class="custom-control-label" for="user-notification-1"></label>
+                            </th>
+                            <th class="border-0">Name</th>
+                            <th class="border-0">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            {% if activities is defined and activities is not empty %}
+                                {% for activity in activities %}
+                                    <td>
+                                        <div class="form-check dashboard-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="userCheck1">
+                                            <label class="form-check-label" for="userCheck1"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="d-flex align-items-center"><img
+                                                src="../../assets/img/team/profile-picture-1.jpg"
+                                                class="user-avatar rounded-circle mr-3" alt="Avatar">
+                                            <div class="d-block"><span class="font-weight-bold">{{ participants.name }}</span>
+                                                <div class="small text-gray">{{ participants.description }}</div>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td><span class="font-weight-normal">{{ participants.created|date("d-m-Y", "Europe/Paris") }}</span></td>
+                                    <td><span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>Email</span>
+                                    </td>
+                                    <td><span class="font-weight-normal text-success">{{ participants.status }}</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                                    class="icon icon-sm"><span
+                                                        class="fas fa-ellipsis-h icon-dark"></span> </span><span
+                                                    class="sr-only">Toggle Dropdown</span>
+                                            </button>
+
+                                            <div class="dropdown-menu"><a class="dropdown-item" href="#"><span
+                                                        class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a
+                                                    class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View
+                                                    Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
+                                        </div>
+
+                                        <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"
+                                           data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
+                                {% endfor %}
+                            {% endif %}
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-4 mb-xl-0">
+                    <div class="card card-body bg-white border-light">
+                        <h2 class="h5 mb-4">Events</h2>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th class="border-0">
+                                    <div class="form-check dashboard-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="userCheck55">
+                                        <label class="form-check-label" for="userCheck55"></label>
+                                    </div>
+                                </th>
+                                <th class="border-0">Name</th>
+                                <th class="border-0">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                {% if activities is defined and activities is not empty %}
+                                    {% for activity in activities %}
+                                        <td>
+                                            <div class="form-check dashboard-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="userCheck1">
+                                                <label class="form-check-label" for="userCheck1"></label>
+                                            </div>
+                                        </td>
+                                        <td><span class="font-weight-normal">{{ participants.created|date("d-m-Y", "Europe/Paris") }}</span></td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                                        class="icon icon-sm"><span
+                                                            class="fas fa-ellipsis-h icon-dark"></span> </span><span
+                                                        class="sr-only">Toggle Dropdown</span>
+                                                </button>
+
+                                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span
+                                                            class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a
+                                                        class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View
+                                                        Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
+                                            </div>
+
+                                            <a href="#" class="text-danger ml-2" title="" data-toggle="modal" data-target="#{{ activity.id }}"><span class="fas fa-times-circle"></span></a>
+                                        </td>
+                                    {% endfor %}
+                                {% endif %}
+                            </tr>
+                            </tbody>
+                        </table>
+                         {% if activities is defined and activities is not empty %}
+                            {% for activity in activities %}
+                                <div class="modal fade" id="{{ activity.id }}" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title">Edit {{ activity.naem }}</h6>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.</p>
+                                                <p>The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as
+                                                    soon as possible of high-risk data breaches that could personally affect them.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-sm btn-secondary">I Got It</button>
+                                                <button type="button" class="btn btn-link text-danger ml-auto" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-                                <div>
-                                    <h3 class="h6 mb-1">Account Activity</h3>
-                                    <p class="small pr-4">Get important notifications about you or activity you've missed</p>
-                                </div>
-                                <div>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="user-notification-2">
-                                        <label class="custom-control-label" for="user-notification-2"></label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex align-items-center justify-content-between px-0">
-                                <div>
-                                    <h3 class="h6 mb-1">Meetups Near You</h3>
-                                    <p class="small pr-4">Get an email when a Dribbble Meetup is posted close to my location</p>
-                                </div>
-                                <div>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="user-notification-3" checked="checked">
-                                        <label class="custom-control-label" for="user-notification-3"></label>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                            {% endfor %}
+                         {% endif %}
                     </div>
                 </div>
             </div>
