@@ -26,7 +26,7 @@
                     <div class="card shadow-soft border-light p-4 p-md-5">
                         <div style="display: flex">
 
-                            <div style="flex: 1; text-align: left">
+                            <div style=" flex: 2; text-align: justify">
                                 <h2>{{ 'description'|trans|capitalize }}</h2>
                                 <p class="lead mb-5" > {{ intership.description }}</p>
 
@@ -88,26 +88,31 @@
                                     <div class="card-body p-4">
                                         <div class="mb-5 mb-lg-6 text-center">
                                             <h2 class="h1">{{'Apply for this Job'|trans|capitalize}}</h2></div>
-                                        <form action="{{ path('app_internship_position', {id: intership.id}) }}">
+                                        <form action="{{ path('app_internship_position', {id: intership.id}) }}" method="post">
+                                            <input type="hidden" name="jobPosting" id="jobPosting" value="{{ intership['id'] }}">
+                                            <input type="hidden" name="status" id="status" value="application status">
+                                            {# tijdelijke test user  #}
+                                            <input type="hidden" name="employee" id="employee" value="{{ employee['id'] }}">
                                             <div class="row">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label text-muted" for="firstNameLabel">First Name <span class="text-danger">*</span></label>
-                                                        <div class="input-group mb-4">
-                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-alt"></i></span></div>
-                                                            <input class="form-control" id="firstNameLabel" placeholder="First Name" type="text" required="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label text-muted" for="lastNameLabel">Last Name <span class="text-danger">*</span></label>
-                                                        <div class="input-group mb-4">
-                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-alt"></i></span></div>
-                                                            <input class="form-control" id="lastNameLabel" placeholder="Last Name" type="text" required="">
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <label class="form-label">CV niet nodig je profielinformatie wordt meegestuurd</label>
+{#                                                <div class="col-12 col-md-6">#}
+{#                                                    <div class="form-group">#}
+{#                                                        <label class="form-label text-muted" for="firstNameLabel">First Name <span class="text-danger">*</span></label>#}
+{#                                                        <div class="input-group mb-4">#}
+{#                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-alt"></i></span></div>#}
+{#                                                            <input class="form-control" id="firstNameLabel" placeholder="First Name" type="text" required="">#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                                <div class="col-12 col-md-6">#}
+{#                                                    <div class="form-group">#}
+{#                                                        <label class="form-label text-muted" for="lastNameLabel">Last Name <span class="text-danger">*</span></label>#}
+{#                                                        <div class="input-group mb-4">#}
+{#                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-alt"></i></span></div>#}
+{#                                                            <input class="form-control" id="lastNameLabel" placeholder="Last Name" type="text" required="">#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                </div>#}
 
                                                 <div class="col col-12 mt-4">
                                                     <div class="form-group">
@@ -115,7 +120,7 @@
                                                         <textarea class="form-control" placeholder="Beschrijf waarom jij geschikt bent voor deze vacature" id="motivation" name="motivation" rows="8" required=""></textarea>
                                                     </div>
                                                     <div class="text-center">
-                                                        <button type="submit" class="btn btn-secondary mt-4"><span class="mr-2"><i class="fas fa-paper-plane"></i></span> Verstuur vacature</button>
+                                                        <button type="submit" class="btn btn-secondary mt-4"><span class="mr-2"><i class="fas fa-paper-plane"></i></span> Verstuur sollicitatie</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -147,26 +152,37 @@
                 <div class="col">
                     <h2 class="h2">Open positions</h2></div>
             </div>
-
             <div class="row">
-                {% for i in 1..3 %}
+                {% if positions is defined and positions is not empty %}
+                {% for position in positions %}
+                    {% if position['@id'] != intership['@id'] %}
                 <div class="col-12 col-xl-4 mb-4">
                     <div class="card bg-white border-light shadow-soft p-3">
                         <div class="card-header p-4">
-                            <h3 class="mb-3 h4">[name]</h3>
-                            <div class="d-flex small"><a href="{{ path('app_internship_position', {id: 'test'}) }}" class="text-gray">
+                            <h3 class="mb-3 h4">{{ position.name }}</h3>
+                            <div class="d-flex small"><a href="{{ path('app_internship_position', {id: position.id}) }}" class="text-gray">
                                     <span class="icon-primary"><i class="fas fa-map-marker-alt"></i></span>
-                                    <span class="ml-2">[location]</span></a>
-                                    <span class="icon-primary ml-4"><i class="fas fa-user-tie"></i><span class="ml-2 text-gray">[type]</span></span>
+                                    <span class="ml-2">{{ position.jobLocationType }}</span></a>
+                                    <span class="icon-primary ml-4"><i class="fas fa-user-tie"></i><span class="ml-2 text-gray">{{ position.employmentType }}</span></span>
                             </div>
                         </div>
                         <div class="card-body px-4 pt-0">
-                            <p class="mb-4">[summery]</p>
-                            <div class="d-flex"><a href="{{ path('app_internship_position', {id: 'test'}) }}#apply" class="btn btn-sm btn-secondary mr-3 animate-up-2 px-3">Apply Now</a> <a href="./career-single.html" class="btn btn-sm btn-primary animate-up-2 px-3"><i class="fas fa-clipboard-list mr-2"></i>See Details</a></div>
+                            <p class="mb-4">{{ position.summary }}</p>
+                            <div class="d-flex"><a href="{{ path('app_internship_position', {id: position.id}) }}#apply" class="btn btn-sm btn-secondary mr-3 animate-up-2 px-3">Apply Now</a> <a href="{{ path('app_internship_position', {id: position.id}) }}" class="btn btn-sm btn-primary animate-up-2 px-3"><i class="fas fa-clipboard-list mr-2"></i>See Details</a></div>
                         </div>
                     </div>
                 </div>
+                    {% endif %}
                 {% endfor %}
+                {% else %}
+                    <div class="col-12 col-xl-4 mb-4">
+                        <div class="card bg-white border-light shadow-soft p-3">
+                            <div class="card-header p-4">
+                                <h3 class="mb-3 h4">Er zijn momenteel geen vacatures van {{ commonground_resource(intership.hiringOrganization).name|trans|capitalize }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </section>

@@ -33,10 +33,6 @@ class DashboardOrganizationController extends AbstractController
         return $variables;
     }
 
-
-
-
-
     /**
      * @Route("/tutorials")
      * @Template
@@ -84,12 +80,9 @@ class DashboardOrganizationController extends AbstractController
             return $this->redirect($this->generateUrl('app_dashboardorganization_tutorials'));
         }
 
+        
         return $variables;
     }
-
-
-
-
 
     /**
      * @Route("/internships")

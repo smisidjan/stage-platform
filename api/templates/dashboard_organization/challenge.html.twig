@@ -64,10 +64,10 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="selectionCritera">{{ 'selection critera'|trans|capitalize }}</label>
+                                <label for="selectionCritera[]">{{ 'selection critera'|trans|capitalize }}</label>
                                 {% if challenge.selectionCritera is defined and challenge.selectionCritera is not empty %}
-                                <input class="form-control" id="selectionCritera" name="selectionCritera" type="text" value="{{ challenge.selectionCritera }}" disabled>
-                                {% else %} <textarea class="form-control" id="selectionCritera" name="selectionCritera"></textarea>{% endif %}
+                                <input class="form-control" id="selectionCritera[]" name="selectionCritera[]" type="text" value="{{ challenge.selectionCritera[0] }}" disabled>
+                                {% else %} <textarea class="form-control" id="selectionCritera[]" name="selectionCritera[]"></textarea>{% endif %}
                             </div>
                         </div>
                     </div>
