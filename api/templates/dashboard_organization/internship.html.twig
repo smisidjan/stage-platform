@@ -121,14 +121,36 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                <label for="educationRequirements">Opleiding</label>
-                                <input class="form-control" id="educationRequirements" type="text"
-                                    {% if internship.educationRequirements is defined and internship.educationRequirements is not empty %}
-                                        value="{{ internship.educationRequirements }}"{% else %}
-                                        placeholder="Opleiding + niveau die de solicitant dient te hebben" {% endif %} name="educationRequirements" required>
+                            <div class="form-group" id="Requirements">
+                                <label for="educationRequirements[]">voorwaarden stage (alles waar de solicitant aan moet voldoen)<br>
+                                    <strong> Druk op de blauwe knop om meer voorwaarden toe te voegen</strong></label>
+                                {% if internship.educationRequirements is defined and internship.educationRequirements is not empty %}
+{#                                {% for educationRequirements in  internship['educationRequirements'] %}#}
+                                <input class="form-control" id="educationRequirements[]" type="text" value="{{ internship.educationRequirements }}" placeholder="Vul hier 1 voorwaarden in" name="educationRequirements[]" required>
+{#                                    {% endfor %}#}
+                                    {% else %}
+                                        <input class="form-control" id="educationRequirements[]" type="text" placeholder="Voorbeeld: Opleiding: MBO 3 ICT Beheer" name="educationRequirements[]" required>
+                                {% endif %}
+                                <button type="button" class="btn btn-sm btn-primary" onclick="addRequirements();">Nieuwe voorwaarden</button>
+
                             </div>
                         </div>
+                        <script>
+                            function addRequirements() {
+                                //maakt nieuw input veld voor educationRequirements[]
+                                const formDiv = document.getElementById('Requirements');
+                                const input = document.createElement('input');
+
+                                input.setAttribute('type','text');
+                                input.setAttribute('class',"form-control");
+                                input.setAttribute('name','educationRequirements[]');
+                                input.setAttribute('id','educationRequirements[]');
+                                input.setAttribute('placeholder', "Nieuwe voorwaarden");
+
+
+                                formDiv.appendChild(input);
+                            }
+                        </script>
 
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
@@ -528,6 +550,5 @@
             </div>
         </div>
     </div>
-
 
 {% endblock %}
