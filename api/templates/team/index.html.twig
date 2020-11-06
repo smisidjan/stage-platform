@@ -6,18 +6,26 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 text-center">
                     <h1 class="mb-3">{{ 'teams make the world go around'|trans|capitalize }}</h1>
-                    <p class="lead px-lg-5 mb-5">{{ 'either join an exsisting team or start your own to tackle the worlds problems'|trans|capitalize }}.</p>
+                    <p class="lead px-lg-5 mb-5">{{ 'either join an exsisting team or start your own to tackle the worlds problems'|trans|capitalize }}
+                        .</p>
                     <form action="{{ path('app_team_index', query) }}">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
                             <div class="row align-items-center">
                                 <div class="col">
                                     <div class="input-group input-group-merge shadow-none">
-                                        <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0"><i class="fas fa-search"></i></span></div>
-                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for internschips'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                                        <div class="input-group-prepend"><span
+                                                class="input-group-text bg-transparent border-0"><i
+                                                    class="fas fa-search"></i></span></div>
+                                        <input name="search" id="search" type="text"
+                                               class="form-control border-0 form-control-flush shadow-none pb-2"
+                                               placeholder="{{ 'search for internschips'|trans|capitalize }}..."
+                                               required=""
+                                               {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <button type="submit" class="btn btn-block btn-primary rounded-pill">{{ 'search'|trans|capitalize }}</button>
+                                    <button type="submit"
+                                            class="btn btn-block btn-primary rounded-pill">{{ 'search'|trans|capitalize }}</button>
                                 </div>
                             </div>
                         </div>
@@ -34,14 +42,16 @@
                 <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-eye"></span></div>
+                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span
+                                    class="fas fa-eye"></span></div>
                             <h6 class="text-gray mb-0">Looking</h6></div>
                     </a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-users-class"></span></div>
+                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span
+                                    class="fas fa-users-class"></span></div>
                             <h6 class="text-gray mb-0">Pitchers</h6></div>
                     </a>
                 </div>
@@ -54,24 +64,35 @@
             <div class="row justify-content-center mb-5 mb-lg-6">
                 <div class="col-12 text-center">
                     <h2 class="h1 mb-3">{{ 'teams'|trans|capitalize }}</h2>
-                    <p class="lead px-5 px-lg-7">Teams are groups of students that tackle challanges as a team.</p>
+                    <p class="lead px-5 px-lg-7">{{ 'teams are groups of students that tackle challanges as a team.'|trans|capitalize }}</p>
                 </div>
             </div>
             <div class="row">
-               {% for i in 1..10 %}
-                   <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
-                       <div class="card bg-white border-light shadow-soft p-4 rounded">
-                           <a href="{{ path('app_team_team', {id: 'test'}) }}"><img src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt=""></a>
-                           <div class="card-body p-0 pt-4"><a href="{{ path('app_team_team', {id: 'test'}) }}" class="h3">[name]</a>
-                               <p class="mb-0">[description]</p>
-                               <div class="d-flex">
-                                   <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span class="h6 text-sm ml-2">[members]{# the amount of members #}</span></span>
-                                   <span class="ml-4"><i class="fas fa-bullseye-arrow text-primary"></i><span class="h6 text-sm ml-2">[challanges]{# the amount of challanges that this team is participating in #}</span></span>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               {% endfor %}
+                {% for team in teams %}
+                    {% if team.type is defined and team.type is not empty and (team.type == 'Leerjaar' or team.type == 'Klas' or team.type == 'Studiegroep') %}
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
+                        <div class="card bg-white border-light shadow-soft p-4 rounded">
+                            <a href="{{ path('app_team_team', {id: team.id}) }}"><img
+                                    src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300"
+                                    alt=""></a>
+                            <div class="card-body p-0 pt-4"><a href="{{ path('app_team_team', {id: team.id}) }}"
+                                                               class="h3">{{ team.name|trans|capitalize }}</a>
+                                <p class="mb-0">{{ team.description|trans|capitalize }}</p>
+                                {% if team.persons is defined and team.persons is not empty %}
+                                    {% for person in team.persons %}
+                                        <div class="d-flex">
+                                            <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span
+                                                    class="h6 text-sm ml-2">{{ person|length }}</span></span>
+                                            <span class="ml-4"><i class="fas fa-bullseye-arrow text-primary"></i><span
+                                                    class="h6 text-sm ml-2">[challanges]{# the amount of challanges that this team is participating in #}</span></span>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -80,11 +101,19 @@
             <div class="row">
                 <div class="col-12 text-center mb-5">
                     <h2 class="mb-4">1 + 1 = 3</h2>
-                    <p class="lead mb-5">Working <span class="font-weight-bolder">together</span> doesn't just make's us stronger it makes us <span class="font-weight-bolder">human</span>.</p>
-                    <p>Starting your own teams allows jou to atrect team mates and tackle chalanges together, there is no set definition of who should be in a team so you could either be a group of students of the same study or a mulit diciplinerial team consisting of difrend study's. Or you could just be a group of friend.</p><p>The choice is all yours.</p>
+                    <p class="lead mb-5">Working <span class="font-weight-bolder">together</span> doesn't just make's us
+                        stronger it makes us <span class="font-weight-bolder">human</span>.</p>
+                    <p>Starting your own teams allows jou to atrect team mates and tackle chalanges together, there is
+                        no set definition of who should be in a team so you could either be a group of students of the
+                        same study or a mulit diciplinerial team consisting of difrend study's. Or you could just be a
+                        group of friend.</p>
+                    <p>The choice is all yours.</p>
                 </div>
                 <div class="col-12 text-center">
-                    <button type="button" class="btn btn-secondary animate-up-2" data-toggle="modal" data-target=".pricing-modal"><span class="mr-2"><i class="fas fa-rocket"></i></span>Start a team</button>
+                    <button type="button" class="btn btn-secondary animate-up-2" data-toggle="modal"
+                            data-target=".pricing-modal"><span class="mr-2"><i class="fas fa-rocket"></i></span>Start a
+                        team
+                    </button>
                 </div>
             </div>
         </div>
