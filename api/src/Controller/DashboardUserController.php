@@ -84,6 +84,31 @@ class DashboardUserController extends AbstractController
     }
 
     /**
+     * @Route("/propositions")
+     * @Template
+     */
+    public function propositionsAction(Request $request, CommonGroundService $commonGroundService)
+    {
+        $variables = [];
+
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/propositions/{id}")
+     * @Template
+     */
+    public function propositionAction(Request $request, CommonGroundService $commonGroundService, $id)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
+    /**
      * @Route("/challenges")
      * @Template
      */
