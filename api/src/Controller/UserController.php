@@ -34,6 +34,26 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/logout")
+     * @Template
+     */
+    public function logoutAction(Session $session, Request $request)
+    {
+        $session->set('requestType', null);
+        $session->set('request', null);
+        $session->set('contact', null);
+        $session->set('organisation', null);
+        $session->invalidate();
+
+        $text = $this->translator->trans('U bent uitgelogd');
+
+        // Throw te actual flash
+        $this->flash->add('error', $text);
+
+        return $this->redirect($this->generateUrl('app_default_index'));
+    }
+
+    /**
      * @Route("/auth/idvault")
      * @Template
      */
@@ -51,7 +71,7 @@ class UserController extends AbstractController
         }
 
         if (isset($provider['configuration']['app_id']) && isset($provider['configuration']['secret'])) {
-            return $this->redirect('http://dev.id-vault.com/oauth/authorize?client_id='.$provider['configuration']['app_id'].'&response_type=code&scopes=schema.person.email+schema.person.given_name+schema.person.family_name&state=12345');
+            return $this->redirect('http://dev.id-vault.com/oauth/authorize?client_id='.$provider['configuration']['app_id'].'&response_type=code&scopes=schema.person.email+schema.person.given_name+schema.person.family_name&state=12345&redirect_uri='.$redirect);
         } else {
             return $this->render('500.html.twig');
         }
