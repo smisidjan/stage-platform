@@ -32,16 +32,16 @@
 
                             </div>
 
-                            <div style="flex: 1">
+                            <div style="flex: 1; margin-left: 5%">
                             <h2>{{'requirements'|trans|capitalize}}</h2>
                             <ul class="list-unstyled mb-5">
-                                {# forloop voor de requirements die aan een jobposting zitten#}
+{#                                {% for educationRequirements in intership['educationRequirements'] %}#}
                                 <li class="py-3 lead">
                                     <div class="media"><span class="icon icon-sm mr-3 mt-2"><i class="fas fa-plus-circle"></i></span>
                                         <div>{{ intership.educationRequirements }}</div>
                                     </div>
                                 </li>
-                                {#endfor#}
+{#                                {% endfor %}#}
                             </ul>
                             </div>
                         </div>
