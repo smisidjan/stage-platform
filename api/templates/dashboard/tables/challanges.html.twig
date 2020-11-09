@@ -1,0 +1,47 @@
+<div class="card border-light shadow-sm">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="h5">{{ 'challanges'|trans|capitalize }}</h2></div>
+            {% if editPath is  defined %}
+                <a href="{{ path(editPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add'|trans|capitalize }}</a>
+            {% else %}
+                <a href="{{ path('app_challenge_index') }}" class="btn btn-sm btn-secondary">See all</a>
+            {% endif %}
+        </div>
+    </div>
+    {% if challenges is  defined and challenges|length > 0 %}
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">{{ 'position'|trans|capitalize }}</th>
+                <th scope="col">{{ 'organization'|trans|capitalize }}</th>
+                <th scope="col">{{ 'status'|trans|capitalize }}</th>
+                <th scope="col">Bounce rate</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for challenge in challenges|slice(0, 10) %}
+                <tr>
+                    <th>{{ challenge.name }}</th>
+                    <td> </td>
+                    <td> </td>
+                    <td>
+                        {% if editPath is  defined %}
+                            <a href="{{ path(editPath, {'id':challenge.id }) }}" class="btn btn btn-primary">{{ 'edit'|trans|capitalize }}</a>
+                        {% else %}
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ challenge.id }}">{{ 'edit'|trans|capitalize }}</button>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="card-body">
+        {{ 'no challanges found'|trans|capitalize }}
+    </div>
+    {% endif %}
+</div>
