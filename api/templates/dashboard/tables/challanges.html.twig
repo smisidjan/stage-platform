@@ -3,10 +3,14 @@
         <div class="row align-items-center">
             <div class="col">
                 <h2 class="h5">{{ 'challanges'|trans|capitalize }}</h2></div>
-            <div class="col text-right"><a href="{{ path('app_internship_index') }}" class="btn btn-sm btn-secondary">See all</a></div>
+            {% if editPath is  defined %}
+                <a href="{{ path(editPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add'|trans|capitalize }}</a>
+            {% else %}
+                <a href="{{ path('app_challenge_index') }}" class="btn btn-sm btn-secondary">See all</a>
+            {% endif %}
         </div>
     </div>
-    {% if challanges is  defined and challanges|length > 0 %}
+    {% if challenges is  defined and challenges|length > 0 %}
     <div class="table-responsive">
         <table class="table align-items-center table-flush">
             <thead class="thead-light">
@@ -18,12 +22,18 @@
             </tr>
             </thead>
             <tbody>
-            {% for challange in challanges|slice(0, 10) %}
+            {% for challenge in challenges|slice(0, 10) %}
                 <tr>
-                    <th>{{ challange.name }}</th>
+                    <th>{{ challenge.name }}</th>
                     <td> </td>
                     <td> </td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ challange.id }}">{{ 'edit'|trans|capitalize }}</button></td>
+                    <td>
+                        {% if editPath is  defined %}
+                            <a href="{{ path(editPath, {'id':challenge.id }) }}" class="btn btn btn-primary">{{ 'edit'|trans|capitalize }}</a>
+                        {% else %}
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ challenge.id }}">{{ 'edit'|trans|capitalize }}</button>
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
