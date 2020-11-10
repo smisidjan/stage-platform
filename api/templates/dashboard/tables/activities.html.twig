@@ -43,11 +43,14 @@
         </table>
     </div>
 
-        {% include 'dashboard/modals/activity.html.twig' with {'id': 'new'}%}
-        {% for result in results|slice(0, 10) %}
-            {% include 'dashboard/modals/activity.html.twig' with {'id': result.id, 'result':result}%}
+        {% for activity in activities|slice(0, 10) %}
+            {% include 'dashboard/modals/activity.html.twig' with {'id': activity.id, 'result':activity }%}
         {% endfor %}
+
     {% else %}
+
+    {% include 'dashboard/modals/activity.html.twig' with {'id': 'new'}%}
+
     <div class="card-body text-center">
         <p>{{ 'no tutorials found'|trans|capitalize }}</p>
         {% if addPath is  defined %}
