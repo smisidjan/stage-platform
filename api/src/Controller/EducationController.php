@@ -63,6 +63,31 @@ class EducationController extends AbstractController
         // Get resource tutorial
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
 
+
+        // Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+
+            //  Getting the participant @todo this needs to be more foolproof and part of a service
+            if($this->getUser()){
+                $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> $this->getUser()->getPerson()]])['hydra:member'];
+            }
+            else{
+                $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> "https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db"]])['hydra:member'];
+            }
+
+            $variables['participant'] = $participants[0];
+
+            // Fallback
+            if(!array_key_exists('cources', $variables['participant'])){
+                $variables['participant']['cources'] = [];
+            }
+
+            $variables['participant']['cources'][] = '/cources/'.$variables['tutorial']['id'];
+            $variables['participant'] =  $commonGroundService->savetResource($variables['participant'], ['component' => 'edu', 'type' => 'participants', 'id' => $variables['participant']['id']]);
+
+        }
+
         return $variables;
     }
 
