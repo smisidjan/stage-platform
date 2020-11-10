@@ -50,6 +50,7 @@ class ChallengeController extends AbstractController
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
+            $resource['tender'] = '/tenders/'.$resource['tender'];
 
             // Update to the commonground component
             $variables['entry'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'entries']);

@@ -42,9 +42,32 @@ class InternshipController extends AbstractController
     {
         $variables = [];
 
-        // Get resource Interschip
-        $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        //get test user
+        $variables['employee'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'employees', 'id' => '8c654fb8-444c-41e6-a6d3-7fa58135ea46']);
 
+        //get organizations id of current position
+        $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
+        //get all positions of that organizations
+        $variables['positions'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'job_postings'], ['organization' => $organization])['hydra:member'];
+
+        // Get resource Intership
+        $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+//        $variables['intership']['educationRequirements'] = explode('/' , $variables['intership']['educationRequirements']);
+       // var_dump($variables['intership']); die;
+
+
+        // Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+            /* @todo the below is temp test code. remove before prod */
+            $resource['employee'] = '/employees/'.$variables['employee']['id'];
+            $resource['jobPosting'] = '/job_postings/'. $variables['intership']['id'];
+            $resource['status'] = "applied";
+
+            // Update to the commonground component
+            $variables['applications'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
+
+        }
         return $variables;
     }
 }
