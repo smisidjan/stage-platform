@@ -7,12 +7,12 @@
                 <div class="col-12 col-md-10 text-center">
                     <h1 class="mb-3">{{ 'challenges'|trans|capitalize }}</h1>
                     {% if app.user.organization is defined and app.user.organization is not empty %}
-                    <p class="lead px-lg-5 mb-5">{{ 'Heb je als organisatie een (digitaal) vraagstuk of een uitdaging? En wil je dat er vanuit een ander verfrissend perspectief naar gekeken wordt, of een oplossing voor bedacht wordt? Plaats hier dan een challenge en nodig studenten uit om te reageren en hun ideeën en/of producten te pitchen!'|trans|capitalize }}
+                    <p class="lead px-lg-5 mb-5">{{ 'as an organization do you have a (digital) issue or a challenge? '|trans|capitalize}}{{ 'and do you want it to be viewed from a different refreshing perspective, or to come up with a solution? '|trans|capitalize }} {{ 'Post a challenge '|trans|capitalize }}<a href="{{ path('app_dashboardorganization_index') }}" style="color: #EE5050;">{{ 'here '|trans }} </a>{{ 'and invite students to respond and pitch their ideas and / or products!'|trans|capitalize }}
                     </p>
                     {% else %}
-                    <p class="lead px-lg-5 mb-5">{{ 'Ben je een creatieve en gedreven student  en op zoek naar een andere soort stage? Wij bieden hier challenges aan van bedrijven met bijzondere uitdagingen, die op zoek zijn naar een geschikte oplossing. Jij als student kunt mee doen! Pitch jouw innovatieve oplossing/idee voor deze uitdagingen en maak kans op een uniek stageplek waar je je idee tot uitvoering kunt brengen. Dit kun je individueel doen of met anderen. Op zoek naar teamplayers kijk '|trans|capitalize }}
+                    <p class="lead px-lg-5 mb-5">{{ 'Are you a creative and driven student and looking for a different kind of internship? '|trans|capitalize}}{{ 'Here we offer challenges from companies with special challenges, who are looking for a suitable solution. '|trans|capitalize}}{{ 'You as a student can participate! '|trans|capitalize}}{{ 'Pitch your innovative solution / idea for these challenges and win a unique internship where you can implement your idea. '|trans|capitalize}}{{ 'You can do this individually or with others. '|trans|capitalize}}{{ 'Looking for team players watch '|trans|capitalize }}
                         <a href="{{ path('app_team_index') }}"
-                           style="color: #EE5050;">{{ 'hier'|trans }} </a>{{ ' en maak contact.'|trans|capitalize }}</p>
+                           style="color: #EE5050;">{{ 'here '|trans }} </a>{{ 'and make contact. '|trans }}</p>
                     {% endif %}
                     <form action="#">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
@@ -76,20 +76,19 @@
                         </div>
                     </div>
                 {% endfor %}
-
-                <div class="d-flex justify-content-center w-100">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                </div>
+{#                <div class="d-flex justify-content-center w-100">#}
+{#                    <nav aria-label="Page navigation example">#}
+{#                        <ul class="pagination">#}
+{#                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>#}
+{#                            <li class="page-item"><a class="page-link" href="#">1</a></li>#}
+{#                            <li class="page-item active"><a class="page-link" href="#">2</a></li>#}
+{#                            <li class="page-item"><a class="page-link" href="#">3</a></li>#}
+{#                            <li class="page-item"><a class="page-link" href="#">4</a></li>#}
+{#                            <li class="page-item"><a class="page-link" href="#">5</a></li>#}
+{#                            <li class="page-item"><a class="page-link" href="#">Next</a></li>#}
+{#                        </ul>#}
+{#                    </nav>#}
+{#                </div>#}
             </div>
         </div>
     </section>
@@ -98,11 +97,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center">
-                    <h2 class="h1">{{ 'Plaats een challenge voor studenten'|trans|capitalize }}</h2>
+                    <h2 class="h1">{{ 'post a challenge for students'|trans|capitalize }}</h2>
                     <a href="{{ path('app_dashboardorganization_challenges') }}">
                         <button type="button" class="btn btn-secondary animate-up-2" data-toggle="modal"
                                 data-target=".pricing-modal"><span class="mr-2"><i
-                                    class="fas fa-bullseye-arrow"></i></span>{{ 'Plaats een challenge'|trans|capitalize }}
+                                    class="fas fa-bullseye-arrow"></i></span>{{ 'post a challenge'|trans|capitalize }}
                         </button>
                     </a>
                 </div>
