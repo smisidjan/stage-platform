@@ -52,9 +52,6 @@ class InternshipController extends AbstractController
 
         // Get resource Intership
         $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
-//        $variables['intership']['educationRequirements'] = explode('/' , $variables['intership']['educationRequirements']);
-       // var_dump($variables['intership']); die;
-
 
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
