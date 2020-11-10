@@ -2,35 +2,33 @@
     <div class="card-header">
         <div class="row align-items-center">
             <div class="col">
-                <h2 class="h5">{{ 'applications'|trans|capitalize }}</h2>
+                <h2 class="h5">{{ 'propositions'|trans|capitalize }}</h2>
             </div>
             <div class="col text-right">
                 {% if addPath is  defined %}
-                    <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add tutorial'|trans|capitalize }}</a>
+                    <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add proposition'|trans|capitalize }}</a>
                 {% else %}
-                    <a href="{{ path('app_education_tutorials') }}" class="btn btn-sm btn-secondary">{{ 'see all tutorials'|trans|capitalize }}</a>
+                    <a href="{{ path('app_education_tutorials') }}" class="btn btn-sm btn-secondary">{{ 'see all propositions'|trans|capitalize }}</a>
                 {% endif %}
             </div>
         </div>
     </div>
-    {% if applications is  defined and applications|length > 0 %}
+    {% if propositions is  defined and propositions|length > 0 %}
     <div class="table-responsive">
         <table class="table align-items-center table-flush">
             <thead class="thead-light">
             <tr>
-                <th scope="col">{{ 'position'|trans|capitalize }}</th>
+                <th scope="col">{{ 'challange'|trans|capitalize }}</th>
                 <th scope="col">{{ 'organization'|trans|capitalize }}</th>
-                <th scope="col">{{ 'candidate'|trans|capitalize }}</th>
                 <th scope="col">{{ 'status'|trans|capitalize }}</th>
                 <th scope="col">Bounce rate</th>
             </tr>
             </thead>
             <tbody>
-            {% for application in applications|slice(0, 10) %}
+            {% for proposition in propositions|slice(0, 10) %}
                 <tr>
                     <th>{{ applications.position.name }}</th>
                     <td>{{ commonground_resource(applications.organization).name }}</td>
-                    <td>{{ applications.status }}</td>
                     <td>{{ applications.status }}</td>
                     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ application.id }}">{{ 'edit'|trans|capitalize }}</button></td>
                 </tr>
@@ -42,9 +40,9 @@
     <div class="card-body text-center">
         <p>{{ 'no applications found'|trans|capitalize }}</p>
         {% if addPath is  defined %}
-            <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add your first application!'|trans|capitalize }}</a>
+            <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add your first proposition!'|trans|capitalize }}</a>
         {% else %}
-        <a href="{{ path('app_internship_index') }}" class="btn btn-primary">{{ 'find an position to apply to'|trans|capitalize }}</a>
+        <a href="{{ path('app_challenge_index') }}" class="btn btn-primary">{{ 'find a challenge to propose to'|trans|capitalize }}</a>
         {% endif %}
     </div>
     {% endif %}

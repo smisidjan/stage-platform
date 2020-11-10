@@ -16,28 +16,28 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-xl-8 mb-4">
+        <div class="col-12 col-lg-8 col-xl-8">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 mb-4">
                     {% include 'dashboard/tables/applications.html.twig' %}
                 </div>
-                <div class="col-12">
-                    {% include 'dashboard/tables/challanges.html.twig' %}
+                <div class="col-12 mb-4">
+                    {% include 'dashboard/tables/propositions.html.twig' %}
                 </div>
-                <div class="col-12">
+                <div class="col-12 mb-4">
                     {% include 'dashboard/tables/tutorials.html.twig' %}
                 </div>
             </div>
         </div>
-        <div class="col-12 col-xl-4 mb-4">
+        <div class="col-12 col-lg-4 col-xl-4">
             <div class="col-12 px-0 mb-4">
-                {% include 'dashboard/widget/events.html.twig' %}
+                {% include 'dashboard/widgets/events.html.twig' %}
             </div>
             <div class="col-12 px-0 mb-4">
-                {% include 'dashboard/widget/position.html.twig' %}
+                {% include 'dashboard/widgets/position.html.twig' %}
             </div>
             <div class="col-12 px-0 mb-4">
-                {% include 'dashboard/widget/propositions.html.twig' %}
+                {% include 'dashboard/widgets/teams.html.twig' %}
             </div>
         </div>
     </div>

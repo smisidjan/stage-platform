@@ -2,12 +2,15 @@
     <div class="card-header">
         <div class="row align-items-center">
             <div class="col">
-                <h2 class="h5">{{ 'challanges'|trans|capitalize }}</h2></div>
-            {% if editPath is  defined %}
-                <a href="{{ path(editPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add'|trans|capitalize }}</a>
+                <h2 class="h5">{{ 'challanges'|trans|capitalize }}</h2>
+            </div>
+            <div class="col text-right">
+            {% if addPath is  defined %}
+                <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add challenge'|trans|capitalize }}</a>
             {% else %}
-                <a href="{{ path('app_challenge_index') }}" class="btn btn-sm btn-secondary">See all</a>
+                <a href="{{ path('app_challenge_index') }}" class="btn btn-sm btn-secondary">{{ 'see all challenges'|trans|capitalize }}</a>
             {% endif %}
+            </div>
         </div>
     </div>
     {% if challenges is  defined and challenges|length > 0 %}
@@ -40,8 +43,13 @@
         </table>
     </div>
     {% else %}
-    <div class="card-body">
-        {{ 'no challanges found'|trans|capitalize }}
+    <div class="card-body text-center">
+        <p>{{ 'no challanges found'|trans|capitalize }}</p>
+        {% if addPath is  defined %}
+            <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add your first chalange!'|trans|capitalize }}</a>
+        {% else %}
+        <a href="{{ path('app_team_index') }}" class="btn btn-primary">{{ 'find a chalange'|trans|capitalize }}</a>
+        {% endif %}
     </div>
     {% endif %}
 </div>
