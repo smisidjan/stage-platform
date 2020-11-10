@@ -42,9 +42,6 @@ class InternshipController extends AbstractController
     {
         $variables = [];
 
-        //get test user
-        $variables['employee'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'employees', 'id' => '8c654fb8-444c-41e6-a6d3-7fa58135ea46']);
-
         //get organizations id of current position
         $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
         //get all positions of that organizations
@@ -56,10 +53,16 @@ class InternshipController extends AbstractController
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
-            /* @todo the below is temp test code. remove before prod */
-            $resource['employee'] = '/employees/'.$variables['employee']['id'];
+            $resource['employee']['person'] = $this->getUser()->getPerson();
+            $resource['employee']['organization'] = $this->getUser()->getOrganization();
             $resource['jobPosting'] = '/job_postings/'. $variables['intership']['id'];
             $resource['status'] = "applied";
+
+            /* @todo the below is temp test code. remove before prod */
+//            $resource['employee'] = '/employees/'.$variables['employee']['id'];
+            if (empty($resource['employee']['organization']) or $resource['employee']['organization'] == null){
+                $resource['employee']['organization'] = 'https://cc.zaakonline.nl/organizations/e2984465-190a-4562-829e-a8cca81aa35d';
+            }
 
             // Update to the commonground component
             $variables['applications'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
