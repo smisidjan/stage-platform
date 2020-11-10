@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col">
                 <h2 class="h5">{{ 'requirements'|trans|capitalize }}</h2></div>
-            <div class="col text-right"><a href="{{ path('app_internship_index') }}" class="btn btn-sm btn-secondary">See all</a></div>
+            <div class="col text-right"><a href="{{ path('app_internship_index') }}" class="btn btn-sm btn-secondary">{{ 'see all requirements'|trans|capitalize }}</a></div>
         </div>
     </div>
     {% if requirements is  defined and requirements|length > 0 %}
@@ -30,8 +30,12 @@
         </table>
     </div>
     {% else %}
-    <div class="card-body">
-        {{ 'no requirements found'|trans|capitalize }}
+    <div class="card-body  text-center">
+        <p>{{ 'no requirements found'|trans|capitalize }}</p>
+        {% if addPath is  defined %}
+            <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add your first requierement!'|trans|capitalize }}</a>
+        {% else %}
+        {% endif %}
     </div>
     {% endif %}
 </div>

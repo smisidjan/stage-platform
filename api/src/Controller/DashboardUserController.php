@@ -30,6 +30,13 @@ class DashboardUserController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
+        // Get random unfilterd data
+        $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
+        $variables['teams'] = [];
+        $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+        $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'], $variables['query'])['hydra:member'];
+
+
         return $variables;
     }
 
@@ -77,6 +84,31 @@ class DashboardUserController extends AbstractController
      * @Template
      */
     public function internshipAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/propositions")
+     * @Template
+     */
+    public function propositionsAction(Request $request, CommonGroundService $commonGroundService)
+    {
+        $variables = [];
+
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/propositions/{id}")
+     * @Template
+     */
+    public function propositionAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
         $variables = [];
 
