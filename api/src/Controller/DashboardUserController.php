@@ -30,6 +30,24 @@ class DashboardUserController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
+        // Get random unfilterd data
+        $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
+        $variables['teams'] = [];
+        $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+
+        //  Getting the participant @todo this needs to be more foolproof
+        if($this->getUser()){
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> $this->getUser()->getPerson()]])['hydra:member'];
+        }
+        else{
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> "https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db"]])['hydra:member'];
+        }
+        $variables['participant'] = $participants[0];
+
+        $variables['courses'] = $variables['participant']['courses'];
+        $variables['programs'] = $variables['participant']['programs'];
+        $variables['results'] = $variables['participant']['results'];
+
         return $variables;
     }
 
@@ -43,6 +61,17 @@ class DashboardUserController extends AbstractController
 
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+
+        //  Getting the participant @todo this needs to be more foolproof
+        if($this->getUser()){
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> $this->getUser()->getPerson()]])['hydra:member'];
+        }
+        else{
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> "https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db"]])['hydra:member'];
+        }
+        $variables['participant'] = $participants[0];
+
+        $variables['tutorials'] = $variables['participant']['courses'];
 
         return $variables;
     }
@@ -77,6 +106,31 @@ class DashboardUserController extends AbstractController
      * @Template
      */
     public function internshipAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/propositions")
+     * @Template
+     */
+    public function propositionsAction(Request $request, CommonGroundService $commonGroundService)
+    {
+        $variables = [];
+
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/propositions/{id}")
+     * @Template
+     */
+    public function propositionAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
         $variables = [];
 

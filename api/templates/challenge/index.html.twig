@@ -6,9 +6,14 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 text-center">
                     <h1 class="mb-3">{{ 'challenges'|trans|capitalize }}</h1>
-                    <p class="lead px-lg-5 mb-5">{{ 'Ben je een creatieve en gedreven student  en op zoek naar een andere soort stage? Wij bieden hier challenges aan aan bedrijven met bijzondere uitdagingen en op zoek naar een geschikte oplossing. Jij als student kunt mee doen. Pitch jouw innovatieve oplossing/idee voor deze uitdagingen en maak kans op een uniek stageplek waar je je idee tot uitvoering kunt brengen. Dit kun je individueel doen of met anderen. Op zoek naar teamplayers kijk '|trans|capitalize }}
+                    {% if app.user.organization is defined and app.user.organization is not empty %}
+                    <p class="lead px-lg-5 mb-5">{{ 'Heb je als organisatie een (digitaal) vraagstuk of een uitdaging? En wil je dat er vanuit een ander verfrissend perspectief naar gekeken wordt, of een oplossing voor bedacht wordt? Plaats hier dan een challenge en nodig studenten uit om te reageren en hun ideeën en/of producten te pitchen!'|trans|capitalize }}
+                    </p>
+                    {% else %}
+                    <p class="lead px-lg-5 mb-5">{{ 'Ben je een creatieve en gedreven student  en op zoek naar een andere soort stage? Wij bieden hier challenges aan van bedrijven met bijzondere uitdagingen, die op zoek zijn naar een geschikte oplossing. Jij als student kunt mee doen! Pitch jouw innovatieve oplossing/idee voor deze uitdagingen en maak kans op een uniek stageplek waar je je idee tot uitvoering kunt brengen. Dit kun je individueel doen of met anderen. Op zoek naar teamplayers kijk '|trans|capitalize }}
                         <a href="{{ path('app_team_index') }}"
                            style="color: #EE5050;">{{ 'hier'|trans }} </a>{{ ' en maak contact.'|trans|capitalize }}</p>
+                    {% endif %}
                     <form action="#">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
                             <div class="row align-items-center">
@@ -88,7 +93,8 @@
             </div>
         </div>
     </section>
-    <section class="section section-lg pb-5 bg-soft">
+    {% if app.user.organization is defined and app.user.organization is not empty %}
+    <section id="plaatsen" class="section section-lg pb-5 bg-soft">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center">
@@ -103,4 +109,5 @@
             </div>
         </div>
     </section>
+    {% endif %}
 {% endblock %}
