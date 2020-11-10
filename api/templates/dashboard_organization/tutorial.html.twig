@@ -17,10 +17,8 @@
         </div>
     </div>
 
-
-
-    <div class="row">
         <!-- left collum -->
+    <div class="row">
         <div class="col-12 col-xl-8">
             <div class="card card-body bg-white border-light shadow-sm mb-4">
                 <h2 class="h5 mb-4">General information</h2>
@@ -43,7 +41,7 @@
                                        required=""
                                     {% if tutorial.name is defined and tutorial.name is not empty %}
                                     value="{{ tutorial.name }}" {% else %}
-                                    placeholder="{{ 'your tutorial name'|trans|capitalize }}"{% endif %} name="name" required>
+                                    placeholder="{{ 'your tutorial name ...'|trans|capitalize }}"{% endif %} name="name" required>
                             </div>
                         </div>
                     </div>
@@ -55,20 +53,32 @@
                                        required=""
                                     {% if tutorial.description is defined and tutorial.description is not empty %}
                                         value="{{ tutorial.description }}" {% else %}
-                                        placeholder="{{ 'your tutorial description'|trans|capitalize }}"{% endif %} name="description" required>
+                                        placeholder="{{ 'your tutorial description ...'|trans|capitalize }}"{% endif %} name="description" required>
                             </div>
                         </div>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="content">{{ 'Tutorial content'|trans|capitalize }}</label>
-                                {% if tutorial.courseCode is defined and tutorial.courseCode is not empty %}
-                                    <textarea class="form-control" id="courseCode" name="courseCode" rows="3" cols="6">{{ tutorial.courseCode }}</textarea>
+                                <label for="content">{{ 'Tutorial text'|trans|capitalize }}</label>
+                                {% if tutorial.text is defined and tutorial.text is not empty %}
+                                    <textarea class="form-control" id="text" name="text" rows="3" cols="6">{{ tutorial.text }}</textarea>
                                 {% else %}
-                                    <textarea class="form-control" id="courseCode" name="courseCode"
-                                              placeholder="The content of your tutorial will be displayed here"
+                                    <textarea class="form-control" id="text" name="text"
+                                              placeholder="The text of your tutorial will be displayed here ..."
                                               rows="3" cols="6"></textarea>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                                <label for="description">{{ 'Tutorial time required '|trans|capitalize }}</label>
+                                <input class="form-control" id="description" type="text"
+                                       required=""
+                                    {% if tutorial.timeRequired is defined and tutorial.timeRequired is not empty %}
+                                        value="{{ tutorial.timeRequired }}" {% else %}
+                                        placeholder="{{ 'The time required to read the entire tutorial ...'|trans|capitalize }}"{% endif %} name="timeRequired" required>
                             </div>
                         </div>
                     </div>
