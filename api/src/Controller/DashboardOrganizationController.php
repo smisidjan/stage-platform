@@ -110,7 +110,7 @@ class DashboardOrganizationController extends AbstractController
             $resource['baseSalary'] = (int) $resource['baseSalary'];
 
             // Add the post data to the already aquired internship data
-            $resource = array_merge($variables['internship'], $resource);
+            $variables['internship'] = array_merge($variables['internship'], $resource);
 
             // Save to the commonground component
             $variables['internship'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'job_postings']);

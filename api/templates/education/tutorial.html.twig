@@ -50,7 +50,12 @@
                     <div class="mb-1 text-center">
                         <h2 class="h1">{{'register for this tutorial'|trans|capitalize}}</h2>
                     </div>
-
+                    {%  if registered %}
+                        <p class="mt-4 text-center">{{ 'you have already registerd for this cource'|trans|capitalize }}</p>
+                        <a class="mt-2 text-center btn btn-secondary" href="{{ path('app_dashboarduser_tutorial', {id: tutorial.id}) }}">
+                            <button type="submit" class="">{{ 'click here to participate'|trans|capitalize }}</button>
+                        </a>
+                    {% elseif app.user is defined and app.user is not null %}
                     <form action="{{ path('app_education_tutorial', {id: tutorial.id}) }}" method="post">
                         <div class="row">
 
@@ -65,6 +70,12 @@
                             </div>
                         </div>
                     </form>
+                    {% else %}
+                    <p class="mt-4 text-center">{{ 'you need to be logged in to register for a tutorial'|trans|capitalize }}</p>
+                    <a class="btn btn-secondary text-white animate-up-2 mr-3" href="{{ path('app_user_idvault') }}">
+                        {{ 'click here to log in'|trans|capitalize }}
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
