@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 text-center">
-                    <h1 class="mb-3">{{ 'find your perfect internschip'|trans|capitalize }}</h1>
+                    <h1 class="mb-3">{{ 'find your perfect internship'|trans|capitalize }}</h1>
                     <p class="lead px-lg-5 mb-5">{{ 'We hebben voor jou alle bedrijven die op zoek zijn naar een stagiair op een rijtje gezet. Zodat jij een keuze kunt maken voor welke stage je zou willen gaan.'|trans|capitalize }}.</p>
                     <form action="{{ path('app_internship_index', query) }}">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
@@ -13,7 +13,7 @@
                                 <div class="col">
                                     <div class="input-group input-group-merge shadow-none">
                                         <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0"><i class="fas fa-search"></i></span></div>
-                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for internschips'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for internships'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -48,7 +48,7 @@
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-business-time"></span></div>
-                            <h6 class="text-gray mb-0"> {{ 'Ttijdelijk'|capitalize }} </h6></div>
+                            <h6 class="text-gray mb-0"> {{ 'Tijdelijk'|capitalize }} </h6></div>
                     </a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-2">
@@ -98,7 +98,11 @@
                                 <div class="col-12 col-md-12 d-flex align-items-center justify-content-md-end">
 {#                                  voor als er is geklikt#}
 {#                                  <button type="submit" class="btn btn-secondary mr-3 animate-up-2 m-0"><i class="fas fa-heart"></i></button>#}
-                                    <button type="submit" class="btn btn-secondary mr-3 animate-up-2 m-0"><i class="fal fa-heart"></i></button>
+                                    {% if app.user is defined and app.user is not null %}
+                                        <a href="{{ path('app_internship_like') }}" class="btn btn-secondary mr-3 animate-up-2 m-0"><i class="fal fa-heart"></i></a>
+                                    {% else %}
+                                        <a href="{{ path('app_user_idvault') }}" class="btn btn-secondary mr-3 animate-up-2 m-0" data-toggle="tooltip" data-placement="top" title="{{ 'u moet eerst inloggen'|trans|capitalize }}"><i class="fal fa-heart"></i></a>
+                                    {% endif %}
                                     <a href="{{ path('app_internship_position', {id: internship.id}) }}#apply" class="btn btn-secondary mr-3 animate-up-2 m-0">{{ 'apply'|trans|capitalize }}</a>
                                     <a href="{{ path('app_internship_position', {id: internship.id}) }}" class="btn btn-primary animate-up-2 m-0"><i class="fas fa-clipboard-list mr-2"></i>{{ 'see details'|trans|capitalize }}</a>
                                 </div>
