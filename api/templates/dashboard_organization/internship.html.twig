@@ -123,11 +123,11 @@
                         <div class="col-md-6 mb-3">
                             <div class="form-group" id="Requirements">
                                 <label for="educationRequirements[]">voorwaarden stage (alles waar de solicitant aan moet voldoen)<br>
-                                    <strong> Druk op de blauwe knop om meer voorwaarden toe te voegen</strong></label>
+                                    <strong> Druk op de blauwe knop om meer voorwaarden toe te voegen</strong><br>Opleiding:</label>
                                 {% if internship.educationRequirements is defined and internship.educationRequirements is not empty %}
-{#                                {% for educationRequirements in  internship['educationRequirements'] %}#}
-                                <input class="form-control" id="educationRequirements[]" type="text" value="{{ internship.educationRequirements }}" placeholder="Vul hier 1 voorwaarden in" name="educationRequirements[]" required>
-{#                                    {% endfor %}#}
+                                {% for educationRequirements in  internship['educationRequirements'] %}
+                                <input class="form-control" id="educationRequirements[]" type="text" value="{{ educationRequirements }}" placeholder="Vul hier 1 voorwaarden in" name="educationRequirements[]" required>
+                                {% endfor %}
                                     {% else %}
                                         <input class="form-control" id="educationRequirements[]" type="text" placeholder="Voorbeeld: Opleiding: MBO 3 ICT Beheer" name="educationRequirements[]" required>
                                 {% endif %}
