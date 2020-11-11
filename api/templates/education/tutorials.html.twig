@@ -6,18 +6,22 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 text-center">
                     <h1 class="mb-3">{{ 'tutorials'|trans|capitalize }}</h1>
-                    <p class="lead px-lg-5 mb-5">{{ 'We verzamelen zoveel mogelijk tutorials die jouw kennis en daarmee de kans op een te gekke stage vergroten! Voor sommige stages is het doorlopen van enkele tutorials een must, je legt dan na het kijken een klein testje af zodat het bedrijf kan zien dat je de kennis tot je hebt genomen. Dat maakt het voor jou ook stuk makkelijker om meteen mee te komen binnen je stagebedrijf! '|trans|capitalize }}.</p>
+                    <p class="lead px-lg-5 mb-5">{{ 'We collect as many tutorials as possible that share your knowledge and
+                    thus increasing the chance of a great internship! For some internships it is
+                    going through a few tutorials is a must, you will then submit a little after watching
+                    test so that the company can see that you have acquired the knowledge.
+                    That also makes it much easier for you to immediately join your internship company'|trans|capitalize }}.</p>
                     <form action="{{ path('app_education_tutorials', query) }}">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
                             <div class="row align-items-center">
                                 <div class="col">
                                     <div class="input-group input-group-merge shadow-none">
                                         <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0"><i class="fas fa-search"></i></span></div>
-                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for internschips'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for tutorial'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <button type="submit" class="btn btn-block btn-primary rounded-pill">{{ 'search'|trans|capitalize }}</button>
+                                    <button type="submit" class="btn btn-block btn-primary rounded-pill">{{ 'Search'|trans|capitalize }}</button>
                                 </div>
                             </div>
                         </div>
@@ -96,18 +100,6 @@
                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
                     </nav>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section section-lg pb-5 bg-soft">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="mb-4">Faster growth starts with Rocket</h2>
-                    <p class="lead mb-5">Join over <span class="font-weight-bolder">300,000+</span> users</p><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-mailchimp"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-cpanel"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-dhl"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-github-alt"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-aws"></span> </a><a href="#" class="icon icon-lg text-gray"><span class="fab fa-node"></span></a></div>
-                <div class="col-12 text-center">
-                    <button type="button" class="btn btn-secondary animate-up-2" data-toggle="modal" data-target=".pricing-modal"><span class="mr-2"><i class="fas fa-hand-pointer"></i></span>Start 30-days trial</button>
                 </div>
             </div>
         </div>
