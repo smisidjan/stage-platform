@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 text-center">
-                    <h1 class="mb-3">{{ 'find your perfect internschip'|trans|capitalize }}</h1>
+                    <h1 class="mb-3">{{ 'find your perfect internship'|trans|capitalize }}</h1>
                     <p class="lead px-lg-5 mb-5">{{ 'We hebben voor jou alle bedrijven die op zoek zijn naar een stagiair op een rijtje gezet. Zodat jij een keuze kunt maken voor welke stage je zou willen gaan.'|trans|capitalize }}.</p>
                     <form action="{{ path('app_internship_index', query) }}">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
@@ -13,7 +13,7 @@
                                 <div class="col">
                                     <div class="input-group input-group-merge shadow-none">
                                         <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0"><i class="fas fa-search"></i></span></div>
-                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for internschips'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for internships'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
                                     </div>
                                 </div>
                                 <div class="col-auto">

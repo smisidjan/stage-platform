@@ -218,6 +218,33 @@ class DashboardOrganizationController extends AbstractController
     }
 
     /**
+     * @Route("/competences")
+     * @Template
+     */
+    public function competencesAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $variables = [];
+
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+
+        $variables['competences'] = [];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/competences/{id}")
+     * @Template
+     */
+    public function competenceAction(CommonGroundService $commonGroundService, Request $request, $id)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
+    /**
      * @Route("/settings")
      * @Template
      */
@@ -227,4 +254,6 @@ class DashboardOrganizationController extends AbstractController
 
         return $variables;
     }
+
+
 }
