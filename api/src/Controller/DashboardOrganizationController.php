@@ -110,7 +110,7 @@ class DashboardOrganizationController extends AbstractController
             $resource['baseSalary'] = (int) $resource['baseSalary'];
 
             // Add the post data to the already aquired internship data
-            $resource = array_merge($variables['internship'], $resource);
+            $variables['internship'] = array_merge($variables['internship'], $resource);
 
             // Save to the commonground component
             $variables['internship'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'job_postings']);
@@ -137,6 +137,11 @@ class DashboardOrganizationController extends AbstractController
         }
         //Get resources Organizations
         $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+
+        //Get current application
+        $variables['application'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'applications', 'id' => $variables['internship']['application']['id']]);
+        //get employee
+        $variables['employee'] = $commonGroundService->getResource('https://dev.zuid-drecht.nl/api/v1/mrc'.$variables['application']['employee']);
 
         return $variables;
     }
@@ -218,6 +223,33 @@ class DashboardOrganizationController extends AbstractController
     }
 
     /**
+     * @Route("/competences")
+     * @Template
+     */
+    public function competencesAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $variables = [];
+
+        // On an index route we might want to filter based on user input
+        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+
+        $variables['competences'] = [];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/competences/{id}")
+     * @Template
+     */
+    public function competenceAction(CommonGroundService $commonGroundService, Request $request, $id)
+    {
+        $variables = [];
+
+        return $variables;
+    }
+
+    /**
      * @Route("/settings")
      * @Template
      */
@@ -227,4 +259,6 @@ class DashboardOrganizationController extends AbstractController
 
         return $variables;
     }
+
+
 }

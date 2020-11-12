@@ -123,11 +123,11 @@
                         <div class="col-md-6 mb-3">
                             <div class="form-group" id="Requirements">
                                 <label for="educationRequirements[]">voorwaarden stage (alles waar de solicitant aan moet voldoen)<br>
-                                    <strong> Druk op de blauwe knop om meer voorwaarden toe te voegen</strong></label>
+                                    <strong> Druk op de blauwe knop om meer voorwaarden toe te voegen</strong><br>Opleiding:</label>
                                 {% if internship.educationRequirements is defined and internship.educationRequirements is not empty %}
-{#                                {% for educationRequirements in  internship['educationRequirements'] %}#}
-                                <input class="form-control" id="educationRequirements[]" type="text" value="{{ internship.educationRequirements }}" placeholder="Vul hier 1 voorwaarden in" name="educationRequirements[]" required>
-{#                                    {% endfor %}#}
+                                {% for educationRequirements in  internship['educationRequirements'] %}
+                                <input class="form-control" id="educationRequirements[]" type="text" value="{{ educationRequirements }}" placeholder="Vul hier 1 voorwaarden in" name="educationRequirements[]" required>
+                                {% endfor %}
                                     {% else %}
                                         <input class="form-control" id="educationRequirements[]" type="text" placeholder="Voorbeeld: Opleiding: MBO 3 ICT Beheer" name="educationRequirements[]" required>
                                 {% endif %}
@@ -135,22 +135,6 @@
 
                             </div>
                         </div>
-                        <script>
-                            function addRequirements() {
-                                //maakt nieuw input veld voor educationRequirements[]
-                                const formDiv = document.getElementById('Requirements');
-                                const input = document.createElement('input');
-
-                                input.setAttribute('type','text');
-                                input.setAttribute('class',"form-control");
-                                input.setAttribute('name','educationRequirements[]');
-                                input.setAttribute('id','educationRequirements[]');
-                                input.setAttribute('placeholder', "Nieuwe voorwaarden");
-
-
-                                formDiv.appendChild(input);
-                            }
-                        </script>
 
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
@@ -198,8 +182,8 @@
                 </form>
             </div>
 
-            <h3 class="h4">Applicants</h3>
-            <p class="mb-0">These people have applied to your position</p>
+            <h3 class="h4">{{'applicants'|trans|capitalize}}</h3>
+            <p class="mb-0">{{'these people have applied to your position'|trans|capitalize}}</p>
 
             <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                 <table class="table table-hover">
@@ -211,235 +195,50 @@
                                 <label class="form-check-label" for="userCheck55"></label>
                             </div>
                         </th>
-                        <th class="border-0">Name</th>
-                        <th class="border-0">Date Created</th>
-                        <th class="border-0">Verified</th>
-                        <th class="border-0">Status</th>
-                        <th class="border-0">Action</th>
+                        <th class="border-0">{{'name'|trans|capitalize}}</th>
+                        <th class="border-0">{{'date created'|trans|capitalize}}</th>
+                        <th class="border-0">{{'status'}}</th>
+                        <th class="border-0">{{'action'|trans|capitalize}}</th>
                     </tr>
                     </thead>
+                    {#for loop voor de applications op de position maken #}
+                    {% if internship.application is defined and internship.application is not empty %}
                     <tbody>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck1">
-                                <label class="form-check-label" for="userCheck1"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center"><img src="../../assets/img/team/profile-picture-1.jpg" class="user-avatar rounded-circle mr-3" alt="Avatar">
-                                <div class="d-block"><span class="font-weight-bold">Roy Fendley</span>
-                                    <div class="small text-gray">info@example.com</div>
+                        <tr>
+                            <td>
+                                <div class="form-check dashboard-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="userCheck1">
+                                    <label class="form-check-label" for="userCheck1"></label>
                                 </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-success">Active</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck2">
-                                <label class="form-check-label" for="userCheck2"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center">
-                                <div class="user-avatar bg-secondary mr-3"><span>SA</span></div>
-                                <div class="d-block"><span class="font-weight-bold">Scott Anderson</span>
-                                    <div class="small text-gray">info@example.com</div>
+                            </td>
+                            <td>
+                                <a href="#" class="d-flex align-items-center"><img src="../../assets/img/team/profile-picture-1.jpg" class="user-avatar rounded-circle mr-3" alt="Avatar">
+                                    <div class="d-block"><span class="font-weight-bold">{{ commonground_resource(employee.person).name }}</span>
+                                        <div class="small text-gray">
+                                            {% if commonground_resource(employee.person).emais is defined and commonground_resource(employee.person).emais is not empty %}
+                                            {{ commonground_resource(employee.person).emais[0] }}
+                                            {% else %}
+                                            {{ 'no email available'|trans|capitalize }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </a>
+                            </td>
+                            <td><span class="font-weight-normal">{{ internship.application.dateCreated|date("Y-m-d") }}</span></td>
+                            <td><span class="font-weight-normal text-warning">{{ internship.application.status }}</span></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a>
+                                        <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>{{ 'view details'|trans|capitalize }}</a>
+                                        <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>{{ 'delete application'|trans|capitalize }}</a></div>
                                 </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-success">Active</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck3">
-                                <label class="form-check-label" for="userCheck3"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center"><img src="../../assets/img/team/profile-picture-2.jpg" class="user-avatar rounded-circle mr-3" alt="Avatar">
-                                <div class="d-block"><span class="font-weight-bold">George Driskell</span>
-                                    <div class="small text-gray">info@example.com</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-success">Active</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck4">
-                                <label class="form-check-label" for="userCheck4"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center"><img src="../../assets/img/team/profile-picture-3.jpg" class="user-avatar rounded-circle mr-3" alt="Avatar">
-                                <div class="d-block"><span class="font-weight-bold">Bonnie Green</span>
-                                    <div class="small text-gray">info@example.com</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-success">Active</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck5">
-                                <label class="form-check-label" for="userCheck5"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center">
-                                <div class="user-avatar bg-tertiary mr-3"><span>RB</span></div>
-                                <div class="d-block"><span class="font-weight-bold">Ronnie Buchanan</span>
-                                    <div class="small text-gray">info@example.com</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-clock text-info mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-info">Inactive</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck6">
-                                <label class="form-check-label" for="userCheck6"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center">
-                                <div class="user-avatar bg-secondary mr-3"><span>JR</span></div>
-                                <div class="d-block"><span class="font-weight-bold">Jane Rinehart</span>
-                                    <div class="small text-gray">info@example.com</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-info-circle mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-warning">Pending</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck7">
-                                <label class="form-check-label" for="userCheck7"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center"><img src="../../assets/img/team/profile-picture-4.jpg" class="user-avatar rounded-circle mr-3" alt="Avatar">
-                                <div class="d-block"><span class="font-weight-bold">William Ginther</span>
-                                    <div class="small text-gray">info@example.com</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-info-circle mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-warning">Pending</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck8">
-                                <label class="form-check-label" for="userCheck8"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center"><img src="../../assets/img/team/profile-picture-5.jpg" class="user-avatar rounded-circle mr-3" alt="Avatar">
-                                <div class="d-block"><span class="font-weight-bold">Margaret Dow</span>
-                                    <div class="small text-gray">info@example.com</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-info-circle mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-danger">Suspended</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-check dashboard-check">
-                                <input class="form-check-input" type="checkbox" value="" id="userCheck9">
-                                <label class="form-check-label" for="userCheck9"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="d-flex align-items-center">
-                                <div class="user-avatar bg-info mr-3"><span>MT</span></div>
-                                <div class="d-block"><span class="font-weight-bold">Michael Hopkins</span>
-                                    <div class="small text-gray">info@example.com</div>
-                                </div>
-                            </a>
-                        </td>
-                        <td><span class="font-weight-normal">10 Feb 2020</span></td>
-                        <td><span class="font-weight-normal"><span class="fas fa-info-circle mr-2"></span>Email</span>
-                        </td>
-                        <td><span class="font-weight-normal text-danger">Suspended</span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a> <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                            </div><a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a></td>
-                    </tr>
+                                <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a>
+                            </td>
+                        </tr>
                     </tbody>
+                    {% endif %}
                 </table>
                 <div class="card-footer px-3 d-flex align-items-center justify-content-between">
                     <nav aria-label="Page navigation example">
@@ -550,5 +349,21 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function addRequirements() {
+            //maakt nieuw input veld voor educationRequirements[]
+            const formDiv = document.getElementById('Requirements');
+            const input = document.createElement('input');
+
+            input.setAttribute('type','text');
+            input.setAttribute('class',"form-control");
+            input.setAttribute('name','educationRequirements[]');
+            input.setAttribute('id','educationRequirements[]');
+            input.setAttribute('placeholder', "Nieuwe voorwaarden");
+
+            formDiv.appendChild(input);
+        }
+    </script>
 
 {% endblock %}

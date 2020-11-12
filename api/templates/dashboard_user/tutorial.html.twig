@@ -28,18 +28,9 @@
     </div>
     <!-- right collum -->
     <div class="col-12 col-xl-4">
-        <div class="card border-light shadow-sm">
-            <div class="card-body">
-                <h2 class="h5">{{ 'activities'|trans|capitalize }}</h2>
-                {% include 'dashboard/tables/activities.html.twig'%}
-            </div>
-        </div>
-        <div class="card border-light shadow-sm">
-            <div class="card-body">
-                <h2 class="h5">{{ 'results'|trans|capitalize }}</h2>
-                {% include 'dashboard/tables/results.html.twig'%}
-            </div>
-        </div>
+        {% include 'dashboard/tables/activities.html.twig'%}
+
+        {% include 'dashboard/tables/results.html.twig'%}
     </div>
 </div>
 {% endblock %}
