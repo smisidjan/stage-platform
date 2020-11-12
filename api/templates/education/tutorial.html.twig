@@ -33,9 +33,7 @@
             <div class="row justify-content-center">
                 <div class="col">
                     <div class="card shadow-soft border-light p-4 p-md-5">
-                        <div class="card-body">
-                            {{ tutorial.text }}
-                        </div>
+                        <div class="card-body">{{ tutorial.text }}</div>
                     </div>
                 </div>
             </div>
@@ -53,12 +51,11 @@
                     {%  if registered %}
                         <p class="mt-4 text-center">{{ 'you have already registerd for this cource'|trans|capitalize }}</p>
                         <a class="mt-2 text-center btn btn-secondary" href="{{ path('app_dashboarduser_tutorial', {id: tutorial.id}) }}">
-                            <button type="submit" class="">{{ 'click here to participate'|trans|capitalize }}</button>
+                            {{ 'click here to participate'|trans|capitalize }}
                         </a>
                     {% elseif app.user is defined and app.user is not null %}
                     <form action="{{ path('app_education_tutorial', {id: tutorial.id}) }}" method="post">
                         <div class="row">
-
                             <div class="col col-12 mt-4">
                                 <div class="form-group">
                                     <label class="form-label text-muted" for="motivation">{{'motivation'|trans|capitalize}} <span class="text-danger">*</span></label>
@@ -72,7 +69,7 @@
                     </form>
                     {% else %}
                     <p class="mt-4 text-center">{{ 'you need to be logged in to register for a tutorial'|trans|capitalize }}</p>
-                    <a class="btn btn-secondary text-white animate-up-2 mr-3" href="{{ path('app_user_idvault') }}">
+                    <a class="mt-2 text-center btn btn-secondary" href="{{ path('app_user_idvault') }}">
                         {{ 'click here to log in'|trans|capitalize }}
                     </a>
                     {% endif %}
@@ -86,9 +83,30 @@
         <div class="container">
             <div class="row justify-content-center mb-4 mb-lg-5">
                 <div class="col">
-                    <h2 class="h2">{{'other tuturials from this organization'|trans|capitalize}}</h2>
+                    <h2 class="h2" style="text-align: center">{{'other tutorials from this organization'|trans|capitalize}}</h2>
                 </div>
             </div>
         </div>
+    <section class="section section-lg pt-0">
+        <div class="container">
+            <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
+                        <div class="card bg-white border-light shadow-soft p-4 rounded">
+                            <a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}"><img src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt=""></a>
+                            <div class="card-body p-0 pt-4"><a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}" class="h3">{{ tutorial.name }}</a>
+
+                                {% if tutorial.organization is defined and tutorial.organization is not empty %}
+                                    {% set organization = commonground_resource(tutorial.organization) %}
+                                    <div class="d-flex align-items-center my-4"><img class="avatar avatar-sm rounded-circle" src="{{ organization.style.favicon.base64 }}" alt="">
+                                        <h6 class="text-muted small ml-2 mb-0">{{ organization.name }}</h6>
+                                    </div>
+                                {% endif %}
+                                <p class="mb-0">{{ tutorial.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
     </section>
 {% endblock %}
