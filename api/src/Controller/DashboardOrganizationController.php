@@ -175,6 +175,8 @@ class DashboardOrganizationController extends AbstractController
             // Get resource challenges (known as tender component side)
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
             $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'], ['tender.id' => $id])['hydra:member'];
+            $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
+
         } else {
             $variables['challenge'] = ['id' => 'new'];
         }
