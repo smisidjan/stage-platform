@@ -44,25 +44,26 @@ class InternshipController extends AbstractController
 
         //get organizations id of current position
         $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
+
         //get all positions of that organizations
         $variables['positions'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'job_postings'], ['organization' => $organization])['hydra:member'];
 
         // Get resource Intership
         $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
+        //get test user
+        /* @todo change this test employee to the employee connected to current logged in person */
+        $variables['employee'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'employees', 'id' => '7aeadbc2-742c-45d9-8d61-fdb120ab4934']);
+
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
+            $variables['applications'] = [];
             $resource = $request->request->all();
-            $resource['employee']['person'] = $this->getUser()->getPerson();
-            $resource['employee']['organization'] = $this->getUser()->getOrganization();
             $resource['jobPosting'] = '/job_postings/'. $variables['intership']['id'];
+            $resource['employee'] = '/employees/'.$variables['employee']['id'];
             $resource['status'] = "applied";
 
-            /* @todo the below is temp test code. remove before prod */
-//            $resource['employee'] = '/employees/'.$variables['employee']['id'];
-            if (empty($resource['employee']['organization']) or $resource['employee']['organization'] == null){
-                $resource['employee']['organization'] = 'https://cc.zaakonline.nl/organizations/e2984465-190a-4562-829e-a8cca81aa35d';
-            }
+            $variables['applications'] = array_merge($variables['applications'], $resource);
 
             // Update to the commonground component
             $variables['applications'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
