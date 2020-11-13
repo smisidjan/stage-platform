@@ -8,7 +8,7 @@
                 {% if addPath is  defined %}
                     <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add proposition'|trans|capitalize }}</a>
                 {% else %}
-                    <a href="{{ path('app_education_tutorials') }}" class="btn btn-sm btn-secondary">{{ 'see all propositions'|trans|capitalize }}</a>
+                    <a href="{{ path('app_challenge_index') }}" class="btn btn-sm btn-secondary">{{ 'see all propositions'|trans|capitalize }}</a>
                 {% endif %}
             </div>
         </div>
