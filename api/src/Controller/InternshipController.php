@@ -41,7 +41,7 @@ class InternshipController extends AbstractController
     public function positionAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
-
+        $user = $this->getUser();
         //get organizations id of current position
         $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
 
@@ -51,22 +51,27 @@ class InternshipController extends AbstractController
         // Get resource Intership
         $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
-        //get test user
-        /* @todo change this test employee to the employee connected to current logged in person */
-        $variables['employee'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'employees', 'id' => '7aeadbc2-742c-45d9-8d61-fdb120ab4934']);
+
+        //get employee conected to user
+        $variables['employee'] = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
+
+        //create new employee if user doesn't have one
+        if ($variables['employee']['person'] != $user->getPerson()){
+            $variables['employee']['person'] = $user->getPerson();
+            $variables['employee'] = $commonGroundService->saveResource($variables['employee'],['component' => 'mrc', 'type' => 'employees']);
+            $variables['employee'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
+        }
+        $variables['employee'] = $variables['employee'][0];
 
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
-            $variables['applications'] = [];
+            $variables['application'] = [];
             $resource = $request->request->all();
-            $resource['jobPosting'] = '/job_postings/'. $variables['intership']['id'];
             $resource['employee'] = '/employees/'.$variables['employee']['id'];
+            $resource['jobPosting'] = '/job_postings/'. $variables['intership']['id'];
             $resource['status'] = "applied";
-
-            $variables['applications'] = array_merge($variables['applications'], $resource);
-
             // Update to the commonground component
-            $variables['applications'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
+            $variables['application'] = $commonGroundService->saveResource($resource,['component' => 'mrc', 'type' => 'applications']);
 
         }
         return $variables;
