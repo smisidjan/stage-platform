@@ -32,6 +32,5 @@ class DocumentationController extends AbstractController
         $variables['interships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         return $variables;
-        
     }
 }

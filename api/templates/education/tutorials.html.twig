@@ -1,24 +1,27 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-
     <section class="section-header bg-primary pb-7 pb-lg-10 text-white">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 text-center">
                     <h1 class="mb-3">{{ 'tutorials'|trans|capitalize }}</h1>
-                    <p class="lead px-lg-5 mb-5">{{ 'tutorials can either be followed by them selfs or as part of a program'|trans|capitalize }}.</p>
+                    <p class="lead px-lg-5 mb-5">{{ 'We collect as many tutorials as possible that share your knowledge and
+                    thus increasing the chance of a great internship! For some internships it is
+                    going through a few tutorials is a must, you will then submit a little after watching
+                    test so that the company can see that you have acquired the knowledge.
+                    That also makes it much easier for you to immediately join your internship company'|trans|capitalize }}.</p>
                     <form action="{{ path('app_education_tutorials', query) }}">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
                             <div class="row align-items-center">
                                 <div class="col">
                                     <div class="input-group input-group-merge shadow-none">
                                         <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0"><i class="fas fa-search"></i></span></div>
-                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for internschips'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                                        <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2" placeholder="{{ 'search for tutorial'|trans|capitalize }}..." required="" {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <button type="submit" class="btn btn-block btn-primary rounded-pill">{{ 'search'|trans|capitalize }}</button>
+                                    <button type="submit" class="btn btn-block btn-primary rounded-pill">{{ 'Search'|trans|capitalize }}</button>
                                 </div>
                             </div>
                         </div>
@@ -32,18 +35,15 @@
     <section class="section section-md pb-0">
         <div class="container z-2 mt-n9 mt-lg-n11">
             <div class="row">
-                {% for type in types %}
                 <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <a href="{{ path('app_education_tutorials',{'additionalType': type}) }}" class="card text-center shadow-soft border-light animate-up-3">
+                    <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-code"></span></div>
                             <h6 class="text-gray mb-0">{{ 'code'|trans|capitalize }}</h6></div>
                     </a>
                 </div>
-                {% endfor %}
-                {% if query is defined and query is not empty %}
                 <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <a href="{{ path('app_education_tutorials') }}" class="card text-center shadow-soft border-light animate-up-3">
+                    <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-file-code"></span></div>
                             <h6 class="text-gray mb-0">{{ 'soft skills'|trans|capitalize }}</h6></div>
@@ -75,13 +75,14 @@
                         <div class="card bg-white border-light shadow-soft p-4 rounded">
                             <a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}"><img src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt=""></a>
                             <div class="card-body p-0 pt-4"><a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}" class="h3">{{ tutorial.name }}</a>
+
                                 {% if tutorial.organization is defined and tutorial.organization is not empty %}
                                     {% set organization = commonground_resource(tutorial.organization) %}
                                     <div class="d-flex align-items-center my-4"><img class="avatar avatar-sm rounded-circle" src="{{ organization.style.favicon.base64 }}" alt="">
-                                        <h6 class="text-muted small ml-2 mb-0">
-                                            {{ organization.name }}
-                                        </h6></div>
+                                        <h6 class="text-muted small ml-2 mb-0">{{ organization.name }}</h6>
+                                    </div>
                                 {% endif %}
+
                                 <p class="mb-0">{{ tutorial.description }}</p>
                             </div>
                         </div>
@@ -103,16 +104,5 @@
             </div>
         </div>
     </section>
-    <section class="section section-lg pb-5 bg-soft">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="mb-4">Faster growth starts with Rocket</h2>
-                    <p class="lead mb-5">Join over <span class="font-weight-bolder">300,000+</span> users</p><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-mailchimp"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-cpanel"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-dhl"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-github-alt"></span> </a><a href="#" class="icon icon-lg text-gray mr-3"><span class="fab fa-aws"></span> </a><a href="#" class="icon icon-lg text-gray"><span class="fab fa-node"></span></a></div>
-                <div class="col-12 text-center">
-                    <button type="button" class="btn btn-secondary animate-up-2" data-toggle="modal" data-target=".pricing-modal"><span class="mr-2"><i class="fas fa-hand-pointer"></i></span>Start 30-days trial</button>
-                </div>
-            </div>
-        </div>
-    </section>
 {% endblock %}
+

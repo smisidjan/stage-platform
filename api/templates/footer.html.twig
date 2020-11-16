@@ -7,7 +7,7 @@
                     <img src="/bundles/rocket/assets/img/brand/light.svg" class="mr-3" alt="Footer logo">
                     <h4>{% if app_name|default %}{{ app_name|trans|capitalize }}{% else %}Stage platform{% endif %}</h4>
                 </a>
-                <p class="my-4">Conduction Acedemy provides both matchmaking and an online internschip platform</p>
+                <p class="my-4">Conduction Academy provides both matchmaking and an online internship platform</p>
                 <div class="dropdown mb-4 mb-lg-0">
                     <a id="langsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle footer-language-link pb-2">
                         <img src="/bundles/rocket/assets/img/flags/united-states-of-america.svg" alt="USA Flag" class="language-flag"> United States
@@ -31,10 +31,12 @@
             <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0">
                 <h5>The Academy</h5>
                 <ul class="links-vertical">
-                    <li><a href="/bundles/rocket/pages/about.html">About</a></li>
-                    <li><a href="/bundles/rocket/pages/pricing.html">Pricing</a></li>
-                    <li><a href="/docs">Documentation</a></li>
-                    <li><a href="/contact">Contact</a>
+                    <li><a href="{{ path('app_education_tutorials') }}">{{ 'tutorials'|trans|capitalize }}</a></li>
+                    <li><a href="{{ path('app_internship_index') }}">{{ 'positions'|trans|capitalize }}</a></li>
+                    <li><a href="{{ path('app_challenge_index') }}">{{ 'challenges'|trans|capitalize }}</a></li>
+                    <li><a href="{{ path('app_team_index') }}">{{ 'teams'|trans|capitalize }}</a>
+                    <li><a href="{{ path('app_organization_index') }}">{{ 'organizations'|trans|capitalize }}</a>
+                    <li><a href="{{ path('app_student_index') }}">{{ 'students'|trans|capitalize }}</a>
                     </li>
                 </ul>
             </div>
@@ -58,10 +60,10 @@
         <div class="row">
             <div class="col pb-4 mb-md-0">
                 <a href="https://themesberg.com" target="_blank" class="d-flex justify-content-center">
-                    <img src="/bundles/rocket/assets/img/logo.PNG" class="mb-3" alt="Conduction Logo">
+                    <img src="/images/logo.PNG" class="mb-3" alt="Conduction Logo" style="height: 40px;">
                 </a>
                 <div class="d-flex text-center justify-content-center align-items-center">
-                    <p class="font-weight-normal font-small mb-0">Copyright © <a href="https://themesberg.com" target="_blank">Themesberg</a> <span class="current-year"></span>. All rights reserved.</p>
+                    <p class="font-weight-normal font-small mb-0">Copyright © <a href="https://www.conduction.nl" target="_blank">Conduction</a> <span class="current-year"></span>. All rights reserved.</p>
                 </div>
             </div>
         </div>
