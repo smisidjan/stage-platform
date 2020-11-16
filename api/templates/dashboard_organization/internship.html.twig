@@ -204,6 +204,7 @@
                     </thead>
                     {#for loop voor de applications op de position maken #}
                     {% if internship.application is defined and internship.application is not empty %}
+                        {% for application in internship.application %}
                     <tbody>
                         <tr>
                             <td>
@@ -225,24 +226,51 @@
                                     </div>
                                 </a>
                             </td>
-                            <td><span class="font-weight-normal">{{ internship.application.dateCreated|date("Y-m-d") }}</span></td>
-                            <td><span class="font-weight-normal text-warning">{{ internship.application.status }}</span></td>
+                            <td><span class="font-weight-normal">{{ application.dateCreated|date("Y-m-d") }}</span></td>
+                            <td><span class="font-weight-normal text-warning">{{ application.status }}</span></td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a>
-                                        <a class="dropdown-item" onclick="viewDetails();"><span class="fas fa-eye mr-2"></span>{{ 'view details'|trans|capitalize }}</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#myModal"><span class="fas fa-eye mr-2"></span>{{ 'view details'|trans|capitalize }}</a>
                                         <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>{{ 'delete application'|trans|capitalize }}</a></div>
                                 </div>
                                 <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a>
                             </td>
                         </tr>
                     </tbody>
+                        {% endfor %}
+                        {% else %}
+                        <tbody>
+                        <tr>
+                            <td>
+                                <p>{{ 'No applications found'|trans|capitalize }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
                     {% endif %}
                 </table>
                 {# Popup for viewing details               #}
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
 
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
 
                 <div class="card-footer px-3 d-flex align-items-center justify-content-between">
@@ -371,11 +399,9 @@
             formDiv.appendChild(input);
         }
 
-        function viewDetails() {
-            
-        }
-
 
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 {% endblock %}
