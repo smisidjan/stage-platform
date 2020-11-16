@@ -63,7 +63,7 @@ class DashboardOrganizationController extends AbstractController
         if ($id != 'new') {
             // Get resource challenges (known as tender component side)
             $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['courses.id' => $id])['hydra:member'];
-            $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);//$variables['participant'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participant'], ['courses.id' => $id])['hydra:member'];
+            $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]); //$variables['participant'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participant'], ['courses.id' => $id])['hydra:member'];
         } else {
             $variables['tutorial'] = ['id' => 'new'];
             $variables['tutorial']['name'] = 'new tutorial';
@@ -106,8 +106,8 @@ class DashboardOrganizationController extends AbstractController
             //array waar mn form inzit
             $resource = $request->request->all();
 
-            $resource['standardHours'] = (int)$resource['standardHours'];
-            $resource['baseSalary'] = (int)$resource['baseSalary'];
+            $resource['standardHours'] = (int) $resource['standardHours'];
+            $resource['baseSalary'] = (int) $resource['baseSalary'];
 
             // Add the post data to the already aquired internship data
             $variables['internship'] = array_merge($variables['internship'], $resource);
@@ -141,7 +141,7 @@ class DashboardOrganizationController extends AbstractController
         //Get current application
         $variables['application'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'applications', 'id' => $variables['internship']['application']['id']]);
         //get employee
-        $variables['employee'] = $commonGroundService->getResource('https://dev.zuid-drecht.nl/api/v1/mrc' . $variables['application']['employee']);
+        $variables['employee'] = $commonGroundService->getResource('https://dev.zuid-drecht.nl/api/v1/mrc'.$variables['application']['employee']);
 
         return $variables;
     }
