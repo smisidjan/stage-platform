@@ -48,7 +48,7 @@
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-business-time"></span></div>
-                            <h6 class="text-gray mb-0"> {{ 'Ttijdelijk'|capitalize }} </h6></div>
+                            <h6 class="text-gray mb-0"> {{ 'Tijdelijk'|capitalize }} </h6></div>
                     </a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-2">
@@ -92,13 +92,23 @@
                                         <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span class="h6 text-sm ml-2">{{ internship.employmentType|trans|capitalize }}</span></span>
                                         <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span class="h6 text-sm ml-2">{{ internship.standardHours }}</span></span>
                                         <span class="ml-4"><i class="fal fa-calendar-times text-secondary"></i><span class="h6 text-sm ml-2"> {{ internship.validThrough|date("Y-m-d H:m") }}</span></span>
-                                        <span class="ml-4"><i class="fas fa-file-certificate text-secondary"></i><span class="h6 text-sm ml-2"> {{ internship.educationRequirements['0'] }}</span></span>
+                                        <span class="ml-4"><i class="fas fa-file-certificate text-secondary"></i><span class="h6 text-sm ml-2">
+                                                {% if internship.educationRequirements is defined and internship.educationRequirements is not empty  %}
+                                                    {{ internship.educationRequirements['0'] }}
+                                                {% else %}
+                                                    {{ 'no requirements found'|trans|capitalize }}
+                                                {% endif %}
+                                            </span></span>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-12 d-flex align-items-center justify-content-md-end">
 {#                                  voor als er is geklikt#}
 {#                                  <button type="submit" class="btn btn-secondary mr-3 animate-up-2 m-0"><i class="fas fa-heart"></i></button>#}
-                                    <button type="submit" class="btn btn-secondary mr-3 animate-up-2 m-0"><i class="fal fa-heart"></i></button>
+                                    {% if app.user is defined and app.user is not null %}
+                                        <a href="{{ path('app_internship_like') }}" class="btn btn-secondary mr-3 animate-up-2 m-0"><i class="fal fa-heart"></i></a>
+                                    {% else %}
+                                        <a href="{{ path('app_user_idvault') }}" class="btn btn-secondary mr-3 animate-up-2 m-0" data-toggle="tooltip" data-placement="top" title="{{ 'u moet eerst inloggen'|trans|capitalize }}"><i class="fal fa-heart"></i></a>
+                                    {% endif %}
                                     <a href="{{ path('app_internship_position', {id: internship.id}) }}#apply" class="btn btn-secondary mr-3 animate-up-2 m-0">{{ 'apply'|trans|capitalize }}</a>
                                     <a href="{{ path('app_internship_position', {id: internship.id}) }}" class="btn btn-primary animate-up-2 m-0"><i class="fas fa-clipboard-list mr-2"></i>{{ 'see details'|trans|capitalize }}</a>
                                 </div>

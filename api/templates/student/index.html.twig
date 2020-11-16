@@ -28,8 +28,9 @@
                                 {% else %}
                                     <span class="card__title">{{ person.name }}</span><br>
                                 {% endif %}<br>
-                                <h6 class="card-subtitle">Director</h6>
-                                <p class="card-text my-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                {% if person.birthday is defined and person.birthday is not empty %}
+                                <p class="card-text my-2">{{ person.birthday }}</p>
+                                {% endif %}
                                 <ul class="social-buttons py-3">
                                     <li><a href="{{ path('app_student_portfolio', {id: student.id}) }}" target="_blank"><i class="fas fa-file-user"></i> {{ 'portfolio'|trans|capitalize }}</a></li>
                                 </ul>
