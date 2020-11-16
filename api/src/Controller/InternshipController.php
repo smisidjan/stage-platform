@@ -95,10 +95,10 @@ class InternshipController extends AbstractController
                     $message['sender'] = $message['reciever'];
                 }
                 $message['data'] = [
-                    'student'=>$commonGroundService->getResource($personUrl),
-                    'internship'=>$variables['internship'],
-                    'sender'=>$commonGroundService->getResource($message['sender']),
-                    'receiver'=>$commonGroundService->getResource($message['reciever'])
+                    'student'   => $commonGroundService->getResource($personUrl),
+                    'internship'=> $variables['internship'],
+                    'sender'    => $commonGroundService->getResource($message['sender']),
+                    'receiver'  => $commonGroundService->getResource($message['reciever']),
                 ];
                 // Email template in wrc:
                 $message['content'] = $commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'templates', 'id'=>'c1e5e409-63d5-4590-ba35-415aa002384b']);
