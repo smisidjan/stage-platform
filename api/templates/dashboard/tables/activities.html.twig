@@ -2,18 +2,18 @@
     <div class="card-header">
         <div class="row align-items-center">
             <div class="col">
-                <h2 class="h5">{{ 'tutorials'|trans|capitalize }}</h2>
+                <h2 class="h5">{{ 'activities'|trans|capitalize }}</h2>
             </div>
             <div class="col text-right">
             {% if addPath is  defined %}
-                <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add'|trans|capitalize }}</a>
+                <button data-toggle="modal" data-target="#activity-modal-new" class="btn btn-primary">{{ 'add'|trans|capitalize }}</button>
             {% else %}
                 <a href="{{ path('app_education_tutorials') }}" class="btn btn-sm btn-secondary">{{ 'see all tutorials'|trans|capitalize }}</a>
             {% endif %}
             </div>
         </div>
     </div>
-    {% if tutorials is  defined and tutorials|length > 0 %}
+    {% if activities is  defined and activities|length > 0 %}
     <div class="table-responsive">
         <table class="table align-items-center table-flush">
             <thead class="thead-light">
@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for tutorial in tutorials|slice(0, 10) %}
+            {% for activity in activities|slice(0, 10) %}
                 <tr>
                     <th>{{ tutorial.name }}</th>
                     <td> </td>
@@ -34,7 +34,7 @@
                         {% if editPath is  defined %}
                             <a href="{{ path(editPath, {'id':tutorial.id }) }}" class="btn btn-primary">{{ 'edit'|trans|capitalize }}</a>
                         {% else %}
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ tutorial.id }}">{{ 'edit'|trans|capitalize }}</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#activity-modal-{{ activity.id }}">{{ 'edit'|trans|capitalize }}</button>
                         {% endif %}
                     </td>
                 </tr>
@@ -43,7 +43,14 @@
         </table>
     </div>
 
+        {% for activity in activities|slice(0, 10) %}
+            {% include 'dashboard/modals/activity.html.twig' with {'id': activity.id, 'result':activity }%}
+        {% endfor %}
+
     {% else %}
+
+    {% include 'dashboard/modals/activity.html.twig' with {'id': 'new'}%}
+
     <div class="card-body text-center">
         <p>{{ 'no tutorials found'|trans|capitalize }}</p>
         {% if addPath is  defined %}

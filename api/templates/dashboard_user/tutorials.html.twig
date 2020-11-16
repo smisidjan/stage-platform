@@ -12,7 +12,7 @@
                 </ol>
             </nav>
             <h2 class="h4">{{ 'tutorials'|trans|capitalize }}</h2>
-            <p class="mb-0">[text about what a tutorial is is]</p>
+            <p class="mb-0">[text about what a tutorial is]</p>
         </div>
     </div>
 
@@ -20,7 +20,8 @@
         <div class="col-12 col-xl-8">
             <div class="row">
                 <div class="col-12 mb-4">
-                    {% include 'dashboard/tables/tutorials.html.twig' with {'editPath': 'app_dashboarduser_tutorials'}%}
+                    {% include 'dashboard/tables/tutorials.html.twig' with {'editPath': 'app_dashboarduser_tutorial'}%}
+
                 </div>
             </div>
         </div>
@@ -29,7 +30,7 @@
                 <div class="card border-light shadow-sm">
                     <div class="card-body">
                         <h2 class="h5">{{ 'tutorials'|trans|capitalize }}</h2>
-                        <p>[[ more text about tutorials and link to the tutorial tutorial]]</p>
+                        <p>[[ more text about tutorials and link to the tutorial tutorial ]]</p>
                     </div>
                 </div>
             </div>

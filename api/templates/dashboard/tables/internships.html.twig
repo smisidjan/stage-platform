@@ -4,10 +4,10 @@
             <div class="col">
                 <h2 class="h5">{{ 'internships'|trans|capitalize }}</h2></div>
             <div class="col text-right">
-                {% if editPath is  defined %}
-                    <a href="{{ path(editPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add'|trans|capitalize }}</a>
+                {% if addPath is  defined %}
+                    <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add internship'|trans|capitalize }}</a>
                 {% else %}
-                    <a href="{{ path('app_internship_index') }}" class="btn btn-sm btn-secondary">See all</a>
+                    <a href="{{ path('app_internship_index') }}" class="btn btn-sm btn-secondary">{{ 'see all internships'|trans|capitalize }}</a>
                 {% endif %}
             </div>
         </div>
@@ -42,8 +42,12 @@
         </table>
     </div>
     {% else %}
-    <div class="card-body">
+    <div class="card-body text-center">
         {{ 'no internships found'|trans|capitalize }}
+        {% if addPath is  defined %}
+            <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add your first internship!'|trans|capitalize }}</a>
+        {% else %}
+        {% endif %}
     </div>
     {% endif %}
 </div>
