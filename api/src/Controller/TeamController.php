@@ -35,19 +35,6 @@ class TeamController extends AbstractController
         $variables['entries'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'entries'], $variables['query'])['hydra:member'];
 
 
-//        $variables['groups'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups'], $variables['query'])['hydra:member'];
-
-//        //  Getting the participant @todo this needs to be more foolproof
-//        if($this->getUser()){
-//            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'groups',["participants"=> $this->getUser()->getPerson()]])['hydra:member'];
-//        }
-//        else{
-//            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> "https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db"]])['hydra:member'];
-//        }
-//        $variables['participant'] = $participants[0];
-//        $variables['teams'] = $variables['participant']['groups'];
-
-
         return $variables;
     }
 

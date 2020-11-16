@@ -12,6 +12,7 @@
                             <span class="h5 mb-3 mb-lg-0"><i class="fas fa-user-tie text-secondary"></i><span
                                     class="ml-3">{{ person|length }}</span></span>
                         {% endfor %}
+{#                        /* @todo hier moeten het aantal challenges komen waar een team aan mee doet#}
                         {% for entry in entry %}
                             <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i
                                     class="fas fa-bullseye-arrow text-primary"></i><span
@@ -62,7 +63,6 @@
                     {% if app.user is defined and app.user is not null %}
                         <form action="{{ path('app_team_team', {id: team.id}) }}" method="post">
                             <div class="row">
-
                                 <div class="col col-12 mt-4">
                                     <div class="form-group">
                                         <label class="form-label text-muted"
