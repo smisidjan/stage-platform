@@ -54,8 +54,8 @@
                                         <img class="avatar avatar-sm rounded-circle"
                                              src="{{ organization.style.favicon.base64 }}" alt="">
                                     {% endif %}
-                                    {% if challenge.submitters is defined and challenge.submitters is not empty %}
-                                        <h6 class="text-muted small ml-2 mb-0">{{ challenge.submitters[0] }}</h6>
+                                    {% if challenge.submitter is defined and challenge.submitter is not empty %}
+                                        <h6 class="text-muted small ml-2 mb-0">{{ challenge.submitter }}</h6>
                                     {% endif %}
                                 </div>
 
@@ -95,7 +95,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-10 text-center">
                     <h2 class="h1">{{ 'post a challenge for students'|trans|capitalize }}</h2>
-                    <p class="lead px-lg-5 mb-5">{{ ' Do you have as an organization a (digital) issue or a challenge? '|trans|capitalize }}{{ 'and do you want it to be viewed from a different refreshing perspective, or to come up with a solution? '|trans|capitalize }} {{ 'Post a challenge '|trans|capitalize }}{{ 'and invite students to respond and pitch their ideas and / or products!'|trans }}
+                    <p class="lead px-lg-5 mb-5">{{ 'Do you have as an organization a (digital) issue or a challenge? '|trans|capitalize }}{{ 'and do you want it to be viewed from a different refreshing perspective, or to come up with a solution? '|trans|capitalize }} {{ 'Post a challenge '|trans|capitalize }}{{ 'and invite students to respond and pitch their ideas and / or products!'|trans }}
                     </p>
                     {% if app.user %}
                         <a href="{{ path('app_dashboardorganization_challenges') }}">

@@ -173,12 +173,13 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
+        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
+        $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
+
         if ($id != 'new') {
             // Get resource challenges (known as tender component side)
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
             $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'], ['tender.id' => $id])['hydra:member'];
-            $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
-            $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
 
         } else {
             $variables['challenge'] = ['id' => 'new'];
@@ -188,11 +189,14 @@ class DashboardOrganizationController extends AbstractController
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
 
+            $resource['budget'] = (double) $resource['budget'];
+
             // Add the post data to the already aquired resource data
             $resource = array_merge($variables['challenge'], $resource);
 
+//            var_dump($resource);die;
             // Update to the commonground component
-            $variables['challenge'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
+            $variables['challenge'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders']);
 
             return $this->redirect($this->generateUrl('app_dashboardorganization_challenges'));
         }
