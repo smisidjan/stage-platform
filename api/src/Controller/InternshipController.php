@@ -51,14 +51,13 @@ class InternshipController extends AbstractController
         // Get resource Intership
         $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
-
         //get employee conected to user
         $variables['employee'] = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
 
         //create new employee if user doesn't have one
-        if ($variables['employee']['person'] != $user->getPerson()){
+        if ($variables['employee']['person'] != $user->getPerson()) {
             $variables['employee']['person'] = $user->getPerson();
-            $variables['employee'] = $commonGroundService->saveResource($variables['employee'],['component' => 'mrc', 'type' => 'employees']);
+            $variables['employee'] = $commonGroundService->saveResource($variables['employee'], ['component' => 'mrc', 'type' => 'employees']);
             $variables['employee'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
         }
         $variables['employee'] = $variables['employee'][0];
@@ -68,12 +67,12 @@ class InternshipController extends AbstractController
             $variables['application'] = [];
             $resource = $request->request->all();
             $resource['employee'] = '/employees/'.$variables['employee']['id'];
-            $resource['jobPosting'] = '/job_postings/'. $variables['intership']['id'];
-            $resource['status'] = "applied";
+            $resource['jobPosting'] = '/job_postings/'.$variables['intership']['id'];
+            $resource['status'] = 'applied';
             // Update to the commonground component
-            $variables['application'] = $commonGroundService->saveResource($resource,['component' => 'mrc', 'type' => 'applications']);
-
+            $variables['application'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
         }
+
         return $variables;
     }
 

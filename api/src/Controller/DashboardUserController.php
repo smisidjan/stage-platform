@@ -36,11 +36,10 @@ class DashboardUserController extends AbstractController
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         //  Getting the participant @todo this needs to be more foolproof
-        if($this->getUser()){
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> $this->getUser()->getPerson()]])['hydra:member'];
-        }
-        else{
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> "https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db"]])['hydra:member'];
+        if ($this->getUser()) {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> $this->getUser()->getPerson()]])['hydra:member'];
+        } else {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
         }
         $variables['participant'] = $participants[0];
 
@@ -63,11 +62,10 @@ class DashboardUserController extends AbstractController
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         //  Getting the participant @todo this needs to be more foolproof
-        if($this->getUser()){
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> $this->getUser()->getPerson()]])['hydra:member'];
-        }
-        else{
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> "https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db"]])['hydra:member'];
+        if ($this->getUser()) {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> $this->getUser()->getPerson()]])['hydra:member'];
+        } else {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
         }
         $variables['participant'] = $participants[0];
 
