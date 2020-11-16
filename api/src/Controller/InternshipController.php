@@ -65,7 +65,7 @@ class InternshipController extends AbstractController
         } else {
             //create a new employee if user doesn't have one
             $variables['employee']['person'] = $personUrl;
-            $variables['employee'] = $commonGroundService->createResource($variables['employee'],['component' => 'mrc', 'type' => 'employees']);
+            $variables['employee'] = $commonGroundService->createResource($variables['employee'], ['component' => 'mrc', 'type' => 'employees']);
         }
 
         // Lets see if there is a post to procces
@@ -73,12 +73,12 @@ class InternshipController extends AbstractController
             $variables['application'] = [];
             $resource = $request->request->all();
             $resource['employee'] = '/employees/'.$variables['employee']['id'];
-            $resource['jobPosting'] = '/job_postings/'. $variables['intership']['id'];
-            $resource['status'] = "applied";
+            $resource['jobPosting'] = '/job_postings/'.$variables['intership']['id'];
+            $resource['status'] = 'applied';
             // Update to the commonground component
-            $variables['application'] = $commonGroundService->saveResource($resource,['component' => 'mrc', 'type' => 'applications']);
-
+            $variables['application'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
         }
+
         return $variables;
     }
 
