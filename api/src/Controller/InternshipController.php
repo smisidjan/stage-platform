@@ -29,7 +29,7 @@ class InternshipController extends AbstractController
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resources Interschips
-        $variables['interships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+        $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         return $variables;
     }
@@ -49,14 +49,11 @@ class InternshipController extends AbstractController
         // Get the cc/person url of this user
         $personUrl = $this->getUser()->getPerson();
 
-        //get organizations id of current position
-        $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
+        // Get resource internship
+        $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
-        //get all positions of that organizations
-        $variables['positions'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'job_postings'], ['organization' => $organization])['hydra:member'];
-
-        // Get resource Intership
-        $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        //get all positions of the hiringOrganization
+        $variables['positions'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'job_postings'], ['hiringOrganization' => $variables['internship']['hiringOrganization']])['hydra:member'];
 
         //get employee conected to user
         $employees = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $personUrl])['hydra:member'];
@@ -73,10 +70,42 @@ class InternshipController extends AbstractController
             $variables['application'] = [];
             $resource = $request->request->all();
             $resource['employee'] = '/employees/'.$variables['employee']['id'];
-            $resource['jobPosting'] = '/job_postings/'.$variables['intership']['id'];
+            $resource['jobPosting'] = '/job_postings/'.$variables['internship']['id'];
             $resource['status'] = 'applied';
             // Update to the commonground component
             $variables['application'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
+
+            // Send an email to organization of this jobPosting:
+            // (Maybe this should be handled with the VSBE to send emails whenever an application is created?)
+            if (isset($variables['internship']['hiringOrganization'])) {
+                // Create the email message
+                $message = [];
+                $message['service'] = '/services/1541d15b-7de3-4a1a-a437-80079e4a14e0';
+                $message['status'] = 'queued';
+
+                // Determine the receiver
+                $organization = $commonGroundService->getResource($variables['internship']['hiringOrganization']);
+                $message['reciever'] = $organization['contact']; // reciever = typo in BS, keep it like this for now
+
+                // lets use stage platform contact as sender (maybe use or get the sender in a different way?)
+                $message['sender'] = $commonGroundService->cleanUrl(['component' => 'cc', 'type' => 'organizations', 'id' => 'faafee73-2b5a-4cd5-a339-c0c96ba0d7eb']);
+
+                // if we don't have that we are going to self send te message
+                if (!$commonGroundService->isResource($message['sender'])) {
+                    $message['sender'] = $message['reciever'];
+                }
+                $message['data'] = [
+                    'student'=>$commonGroundService->getResource($personUrl),
+                    'internship'=>$variables['internship'],
+                    'sender'=>$commonGroundService->getResource($message['sender']),
+                    'receiver'=>$commonGroundService->getResource($message['reciever'])
+                ];
+                // Email template in wrc:
+                $message['content'] = $commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'templates', 'id'=>'c1e5e409-63d5-4590-ba35-415aa002384b']);
+
+                // Send the email to this contact
+                $commonGroundService->createResource($message, ['component'=>'bs', 'type'=>'messages']);
+            }
         }
 
         return $variables;
