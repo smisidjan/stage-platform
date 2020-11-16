@@ -40,8 +40,15 @@ class InternshipController extends AbstractController
      */
     public function positionAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
+        if (empty($this->getUser())) {
+            return $this->redirect($this->generateUrl('app_user_idvault'));
+        }
+
         $variables = [];
-        $user = $this->getUser();
+
+        // Get the cc/person url of this user
+        $personUrl = $this->getUser()->getPerson();
+
         //get organizations id of current position
         $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
 
@@ -51,17 +58,15 @@ class InternshipController extends AbstractController
         // Get resource Intership
         $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
-
         //get employee conected to user
-        $variables['employee'] = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
-
-        //create new employee if user doesn't have one
-        if ($variables['employee']['person'] != $user->getPerson()){
-            $variables['employee']['person'] = $user->getPerson();
-            $variables['employee'] = $commonGroundService->saveResource($variables['employee'],['component' => 'mrc', 'type' => 'employees']);
-            $variables['employee'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
+        $employees = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $personUrl])['hydra:member'];
+        if (count($employees) > 0) {
+            $variables['employee'] = $employees[0];
+        } else {
+            //create a new employee if user doesn't have one
+            $variables['employee']['person'] = $personUrl;
+            $variables['employee'] = $commonGroundService->createResource($variables['employee'],['component' => 'mrc', 'type' => 'employees']);
         }
-        $variables['employee'] = $variables['employee'][0];
 
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
