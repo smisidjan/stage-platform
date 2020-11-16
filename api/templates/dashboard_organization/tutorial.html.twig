@@ -128,28 +128,28 @@
                 </div>
 
                 <h3 class="h4">Participants</h3>
-                <p class="mb-0">These people are following your tutorial</p>
+                {% if participants|default %}
+                    <p class="mb-0">These people are following your tutorial</p>
 
-                <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th class="border-0">
-                                <div class="form-check dashboard-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="userCheck55">
-                                    <label class="form-check-label" for="userCheck55"></label>
-                                </div>
-                            </th>
-                            <th class="border-0">Name</th>
-                            <th class="border-0">Date Created</th>
-                            <th class="border-0">Verified</th>
-                            <th class="border-0">Status</th>
-                            <th class="border-0">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            {% if participants is defined and participants is not empty %}
+                    <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th class="border-0">
+                                    <div class="form-check dashboard-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="userCheck55">
+                                        <label class="form-check-label" for="userCheck55"></label>
+                                    </div>
+                                </th>
+                                <th class="border-0">Name</th>
+                                <th class="border-0">Date Created</th>
+                                <th class="border-0">Verified</th>
+                                <th class="border-0">Status</th>
+                                <th class="border-0">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
                                 {% for participants in participants %}
                                     <td>
                                         <div class="form-check dashboard-check">
@@ -196,235 +196,233 @@
                                            data-original-title="Delete"><span class="fas fa-times-circle"></span></a>
                                     </td>
                                 {% endfor %}
-                            {% endif %}
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="card-footer px-3 d-flex align-items-center justify-content-between">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination mb-0">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </nav>
-                        <div class="font-weight-bold small">Showing <b>5</b> out of <b>25</b> entries</div>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
+                {% else %}
+                    <p class="mb-0">There are currently no participants on this tutorial</p>
+                {% endif %}
             </div>
-
             <!-- right collum -->
             <div class="col-12 col-xl-4">
                 <div class="row">
+
                     <div class="col-12 col-sm-6 col-xl-12">
                         <div class="card card-body bg-white border-light shadow-sm mb-4">
-                            <h2 class="h5 mb-4">Select profile photo</h2>
-                            <div class="d-xl-flex align-items-center">
-                                <div>
-                                    <div class="user-avatar xl-avatar mb-3"><img class="rounded"
-                                                                                 src="../../assets/img/team/profile-picture-3.jpg"
-                                                                                 alt="change avatar"></div>
-                                </div>
-                                <div class="file-field">
-                                    <div class="d-flex justify-content-xl-center ml-xl-3">
-                                        <div class="d-flex"><span class="icon icon-md"><span
-                                                    class="fas fa-paperclip mr-3"></span></span>
-                                            <input type="file">
-                                            <div class="d-md-block text-left">
-                                                <div class="font-weight-normal text-dark mb-1">Choose Image</div>
-                                                <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="d-flex justify-content-between">
+                                <h2 class="h5 mb-4">Skills</h2>
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal"
+                                        data-target="#modalNewSkill" style="height: 33.33%"><i class="far fa-plus"></i>
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-xl-12">
-                        <div class="card card-body bg-white border-light shadow-sm mb-4">
-                            <h2 class="h5 mb-4">Select cover photo</h2>
-                            <div class="d-xl-flex align-items-center">
-                                <div>
-                                    <div class="user-avatar xl-avatar mb-3"><img class="rounded"
-                                                                                 src="../../assets/img/carousel/image-2.jpg"
-                                                                                 alt="change avatar"></div>
-                                </div>
-                                <div class="file-field">
-                                    <div class="d-flex justify-content-xl-center ml-xl-3">
-                                        <div class="d-flex"><span class="icon icon-md"><span
-                                                    class="fas fa-paperclip mr-3"></span></span>
-                                            <input type="file">
-                                            <div class="d-md-block text-left">
-                                                <div class="font-weight-normal text-dark mb-1">Choose Image</div>
-                                                <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-12 mb-4 mb-xl-0">
-                        <div class="card card-body bg-white border-light">
-                            <h2 class="h5 mb-4">Requirements</h2>
-
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th class="border-0">
-                                        {#                                    <div class="form-check dashboard-check">#}
-                                        {#                                        <input class="form-check-input" type="checkbox" value="" id="userCheck55">#}
-                                        {#                                        <label class="form-check-label" for="userCheck55"></label>#}
-                                        {#                                    </div>#}
-                                    </th>
                                     <th class="border-0">Name</th>
-                                    <th class="border-0">Action</th>
+                                    <th class="border-0"></th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    {% if requirements|default %}
-                                        {% for requirement in requirements %}
-                                            <td>
-                                                <div class="form-check dashboard-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                           id="userCheck1">
-                                                    <label class="form-check-label" for="userCheck1"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="d-flex align-items-center"><img
-                                                        src="../../assets/img/team/profile-picture-1.jpg"
-                                                        class="user-avatar rounded-circle mr-3" alt="Avatar">
-                                                    <div class="d-block"><span
-                                                            class="font-weight-bold">{{ participants.name }}</span>
-                                                        <div
-                                                            class="small text-gray">{{ participants.description }}</div>
+                                <tbody id="skillsHolder">
+                                {% if tutorial.skills|default %}
+                                    {% for skill in tutorial.skills %}
+                                        <tr>
+                                            {% if 'http' in skill %}
+                                                {% set skill = commonground_resource(skill) %}
+                                                <td>{{ skill.name }}</td>
+                                                <td class="text-right">
+                                                    <div class="btn-group ml-md-3">
+                                                        <button
+                                                            class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="true"><span class="icon icon-sm"><span
+                                                                    class="fas fa-ellipsis-h icon-dark"></span> </span><span
+                                                                class="sr-only">Toggle Dropdown</span></button>
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                             x-placement="bottom-end"
+                                                             style="position: absolute; transform: translate3d(-170px, 26px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                            <a onclick="" class="dropdown-item text-danger"
+                                                               href="#"><span
+                                                                    class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                                        </div>
                                                     </div>
-                                                </a>
-                                            </td>
-                                            <td><span
-                                                    class="font-weight-normal">{{ participants.created|date("d-m-Y", "Europe/Paris") }}</span>
-                                            </td>
-                                            <td><span class="font-weight-normal"><span
-                                                        class="fas fa-check-circle text-success mr-2"></span>Email</span>
-                                            </td>
-                                            <td><span
-                                                    class="font-weight-normal text-success">{{ participants.status }}</span>
-                                            </td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <button
-                                                        class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
-                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false"><span
-                                                            class="icon icon-sm"><span
-                                                                class="fas fa-ellipsis-h icon-dark"></span> </span><span
-                                                            class="sr-only">Toggle Dropdown</span>
-                                                    </button>
+                                                    <input type="hidden" name="skills[]" value="{{ skill['@id'] }}">
+                                                </td>
+                                            {% else %}
+                                                <td>{{ skill }}</td>
+                                                <td class="text-right">
+                                                    <div class="btn-group ml-md-3">
+                                                        <button
+                                                            class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="true"><span class="icon icon-sm"><span
+                                                                    class="fas fa-ellipsis-h icon-dark"></span> </span><span
+                                                                class="sr-only">Toggle Dropdown</span></button>
+                                                        <div class="dropdown-menu dropdown-menu-right "
+                                                             x-placement="bottom-end"
+                                                             style="position: absolute; transform: translate3d(-170px, 26px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                            <a onclick="" class="dropdown-item text-danger"
+                                                               href="#"><span
+                                                                    class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                                        </div>
+                                                        <input type="hidden" name="skills[]" value="{{ skill }}">
+                                                    </div>
+                                                </td>
+                                            {% endif %}
+                                        </tr>
+                                    {% endfor %}
 
-                                                    <div class="dropdown-menu"><a class="dropdown-item" href="#"><span
-                                                                class="fas fa-user-shield mr-2"></span> Reset Pass</a>
-                                                        <a
-                                                            class="dropdown-item" href="#"><span
-                                                                class="fas fa-eye mr-2"></span>View
-                                                            Details</a> <a class="dropdown-item text-danger"
-                                                                           href="#"><span
-                                                                class="fas fa-user-times mr-2"></span>Suspend</a></div>
-                                                </div>
-
-                                                <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"
-                                                   data-original-title="Delete"><span
-                                                        class="fas fa-times-circle"></span></a></td>
-                                        {% endfor %}
-                                    {% endif %}
-                                </tr>
+                                {% else %}
+                                    <tr>
+                                        <td style="color: lightgrey">This tutorial offers no skills yet</td>
+                                        <td></td>
+                                    </tr>
+                                {% endif %}
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    {#                <div class="col-12 mb-4 mb-xl-0">#}
-                    {#                    <div class="card card-body bg-white border-light">#}
-                    {#                        <h2 class="h5 mb-4">Activities</h2>#}
+                    {#                  add new skill modal  #}
 
-                    {#                        <table class="table table-hover">#}
-                    {#                            <thead>#}
-                    {#                            <tr>#}
-                    {#                                <th class="border-0">#}
-                    {#                                    <div class="form-check dashboard-check">#}
-                    {#                                        <input class="form-check-input" type="checkbox" value="" id="userCheck55">#}
-                    {#                                        <label class="form-check-label" for="userCheck55"></label>#}
-                    {#                                    </div>#}
-                    {#                                </th>#}
-                    {#                                <th class="border-0">Name</th>#}
-                    {#                                <th class="border-0">Action</th>#}
-                    {#                            </tr>#}
-                    {#                            </thead>#}
-                    {#                            <tbody>#}
-                    {#                            <tr>#}
-                    {#                                {% if activities is defined and activities is not empty %}#}
-                    {#                                    {% for activity in activities %}#}
-                    {#                                        <td>#}
-                    {#                                            <div class="form-check dashboard-check">#}
-                    {#                                                <input class="form-check-input" type="checkbox" value=""#}
-                    {#                                                       id="userCheck1">#}
-                    {#                                                <label class="form-check-label" for="userCheck1"></label>#}
-                    {#                                            </div>#}
-                    {#                                        </td>#}
-                    {#                                        <td>#}
-                    {#                                            <a href="#" class="d-flex align-items-center"><img#}
-                    {#                                                    src="../../assets/img/team/profile-picture-1.jpg"#}
-                    {#                                                    class="user-avatar rounded-circle mr-3" alt="Avatar">#}
-                    {#                                                <div class="d-block"><span#}
-                    {#                                                        class="font-weight-bold">{{ activity.id }}</span>#}
-                    {#                                                    <div class="small text-gray">{{ activity.person }}</div>#}
-                    {#                                                </div>#}
-                    {#                                            </a>#}
-                    {#                                        </td>#}
-                    {#                                        <td><span#}
-                    {#                                                class="font-weight-normal">{{ activity.dateCreated|date("d-m-Y", "Europe/Paris") }}</span>#}
-                    {#                                        </td>#}
-                    {#                                        <td><span class="font-weight-normal"><span#}
-                    {#                                                    class="fas fa-check-circle text-success mr-2"></span>Email</span>#}
-                    {#                                        </td>#}
-                    {#                                        <td>#}
-                    {#                                        </td>#}
-                    {#                                        <td>#}
-                    {#                                            <div class="btn-group">#}
-                    {#                                                <button#}
-                    {#                                                    class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"#}
-                    {#                                                    data-toggle="dropdown" aria-haspopup="true"#}
-                    {#                                                    aria-expanded="false"><span#}
-                    {#                                                        class="icon icon-sm"><span#}
-                    {#                                                            class="fas fa-ellipsis-h icon-dark"></span> </span><span#}
-                    {#                                                        class="sr-only">Toggle Dropdown</span>#}
-                    {#                                                </button>#}
+                    <div class="modal fade" id="modalNewSkill" tabindex="-1" role="dialog"
+                         aria-labelledby="modal-default"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title align-middle">Add new skill</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="newSkillInput">Skill</label>
+                                        <input class="form-control" type="text" name="skills[]" id="newSkillInput">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-sm btn-success">Save
+                                    </button>
+                                    <button type="button" class="btn btn-link text-danger ml-auto" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    {#                                                <div class="dropdown-menu"><a class="dropdown-item" href="#"><span#}
-                    {#                                                            class="fas fa-user-shield mr-2"></span> Reset Pass</a> <a#}
-                    {#                                                        class="dropdown-item" href="#"><span#}
-                    {#                                                            class="fas fa-eye mr-2"></span>View#}
-                    {#                                                        Details</a> <a class="dropdown-item text-danger" href="#"><span#}
-                    {#                                                            class="fas fa-user-times mr-2"></span>Suspend</a></div>#}
-                    {#                                            </div>#}
 
-                    {#                                            <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"#}
-                    {#                                               data-original-title="Delete"><span#}
-                    {#                                                    class="fas fa-times-circle"></span></a></td>#}
-                    {#                                    {% endfor %}#}
-                    {#                                {% endif %}#}
-                    {#                            </tr>#}
-                    {#                            </tbody>#}
-                    {#                        </table>#}
-                    {#                    </div>#}
-                    {#                </div>#}
+                    <div class="col-12 mb-4 mb-xl-0 ">
+                        <div class="card card-body bg-white border-light  mb-4">
+
+                            <div class="d-flex justify-content-between">
+                                <h2 class="h5 mb-4">Requirements</h2>
+
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal"
+                                        data-target="#modalNewReq" style="height: 33.33%"><i class="far fa-plus"></i>
+                                </button>
+                            </div>
+
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="border-0">Name</th>
+                                    <th class="border-0"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    {% if requirements|default %}
+                                    {% for req in requirements %}
+                                    {% if 'http' in req %}
+                                        {% set req = commonground_resource(req) %}
+                                        <td>{{ req.name }}</td>
+                                        <td class="text-right">
+                                            <div class="btn-group ml-md-3">
+                                                <button
+                                                    class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="true"><span class="icon icon-sm"><span
+                                                            class="fas fa-ellipsis-h icon-dark"></span> </span><span
+                                                        class="sr-only">Toggle Dropdown</span></button>
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                     x-placement="bottom-end"
+                                                     style="position: absolute; transform: translate3d(-170px, 26px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                    <a onclick="" class="dropdown-item text-danger"
+                                                       href="#"><span
+                                                            class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="coursePrerequisites[]" value="{{ req['@id'] }}">
+                                        </td>
+                                    {% else %}
+                                        <td>{{ req }}</td>
+                                        <td class="text-right">
+                                            <div class="btn-group ml-md-3">
+                                                <button
+                                                    class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="true"><span class="icon icon-sm"><span
+                                                            class="fas fa-ellipsis-h icon-dark"></span> </span><span
+                                                        class="sr-only">Toggle Dropdown</span></button>
+                                                <div class="dropdown-menu dropdown-menu-right "
+                                                     x-placement="bottom-end"
+                                                     style="position: absolute; transform: translate3d(-170px, 26px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                    <a onclick="" class="dropdown-item text-danger"
+                                                       href="#"><span
+                                                            class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                                </div>
+                                                <input type="hidden" name="coursePrerequisites[]" value="{{ req }}">
+                                            </div>
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td>There no requirements for this tutorial yet</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    {#                  add new requirement modal  #}
+
+                    <div class="modal fade" id="modalNewReq" tabindex="-1" role="dialog"
+                         aria-labelledby="modal-default"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title align-middle">Add new requirement</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="newReqInput">Requirement</label>
+                                        <input class="form-control" type="text" name="coursePrerequisites[]"
+                                               id="newReqInput">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-sm btn-success">Save
+                                    </button>
+                                    <button type="button" class="btn btn-link text-danger ml-auto" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="col-12 mb-4 mb-xl-0">
                         <div class="card card-body bg-white border-light">
@@ -535,5 +533,4 @@
 
 
     </form>
-
 {% endblock %}
