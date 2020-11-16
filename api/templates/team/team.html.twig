@@ -13,18 +13,16 @@
                                     class="ml-3">{{ person|length }}</span></span>
                         {% endfor %}
 {#                        /* @todo hier moeten het aantal challenges komen waar een team aan mee doet#}
-                        {% for entry in entry %}
                             <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i
                                     class="fas fa-bullseye-arrow text-primary"></i><span
-                                    class="ml-3">{{ entry.submitters|length }}</span></span>
-                        {% endfor %}
+                                    class="ml-3">[challenges]</span></span>
                     </div>
                 </div>
                 <div class="col col-12 text-center"><a href="{{ path('app_team_index') }}"
                                                        class="btn btn-secondary text-white animate-up-2 mr-3"><i
                             class="fas fa-arrow-left mr-2"></i>{{ 'See All Teams'|trans|capitalize }}</a><a
                         href="#apply" class="btn btn-white text-primary animate-up-2"><i
-                            class="fas fa-clipboard-list mr-2"></i>Apply Now</a></div>
+                            class="fas fa-clipboard-list mr-2"></i>{{ 'Apply Now'|trans|capitalize }}</a></div>
             </div>
         </div>
         <div class="pattern bottom"></div>
@@ -39,11 +37,9 @@
                         <div class="card-body">
                             {{ team.description }}
                         </div>
+{#                        /* @todo hier moeten de challenges komen waar een team aan mee doet#}
                         <div class="card-body">
                             <h6>{{ 'challenges this team participates in'|trans|capitalize }}</h6>
-                            {% for entry in entry %}
-                                {{ entry.submitters[0] }}
-                            {% endfor %}
                         </div>
                     </div>
                 </div>

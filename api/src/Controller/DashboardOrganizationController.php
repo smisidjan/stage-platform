@@ -160,6 +160,8 @@ class DashboardOrganizationController extends AbstractController
         // Get resource challenges (known as tender component side)
         $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
 
+        $variables['addPath'] = 'app_dashboardorganization_challenge';
+
         return $variables;
     }
 
