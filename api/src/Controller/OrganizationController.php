@@ -27,7 +27,14 @@ class OrganizationController extends AbstractController
     {
         $variables['slug'] = 'organizations';
         $variables['h1'] = 'organizations';
+        $variables['path'] = 'app_organization_index';
         $variables['organizations'] = $commonGroundService->getResourceList(['component'=>'wrc', 'type'=>'organizations'])['hydra:member'];
+
+        if ($request->isMethod('POST')) {
+            $search = $request->request->all()['search'];
+
+            $variables['organizations'] = $commonGroundService->getResourceList(['component'=>'wrc', 'type'=>'organizations'], ['name'=>$search])['hydra:member'];
+        }
 
         return $variables;
     }

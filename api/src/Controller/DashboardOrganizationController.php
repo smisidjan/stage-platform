@@ -41,6 +41,7 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
+        $variables['addPath'] = 'app_dashboardorganization_tutorial';
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
@@ -57,14 +58,15 @@ class DashboardOrganizationController extends AbstractController
     public function tutorialAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
+        $variables['activities'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
 
         if ($id != 'new') {
             // Get resource challenges (known as tender component side)
-            $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id'=>$id]);
             $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['courses.id' => $id])['hydra:member'];
-            //$variables['participant'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participant'], ['courses.id' => $id])['hydra:member'];
+            $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]); //$variables['participant'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participant'], ['courses.id' => $id])['hydra:member'];
         } else {
             $variables['tutorial'] = ['id' => 'new'];
+            $variables['tutorial']['name'] = 'new tutorial';
         }
 
         // Lets see if there is a post to procces
@@ -72,15 +74,13 @@ class DashboardOrganizationController extends AbstractController
             $resource = $request->request->all();
 
             // Add the post data to the already aquired resource data
-            $resource = array_merge($variables['tutorial'], $resource);
-            /*var_dump($resource);die;*/
+//            $resource = array_merge($variables['tutorial'], $resource);
 
             // Update to the commonground component
             $variables['tutorial'] = $commonGroundService->saveResource($resource, ['component' => 'edu', 'type' => 'courses']);
 
             return $this->redirect($this->generateUrl('app_dashboardorganization_tutorials'));
         }
-
 
         return $variables;
     }
@@ -131,7 +131,7 @@ class DashboardOrganizationController extends AbstractController
 
         // Get resource Interschip
         if ($id != 'new') {
-            $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+            $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id' => $id]);
         } else {
             $variables['internship'] = [];
         }
@@ -173,11 +173,10 @@ class DashboardOrganizationController extends AbstractController
 
         if ($id != 'new') {
             // Get resource challenges (known as tender component side)
-            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id'=>$id]);
+            $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
             $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'], ['tender.id' => $id])['hydra:member'];
             $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
             $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
-
         } else {
             $variables['challenge'] = ['id' => 'new'];
         }
@@ -262,6 +261,4 @@ class DashboardOrganizationController extends AbstractController
 
         return $variables;
     }
-
-
 }
