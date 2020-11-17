@@ -89,6 +89,7 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
+        $variables['addPath'] = 'app_dashboardorganization_internship';
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
