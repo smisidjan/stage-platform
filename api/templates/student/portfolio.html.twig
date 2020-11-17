@@ -36,6 +36,7 @@
                                         <div class="mb-5 mb-lg-6 text-center">
                                             <h2 class="h1">{{ 'contact'|trans|capitalize }}</h2>
                                         </div>
+                                        {% if app.user is defined and app.user is not null %}
                                         <form action="#" method="post">
                                             <div class="row">
                                                 <div class="col-12 col-md-6">
@@ -120,6 +121,13 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        {% else %}
+                                            <p class="mt-4 text-center">{{ 'you need to be logged in to contact a student'|trans|capitalize }}</p>
+                                        <div class="mb-5 mb-lg-6 text-center">
+                                        <a class="mt-2 text-center btn btn-secondary"
+                                               href="{{ path('app_user_idvault') }}">{{ 'click here to log in'|trans|capitalize }} </a>
+                                        </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
