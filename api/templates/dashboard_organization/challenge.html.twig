@@ -68,7 +68,7 @@
                                        value="{{ challenge.description }}">
                             {% else %}
                                 <textarea class="form-control" id="description" name="description"
-                                          rows="3"></textarea>
+                                          rows="3" maxlength="600"></textarea>
                             {% endif %}
                         </div>
                     </div>
@@ -83,6 +83,7 @@
                                        value="{{ challenge.selectionCritera[0] }}" {% endfor %} disabled>
                             {% else %}
                                 <select class="form-control" id="selectionCritera[]" name="selectionCritera[]">
+                                    <option>{{ 'Geen requirements'|trans|capitalize }}</option>
                                     {% for tutorial in tutorials %}
                                         <option>{{ tutorial.name }}</option>
                                     {% endfor %}
