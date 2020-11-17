@@ -52,18 +52,20 @@ class InternshipController extends AbstractController
         // Get resource internship
         $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
-        //get employee conected to user
-        $variables['employee'] = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
-
-        //create new employee if user doesn't have one
-        if ($variables['employee']['person'] != $user->getPerson()) {
-            $variables['employee']['person'] = $user->getPerson();
-            $variables['employee'] = $commonGroundService->saveResource($variables['employee'], ['component' => 'mrc', 'type' => 'employees']);
-            $variables['employee'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
-        }
-
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
+
+            //get employee conected to user
+            $variables['employee'] = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
+            //create new employee if user doesn't have one
+            if ($variables['employee']['person'] != $user->getPerson()){
+                $variables['employee']['person'] = $user->getPerson();
+                $variables['employee'] = $commonGroundService->saveResource($variables['employee'],['component' => 'mrc', 'type' => 'employees']);
+                $variables['employee'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
+            }
+            $variables['employee'] = $variables['employee'][0];
+
+
             $variables['application'] = [];
             $resource = $request->request->all();
             $resource['employee'] = '/employees/'.$variables['employee']['id'];
