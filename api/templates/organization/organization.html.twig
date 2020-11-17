@@ -2,61 +2,41 @@
 
 {% block content %}
 
-    <section class="section-header pt-7 pb-4 pb-lg-5 bg-primary text-white">
-        <div class="container mb-7">
+    <!-- The header -->
+    <section class="section-header pb-10 pb-lg-11 mb-4 mb-lg-6 bg-primary text-white">
+        <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-10 text-center">
-                    <div class="mb-4"><a href="./blog.html"
-                                         class="badge badge-md badge-secondary text-uppercase mr-2 px-3">Seo</a> <a
-                            href="./blog.html" class="badge badge-md badge-warning text-uppercase px-3">Marketing</a>
-                    </div>
-                    <h1 class="h1 mb-4 px-lg-5">{% if h1|default %}{{ h1|capitalize }}{% else %}{{ 'organization'|trans|capitalize }}{% endif %}</h1>
-                    <div class="post-meta">
-                        <span
-                            class="post-date mr-3">{{ 'joined at'|trans|capitalize~' '~organization.dateCreated|date('Y-m-d', 'Europe/Amsterdam') }}</span>
-                    </div>
+                <div class="col-12 text-center mb-4 mb-lg-5">
+                    <h1 class="display-2 font-weight-extreme mb-4">{{ organization.name }}</h1>
+                    <p class="lead">[[ organization.summary]]</p>
+
+                        <div class="d-flex flex-column flex-lg-row justify-content-center">
+                            <span class="h5 mb-3 mb-lg-0"><i class="fas fa-clock"></i><span class="ml-3">[[ location ]]</span></span>
+                            <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-invoice-dollar"></i><span class="ml-3">[[ positions ]]</span></span>
+                            <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-invoice-dollar"></i><span class="ml-3">[[ challanges ]]</span></span>
+                            <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-invoice-dollar"></i><span class="ml-3">[[ tutorials ]]</span></span>
+                        </div>
+
                 </div>
+                <div class="col col-12 text-center"><a href="{{ path('app_education_tutorials') }}" class="btn btn-secondary text-white animate-up-2 mr-3"><i class="fas fa-arrow-left mr-2"></i>{{'all organizations'|trans|capitalize}}</a></div>
             </div>
         </div>
         <div class="pattern bottom"></div>
     </section>
 
-    <section class="pb-lg-6">
-        <div class="container">
+    <!-- The tutorial -->
+    <article class="section section-lg pt-0">
+        <div class="container mt-n8 mt-lg-n11 z-2">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="card shadow-soft border-light p-4 p-md-5">
+                        <div class="card-body">{{ organization.description }}</div>
 
-            <div class="bg-white pt-5 text-black">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-10">
-                        <h2 class=" text-center">{{ 'description'|trans|capitalize }}</h2>
-                        <p class=" text-center">{% if organization.description|default %} {{ organization.description }} {% else %}
-                                Lorem ipsum {% endif %}</p>
-                    </div>
-                </div>
-                <div class="row justify-content-sm-center align-items-center py-3 mt-3">
-                    <div class="col-12 col-lg-8">
-                        <div class="row">
-                            <div class="col-9 col-md-6"><h6 class="font-weight-bolder d-inline mb-0 mr-3">
-                                    Share:</h6>
-                                <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-twitter d-inline"><span
-                                        class="btn-inner-icon"><i class="fab fa-twitter"></i></span></button>
-                                <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-facebook d-inline"><span
-                                        class="btn-inner-icon"><i class="fab fa-facebook-f"></i></span></button>
-                                <button class="btn btn-sm btn-icon-only btn-pill btn-reddit d-inline"><span
-                                        class="btn-inner-icon"><i class="fab fa-reddit-alien"></i></span></button>
-                            </div>
-                            <div class="col-3 col-md-6 text-right"><i style="font-size: 27.5px" class="far fa-thumbs-up text-primary"
-                                                                      data-toggle="tooltip" data-placement="top"
-                                                                      title=""
-                                                                      data-original-title="Like organization"></i>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        </div>
-    </section>
+    </article>
 
     {#  Challenges  #}
     {% if challenges|default %}
