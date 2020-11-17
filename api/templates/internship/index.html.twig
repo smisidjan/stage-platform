@@ -6,7 +6,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 text-center">
                     <h1 class="mb-3">{{ 'find your perfect internship'|trans|capitalize }}</h1>
-                    <p class="lead px-lg-5 mb-5">{{ 'We hebben voor jou alle bedrijven die op zoek zijn naar een stagiair op een rijtje gezet. Zodat jij een keuze kunt maken voor welke stage je zou willen gaan.'|trans|capitalize }}.</p>
+                    <p class="lead px-lg-5 mb-5">{{ 'We have listed all the companies that are looking for an intern for you. '|trans|capitalize }}{{ 'So that you can make a choice for which internship you would like to go.'|trans|capitalize }}</p>
                     <form action="{{ path('app_internship_index', query) }}">
                         <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
                             <div class="row align-items-center">
@@ -28,41 +28,41 @@
         <div class="pattern bottom"></div>
     </section>
     <section class="section section-lg pb-0" style="margin-left: 10%">
-        <div class="container z-2 mt-n12 mt-lg-n11">
+        <div class="container z-2 mt-n10 mt-lg-n11 mt-sm-n8">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-2 mb-4 mb-lg-0">
+                <div class="col-12 col-md-4 col-lg-2 mb-4 mb-lg-0">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-building"></span></div>
                             <h6 class="text-gray mb-0"> {{ 'full-time'|capitalize }} </h6></div>
                     </a>
                 </div>
-                <div class="col-12 col-md-6 col-lg-2 mb-4 mb-lg-0">
+                <div class="col-12 col-md-4 col-lg-2 mb-4 mb-lg-0">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-stopwatch"></span></div>
                             <h6 class="text-gray mb-0"> {{ 'part-time'|capitalize }} </h6></div>
                     </a>
                 </div>
-                <div class="col-12 col-md-6 col-lg-2 mb-4 mb-lg-0">
+                <div class="col-12 col-md-4 col-lg-2 mb-4 mb-lg-0">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-business-time"></span></div>
-                            <h6 class="text-gray mb-0"> {{ 'Tijdelijk'|capitalize }} </h6></div>
+                            <h6 class="text-gray mb-0"> {{ 'temporarily'|capitalize }} </h6></div>
                     </a>
                 </div>
-                <div class="col-12 col-md-6 col-lg-2">
+                <div class="col-12 col-md-4 col-lg-2">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-sun"></span></div>
-                            <h6 class="text-gray mb-0"> {{ 'seizoen'|capitalize }} </h6></div>
+                            <h6 class="text-gray mb-0"> {{ 'season'|capitalize }} </h6></div>
                     </a>
                 </div>
-                <div class="col-12 col-md-6 col-lg-2">
+                <div class="col-12 col-md-4 col-lg-2">
                     <a href="./support-topic.html" class="card text-center shadow-soft border-light animate-up-3">
                         <div class="card-body p-5">
                             <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-network-wired"></span></div>
-                            <h6 class="text-gray mb-0"> {{ 'Stage'|capitalize }} </h6></div>
+                            <h6 class="text-gray mb-0"> {{ 'internship'|capitalize }} </h6></div>
                     </a>
                 </div>
             </div>
@@ -73,12 +73,12 @@
             <div class="row justify-content-center mb-5 mb-lg-6">
                 <div class="col-12 text-center">
                     <h2 class="h1 mb-3">{{ 'internships'|trans|capitalize }}</h2>
-                    <p class="lead px-5 px-lg-7">We are always looking for creative, talented self-starters to join the Front family. Check out our open positions and fill out an application.</p>
+                    <p class="lead px-5 px-lg-7">{{'We are always looking for creative, talented self-starters to join the Front family. '|trans|capitalize}} {{'Check out our open positions and fill out an application.'|trans|capitalize}}</p>
                 </div>
             </div>
             <div class="row">
 
-               {% for internship in interships %}
+               {% for internship in internships %}
                 <div class="col-12 mb-4">
                     <div class="card bg-white border-light shadow-soft">
                         <div class="card-body p-4 p-lg-5">
@@ -92,7 +92,13 @@
                                         <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span class="h6 text-sm ml-2">{{ internship.employmentType|trans|capitalize }}</span></span>
                                         <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span class="h6 text-sm ml-2">{{ internship.standardHours }}</span></span>
                                         <span class="ml-4"><i class="fal fa-calendar-times text-secondary"></i><span class="h6 text-sm ml-2"> {{ internship.validThrough|date("Y-m-d H:m") }}</span></span>
-                                        <span class="ml-4"><i class="fas fa-file-certificate text-secondary"></i><span class="h6 text-sm ml-2"> {{ internship.educationRequirements['0'] }}</span></span>
+                                        <span class="ml-4"><i class="fas fa-file-certificate text-secondary"></i><span class="h6 text-sm ml-2">
+                                                {% if internship.educationRequirements is defined and internship.educationRequirements is not empty  %}
+                                                    {{ internship.educationRequirements['0'] }}
+                                                {% else %}
+                                                    {{ 'no requirements found'|trans|capitalize }}
+                                                {% endif %}
+                                            </span></span>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-12 d-flex align-items-center justify-content-md-end">
@@ -119,9 +125,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
-                    <h2 class="mb-4">Join Conduction Academy</h2>
+                    <h2 class="mb-4">{{ 'Join the Conduction Academy'|trans }}</h2>
                     <p class="lead mb-5">[subtext]</p>
-                    <button type="button" class="btn btn-secondary animate-up-2" data-toggle="modal" data-target=".pricing-modal"><a href="{{ path('app_user_idvault') }}" style="color: white"><span class="mr-2"><i class="fas fa-hand-pointer"></i></span>Registreer nu</a></button>
+                    <button type="button" class="btn btn-secondary animate-up-2" data-toggle="modal" data-target=".pricing-modal"><a href="{{ path('app_user_idvault') }}" style="color: white"><span class="mr-2"><i class="fas fa-hand-pointer"></i></span>{{ 'register now'|trans|capitalize }}</a></button>
                 </div>
             </div>
         </div>
