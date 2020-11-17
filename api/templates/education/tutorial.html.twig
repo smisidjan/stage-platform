@@ -1,73 +1,117 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <article>
-        <section class="section-header pb-7 pb-lg-10 bg-primary text-white">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-10 text-center">
-                        <div class="mb-4"><a href="./blog.html" class="badge badge-md badge-secondary text-uppercase mr-2 px-3">Seo</a> <a href="./blog.html" class="badge badge-md badge-warning text-uppercase px-3">Marketing</a></div>
-                        <h1 class="display-3 mb-4 px-lg-5">90% of content gets no traffic from Google. How to improve your organic search traffic</h1>
-                        <div class="post-meta"><span class="font-weight-bold mr-3">James Curran</span> <span class="post-date mr-3">January 31, 2020</span> <span class="font-weight-bold">7 min read</span></div>
+
+    <!-- The header -->
+    <section class="section-header pb-10 pb-lg-11 mb-4 mb-lg-6 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mb-4 mb-lg-5">
+                    <h1 class="display-2 font-weight-extreme mb-4">{{ tutorial.name }}</h1>
+                    <p class="lead">{{ tutorial.description }}</p>
+
+                    <div class="d-flex flex-column flex-lg-row justify-content-center">
+                        <span class="h5 mb-3 mb-lg-0"><i class="fas fa-clock"></i><span class="ml-3">{{ tutorial.timeRequired }}</span></span>
+                        {% if tutorial.organization is defined and tutorial.organization is not empty %}
+                        {% set organization = commonground_resource(tutorial.organization) %}
+                        <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-user-tie"></i><span class="ml-3">{{ organization.name }}</span></span>
+                        {% endif %}
+                        <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-invoice-dollar"></i><span class="ml-3">{{ tutorial.additionalType }}</span></span>
                     </div>
                 </div>
+                <div class="col col-12 text-center"><a href="{{ path('app_education_tutorials') }}" class="btn btn-secondary text-white animate-up-2 mr-3"><i class="fas fa-arrow-left mr-2"></i>{{'all tutorials'|trans|capitalize}}</a>
+                    <a href="#registeer" class="btn btn-white text-primary animate-up-2"><i class="fas fa-clipboard-list mr-2"></i>{{'register now'|trans|capitalize}}</a></div>
             </div>
-            <div class="pattern bottom"></div>
-        </section>
-        <div class="section section-sm bg-white pt-5 text-black">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-8">
-                        <p>Adding a dark mode is basically adding a theme. The principles are the same for adding a light mode to a dark website or alternative styling based on user-defined variables, the time of year or holidays.</p>
-                        <p>I added theming with a mix of and CSS. In this post I’ll go step by step into the details of how I did it and what I learned.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias expedita earum modi sint voluptatum nemo assumenda explicabo laboriosam unde excepturi, necessitatibus consequatur quo! Quis impedit excepturi ut, alias omnis harum?</p>
-                        <p><img src="../assets/img/blog/image-4.jpg" alt="Blog Image"></p>
-                        <h2>Setup</h2>
-                        <p>The themes are <a href="#" class="text-primary">activated by CSS classes</a> on the root element. When the page is loaded, I want to apply the theme that most likely suits the visitor (you!) best. After all, most people don’t like configuring websites before they can read a blog post, so the the whole theming feature would likely remain unused otherwise. So I have to make a guess about what the visitor wants and expects. I do that in this order:</p>
-                        <ol>
-                            <li>I assume people don’t want the theme to change when they navigate between pages. So if the page loaded isn’t the first page they visit, I want to use the theme that was used before.</li>
-                            <li>If it’s the first page they view on my site, their browser may be able to tell their preference.</li>
-                            <li>If no preference is available, we can base the choice based on whether it’s day or night.</li>
-                        </ol>
-                        <p>Every time a page is loaded, in the current or a new tab, it checks if a theme was set previously. Because the preference for a light or dark theme can change during the day, with every change, I add a time stamp to the saved setting. Only when the state was saved less than two hours ago, it’s applied:</p>
-                        <div class="my-4"><pre class="bg-soft rounded language-javascript">                                    <code class=" text-white language-javascript">
-        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#myModal'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'show.bs.modal'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// stops modal from being shown</span>
-        <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-                                    </code>
-                                </pre></div>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque distinctio nemo tempora similique necessitatibus asperiores inventore ipsum, nostrum velit, quasi vitae natus numquam veritatis nobis, reiciendis deleniti facere molestias a.</p>
-                        <h2>Header 2</h2>
-                        <h3>Header 3</h3>
-                        <h4>Header 4</h4>
-                        <h5>Header 5</h5>
-                        <h6>Header 6</h6>
-                        <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi velit perferendis labore vel, necessitatibus laboriosam fugit inventore ad odio tenetur vitae veritatis, earum numquam consectetur voluptatem illum, sequi asperiores commodi?</p>
-                        <ul>
-                            <li>list item 1</li>
-                            <li>list item 2</li>
-                            <li>list item 3</li>
-                        </ul>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit corrupti dolorem at iste perferendis! Modi praesentium vel, rem aliquid illo, nostrum asperiores dolorem corrupti odio tempora impedit deleniti eius voluptatibus.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit corrupti dolorem at iste perferendis! Modi praesentium vel, rem aliquid illo, nostrum asperiores dolorem corrupti odio tempora impedit deleniti eius voluptatibus.</p>
-                    </div>
-                </div>
-                <div class="row justify-content-sm-center align-items-center py-3 mt-3">
-                    <div class="col-12 col-lg-8">
-                        <div class="row">
-                            <div class="col-9 col-md-6">
-                                <h6 class="font-weight-bolder d-inline mb-0 mr-3">Share:</h6>
-                                <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-twitter d-inline"><span class="btn-inner-icon"><i class="fab fa-twitter"></i></span></button>
-                                <button class="btn btn-sm mr-3 btn-icon-only btn-pill btn-facebook d-inline"><span class="btn-inner-icon"><i class="fab fa-facebook-f"></i></span></button>
-                                <button class="btn btn-sm btn-icon-only btn-pill btn-reddit d-inline"><span class="btn-inner-icon"><i class="fab fa-reddit-alien"></i></span></button>
-                            </div>
-                            <div class="col-3 col-md-6 text-right"><i class="far fa-bookmark text-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Bookmark story"></i></div>
-                        </div>
+        </div>
+        <div class="pattern bottom"></div>
+    </section>
+
+    <!-- The tutorial -->
+    <article class="section section-lg pt-0">
+        <div class="container mt-n8 mt-lg-n11 z-2">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="card shadow-soft border-light p-4 p-md-5">
+                        <div class="card-body">{{ tutorial.text }}</div>
+
+                        {% if tutorial.video is defined and tutorial.video is not empty %}
+                            <iframe width="420" height="315"
+                                    src="{{ tutorial.video }}">
+                            </iframe>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </article>
+
+    <!-- Registration -->
+    <div class="container">
+        <div class="row justify-content-center pb-5">
+            <div class="col">
+                <div class="card bg-soft shadow-soft border-light p-4 p-md-5">
+                    <div class="mb-1 text-center">
+                        <h2 class="h1">{{'register for this tutorial'|trans|capitalize}}</h2>
+                    </div>
+                    {%  if registered %}
+                        <p class="mt-4 text-center">{{ 'you have already registerd for this cource'|trans|capitalize }}</p>
+                        <a class="mt-2 text-center btn btn-secondary" href="{{ path('app_dashboarduser_tutorial', {id: tutorial.id}) }}">
+                            {{ 'click here to participate'|trans|capitalize }}
+                        </a>
+                    {% elseif app.user is defined and app.user is not null %}
+                    <form action="{{ path('app_education_tutorial', {id: tutorial.id}) }}" method="post">
+                        <div class="row">
+                            <div class="col col-12 mt-4">
+                                <div class="form-group">
+                                    <label class="form-label text-muted" for="motivation">{{'motivation'|trans|capitalize}} <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" placeholder="{{'motivate your registration'|trans|capitalize}}" id="motivation" name="motivation" rows="8" required=""></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-secondary mt-4"><span class="mr-2"><i class="fas fa-paper-plane"></i></span> {{'register'|trans|capitalize}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    {% else %}
+                    <p class="mt-4 text-center">{{ 'you need to be logged in to register for a tutorial'|trans|capitalize }}</p>
+                    <a class="mt-2 text-center btn btn-secondary" href="{{ path('app_user_idvault') }}">
+                        {{ 'click here to log in'|trans|capitalize }}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other tutorials -->
+    <section class="section section-lg pb-5 bg-soft">
+        <div class="container">
+            <div class="row justify-content-center mb-4 mb-lg-5">
+                <div class="col">
+                    <h2 class="h2" style="text-align: center">{{'other tutorials from this organization'|trans|capitalize}}</h2>
+                </div>
+            </div>
+        </div>
+    <section class="section section-lg pt-0">
+        <div class="container">
+            <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-5">
+                        <div class="card bg-white border-light shadow-soft p-4 rounded">
+                            <a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}"><img src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt=""></a>
+                            <div class="card-body p-0 pt-4"><a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}" class="h3">{{ tutorial.name }}</a>
+
+                                {% if tutorial.organization is defined and tutorial.organization is not empty %}
+                                    {% set organization = commonground_resource(tutorial.organization) %}
+                                    <div class="d-flex align-items-center my-4"><img class="avatar avatar-sm rounded-circle" src="{{ organization.style.favicon.base64 }}" alt="">
+                                        <h6 class="text-muted small ml-2 mb-0">{{ organization.name }}</h6>
+                                    </div>
+                                {% endif %}
+                                <p class="mb-0">{{ tutorial.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    </section>
 {% endblock %}

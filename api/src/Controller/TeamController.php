@@ -25,8 +25,14 @@ class TeamController extends AbstractController
      */
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $variables = [];
+
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+
+        // Get resource
+        $variables['teams'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+        $variables['entries'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'entries'], $variables['query'])['hydra:member'];
 
         return $variables;
     }
@@ -39,8 +45,9 @@ class TeamController extends AbstractController
     {
         $variables = [];
 
-        // Get resource Interschip
-        $variables['team'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        // Get Resource
+        $variables['team'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'organizations', 'id' => $id]);
+        $variables['entry'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'entries'], ['tender.id' => $id])['hydra:member'];
 
         return $variables;
     }

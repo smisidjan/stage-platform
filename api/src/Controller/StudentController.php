@@ -28,8 +28,8 @@ class StudentController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        // Get resource Interschips
-        $variables['students'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+        // Get resource students
+        $variables['students'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants'], $variables['query'])['hydra:member'];
 
         return $variables;
     }
@@ -38,12 +38,16 @@ class StudentController extends AbstractController
      * @Route("/{id}")
      * @Template
      */
-    public function positionAction(CommonGroundService $commonGroundService, Request $request, $id)
+    public function portfolioAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
 
-        // Get resource Interschip
-        $variables['student'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        // Get resource students
+        $variables['students'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants'])['hydra:member'];
+
+        // Get Resource student
+        $variables['student'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'participants', 'id' => $id]);
+        $variables['person'] = $commonGroundService->getResource($variables['student']['person']);
 
         return $variables;
     }

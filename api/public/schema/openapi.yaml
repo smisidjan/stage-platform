@@ -1,10 +1,10 @@
 openapi: 3.0.2
 info:
-  title: 'ID Vault'
+  title: 'Stage platform'
   version: V1.0
   description: |
     API Details
-    - Component: ID Vault
+    - Component: Stage platform
     - Reference: stage-platform
     - Enviroment: dev
     - Version: V1.0
@@ -2391,12 +2391,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-29 00:05:21'
+        example: '2020-11-17 08:33:17'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-29 00:05:21'
+        example: '2020-11-17 08:33:17'
     required: []
   AuditTrail-write:
     properties:
@@ -2444,12 +2444,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-10-29 00:05:21'
+        example: '2020-11-17 08:33:17'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-10-29 00:05:21'
+        example: '2020-11-17 08:33:17'
     required: []
   ChangeLog-write:
     properties:

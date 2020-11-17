@@ -11,12 +11,16 @@
                     <h2 class="h3 text-muted mb-5">Lift off your career</h2>
                     <!-- Button Modal -->
                     <div class="d-flex justify-content-center mb-6">
-                        <a href="/register" class="btn btn-secondary animate-up-2 mr-4"><span class="fas fa-rocket mr-2 d-none d-sm-inline"></span> {{ 'Register'|trans|capitalize }}</a>
-                        <a href="/login" class="btn btn-outline-white animate-up-2"><span class="fas fa-lock mr-2 d-none d-sm-inline"></span> {{ 'Login'|trans|capitalize }}</a>
+                        {% if not app.user %}
+                        <a href="{{ path('app_user_idvault') }}" class="btn btn-secondary animate-up-2 mr-4"><span class="fas fa-rocket mr-2 d-none d-sm-inline"></span> {{ 'register'|trans|capitalize }}</a>
+                        <a href="{{ path('app_user_idvault') }}" class="btn btn-outline-white animate-up-2"><span class="fas fa-lock mr-2 d-none d-sm-inline"></span> {{ 'login'|trans|capitalize }}</a>
+                        {% else %}
+                        <a href="{{ path('app_dashboard_index') }}" class="btn btn-secondary animate-up-2 mr-4"><span class="fas fa-rocket mr-2 d-none d-sm-inline"></span> {{ 'dashboard'|trans|capitalize }}</a>
+                        {% endif %}
                     </div>
                     <div class="d-flex justify-content-center flex-column mb-6">
                         <a href="https://themesberg.com" target="_blank">
-                            <img src="./bundles/rocket/assets/img/logo.PNG" class="d-block mx-auto mb-3" alt="Conduction Logo">
+                            <img src="/images/conduction2.PNG" class="d-block mx-auto mb-3" alt="Conduction Logo" style="width: 100px;">
                         </a>
                     </div>
                 </div>
@@ -34,18 +38,18 @@
                                 <img src="./bundles/rocket/assets//img/icons/research.svg" alt="icon">
                             </div>
                             <h2 class="h4 mt-3">Students</h2>
-                            <p class="mb-0">Find the best internschipt that you can do form home</p>
+                            <p class="mb-0">Find the best internship that you can do from home</p>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Uncover the best SEO and content strategies</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Find the best future internships</div>
                                 </li>
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Build &amp; grow your affiliate and media partnerships</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Build &amp; grow your knowledge with tutorials and challenges</div>
                                 </li>
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Enhance your display and paid search strategies</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Come in contact with other students and form teams</div>
                                 </li>
                             </ul>
                         </div>
@@ -61,18 +65,18 @@
                                 <img src="./bundles/rocket/assets/img/icons/research.svg" alt="icon">
                             </div>
                             <h2 class="h4 mt-3">Employers</h2>
-                            <p class="mb-0">Aquire next generation tallent</p>
+                            <p class="mb-0">Aquire next generation talent</p>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Uncover the best SEO and content strategies</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Find the most suitable interns for your company</div>
                                 </li>
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Build &amp; grow your affiliate and media partnerships</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Connect with students and teams and make interesting challenges</div>
                                 </li>
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Enhance your display and paid search strategies</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Find other likeminded organizations</div>
                                 </li>
                             </ul>
                         </div>
@@ -88,18 +92,18 @@
                                 <img src="./bundles/rocket/assets/img/icons/research.svg" alt="icon">
                             </div>
                             <h2 class="h4 mt-3">Education</h2>
-                            <p class="mb-0">Stop covid bieng a blocking factor for your students</p>
+                            <p class="mb-0">Stop covid-19 being a blocking factor for your students</p>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Uncover the best SEO and content strategies</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Contribute to creating a covid proof educational platform</div>
                                 </li>
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Build &amp; grow your affiliate and media partnerships</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Help build &amp; grow the new talent of this generation</div>
                                 </li>
                                 <li class="list-group-item d-flex text-left pl-0">
-                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Enhance your display and paid search strategies</div>
+                                    <span class="list-icon"><i class="fas fa-check-circle text-success"></i></span><div>Encourage this new way of connection between organizations and students</div>
                                 </li>
                             </ul>
                         </div>
