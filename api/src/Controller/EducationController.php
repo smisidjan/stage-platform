@@ -69,8 +69,9 @@ class EducationController extends AbstractController
         } else {
             $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
         }
-
-        $variables['participant'] = $participants[0];
+        if (count($participants) > 0) {
+            $variables['participant'] = $participants[0];
+        }
 
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
@@ -81,8 +82,18 @@ class EducationController extends AbstractController
                 $variables['participant']['courses'] = [];
             }
 
+            // Add course to the participant
+            $courses = [];
+            foreach ($variables['participant']['courses'] as $course) {
+                if ($course['id'] != $variables['tutorial']['id']) {
+                    array_push($courses, '/courses/'.$course['id']);
+                }
+            }
+
+            $variables['participant']['courses'] = $courses;
             $variables['participant']['courses'][] = '/courses/'.$variables['tutorial']['id'];
-            $variables['participant'] = $commonGroundService->saveResource($variables['participant'], ['component' => 'edu', 'type' => 'participants', 'id' => $variables['participant']['id']]);
+
+            $variables['participant'] = $commonGroundService->updateResource($variables['participant']);
         }
 
         // lets see if the participant is in this course

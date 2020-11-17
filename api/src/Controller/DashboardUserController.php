@@ -41,7 +41,9 @@ class DashboardUserController extends AbstractController
         } else {
             $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
         }
-        $variables['participant'] = $participants[0];
+        if (count($participants) > 0) {
+            $variables['participant'] = $participants[0];
+        }
 
         $variables['courses'] = $variables['participant']['courses'];
         $variables['programs'] = $variables['participant']['programs'];
@@ -67,7 +69,9 @@ class DashboardUserController extends AbstractController
         } else {
             $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
         }
-        $variables['participant'] = $participants[0];
+        if (count($participants) > 0) {
+            $variables['participant'] = $participants[0];
+        }
 
         $variables['tutorials'] = $variables['participant']['courses'];
 
