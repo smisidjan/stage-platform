@@ -6,16 +6,23 @@
         <div class="d-block mb-4 mb-md-0">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                    <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span class="fas fa-home"></span></a></li>
-                    <li class="breadcrumb-item"><a href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
-                    <li class="breadcrumb-item"><a href="{{ path('app_dashboardorganization_tutorials') }}">{{ 'Tutorials'|trans|capitalize }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span
+                                class="fas fa-home"></span></a></li>
+                    <li class="breadcrumb-item"><a
+                            href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
+                    <li class="breadcrumb-item"><a
+                            href="{{ path('app_dashboardorganization_tutorials') }}">{{ 'Tutorials'|trans|capitalize }}</a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">{{ 'Tutorial'|trans|capitalize }}</li>
                 </ol>
             </nav>
             <h2 class="h4">{{ tutorial.name }}</h2>
-                <p class="mb-0">[text about what a tutorial is]</p>
+            <p class="mb-0">[text about what a tutorial is]</p>
         </div>
     </div>
+
+
+    <form action="{{ path('app_dashboardorganization_tutorial',{'id': tutorial.id}) }}" method="post">
 
         <!-- left collum -->
     <form action="{{ path('app_dashboardorganization_tutorial',{'id': tutorial.id}) }}" method="post">
@@ -28,7 +35,8 @@
                     {% endif %}
 
 
-                    <input type="hidden" name="organization" id="organization" value="https://dev.zuid-drecht.nl/api/v1/wrc/organizations/c571bdad-f34c-4e24-94e7-74629cfaccc9">
+                    <input type="hidden" name="organization" id="organization"
+                           value="https://dev.zuid-drecht.nl/api/v1/wrc/organizations/c571bdad-f34c-4e24-94e7-74629cfaccc9">
 
 
                     <div class="row">
@@ -37,8 +45,9 @@
                                 <label for="Tutorial name">{{ 'Tutorial name'|trans|capitalize }}</label>
                                 <input class="form-control" id="name" type="text"
                                     {% if tutorial.name is defined and tutorial.name is not empty %}
-                                    value="{{ tutorial.name }}" {% else %}
-                                    placeholder="{{ 'your tutorial name...'|trans|capitalize }}"{% endif %} name="name" required>
+                                        value="{{ tutorial.name }}" {% else %}
+                                        placeholder="{{ 'your tutorial name...'|trans|capitalize }}"{% endif %}
+                                       name="name" required>
                             </div>
                         </div>
                     </div>
@@ -51,7 +60,8 @@
                                        required=""
                                     {% if tutorial.description is defined and tutorial.description is not empty %}
                                         value="{{ tutorial.description }}" {% else %}
-                                        placeholder="{{ 'your tutorial description...'|trans|capitalize }}"{% endif %} name="description" required>
+                                        placeholder="{{ 'your tutorial description...'|trans|capitalize }}"{% endif %}
+                                       name="description" required>
                             </div>
                         </div>
                     </div>
@@ -74,7 +84,8 @@
                             <div class="form-group">
                                 <label for="text">{{ 'Tutorial text'|trans|capitalize }}</label>
                                 {% if tutorial.text is defined and tutorial.text is not empty %}
-                                    <textarea class="form-control" id="text" name="text" rows="3" cols="6">{{ tutorial.text }}</textarea>
+                                    <textarea class="form-control" id="text" name="text" rows="3"
+                                              cols="6">{{ tutorial.text }}</textarea>
                                 {% else %}
                                     <textarea class="form-control" id="text" name="text"
                                               placeholder="The text of your tutorial will be displayed here..."
@@ -91,7 +102,8 @@
                                        required=""
                                     {% if tutorial.timeRequired is defined and tutorial.timeRequired is not empty %}
                                         value="{{ tutorial.timeRequired }}" {% else %}
-                                        placeholder="{{ 'The time required to read the entire tutorial...'|trans|capitalize }}"{% endif %} name="timeRequired" required>
+                                        placeholder="{{ 'The time required to read the entire tutorial...'|trans|capitalize }}"{% endif %}
+                                       name="timeRequired" required>
                             </div>
                         </div>
                     </div>
@@ -99,12 +111,14 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="educationalCredentialAwarded">{{ 'Educational credential '|trans|capitalize }}</label>
+                                <label
+                                    for="educationalCredentialAwarded">{{ 'Educational credential '|trans|capitalize }}</label>
                                 <input class="form-control" id="educationalCredentialAwarded" type="text"
                                        required=""
                                     {% if tutorial.educationalCredentialAwarded is defined and tutorial.educationalCredentialAwarded is not empty %}
                                         value="{{ tutorial.educationalCredentialAwarded }}" {% else %}
-                                        placeholder="{{ 'The level of education required for this tutorial...'|trans|capitalize }}"{% endif %} name="educationalCredentialAwarded" required>
+                                        placeholder="{{ 'The level of education required for this tutorial...'|trans|capitalize }}"{% endif %}
+                                       name="educationalCredentialAwarded" required>
                             </div>
                         </div>
                     </div>
@@ -122,9 +136,11 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="occupationalCredentialAwarded">{{ 'Occupational Credential'|trans|capitalize }}</label>
+                                <label
+                                    for="occupationalCredentialAwarded">{{ 'Occupational Credential'|trans|capitalize }}</label>
                                 {% if tutorial.occupationalCredentialAwarded is defined and tutorial.occupationalCredentialAwarded is not empty %}
-                                    <textarea class="form-control" id="text" name="text" rows="3" cols="6">{{ tutorial.occupationalCredentialAwarded }}</textarea>
+                                    <textarea class="form-control" id="text" name="text" rows="3"
+                                              cols="6">{{ tutorial.occupationalCredentialAwarded }}</textarea>
                                 {% else %}
                                     <textarea class="form-control" id="text" name="text"
                                               placeholder="Indicate in the tutorial which professional certificate you receive..."
@@ -220,54 +236,10 @@
                     </nav>
                     <div class="font-weight-bold small">Showing <b>5</b> out of <b>25</b> entries</div>
                 </div>
-            </div>
-        </div>
 
-        <!-- right collum -->
-        <div class="col-12 col-xl-4">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-xl-12">
-                    <div class="card card-body bg-white border-light shadow-sm mb-4">
-                        <h2 class="h5 mb-4">Select profile photo</h2>
-                        <div class="d-xl-flex align-items-center">
-                            <div>
-                                <div class="user-avatar xl-avatar mb-3"><img class="rounded" src="../../assets/img/team/profile-picture-3.jpg" alt="change avatar"></div>
-                            </div>
-                            <div class="file-field">
-                                <div class="d-flex justify-content-xl-center ml-xl-3">
-                                    <div class="d-flex"><span class="icon icon-md"><span class="fas fa-paperclip mr-3"></span></span>
-                                        <input type="file">
-                                        <div class="d-md-block text-left">
-                                            <div class="font-weight-normal text-dark mb-1">Choose Image</div>
-                                            <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-xl-12">
-                    <div class="card card-body bg-white border-light shadow-sm mb-4">
-                        <h2 class="h5 mb-4">Select cover photo</h2>
-                        <div class="d-xl-flex align-items-center">
-                            <div>
-                                <div class="user-avatar xl-avatar mb-3"><img class="rounded" src="../../assets/img/carousel/image-2.jpg" alt="change avatar"></div>
-                            </div>
-                            <div class="file-field">
-                                <div class="d-flex justify-content-xl-center ml-xl-3">
-                                    <div class="d-flex"><span class="icon icon-md"><span class="fas fa-paperclip mr-3"></span></span>
-                                        <input type="file">
-                                        <div class="d-md-block text-left">
-                                            <div class="font-weight-normal text-dark mb-1">Choose Image</div>
-                                            <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="h4">Participants</h3>
+                {% if participants|default %}
+                    <p class="mb-0">These people are following your tutorial</p>
 
 
 
@@ -480,7 +452,13 @@
                             {% endfor %}
                         {% endif %}
                     </div>
-                </div>
+                {% else %}
+                    <p class="mb-0">There are currently no participants on this tutorial</p>
+                {% endif %}
+            </div>
+            <!-- right collum -->
+            <div class="col-12 col-xl-4">
+                <div class="row">
 
 
 
@@ -515,6 +493,7 @@
                                                 <label class="form-check-label"
                                                        for="{{ educationEvent.id }}Checkbox"></label>
                                             </div>
+                                            <input type="hidden" name="coursePrerequisites[]" value="{{ req['@id'] }}">
                                         </td>
                                         <td><span
                                                 class="font-weight-normal">{{ educationEvent.name }}</span>

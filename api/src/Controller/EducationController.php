@@ -64,11 +64,10 @@ class EducationController extends AbstractController
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
 
         //  Getting the participant @todo this needs to be more foolproof and part of a service
-        if($this->getUser()){
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> $this->getUser()->getPerson()]])['hydra:member'];
-        }
-        else{
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants',["person"=> "https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db"]])['hydra:member'];
+        if ($this->getUser()) {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> $this->getUser()->getPerson()]])['hydra:member'];
+        } else {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
         }
 
         $variables['participant'] = $participants[0];
@@ -77,25 +76,22 @@ class EducationController extends AbstractController
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
 
-
-
             // Fallback
-            if(!array_key_exists('courses', $variables['participant'])){
+            if (!array_key_exists('courses', $variables['participant'])) {
                 $variables['participant']['courses'] = [];
             }
 
             $variables['participant']['courses'][] = '/courses/'.$variables['tutorial']['id'];
-            $variables['participant'] =  $commonGroundService->saveResource($variables['participant'], ['component' => 'edu', 'type' => 'participants', 'id' => $variables['participant']['id']]);
-
+            $variables['participant'] = $commonGroundService->saveResource($variables['participant'], ['component' => 'edu', 'type' => 'participants', 'id' => $variables['participant']['id']]);
         }
 
         // lets see if the participant is in this course
         $variables['registered'] = false;
-       foreach($variables['participant']['courses'] as $tempCourse){
-           if($tempCourse['id'] == $id){
-               $variables['registered'] = true;
-           }
-       }
+        foreach ($variables['participant']['courses'] as $tempCourse) {
+            if ($tempCourse['id'] == $id) {
+                $variables['registered'] = true;
+            }
+        }
 
         return $variables;
     }
