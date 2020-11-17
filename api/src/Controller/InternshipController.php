@@ -29,7 +29,7 @@ class InternshipController extends AbstractController
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resources Interschips
-        $variables['interships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+        $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         return $variables;
     }
@@ -40,40 +40,41 @@ class InternshipController extends AbstractController
      */
     public function positionAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
-        $variables = [];
-        $user = $this->getUser();
-        //get organizations id of current position
-        $organization = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
-
-        //get all positions of that organizations
-        $variables['positions'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'job_postings'], ['organization' => $organization])['hydra:member'];
-
-        // Get resource Intership
-        $variables['intership'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
-
-
-        //get employee conected to user
-        $variables['employee'] = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
-
-        //create new employee if user doesn't have one
-        if ($variables['employee']['person'] != $user->getPerson()){
-            $variables['employee']['person'] = $user->getPerson();
-            $variables['employee'] = $commonGroundService->saveResource($variables['employee'],['component' => 'mrc', 'type' => 'employees']);
-            $variables['employee'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
+        if (empty($this->getUser())) {
+            return $this->redirect($this->generateUrl('app_user_idvault'));
         }
-        $variables['employee'] = $variables['employee'][0];
+
+        $variables = [];
+
+        // Get the cc/person url of this user
+        $personUrl = $this->getUser()->getPerson();
+
+        // Get resource internship
+        $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
+
+            //get employee conected to user
+            $variables['employee'] = $commonGroundService->getResourcelist(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
+            //create new employee if user doesn't have one
+            if ($variables['employee']['person'] != $user->getPerson()){
+                $variables['employee']['person'] = $user->getPerson();
+                $variables['employee'] = $commonGroundService->saveResource($variables['employee'],['component' => 'mrc', 'type' => 'employees']);
+                $variables['employee'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $user->getPerson()])['hydra:member'];
+            }
+            $variables['employee'] = $variables['employee'][0];
+
+
             $variables['application'] = [];
             $resource = $request->request->all();
             $resource['employee'] = '/employees/'.$variables['employee']['id'];
-            $resource['jobPosting'] = '/job_postings/'. $variables['intership']['id'];
-            $resource['status'] = "applied";
+            $resource['jobPosting'] = '/job_postings/'.$variables['intership']['id'];
+            $resource['status'] = 'applied';
             // Update to the commonground component
-            $variables['application'] = $commonGroundService->saveResource($resource,['component' => 'mrc', 'type' => 'applications']);
-
+            $variables['application'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'applications']);
         }
+
         return $variables;
     }
 
