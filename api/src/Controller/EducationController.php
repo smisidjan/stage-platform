@@ -70,37 +70,28 @@ class EducationController extends AbstractController
             $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
         }
         if (count($participants) > 0) {
-            $variables['participant'] = $participants[0];
+            $variables['participants'] = $participants;
         }
 
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
 
-            // Fallback
-            if (!array_key_exists('courses', $variables['participant'])) {
-                $variables['participant']['courses'] = [];
-            }
+            // Create a participant
+            $participant['person'] = $this->getUser()->getPerson();
+            $participant['courses'][] = '/courses/'.$variables['tutorial']['id'];
 
-            // Add course to the participant
-            $courses = [];
-            foreach ($variables['participant']['courses'] as $course) {
-                if ($course['id'] != $variables['tutorial']['id']) {
-                    array_push($courses, '/courses/'.$course['id']);
-                }
-            }
-
-            $variables['participant']['courses'] = $courses;
-            $variables['participant']['courses'][] = '/courses/'.$variables['tutorial']['id'];
-
-            $variables['participant'] = $commonGroundService->updateResource($variables['participant']);
+            $commonGroundService->createResource($participant, ['component' => 'edu', 'type' => 'participants']);
+            return $this->redirect($this->generateUrl('app_education_tutorials', ['id'=>$id]));
         }
 
         // lets see if the participant is in this course
         $variables['registered'] = false;
-        foreach ($variables['participant']['courses'] as $tempCourse) {
-            if ($tempCourse['id'] == $id) {
-                $variables['registered'] = true;
+        foreach ($variables['participants'] as $tempParticipant) {
+            foreach ($tempParticipant['courses'] as $tempCourse) {
+                if ($tempCourse['id'] == $id) {
+                    $variables['registered'] = true;
+                }
             }
         }
 
