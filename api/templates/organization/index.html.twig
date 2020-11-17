@@ -51,7 +51,8 @@
                                 <a href="{{ path('app_organization_organization', {id: org.id}) }}"><img
                                         src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300"
                                         alt=""></a>
-                                <div class="card-body p-0 pt-4"><a
+                                <div class="card-body p-0 pt-4">
+                                     <a
                                         href="{{ path('app_organization_organization', {id: org.id}) }}"
                                         class="h3">{{ org.name|capitalize }}</a>
                                     {# Add contact person? #}
@@ -60,9 +61,6 @@
                                     {#                                            src="/bundles/rocket/assets/img/team/profile-picture-2.jpg"#}
                                     {#                                            alt="">#}
                                     {#                                        <h6 class="text-muted small ml-2 mb-0">{{ org.name }}</h6></div>#}
-                                    <div class="d-flex align-items-center my-4"><h6
-                                            class="text-muted small ml-2 mb-0">{{ 'joined at'|trans|capitalize~': '~org.dateCreated|date('Y-m-d', 'Europe/Amsterdam') }}</h6>
-                                    </div>
                                     {#                            <div class="d-flex align-items-center my-4"><h6 class="text-muted small ml-2 mb-0">Reward: 500.00</h6></div>#}
                                     {% if org.description|default %}
                                         <p class="mb-0">{{ org.description }}</p>
