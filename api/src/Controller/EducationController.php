@@ -82,6 +82,7 @@ class EducationController extends AbstractController
             $participant['courses'][] = '/courses/'.$variables['tutorial']['id'];
 
             $commonGroundService->createResource($participant, ['component' => 'edu', 'type' => 'participants']);
+
             return $this->redirect($this->generateUrl('app_education_tutorials', ['id'=>$id]));
         }
 
