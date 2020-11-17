@@ -189,7 +189,7 @@ class DashboardOrganizationController extends AbstractController
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
 
-            $resource['budget'] = (float) $resource['budget'];
+            $resource['budget'] = number_format((float) $resource['budget'], 2);
 
             // Add the post data to the already aquired resource data
             $resource = array_merge($variables['challenge'], $resource);
