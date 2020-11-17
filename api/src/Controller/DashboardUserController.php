@@ -72,10 +72,8 @@ class DashboardUserController extends AbstractController
             // Get all tutorials for each participant of this user
             $tutorials = [];
             foreach ($participants as $participant) {
-                if (isset($participant['courses'])) {
-                    foreach ($participant['courses'] as $tutorial) {
-                        array_push($tutorials, $tutorial);
-                    }
+                if (isset($participant['course'])) {
+                    array_push($tutorials, $participant['course']);
                 }
             }
             $variables['tutorials'] = $tutorials;

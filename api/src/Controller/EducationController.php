@@ -79,17 +79,17 @@ class EducationController extends AbstractController
 
             // Create a participant
             $participant['person'] = $this->getUser()->getPerson();
-            $participant['courses'][] = '/courses/'.$variables['tutorial']['id'];
+            $participant['course'] = '/courses/'.$variables['tutorial']['id'];
 
             $commonGroundService->createResource($participant, ['component' => 'edu', 'type' => 'participants']);
-            return $this->redirect($this->generateUrl('app_education_tutorials', ['id'=>$id]));
+            return $this->redirect($this->generateUrl('app_education_tutorial', ['id'=>$id]));
         }
 
         // lets see if the participant is in this course
         $variables['registered'] = false;
         foreach ($variables['participants'] as $tempParticipant) {
-            foreach ($tempParticipant['courses'] as $tempCourse) {
-                if ($tempCourse['id'] == $id) {
+            if (isset($tempParticipant['course'])) {
+                if ($tempParticipant['course']['id'] == $id) {
                     $variables['registered'] = true;
                 }
             }
