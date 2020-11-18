@@ -1449,6 +1449,22 @@
         <source>apply</source>
         <target>inschrijven</target>
       </trans-unit>
+      <trans-unit id="On124Ha" resname="what would you like to tell or ask this student">
+        <source>what would you like to tell or ask this student</source>
+        <target>wat zou je deze student willen vertellen of vragen</target>
+      </trans-unit>
+      <trans-unit id="812HAbW" resname="contact this student">
+        <source>contact this student</source>
+        <target>zoek contact op met deze student</target>
+      </trans-unit>
+      <trans-unit id="Yhn2341" resname="see all students">
+        <source>see all students</source>
+        <target>bekijk alle studenten</target>
+      </trans-unit>
+      <trans-unit id="U2138nq" resname="no students have been found">
+        <source>no students have been found</source>
+        <target>er zijn geen studenten gevonden</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
