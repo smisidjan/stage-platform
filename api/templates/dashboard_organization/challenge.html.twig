@@ -18,7 +18,7 @@
             </nav>
             {% if challenge['@id'] is defined and challenge['@id'] is not empty %}
                 <h2 class="h4">{{ challenge.name }}</h2>
-                <p class="mb-0">[text about what a challenge is]</p>
+                <p class="mb-0">{{ challenge.description }}</p>
             {% endif %}
         </div>
     </div>
