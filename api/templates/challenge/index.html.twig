@@ -58,7 +58,6 @@
                                         <h6 class="text-muted small ml-2 mb-0">{{ challenge.submitter }}</h6>
                                     {% endif %}
                                 </div>
-
                                 {% if challenge.dateClose is defined and challenge.dateClose is not empty %}
                                     <div class="d-flex align-items-center my-4"><h6
                                             class="text-muted small ml-2 mb-0">{{ 'closing date: '|trans|capitalize }}{{ challenge.dateClose|date("d-m-Y", "Europe/Paris") }}</h6>
@@ -66,7 +65,7 @@
                                 {% endif %}
                                 {% if challenge.budget is defined and challenge.budget is not empty %}
                                     <div class="d-flex align-items-center my-4"><h6
-                                            class="text-muted small ml-2 mb-0">{{ 'reward: '|trans|capitalize }}{{ challenge.budget }}</h6>
+                                            class="text-muted small ml-2 mb-0">{{ 'reward: '|trans|capitalize }}&euro;{{ challenge.budget }}</h6>
                                     </div>
                                 {% endif %}
                                 <p class="mb-0">{{ challenge.description }}</p>
