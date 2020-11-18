@@ -48,6 +48,7 @@ class OrganizationController extends AbstractController
         $variables['organization'] = $commonGroundService->getResource(['component'=>'wrc', 'type'=>'organizations', 'id'=>$id]);
         $variables['challenges'] = $commonGroundService->getResourceList(['component'=>'chrc', 'type'=>'tenders'], ['submitters'=>$variables['organization']['@id']])['hydra:member'];
         $variables['jobPostings'] = $commonGroundService->getResourceList(['component'=>'mrc', 'type'=>'job_postings'], ['hiringOrganization'=>$variables['organization']['@id']])['hydra:member'];
+        $variables['courses'] = $commonGroundService->getResourceList(['component'=>'edu', 'type'=>'courses'], ['organization'=>$variables['organization']['@id']])['hydra:member'];
 //        $variables['programs'] = $commonGroundService->getResourceList(['component'=>'edu', 'type'=>'programs'], ['provider'=>$variables['organization']['@id']])['hydra:member'];
 
         $variables['h1'] = $variables['organization']['name'];
