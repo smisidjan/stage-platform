@@ -89,7 +89,7 @@
                                                     class="h6 text-sm ml-2">0</span></span>
                                         {% endif %}
                                         <span class="ml-4"><i class="fas fa-bullseye-arrow text-primary"></i><span
-                                                class="h6 text-sm ml-2">[challenges]{# the amount of challanges that this team is participating in #}</span></span>
+                                                class="h6 text-sm ml-2">{{ commonground_resource_list({'component': 'chrc', 'type': 'entries'},{'submitter': team['@id']})['hydra:totalItems'] }}</span></span>
                                     </div>
                                 </div>
                             </div>

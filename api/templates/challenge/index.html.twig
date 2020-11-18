@@ -55,7 +55,18 @@
                                              src="{{ organization.style.favicon.base64 }}" alt="">
                                     {% endif %}
                                     {% if challenge.submitter is defined and challenge.submitter is not empty %}
-                                        <h6 class="text-muted small ml-2 mb-0">{{ challenge.submitter }}</h6>
+                                        {% if 'http' in challenge.submitter %}
+                                            {% set submitter = commonground_is_resource(challenge.submitter) %}
+                                            {% if submitter != false %}
+                                                {% set submitter = submitter.name %}
+                                            {% else %}
+                                                {% set submitter = challenge.submitter %}
+                                            {% endif %}
+                                        {% else %}
+                                            {% set submitter = challenge.submitter %}
+                                        {% endif %}
+
+                                        <h6 class="text-muted small ml-2 mb-0">{{ submitter }}</h6>
                                     {% endif %}
                                 </div>
 
