@@ -33,7 +33,6 @@ class StudentController extends AbstractController
         $variables['emails'] = $commonGroundService->getResourceList(['component' => 'cc', 'type' => 'emails'])['hydra:member'];
         $variables['socials'] = $commonGroundService->getResourceList(['component' => 'cc', 'type' => 'socials'])['hydra:member'];
 
-
         return $variables;
     }
 
