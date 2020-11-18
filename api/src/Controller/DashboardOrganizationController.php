@@ -59,11 +59,12 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
         $variables['activities'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
+        $variables['additionalType'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
+
         if ($id != 'new') {
-            // Get resource challenges (known as tender component side)
+            // Get resource tutorial (known as course component side)
             $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['courses.id' => $id])['hydra:member'];
             $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
-        //$variables['participant'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participant'], ['courses.id' => $id])['hydra:member'];
         } else {
             $variables['tutorial'] = ['id' => 'new'];
             $variables['tutorial']['name'] = 'new tutorial';
