@@ -162,20 +162,21 @@
                         <div class="card-body p-4">
                             <div class="mb-5 mb-lg-6 text-center">
                                 <h2 class="h1">{{ 'Apply for this Challenge'|trans|capitalize }}</h2></div>
+                            {% if app.user is defined and app.user is not null %}
                             <form action="{{ path('app_challenge_challenge', {id: challenge.id} ) }}" method="post">
                                 <input type="hidden" name="tender" id="tender" value="{{ challenge['id'] }}">
                                 <div class="row">
                                     <div class="col-12 col-md-8">
                                         <div class="form-group">
                                             <label class="form-label text-muted"
-                                                   for="submitters[]">{{ 'submitter'|trans|capitalize }}<span
+                                                   for="submitter">{{ 'submitter'|trans|capitalize }}<span
                                                     class="text-danger"></span></label>
                                             <div class="input-group mb-4">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i
                                                             class="far fa-user-alt"></i></span>
                                                 </div>
-                                                <input class="form-control" id="submitters[]" name="submitters[]"
+                                                <input class="form-control" id="submitter" name="submitter"
                                                        type="text">
                                             </div>
                                         </div>
@@ -187,6 +188,13 @@
                                     </div>
                                 </div>
                             </form>
+                            {% else %}
+                                <p class="mt-4 text-center">{{ 'you need to be logged in to apply for this challenge'|trans|capitalize }}</p>
+                                <div class="mb-5 mb-lg-6 text-center">
+                                <a class="mt-2 text-center btn btn-secondary"
+                                   href="{{ path('app_user_idvault') }}">{{ 'click here to log in'|trans|capitalize }} </a>
+                                </div>
+                                    {% endif %}
                         </div>
                     </div>
                 </div>

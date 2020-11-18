@@ -204,6 +204,8 @@
                     </thead>
                     {#for loop voor de applications op de position maken #}
                     {% if internship.application is defined and internship.application is not empty %}
+                        {% set application = internship.application %}
+                        {% for application in internship.application %}
                     <tbody>
                         <tr>
                             <td>
@@ -232,17 +234,43 @@
                                     <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#"><span class="fas fa-user-shield mr-2"></span> Reset Pass</a>
-                                        <a class="dropdown-item" onclick="viewDetails();"><span class="fas fa-eye mr-2"></span>{{ 'view details'|trans|capitalize }}</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-default"><span class="fas fa-eye mr-2"></span>{{ 'view details'|trans|capitalize }}</a>
                                         <a class="dropdown-item text-danger" href="#"><span class="fas fa-user-times mr-2"></span>{{ 'delete application'|trans|capitalize }}</a></div>
                                 </div>
                                 <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip" data-original-title="Delete"><span class="fas fa-times-circle"></span></a>
                             </td>
                         </tr>
                     </tbody>
+                            {# Popup for viewing details               #}
+                            <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title">{{ 'details of application'|trans|capitalize }}</h6>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{ internship.application.motivation }}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link text-danger ml-auto" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% else %}
+                        <tbody>
+                        <tr>
+                            <td>
+                                <p>{{ 'No applications found'|trans|capitalize }}</p>
+                            </td>
+                        </tr>
+                        </tbody>
                     {% endif %}
                 </table>
-                {# Popup for viewing details               #}
-
 
 
                 <div class="card-footer px-3 d-flex align-items-center justify-content-between">
@@ -369,10 +397,6 @@
             input.setAttribute('placeholder', "Nieuwe voorwaarden");
 
             formDiv.appendChild(input);
-        }
-
-        function viewDetails() {
-            
         }
 
 
