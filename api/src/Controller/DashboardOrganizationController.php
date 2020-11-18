@@ -181,8 +181,6 @@ class DashboardOrganizationController extends AbstractController
             // Get resource challenges (known as tender component side)
             $variables['challenge'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders', 'id' => $id]);
             $variables['proposals'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'proposals'], ['tender.id' => $id])['hydra:member'];
-            $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
-            $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
         } else {
             $variables['challenge'] = ['id' => 'new'];
         }
@@ -190,8 +188,6 @@ class DashboardOrganizationController extends AbstractController
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
-
-            $resource['budget'] = number_format((float) $resource['budget'], 2);
 
             // Add the post data to the already aquired resource data
             $resource = array_merge($variables['challenge'], $resource);

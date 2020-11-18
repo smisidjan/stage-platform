@@ -63,9 +63,10 @@ class DashboardUserController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        // Get participants for this user
-        $participants = [];
-        if ($this->getUser()->getPerson()) {
+        $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'], $variables['query'])['hydra:member'];
+
+        //  Getting the participant @todo this needs to be more foolproof
+        if ($this->getUser()) {
             $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> $this->getUser()->getPerson()]])['hydra:member'];
         }
         if (count($participants) > 0) {
@@ -86,9 +87,11 @@ class DashboardUserController extends AbstractController
      * @Route("/tutorials/{id}")
      * @Template
      */
-    public function tutorialAction(CommonGroundService $commonGroundService, Request $request)
+    public function tutorialAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
+
+        $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
 
         return $variables;
     }
