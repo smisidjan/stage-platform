@@ -2,7 +2,20 @@
 <html lang="en">
 
 <head>
-    <title>Rocket - Dashboard</title>
+    <title>
+        {% if application|default %}
+            {% if slug is defined and slug is not empty %}
+                {{ slug|capitalize }} | Dashboard
+            {% endif %}
+            {{ application['name'] }} | Dashboard
+        {% elseif app_name|default %}
+            {% if slug is defined and slug is not empty %}
+                {{ slug|capitalize }} | Dashboard
+            {% endif %}
+        {% else %}
+            Stage platform | Dashboard
+        {% endif %}
+    </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="title" content="Rocket - Dashboard">
