@@ -34,7 +34,6 @@ class TeamController extends AbstractController
         $variables['teams'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
         $variables['entries'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'entries'], $variables['query'])['hydra:member'];
 
-
         return $variables;
     }
 
