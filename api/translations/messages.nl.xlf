@@ -1899,6 +1899,14 @@
         <source>no students have been found</source>
         <target>er zijn geen studenten gevonden</target>
       </trans-unit>
+      <trans-unit id="k2m114A" resname="this student follows these tutorials">
+        <source>this student follows these tutorials</source>
+        <target>deze student volgt deze tutorials</target>
+      </trans-unit>
+      <trans-unit id="K21Jn2s" resname="this student follows these programs">
+        <source>this student follows these programs</source>
+        <target>deze student volgt deze programma's</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
