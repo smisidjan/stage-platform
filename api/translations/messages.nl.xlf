@@ -1029,8 +1029,10 @@
 
 
 
-
-
+<trans-unit id="k88lys5" resname="Lift off your career">
+<source>Lift off your career</source>
+<target>Geef je carrière een boost</target>
+</trans-unit>
 <trans-unit id="kiplys5" resname="Students">
 <source>Students</source>
 <target>Studenten</target>
@@ -1043,9 +1045,9 @@
 <source>Find the best future internships</source>
 <target>Vind de beste toekomstige stages</target>
 </trans-unit>
-<trans-unit id="lnehds5" resname="Build &amp; grow your knowledge with tutorials and challenges">
-<source>Build &amp; grow your knowledge with tutorials and challenges</source>
-<target>Bouwen &amp; Vergroot uw kennis met tutorials en uitdagingen</target>
+<trans-unit id="lnehds5" resname="Build and grow your knowledge with tutorials and challenges">
+<source>Build and grow your knowledge with tutorials and challenges</source>
+<target>Bouwen en Vergroot uw kennis met tutorials en uitdagingen</target>
 </trans-unit>
 <trans-unit id="p032ds5" resname="Come in contact with other students and form teams">
 <source>Come in contact with other students and form teams</source>
@@ -1054,6 +1056,283 @@
 <trans-unit id="kdi96p5" resname="Join">
 <source>Join</source>
 <target>Doe mee</target>
+</trans-unit>
+
+<trans-unit id="p5ydfr5" resname="Employers">
+<source>Employers</source>
+<target>Werkgevers</target>
+</trans-unit>
+<trans-unit id="lnlwds5" resname="Aquire next generation talent">
+<source>Aquire next generation talent</source>
+<target>Verwerven van talent van de volgende generatie</target>
+</trans-unit>
+<trans-unit id="p00kds5" resname="Find the most suitable interns for your company">
+<source>Find the most suitable interns for your company</source>
+<target>Vind de meest geschikte stagiaires voor jouw bedrijf</target>
+</trans-unit>
+<trans-unit id="kas96p5" resname="Connect with students and teams and make interesting challenges">
+<source>Connect with students and teams and make interesting challenges</source>
+<target>Maak contact met studenten en teams en maak interessante uitdagingen</target>
+</trans-unit>
+<trans-unit id="ktgh6p5" resname="Find other likeminded organizations">
+<source>Find other likeminded organizations</source>
+<target>Zoek andere gelijkgestemde organisaties</target>
+</trans-unit>
+
+<trans-unit id="2066fr5" resname="Education">
+<source>Education</source>
+<target>Opleiding</target>
+</trans-unit>
+<trans-unit id="l366os5" resname="Stop covid-19 being a blocking factor for your students">
+<source>Stop covid-19 being a blocking factor for your students</source>
+<target>Stop dat covid-19 een blokkerende factor is voor uw studenten</target>
+</trans-unit>
+<trans-unit id="p066ds5" resname="Contribute to creating a covid proof educational platform">
+<source>Contribute to creating a covid proof educational platform</source>
+<target>Draag bij aan het creëren van een covid proof educatief platform</target>
+</trans-unit>
+<trans-unit id="ka54665" resname="Help build and grow the new talent of this generation">
+<source>Help build and grow the new talent of this generation</source>
+<target>Help mee met het opbouwen en laten groeien van het nieuwe talent van deze generatie</target>
+</trans-unit>
+<trans-unit id="ktg66p5" resname="Encourage this new way of connection between organizations and students">
+<source>Encourage this new way of connection between organizations and students</source>
+<target>Stimuleer deze nieuwe manier van verbinding tussen organisaties en studenten</target>
+</trans-unit>
+
+
+
+<trans-unit id="p5555s5" resname="everybody wroks from home so why not your inters?!">
+<source>everybody wroks from home so why not your inters?!</source>
+<target>iedereen werkt vanuit huis, dus waarom niet je inters ?!</target>
+</trans-unit>
+<trans-unit id="9494665" resname="by providing adiquite tooling and onboarding.">
+<source>by providing adiquite tooling and onboarding.</source>
+<target>door adiquite tooling en onboarding aan te bieden.</target>
+</trans-unit>
+<trans-unit id="kekd8p5" resname="onboard your interns">
+<source>onboard your interns</source>
+<target>aan boord van uw stagiaires</target>
+</trans-unit>
+<trans-unit id="k99d8p5" resname="progress interviews">
+<source>progress interviews</source>
+<target>voortgangsgesprekken</target>
+</trans-unit>
+<trans-unit id="k2348p5" resname="competencies and skills">
+<source>competencies and skills</source>
+<target>competenties en vaardigheden</target>
+</trans-unit>
+<trans-unit id="kpo98p5" resname="book and check hours">
+<source>book and check hours</source>
+<target>uren boeken en controleren</target>
+</trans-unit>
+<trans-unit id="kekhjy5" resname="tutorials">
+<source>tutorials</source>
+<target>tutorials</target>
+</trans-unit>
+<trans-unit id="derd8p5" resname="devolop">
+<source>devolop</source>
+<target>ontwikkelen</target>
+</trans-unit>
+<trans-unit id="vbn48p5" resname="goals">
+<source>goals</source>
+<target>doelen</target>
+</trans-unit>
+<trans-unit id="awq98p5" resname="manage">
+<source>manage</source>
+<target>beheren</target>
+</trans-unit>
+
+
+
+
+<trans-unit id="897hjy5" resname="think about problems instead of positions">
+<source>think about problems instead of positions</source>
+<target>denk aan problemen in plaats van aan posities</target>
+</trans-unit>
+<trans-unit id="d9999p5" resname="interns can help us to solve challenges we experience inside or outside our organizations. They have a fresh and new perspective on things. Let/s focus on what interns need to learn to transform their fresh brain to strategic problem-solving skills. So instead of offering a student an internship, provide them with a challenge to solve.">
+<source>interns can help us to solve challenges we experience inside or outside our organizations. They have a fresh and new perspective on things. Let/s focus on what interns need to learn to transform their fresh brain to strategic problem-solving skills. So instead of offering a student an internship, provide them with a challenge to solve.</source>
+<target>stagiaires kunnen ons helpen bij het oplossen van uitdagingen die we binnen of buiten onze organisaties ervaren. Ze hebben een frisse en nieuwe kijk op dingen. Laten we ons concentreren op wat stagiaires nodig hebben om te leren om hun frisse brein om te zetten in strategische probleemoplossende vaardigheden. Dus in plaats van een student een stageplaats aan te bieden, geef ze een uitdaging om op te lossen.</target>
+</trans-unit>
+<trans-unit id="qwe38p5" resname="work together online">
+<source>work together online</source>
+<target>online samenwerken</target>
+</trans-unit>
+<trans-unit id="aq23dp5" resname="get solutions">
+<source>get solutions</source>
+<target>krijg oplossingen</target>
+</trans-unit>
+<trans-unit id="qazxdp5" resname="products">
+<source>products</source>
+<target>producten</target>
+</trans-unit>
+<trans-unit id="a39xfp5" resname="for student portfolios">
+<source>for student portfolios</source>
+<target>voor studentenportfolio's</target>
+</trans-unit>
+<trans-unit id="92op8p5" resname="bountys">
+<source>bountys</source>
+<target>premies</target>
+</trans-unit>
+<trans-unit id="aaqerp5" resname="prices for solutions">
+<source>prices for solutions</source>
+<target>prijzen voor oplossingen</target>
+</trans-unit>
+
+
+
+
+
+<trans-unit id="KED38p5" resname="onboard">
+<source>onboard</source>
+<target>aan boord</target>
+</trans-unit>
+<trans-unit id="aqDHdp5" resname="company specifc">
+<source>company specifc</source>
+<target>bedrijfsspecifiek</target>
+</trans-unit>
+<trans-unit id="qTRGdp5" resname="video">
+<source>video</source>
+<target>video</target>
+</trans-unit>
+<trans-unit id="a3POWp5" resname="interactive content">
+<source>interactive content</source>
+<target>interactieve inhoud</target>
+</trans-unit>
+<trans-unit id="9D9O8p5" resname="inpage code examples">
+<source>inpage code examples</source>
+<target>inpage code voorbeelden</target>
+</trans-unit>
+<trans-unit id="aKLMrp5" resname="attandence and results">
+<source>attandence and results</source>
+<target>aandacht en resultaten</target>
+</trans-unit>
+<trans-unit id="9Duiop5" resname="aquire practical knowledge about your career">
+<source>aquire practical knowledge about your career</source>
+<target>praktische kennis opdoen over uw carrière</target>
+</trans-unit>
+<trans-unit id="agbhrp5" resname="In the old world we used to do onboaring and on the job trainging, that is now no longer possible. Se we need to find a new way for interns and new employees to onboard themselfs into the workspace">
+<source>In the old world we used to do onboaring and on the job trainging, that is now no longer possible. Se we need to find a new way for interns and new employees to onboard themselfs into the workspace</source>
+<target>In de oude wereld deden we aan onboaring en on the job trainging, dat is nu niet meer mogelijk. We moeten een nieuwe manier vinden voor stagiaires en nieuwe medewerkers om zichzelf in de werkruimte te begeven</target>
+</trans-unit>
+
+
+
+
+<trans-unit id="qKLEDp5" resname="interhsips">
+<source>interhsips</source>
+<target>stages</target>
+</trans-unit>
+<trans-unit id="OEPDdp5" resname="online enviroment for internschips">
+<source>online enviroment for internschips</source>
+<target>online omgeving voor stagiaires</target>
+</trans-unit>
+<trans-unit id="qDH5rp5" resname="onboard inters with the propper knowledge and skills">
+<source>onboard inters with the propper knowledge and skills</source>
+<target>interfereert met de juiste kennis en vaardigheden</target>
+</trans-unit>
+<trans-unit id="aDKR9p5" resname="challenges">
+<source>challenges</source>
+<target>challenges</target>
+</trans-unit>
+<trans-unit id="9LKwpp5" resname="stimulate problem solving skills">
+<source>stimulate problem solving skills</source>
+<target>het stimuleren van probleemoplossende vaardigheden</target>
+</trans-unit>
+<trans-unit id="a26TRp5" resname="students can showcase there products and results">
+<source>students can showcase there products and results</source>
+<target>studenten kunnen hun producten en resultaten presenteren</target>
+</trans-unit>
+
+<trans-unit id="aqDABp5" resname="work together to face challenges">
+<source>work together to face challenges</source>
+<target>werk samen om uitdagingen aan te gaan</target>
+</trans-unit>
+<trans-unit id="qTCDdp5" resname="HR wallet">
+<source>HR wallet</source>
+<target>HR-portemonnee</target>
+</trans-unit>
+<trans-unit id="a3PEFp5" resname="future proof HR file">
+<source>future proof HR file</source>
+<target>toekomstbestendig HR-bestand</target>
+</trans-unit>
+<trans-unit id="9DGH8p5" resname="competencies">
+<source>competencies</source>
+<target>competenties</target>
+</trans-unit>
+<trans-unit id="aKOPrp5" resname="relate intershcips, challenges to competencies">
+<source>relate intershcips, challenges to competencies</source>
+<target>relateer intershcips, uitdagingen aan competenties</target>
+</trans-unit>
+<trans-unit id="aKHIrp5" resname="students set competency goals">
+<source>students set competency goals</source>
+<target>studenten stellen competentiedoelen</target>
+</trans-unit>
+
+<trans-unit id="qD111p5" resname="awesome features">
+<source>awesome features</source>
+<target>geweldige functies</target>
+</trans-unit>
+<trans-unit id="O333dp5" resname="we provide everything that both students and organizations need to make online interships work">
+<source>we provide everything that both students and organizations need to make online interships work</source>
+<target>we bieden alles wat zowel studenten als organisaties nodig hebben om online stages te laten werken</target>
+</trans-unit>
+
+
+
+<trans-unit id="0000Bp5" resname="Got questions?">
+<source>Got questions?</source>
+<target>Heeft u vragen?</target>
+</trans-unit>
+<trans-unit id="111Ddp5" resname="What is Rocket?">
+<source>What is Rocket?</source>
+<target>Wat is Rocket?</target>
+</trans-unit>
+<trans-unit id="a123Fp5" resname="Rocket is a premium web template that you can use to showcase and present your Software as a Service business. We used the most popular CSS framework Bootstrap for the elements.">
+<source>Rocket is a premium web template that you can use to showcase and present your Software as a Service business. We used the most popular CSS framework Bootstrap for the elements.</source>
+<target>Rocket is een premium websjabloon die u kunt gebruiken om uw Software as a Service-bedrijf te presenteren en te presenteren. We hebben het meest populaire CSS-framework Bootstrap gebruikt voor de elementen.</target>
+</trans-unit>
+<trans-unit id="321H8p5" resname="Do I have right to use the images, fonts and other creatives?">
+<source>Do I have right to use the images, fonts and other creatives?</source>
+<target>Heb ik het recht om de afbeeldingen, lettertypen en andere advertenties te gebruiken?</target>
+</trans-unit>
+
+<trans-unit id="KDHR8p5" resname="Everything that you see in the preview is included in the downloaded product and can be used in your products based on our licensing terms.">
+<source>Everything that you see in the preview is included in the downloaded product and can be used in your products based on our licensing terms.</source>
+<target>Alles wat u in de preview ziet, is inbegrepen in het gedownloade product en kan in uw producten worden gebruikt op basis van onze licentievoorwaarden</target>
+</trans-unit>
+<trans-unit id="a9DHdp5" resname="Is there a money back guarantee?">
+<source>Is there a money back guarantee?</source>
+<target>Is er een geld-terug-garantie?</target>
+</trans-unit>
+<trans-unit id="qT3GRp5" resname="We offer a 30-day money back guarantee for clients that are not satisfied with the product.">
+<source>We offer a 30-day money back guarantee for clients that are not satisfied with the product.</source>
+<target>We bieden een 30 dagen geld-terug-garantie voor klanten die niet tevreden zijn met het product.</target>
+</trans-unit>
+<trans-unit id="a36YTp5" resname="Do I get free updates?">
+<source>Do I get free updates?</source>
+<target>Krijg ik gratis updates?</target>
+</trans-unit>
+<trans-unit id="9DOP2p5" resname="By default we offer at least 6 months of updates for every product that we launch.">
+<source>By default we offer at least 6 months of updates for every product that we launch.</source>
+<target>Standaard bieden we minimaal 6 maanden updates voor elk product dat we lanceren.</target>
+</trans-unit>
+<trans-unit id="aKLMEp5" resname="Where can I get support?">
+<source>Where can I get support?</source>
+<target>Waar kan ik ondersteuning krijgen?</target>
+</trans-unit>
+<trans-unit id="aZDMEp5" resname="Even for the smallest pricing plan we offer at least 6 months of premium support. Please check the pricing plan below for further details.">
+<source>Even for the smallest pricing plan we offer at least 6 months of premium support. Please check the pricing plan below for further details.</source>
+<target>Zelfs voor het kleinste tariefplan bieden we minimaal 6 maanden premiumondersteuning. Raadpleeg het onderstaande tariefplan voor meer informatie.</target>
+</trans-unit>
+
+<trans-unit id="0300Bp5" resname="Contact us">
+<source>Contact us</source>
+<target>Neem contact op</target>
+</trans-unit>
+<trans-unit id="121Ddp5" resname="Didn/t find what you were looking for? No biggie!">
+<source>Didn/t find what you were looking for? No biggie!</source>
+<target>Heeft u niet gevonden wat u zocht? No biggie!</target>
 </trans-unit>
 
 
