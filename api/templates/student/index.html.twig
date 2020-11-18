@@ -28,7 +28,7 @@
                                     <span class="card__title">{{ person.name }}</span><br>
                                     {% endif %}<br>
                                     {% if person.birthday is defined and person.birthday is not empty %}
-                                        <p class="card-text my-2">{{ person.birthday }}</p>
+                                        <p class="card-text my-2"><i class="fal fa-birthday-cake"></i> {{ person.birthday|date("Y-m-d", "Europe/Paris") }}</p>
                                     {% endif %}
                                     {% if email.emails is defined and email.emails is not empty %}
                                         {% for email in emails %}

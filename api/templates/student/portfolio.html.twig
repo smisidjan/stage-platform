@@ -9,7 +9,7 @@
                     <div class="d-flex flex-column flex-lg-row justify-content-center">
                         {% if person.birthday is defined and person.birthday is not empty %}
                             <span class="h5 mb-3 mb-lg-0"><i class="fal fa-birthday-cake"></i><span
-                                    class="ml-3">{{ person.birthday }}</span></span>
+                                    class="ml-3">{{ person.birthday|date("Y-m-d", "Europe/Paris") }}</span></span>
                         {% endif %}
                     </div>
                 </div>
