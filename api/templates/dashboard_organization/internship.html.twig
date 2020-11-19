@@ -202,9 +202,9 @@
                         <th class="border-0">{{'action'|trans|capitalize}}</th>
                     </tr>
                     </thead>
-
-                    {% if internship.application is defined and internship.application is not empty %}
-                        {% for application in internship.application %}
+                    {#for loop voor de applications op de position maken #}
+                    {% if applications is defined and applications is not empty %}
+                        {% for application in applications %}
                     <tbody>
                         <tr>
                             <td>
@@ -226,8 +226,8 @@
                                     </div>
                                 </a>
                             </td>
-                            <td><span class="font-weight-normal">{{ internship.application.dateCreated|date("Y-m-d") }}</span></td>
-                            <td><span class="font-weight-normal text-warning">{{ internship.application.status }}</span></td>
+                            <td><span class="font-weight-normal">{{ application.dateCreated|date("Y-m-d") }}</span></td>
+                            <td><span class="font-weight-normal text-warning">{{ application.status }}</span></td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span> </span><span class="sr-only">Toggle Dropdown</span></button>
@@ -251,7 +251,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>{{ internship.application.motivation }}</p>
+                                            <p>{{ application.motivation }}</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-link text-danger ml-auto" data-dismiss="modal">Close</button>
