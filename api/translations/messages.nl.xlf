@@ -1909,10 +1909,6 @@
         <source>the text of your tutorial will be displayed here</source>
         <target>de tekst van je tutorial wordt hier weergegeven</target>
       </trans-unit>
-      <trans-unit id="j7bV836" resname="setup">
-        <source>setup</source>
-        <target>opstelling</target>
-      </trans-unit>
       <trans-unit id="HcWuW2g" resname="layout">
         <source>layout</source>
         <target>vormgeving</target>
@@ -1984,28 +1980,23 @@
       <trans-unit id="idUPqG8" resname="new password">
         <source>new password</source>
         <target>nieuw wachtwoord</target>
+      </trans-unit><trans-unit id="i456YG8" resname="all competencies you have created and where you can create new ones">
+        <source>all competencies you have created and where you can create new ones</source>
+        <target>alle competenties die u heeft gecreëerd en waar u nieuwe kunt aanmaken</target>
       </trans-unit>
-
-
-<trans-unit id="i456YG8" resname="all competencies you have created and where you can create new ones">
-                      <source>all competencies you have created and where you can create new ones</source>
-                      <target>alle competenties die u heeft gecreëerd en waar u nieuwe kunt aanmaken</target>
-                    </trans-unit>
-                    <trans-unit id="FvbC7mt" resname="competencies">
-                      <source>competencies</source>
-                      <target>competenties</target>
-                    </trans-unit>
-                    <trans-unit id="Rpiumt0" resname="new position">
-                            <source>new position</source>
-                            <target>nieuwe positie</target>
-                          </trans-unit>
-                   <trans-unit id="KKTumt0" resname="search tasks here">
-                                               <source>search tasks here</source>
-                                               <target>zoek taken hier</target>
-                                             </trans-unit>
-
-
-<trans-unit id="hrtxy7Q" resname="edit">
+      <trans-unit id="FvbC7mt" resname="competencies">
+        <source>competencies</source>
+        <target>competenties</target>
+      </trans-unit>
+      <trans-unit id="Rpiumt0" resname="new position">
+        <source>new position</source>
+        <target>nieuwe positie</target>
+      </trans-unit>
+      <trans-unit id="KKTumt0" resname="search tasks here">
+        <source>search tasks here</source>
+        <target>zoek taken hier</target>
+      </trans-unit>
+      <trans-unit id="hrtxy7Q" resname="edit">
         <source>edit</source>
         <target>bewerk</target>
       </trans-unit>
@@ -2017,9 +2008,7 @@
         <source>delete</source>
         <target>verwijderen</target>
       </trans-unit>
-
-
-<trans-unit id="UKhfy7Q" resname="interns are of big value, they bring new and fresh energy to your organization!">
+      <trans-unit id="UKhfy7Q" resname="interns are of big value, they bring new and fresh energy to your organization!">
         <source>interns are of big value, they bring new and fresh energy to your organization!</source>
         <target>stagiaires zijn van grote waarde, ze brengen nieuwe en frisse energie in uw organisatie!</target>
       </trans-unit>
@@ -2043,79 +2032,75 @@
         <source>you are currently still checked in</source>
         <target>u bent momenteel nog ingechecked</target>
       </trans-unit>
-
-
-  <trans-unit id="tkuiot0" resname="name of the internship">
-         <source>name of the internship</source>
-         <target>naam van de stage</target>
-       </trans-unit>
-       <trans-unit id="6789pFt" resname="title of the internship">
-         <source>title of the internship</source>
-         <target>titel van de stage</target>
-       </trans-unit>
-       <trans-unit id="4htfUM_" resname="type of work">
-         <source>type of work</source>
-         <target>type werk</target>
-       </trans-unit>
-       <trans-unit id="9bnh1Ne" resname="full-time">
-         <source>full-time</source>
-         <target>full time</target>
-       </trans-unit>
-       <trans-unit id="9frg1Ne" resname="part-time">
-                <source>part-time</source>
-                <target>deeltijd</target>
-              </trans-unit>
-       <trans-unit id="9fwqaNe" resname="weekly">
-                       <source>weekly</source>
-                       <target>wekelijks</target>
-                     </trans-unit>
-                     <trans-unit id="890qaNe" resname="hours a week for the position">
-                     <source>hours a week for the position</source>
-                     <target>Uren per week voor de positie</target>
-                     </trans-unit>
-<trans-unit id="891qaNe" resname="currency in which the employee is paid (EUR, USD etc)">
-                     <source>currency in which the employee is paid (EUR, USD etc)</source>
-                     <target>valuta waarin de werknemer wordt betaald (EUR, USD enz.)</target>
-                     </trans-unit>
-<trans-unit id="8945aNe" resname="salary for the employee">
-                     <source>salary for the employee</source>
-                     <target>salaris voor de medewerker</target>
-                     </trans-unit>
-<trans-unit id="8945aNF" resname="monthly salary">
-                     <source>monthly salary</source>
-                     <target>maandelijks salaris</target>
-                     </trans-unit>
-<trans-unit id="8op5aNF" resname="a brief description of the vacancy">
-                     <source>a brief description of the vacancy</source>
-                     <target>een korte omschrijving van de vacature</target>
-                     </trans-unit>
-<trans-unit id="yt65aNF" resname="internship conditions (everything that the applicant must meet)">
-                     <source>internship conditions (everything that the applicant must meet)</source>
-                     <target>voorwaarden stage (alles waar de solicitant aan moet voldoen)</target>
-                     </trans-unit>
-<trans-unit id="rrr5aNF" resname="press the blue button to add more conditions">
-                     <source>press the blue button to add more conditions</source>
-                     <target>druk op de blauwe knop om meer voorwaarden toe te voegen</target>
-                     </trans-unit>
-<trans-unit id="rdd5aNF" resname="education:">
-                     <source>education:</source>
-                     <target>opleiding:</target>
-                     </trans-unit>
-<trans-unit id="rgt5aNF" resname="start date of the internship">
-                     <source>start date of the internship</source>
-                     <target>startdatum van de stage</target>
-                     </trans-unit>
-<trans-unit id="rbhhaNF" resname="end date of the internship">
-                     <source>end date of the internship</source>
-                     <target>einddatum van de stage</target>
-                     </trans-unit>
-<trans-unit id="dhlhaNF" resname="location of the internship">
-                     <source>location of the internship</source>
-                     <target>locatie van de stage</target>
-                     </trans-unit>
-
-
-<trans-unit id="qqqXkve" resname="blog">
+      <trans-unit id="tkuiot0" resname="name of the internship">
+        <source>name of the internship</source>
+        <target>naam van de stage</target>
+      </trans-unit>
+      <trans-unit id="6789pFt" resname="title of the internship">
+        <source>title of the internship</source>
+        <target>titel van de stage</target>
+      </trans-unit>
+      <trans-unit id="4htfUM_" resname="type of work">
+        <source>type of work</source>
+        <target>type werk</target>
+      </trans-unit>
+      <trans-unit id="9bnh1Ne" resname="full-time">
+        <source>full-time</source>
+        <target>full time</target>
+      </trans-unit>
+      <trans-unit id="9frg1Ne" resname="part-time">
+        <source>part-time</source>
+        <target>deeltijd</target>
+      </trans-unit>
+      <trans-unit id="9fwqaNe" resname="weekly">
+        <source>weekly</source>
+        <target>wekelijks</target>
+      </trans-unit>
+      <trans-unit id="890qaNe" resname="hours a week for the position">
+       <source>hours a week for the position</source>
+       <target>Uren per week voor de positie</target>
+      </trans-unit>
+      <trans-unit id="891qaNe" resname="currency in which the employee is paid (EUR, USD etc)">
+        <source>currency in which the employee is paid (EUR, USD etc)</source>
+        <target>valuta waarin de werknemer wordt betaald (EUR, USD enz.)</target>
+      </trans-unit>
+      <trans-unit id="8945aNe" resname="salary for the employee">
+        <source>salary for the employee</source>
+        <target>salaris voor de medewerker</target>
+      </trans-unit>
+      <trans-unit id="8945aNF" resname="monthly salary">
+        <source>monthly salary</source>
+        <target>maandelijks salaris</target>
+      </trans-unit>
+      <trans-unit id="8op5aNF" resname="a brief description of the vacancy">
+        <source>a brief description of the vacancy</source>
+        <target>een korte omschrijving van de vacature</target>
+      </trans-unit>
+      <trans-unit id="yt65aNF" resname="internship conditions (everything that the applicant must meet)">
+        <source>internship conditions (everything that the applicant must meet)</source>
+        <target>voorwaarden stage (alles waar de solicitant aan moet voldoen)</target>
+      </trans-unit>
+      <trans-unit id="rrr5aNF" resname="press the blue button to add more conditions">
+        <source>press the blue button to add more conditions</source>
+        <target>druk op de blauwe knop om meer voorwaarden toe te voegen</target>
+      </trans-unit>
+      <trans-unit id="rdd5aNF" resname="education:">
+        <source>education:</source>
+        <target>opleiding:</target>
+      </trans-unit>
+      <trans-unit id="rgt5aNF" resname="start date of the internship">
+        <source>start date of the internship</source>
+        <target>startdatum van de stage</target>
+      </trans-unit>
+      <trans-unit id="rbhhaNF" resname="end date of the internship">
+        <source>end date of the internship</source>
+        <target>einddatum van de stage</target>
+      </trans-unit>
+      <trans-unit id="dhlhaNF" resname="location of the internship">
+        <source>location of the internship</source>
+        <target>locatie van de stage</target>
+      </trans-unit>
+      <trans-unit id="qqqXkve" resname="blog">
         <source>blog</source>
         <target>blog</target>
       </trans-unit>
@@ -2131,27 +2116,22 @@
         <source>about</source>
         <target>over</target>
       </trans-unit>
-
       <trans-unit id="LtyyxTU" resname="share">
-              <source>share</source>
-              <target>delen</target>
-            </trans-unit>
-
-            <trans-unit id="L34txTU" resname="export">
-                          <source>export</source>
-                          <target>exporteren</target>
-                        </trans-unit>
-
- <trans-unit id="4756xTU" resname="new task">
-              <source>new task</source>
-              <target>nieuwe taak</target>
-            </trans-unit>
-
-            <trans-unit id="LkkktTU" resname="new task">
-                          <source>new task</source>
-                          <target>nieuwe taak</target>
-                        </trans-unit>
-
+        <source>share</source>
+        <target>delen</target>
+      </trans-unit>
+      <trans-unit id="L34txTU" resname="export">
+        <source>export</source>
+        <target>exporteren</target>
+      </trans-unit>
+      <trans-unit id="4756xTU" resname="new task">
+        <source>new task</source>
+        <target>nieuwe taak</target>
+      </trans-unit>
+      <trans-unit id="LkkktTU" resname="new task">
+        <source>new task</source>
+        <target>nieuwe taak</target>
+      </trans-unit>
       <trans-unit id="UKznb7Q" resname="enter your new password">
         <source>enter your new password</source>
         <target>voer uw nieuwe wachtwoord in</target>
@@ -2600,11 +2580,9 @@
         <source>Reset Pass</source>
         <target>Pas opnieuw instellen</target>
       </trans-unit>
-      <trans-unit id="VY0Sm8C" resname="View&#10;                                                Details">
-        <source>View
-                                                Details</source>
-        <target>__View
-                                                Details</target>
+      <trans-unit id="VY0Sm8C" resname="View Details">
+        <source>View Details</source>
+        <target>__View Details</target>
       </trans-unit>
       <trans-unit id="SUjhNBg" resname="Suspend">
         <source>Suspend</source>
@@ -3105,18 +3083,6 @@
       <trans-unit id="0Nl4VjR" resname="Maandsalaris">
         <source>Maandsalaris</source>
         <target>__Maandsalaris</target>
-      </trans-unit>
-      <trans-unit id="uNEr1WK" resname="delete application">
-        <source>delete application</source>
-        <target>__delete application</target>
-      </trans-unit>
-      <trans-unit id="zWqcmgC" resname="details of application">
-        <source>details of application</source>
-        <target>__details of application</target>
-      </trans-unit>
-      <trans-unit id="ZmRbifB" resname="No applications found">
-        <source>No applications found</source>
-        <target>__No applications found</target>
       </trans-unit>
       <trans-unit id="ZMvhalM" resname="your tutorial name">
         <source>your tutorial name</source>
