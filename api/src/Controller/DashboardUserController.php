@@ -280,7 +280,6 @@ class DashboardUserController extends AbstractController
         $redirectToPlural = false;
         if ($id && $id != 'new') {
             $variables['item'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
-
         } else {
             $variables['item'] = [];
             $variables['item']['name'] = 'New';

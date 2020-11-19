@@ -192,7 +192,7 @@ class DashboardOrganizationController extends AbstractController
             //lets see if we have child objects in an existing tender if so we set those to the @id of the object
             //@todo function to do this
             if (isset($resource['stages'])) {
-                foreach ($resource['stages'] as &$stage){
+                foreach ($resource['stages'] as &$stage) {
                     $stage = '/tender_stages/'.$stage['id'];
                 }
             }
