@@ -1103,7 +1103,7 @@
       </trans-unit>
       <trans-unit id="dkxppP5" resname="for student portfolios">
         <source>for student portfolios</source>
-        <target>voor studentenportfolio's</target>
+        <target>voor studenten portfolio's</target>
       </trans-unit>
       <trans-unit id="TRdAMPP" resname="bountys">
         <source>bountys</source>
@@ -2906,8 +2906,8 @@
         <source>challenge yourself and win</source>
         <target>daag jezelf uit en win</target>
       </trans-unit>
-      <trans-unit id="4_7hsu_" resname="team up and tackle challanges together">
-        <source>team up and tackle challanges together</source>
+      <trans-unit id="kHXca9S" resname="team up and tackle challenges together">
+        <source>team up and tackle challenges together</source>
         <target>werk samen en ga samen uitdagingen aan</target>
       </trans-unit>
       <trans-unit id="kWIGFpI" resname="find the perfect employer">
@@ -2954,8 +2954,8 @@
         <source>API</source>
         <target>API</target>
       </trans-unit>
-      <trans-unit id="nofp6RT" resname="easaly integrate with your HR application">
-        <source>easaly integrate with your HR application</source>
+      <trans-unit id="PLSS6kR" resname="easily integrate with your HR application">
+        <source>easily integrate with your HR application</source>
         <target>eenvoudig te integreren met uw HR-applicatie</target>
       </trans-unit>
       <trans-unit id="NuwTlCW" resname="no results found">
@@ -3206,97 +3206,13 @@
         <source>where can I get support?</source>
         <target>__where can I get support?</target>
       </trans-unit>
-      <trans-unit id="2hQRpWg" resname="u moet eerst inloggen">
-        <source>u moet eerst inloggen</source>
-        <target>__u moet eerst inloggen</target>
-      </trans-unit>
-      <trans-unit id="3rd2XtD" resname="voor studenten">
-        <source>voor studenten</source>
-        <target>__voor studenten</target>
-      </trans-unit>
-      <trans-unit id="sShlbJC" resname="voorbeelden en handleidingen">
-        <source>voorbeelden en handleidingen</source>
-        <target>__voorbeelden en handleidingen</target>
-      </trans-unit>
-      <trans-unit id="GZUb.MT" resname="vind een stage">
-        <source>vind een stage</source>
-        <target>__vind een stage</target>
-      </trans-unit>
-      <trans-unit id="zVOsbIW" resname="daag jezelf uit en win">
-        <source>daag jezelf uit en win</source>
-        <target>__daag jezelf uit en win</target>
-      </trans-unit>
-      <trans-unit id="7YVlBe9" resname="werk samen en ga samen uitdagingen aan">
-        <source>werk samen en ga samen uitdagingen aan</source>
-        <target>__werk samen en ga samen uitdagingen aan</target>
-      </trans-unit>
-      <trans-unit id="ieSB5WO" resname="organisaties">
-        <source>organisaties</source>
-        <target>__organisaties</target>
-      </trans-unit>
-      <trans-unit id="L9ouvpD" resname="vind de perfecte werkgever">
-        <source>vind de perfecte werkgever</source>
-        <target>__vind de perfecte werkgever</target>
-      </trans-unit>
-      <trans-unit id="yBqihnv" resname="voor organisaties">
-        <source>voor organisaties</source>
-        <target>__voor organisaties</target>
-      </trans-unit>
-      <trans-unit id="vUSqub3" resname="studenten">
-        <source>studenten</source>
-        <target>__studenten</target>
-      </trans-unit>
-      <trans-unit id="AdinP8m" resname="vind de perfecte stagiair">
-        <source>vind de perfecte stagiair</source>
-        <target>__vind de perfecte stagiair</target>
-      </trans-unit>
-      <trans-unit id="zbBygCQ" resname="plaats een open positie">
-        <source>plaats een open positie</source>
-        <target>__plaats een open positie</target>
-      </trans-unit>
-      <trans-unit id="YK1JHve" resname="studenten uitdagen">
-        <source>studenten uitdagen</source>
-        <target>__studenten uitdagen</target>
-      </trans-unit>
-      <trans-unit id="o7hTRQG" resname="zoek andere organisaties">
-        <source>zoek andere organisaties</source>
-        <target>__zoek andere organisaties</target>
-      </trans-unit>
-      <trans-unit id="dtD_Ptt" resname="voor ontwikkelaars">
-        <source>voor ontwikkelaars</source>
-        <target>__voor ontwikkelaars</target>
-      </trans-unit>
-      <trans-unit id="cmQgHaQ" resname="documentatie">
-        <source>documentatie</source>
-        <target>__documentatie</target>
-      </trans-unit>
-      <trans-unit id="Qt0XhvB" resname="hoe werkt het">
-        <source>hoe werkt het</source>
-        <target>__hoe werkt het</target>
-      </trans-unit>
-      <trans-unit id="KQz9QJX" resname="eenvoudig te integreren met uw HR-applicatie">
-        <source>eenvoudig te integreren met uw HR-applicatie</source>
-        <target>__eenvoudig te integreren met uw HR-applicatie</target>
-      </trans-unit>
       <trans-unit id="G4vaxW3" resname="my tutorials">
         <source>my tutorials</source>
-        <target>__my tutorials</target>
-      </trans-unit>
-      <trans-unit id="M99.k6." resname="instellingen">
-        <source>instellingen</source>
-        <target>__instellingen</target>
-      </trans-unit>
-      <trans-unit id="qer7gcc" resname="uitloggen">
-        <source>uitloggen</source>
-        <target>__uitloggen</target>
+        <target>mijn tutorials</target>
       </trans-unit>
       <trans-unit id="o7G.nX8" resname="do you miss your organization here?">
         <source>do you miss your organization here?</source>
         <target>__do you miss your organization here?</target>
-      </trans-unit>
-      <trans-unit id="EEqSjAY" resname="bekijk portfolio">
-        <source>bekijk portfolio</source>
-        <target>__bekijk portfolio</target>
       </trans-unit>
       <trans-unit id="C98gc5S" resname="Who is behind the internship platform">
         <source>Who is behind the internship platform</source>
@@ -3321,6 +3237,34 @@
       <trans-unit id="Ecxa4QA" resname="The internship platform enables students and companies to use challenges, tutorials and much more in addition to matching.">
         <source>The internship platform enables students and companies to use challenges, tutorials and much more in addition to matching.</source>
         <target>__The internship platform enables students and companies to use challenges, tutorials and much more in addition to matching.</target>
+      </trans-unit>
+      <trans-unit id="rfZixBy" resname="e-mail address">
+        <source>e-mail address</source>
+        <target>e-mail adres</target>
+      </trans-unit>
+      <trans-unit id="cfGJi9t" resname="find an internship">
+        <source>find an internship</source>
+        <target>vind een stage</target>
+      </trans-unit>
+      <trans-unit id="Uoy9WRH" resname="place an internship">
+        <source>place an internship</source>
+        <target>plaats een stage</target>
+      </trans-unit>
+      <trans-unit id="ku9R9Lp" resname="challenge students">
+        <source>challenge students</source>
+        <target>daag studenten uit</target>
+      </trans-unit>
+      <trans-unit id="5DJ4ZC7" resname="look for other organizations">
+        <source>look for other organizations</source>
+        <target>zoek naar andere organisaties</target>
+      </trans-unit>
+      <trans-unit id="g_FMsAQ" resname="view portfolio">
+        <source>view portfolio</source>
+        <target>bekijk portfilio</target>
+      </trans-unit>
+      <trans-unit id="XpyLMgd" resname="you need to login before you can submit">
+        <source>you need to login before you can submit</source>
+        <target>je moet eerst inloggen voor je kan indienen</target>
       </trans-unit>
     </body>
   </file>
