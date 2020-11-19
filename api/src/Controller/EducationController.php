@@ -81,7 +81,6 @@ class EducationController extends AbstractController
             }
         }
 
-
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
@@ -94,8 +93,6 @@ class EducationController extends AbstractController
 
             return $this->redirect($this->generateUrl('app_education_tutorial', ['id'=>$id]));
         }
-
-
 
         return $variables;
     }
