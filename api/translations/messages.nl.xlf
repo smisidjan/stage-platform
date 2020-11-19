@@ -1149,7 +1149,6 @@
         <source>interhsips</source>
         <target>stages</target>
       </trans-unit>
-
       <trans-unit id="fiQdgu5" resname="online enviroment for internschips">
         <source>online enviroment for internschips</source>
         <target>online omgeving voor stagiaires</target>
@@ -1166,8 +1165,6 @@
         <source>stimulate problem solving skills</source>
         <target>het stimuleren van probleemoplossende vaardigheden</target>
       </trans-unit>
-
-
       <trans-unit id="BFIQBZl" resname="students can showcase there products and results">
         <source>students can showcase there products and results</source>
         <target>studenten kunnen hun producten en resultaten presenteren</target>
@@ -1178,7 +1175,7 @@
       </trans-unit>
       <trans-unit id="90pLhxL" resname="HR wallet">
         <source>HR wallet</source>
-        <target>HR-portemonnee</target>
+        <target>HR-wallet</target>
       </trans-unit>
       <trans-unit id="YZQEzb0" resname="future proof HR file">
         <source>future proof HR file</source>
@@ -1190,7 +1187,7 @@
       </trans-unit>
       <trans-unit id="uwhF8cy" resname="relate intershcips, challenges to competencies">
         <source>relate intershcips, challenges to competencies</source>
-        <target>relateer intershcips, uitdagingen aan competenties</target>
+        <target>relateer stages, uitdagingen aan competenties</target>
       </trans-unit>
       <trans-unit id="AGkGTzB" resname="students set competency goals">
         <source>students set competency goals</source>
