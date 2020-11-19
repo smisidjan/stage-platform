@@ -2229,23 +2229,23 @@
       </trans-unit>
       <trans-unit id="3amj847" resname="reward:">
         <source>reward:</source>
-        <target>__reward:</target>
+        <target>beloning</target>
       </trans-unit>
       <trans-unit id="DrtQH4w" resname="find new">
         <source>find new</source>
-        <target>__find new</target>
+        <target>vind een nieuwe</target>
       </trans-unit>
       <trans-unit id="vURcRit" resname="overview">
         <source>overview</source>
-        <target>__overview</target>
+        <target>overzicht</target>
       </trans-unit>
       <trans-unit id="9Qhx0Uw" resname="positions">
         <source>positions</source>
-        <target>__positions</target>
+        <target>vacatures</target>
       </trans-unit>
       <trans-unit id="zeD7Dew" resname="settings">
         <source>settings</source>
-        <target>__settings</target>
+        <target>instellingen</target>
       </trans-unit>
       <trans-unit id="BlGGO.X" resname="activity">
         <source>activity</source>
@@ -2273,7 +2273,7 @@
       </trans-unit>
       <trans-unit id="1m31yk1" resname="add your first tutorial!">
         <source>add your first tutorial!</source>
-        <target>__add your first tutorial!</target>
+        <target>_voeg je eerste tutorial toe!</target>
       </trans-unit>
       <trans-unit id="buMQ4eL" resname="find a tutorial">
         <source>find a tutorial</source>
@@ -2281,7 +2281,7 @@
       </trans-unit>
       <trans-unit id=".VTlqC4" resname="applications">
         <source>applications</source>
-        <target>__applications</target>
+        <target>solicitaties</target>
       </trans-unit>
       <trans-unit id="Y8LHTj." resname="add tutorial">
         <source>add tutorial</source>
@@ -2289,23 +2289,23 @@
       </trans-unit>
       <trans-unit id="FEEVvo_" resname="see all positions">
         <source>see all positions</source>
-        <target>__see all positions</target>
+        <target>bekijk alle vacatures</target>
       </trans-unit>
       <trans-unit id="3aGKDiG" resname="candidate">
         <source>candidate</source>
-        <target>__candidate</target>
+        <target>kandidaten</target>
       </trans-unit>
       <trans-unit id="CIrMBTD" resname="no applications found">
         <source>no applications found</source>
-        <target>__no applications found</target>
+        <target>geen solicitaties gevonden</target>
       </trans-unit>
       <trans-unit id="GybUA6y" resname="add your first application!">
         <source>add your first application!</source>
-        <target>__add your first application!</target>
+        <target>voeg je eerste solicitatie toe!</target>
       </trans-unit>
       <trans-unit id="OaaS.Ip" resname="find an position to apply to">
         <source>find an position to apply to</source>
-        <target>__find an position to apply to</target>
+        <target>vind ene vacature om op te soliciteren</target>
       </trans-unit>
       <trans-unit id="Xpunqcc" resname="add challenge">
         <source>add challenge</source>
