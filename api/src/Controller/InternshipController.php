@@ -127,7 +127,7 @@ class InternshipController extends AbstractController
 
         // Get resources like
         $variables['like'] = $commonGroundService->getResource(['component' => 'rc', 'type' => 'likes'], $variables['query'])['hydra:member'];
-        
+
         return $variables;
     }
 }
