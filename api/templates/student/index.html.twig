@@ -19,38 +19,22 @@
         <div class="pattern bottom"></div>
     </section>
     <section class="section section-lg pt-0">
-        <div class="container mt-n8 mt-lg-n12 z-2">
-            <div class="row mt-6 mt-md-n7">
-                {% for student in students %}
-                    {% set person = commonground_resource(student.person) %}
-                    <div class="col-md-6 col-lg-4">
-                        <div class="profile-card mb-7">
-                            <div class="card shadow-soft border-light text-center">
-                                <div class="profile-image"><img
-                                        src="/bundles/rocket/assets/img/team/profile-picture-1.jpg" class="card-img-top"
-                                        alt="image"></div>
-                                <div class="card-body mt-n5">
-                                    {% if person.name is defined and person.name is not empty %}
-                                    <span class="card__title">{{ person.name }}</span><br>
-                                    {% endif %}<br>
-                                    {% if person.birthday is defined and person.birthday is not empty %}
-                                        <p class="card-text my-2"><i class="fal fa-birthday-cake"></i> {{ person.birthday|date("Y-m-d", "Europe/Paris") }}</p>
-                                    {% endif %}
-                                    {% if email.emails is defined and email.emails is not empty %}
-                                        {% for email in emails %}
-                                            <p class="card-text my-2">{{ person.emails[0] }}</p>
-                                        {% endfor %}
-                                    {% endif %}
-                                    <ul class="social-buttons py-3">
-                                        <a href="{{ path('app_student_portfolio', {id: student.id}) }}" class="btn btn-primary">{{ 'bekijk portfolio'|trans|capitalize }}</a>
-                                    </ul>
-                                    <ul class="social-buttons py-3">
-                                        {% if socials.facebook is defined and socials.facebook is not empty %}
-                                        <li>
-                                            <a href="{{ socials.facebook }}" target="_blank" class="btn btn-link btn-facebook">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
+        <div class="
+        {% if students|default and students|length > 0 %}
+        container mt-n10
+{% else %}
+        container
+        {% endif %}
+">
+            <div class="row mt-6">
+                {% if students|default %}
+                    {% for student in students %}
+                        <div class="col-md-6 col-lg-4">
+                            <div class="profile-card mb-7">
+                                <div class="card shadow-soft border-light text-center">
+                                    <div class="card-body">
+                                        {% if student.name|default %}
+                                            <span class="card__title"><h4>{{ student.name }}</h4></span>
                                         {% endif %}
                                         {% if student.emails|default %}
                                             {% for email in student.emails %}
@@ -60,7 +44,7 @@
                                         <ul class="social-buttons pt-3">
                                             <li>
                                                 <a class="btn btn-primary"
-                                                   href="{{ path('app_student_portfolio', {id: student.id}) }}">{{ 'bekijk portfolio'|trans|capitalize }}</a>
+                                                   href="{{ path('app_student_portfolio', {id: student.id}) }}">{{ 'view portfolio'|trans|capitalize }}</a>
 
                                             </li>
                                         </ul>
