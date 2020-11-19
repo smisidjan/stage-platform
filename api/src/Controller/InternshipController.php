@@ -117,17 +117,17 @@ class InternshipController extends AbstractController
     }
 
     /**
-     * @Route("/internships/like")
+     * @Route("/internships/like/{id}")
      * @Template
      */
-    public function likeAction(CommonGroundService $commonGroundService, Request $request)
+    public function likeAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resources like
-        $variables['like'] = $commonGroundService->getResource(['component' => 'rc', 'type' => 'like'], $variables['query'])['hydra:member'];
-
+        $variables['like'] = $commonGroundService->getResource(['component' => 'rc', 'type' => 'likes'], $variables['query'])['hydra:member'];
+        
         return $variables;
     }
 }
