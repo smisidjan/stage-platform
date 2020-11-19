@@ -66,10 +66,21 @@ class EducationController extends AbstractController
         //  Getting the participant @todo this needs to be more foolproof and part of a service
         if ($this->getUser()) {
             $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> $this->getUser()->getPerson()]])['hydra:member'];
+            if (count($participants) > 0) {
+                $variables['participants'] = $participants;
+
+                // lets see if the participant is in this course
+                $variables['registered'] = false;
+                foreach ($variables['participants'] as $tempParticipant) {
+                    if (isset($tempParticipant['course'])) {
+                        if ($tempParticipant['course']['id'] == $id) {
+                            $variables['registered'] = true;
+                        }
+                    }
+                }
+            }
         }
-        if (count($participants) > 0) {
-            $variables['participants'] = $participants;
-        }
+
 
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
@@ -84,15 +95,7 @@ class EducationController extends AbstractController
             return $this->redirect($this->generateUrl('app_education_tutorial', ['id'=>$id]));
         }
 
-        // lets see if the participant is in this course
-        $variables['registered'] = false;
-        foreach ($variables['participants'] as $tempParticipant) {
-            if (isset($tempParticipant['course'])) {
-                if ($tempParticipant['course']['id'] == $id) {
-                    $variables['registered'] = true;
-                }
-            }
-        }
+
 
         return $variables;
     }
