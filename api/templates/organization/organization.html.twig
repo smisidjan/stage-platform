@@ -11,7 +11,7 @@
                     <p class="lead">{{ organization.description }}</p>
 
                         <div class="d-flex flex-column flex-lg-row justify-content-center">
-                            <span class="h5 mb-3 mb-lg-0"><i class="fas fa-map-marker-alt"></i><span class="ml-3">{% if commonground_resource(organization.contact).adresses['0'] is defined and commonground_resource(organization.contact).adresses['0'] is not empty %}
+                            <span class="h5 mb-3 mb-lg-0"><i class="fas fa-map-marker-alt"></i><span class="ml-3">{% if organization.contact|default and commonground_resource(organization.contact).adresses['0']|default %}
                                         {{ commonground_resource(organization.contact).adresses['0'] }} {% else %}
                                         Geen contact info{% endif %}</span></span>
                             <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-briefcase"></i><span class="ml-3">{% if jobPostings is defined and jobPostings is not empty %}
