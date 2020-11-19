@@ -137,8 +137,8 @@ class DashboardOrganizationController extends AbstractController
         //Get resources Organizations
         $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
 
-        /*@todo display applications*/
-        $variables['applications'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'applications'], ['jobPosting.id' => $id])['hydra:member'];
+        //get applications from current job_posting
+        $variables['applications'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'applications'], ['jobPosting.id' => $id])['hydra:member'];
 
         return $variables;
     }
