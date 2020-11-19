@@ -1149,6 +1149,7 @@
         <source>interhsips</source>
         <target>stages</target>
       </trans-unit>
+
       <trans-unit id="fiQdgu5" resname="online enviroment for internschips">
         <source>online enviroment for internschips</source>
         <target>online omgeving voor stagiaires</target>
@@ -1165,6 +1166,8 @@
         <source>stimulate problem solving skills</source>
         <target>het stimuleren van probleemoplossende vaardigheden</target>
       </trans-unit>
+
+
       <trans-unit id="BFIQBZl" resname="students can showcase there products and results">
         <source>students can showcase there products and results</source>
         <target>studenten kunnen hun producten en resultaten presenteren</target>
@@ -1885,6 +1888,133 @@
         <source>account name</source>
         <target>tenaamstelling</target>
       </trans-unit>
+
+      <trans-unit id="URFe9sL" resname="tutorials help us all to gain and gather knowledge.">
+              <source>tutorials help us all to gain and gather knowledge.</source>
+              <target>tutorials helpen ons allemaal om kennis op te doen en te vergaren.</target>
+            </trans-unit>
+
+            <trans-unit id="hrtBS56" resname="tutorials">
+                          <source>tutorials</source>
+                          <target>tutorials</target>
+                        </trans-unit>
+
+<trans-unit id="UKtyu7Q" resname="tutorials help us all to gain and gather knowledge.">
+        <source>tutorials help us all to gain and gather knowledge.</source>
+        <target>tutorials helpen ons allemaal om kennis op te doen en te vergaren.</target>
+      </trans-unit>
+      <trans-unit id="ivfcqG8" resname="in general but also custom made for your organization.">
+        <source>in general but also custom made for your organization.</source>
+        <target>in het algemeen maar ook op maat gemaakt voor uw organisatie.</target>
+      </trans-unit>
+      <trans-unit id="txoplt0" resname="it helps students to blend in easily :)">
+        <source>it helps students to blend in easily :)</source>
+        <target>het helpt studenten om gemakkelijk op te gaan :)</target>
+      </trans-unit>
+
+
+
+<trans-unit id="UKyujhQ" resname="general information">
+        <source>General information</source>
+        <target>Algemene informatie</target>
+      </trans-unit>
+      <trans-unit id="UKpolhQ" resname="your tutorial description">
+              <source>your tutorial description</source>
+              <target>je tutorial beschrijving</target>
+            </trans-unit>
+            <trans-unit id="UKLZlhQ" resname="the text of your tutorial will be displayed here">
+                          <source>the text of your tutorial will be displayed here</source>
+                          <target>de tekst van je tutorial wordt hier weergegeven</target>
+                        </trans-unit>
+      <trans-unit id="iezzqG8" resname="setup">
+        <source>setup</source>
+        <target>opstelling</target>
+      </trans-unit>
+      <trans-unit id="tggd7mt" resname="layout">
+        <source>layout</source>
+        <target>layout</target>
+      </trans-unit>
+      <trans-unit id="tpuimt0" resname="time required">
+              <source>time required</source>
+              <target>vereiste tijd</target>
+            </trans-unit>
+
+      <trans-unit id="i9999EO" resname="educational credential">
+              <source>educational credential</source>
+              <target>educatieve referentie</target>
+            </trans-unit>
+            <trans-unit id="P38uf2G" resname="the level of education required for this tutorial">
+              <source>the level of education required for this tutorial</source>
+              <target>het opleidingsniveau dat vereist is voor deze tutorial</target>
+            </trans-unit>
+            <trans-unit id="WmvncgM" resname="video url">
+              <source>video url</source>
+              <target>video link</target>
+            </trans-unit>
+            <trans-unit id="kxvcbsL" resname="a url for a video as an example">
+              <source>a url for a video as an example</source>
+              <target>een url voor een video als voorbeeld</target>
+            </trans-unit>
+
+
+
+      <trans-unit id="ikkzqG8" resname="working environment">
+              <source>working environment</source>
+              <target>werkomgeving</target>
+            </trans-unit>
+            <trans-unit id="ttyd7mt" resname="data models">
+              <source>data models</source>
+              <target>datamodellen</target>
+            </trans-unit>
+            <trans-unit id="tpppmt0" resname="The time required to read the tutorial">
+                    <source>The time required to read the tutorial</source>
+                    <target>De tijd die nodig is om de tutorial te lezen</target>
+                  </trans-unit>
+              <trans-unit id="tzkhmt1" resname="Save All">
+                                <source>occupational credential</source>
+                                <target>beroepsreferentie</target>
+                              </trans-unit>
+               <trans-unit id="kilomt1" resname="indicate in the tutorial which professional certificate you receive">
+                                <source>indicate in the tutorial which professional certificate you receive</source>
+                                <target>geef in de tutorial aan welk beroepscertificaat je ontvangt</target>
+                              </trans-unit>
+
+
+               <trans-unit id="thjumt0" resname="save all">
+                                   <source>save all</source>
+                                   <target>opslaan</target>
+                                 </trans-unit>
+                             <trans-unit id="tmvcmt0" resname="these people are following your tutorial">
+                                               <source>these people are following your tutorial</source>
+                                               <target>deze mensen volgen je tutorial</target>
+                                             </trans-unit>
+
+         <trans-unit id="iITHYG8" resname="verified">
+                      <source>verified</source>
+                      <target>geverifieerd</target>
+                    </trans-unit>
+                    <trans-unit id="FGBC7mt" resname="action">
+                      <source>action</source>
+                      <target>actie</target>
+                    </trans-unit>
+                    <trans-unit id="RTYCmt0" resname="date created">
+                            <source>date created</source>
+                            <target>datum gecreeërd</target>
+                          </trans-unit>
+
+<trans-unit id="UMndb7Q" resname="if you are dealing with a (social) challenge concerning your organization, write it down and ask the students to come up with a solution.">
+        <source>if you are dealing with a (social) challenge concerning your organization, write it down and ask the students to come up with a solution.</source>
+        <target>heb je te maken met een (maatschappelijke) uitdaging die jouw organisatie aangaat, schrijf die dan op en vraag de studenten om met een oplossing te komen.</target>
+      </trans-unit>
+      <trans-unit id="idHegG8" resname="new password">
+        <source>new password</source>
+        <target>nieuw wachtwoord</target>
+      </trans-unit>
+
+
+
+
+
       <trans-unit id="UKznb7Q" resname="enter your new password">
         <source>enter your new password</source>
         <target>voer uw nieuwe wachtwoord in</target>
@@ -2095,7 +2225,7 @@
       </trans-unit>
       <trans-unit id="COvPX6e" resname="closing date:">
         <source>closing date:</source>
-        <target>__closing date:</target>
+        <target>sluitingsdatum:</target>
       </trans-unit>
       <trans-unit id="3amj847" resname="reward:">
         <source>reward:</source>
@@ -2119,27 +2249,27 @@
       </trans-unit>
       <trans-unit id="BlGGO.X" resname="activity">
         <source>activity</source>
-        <target>__activity</target>
+        <target>activiteit</target>
       </trans-unit>
       <trans-unit id="_Ny3oTv" resname="requirement">
         <source>requirement</source>
-        <target>__requirement</target>
+        <target>vereiste</target>
       </trans-unit>
       <trans-unit id="9qIU96X" resname="result">
         <source>result</source>
-        <target>__result</target>
+        <target>resultaat</target>
       </trans-unit>
       <trans-unit id="JNaVXvv" resname="see all tutorials">
         <source>see all tutorials</source>
-        <target>__see all tutorials</target>
+        <target>zie alle tutorials</target>
       </trans-unit>
       <trans-unit id="WkUkWVA" resname="position">
         <source>position</source>
-        <target>__position</target>
+        <target>positie</target>
       </trans-unit>
       <trans-unit id="quKombH" resname="no tutorials found">
         <source>no tutorials found</source>
-        <target>__no tutorials found</target>
+        <target>geen tutorials gevonden</target>
       </trans-unit>
       <trans-unit id="1m31yk1" resname="add your first tutorial!">
         <source>add your first tutorial!</source>
@@ -2147,7 +2277,7 @@
       </trans-unit>
       <trans-unit id="buMQ4eL" resname="find a tutorial">
         <source>find a tutorial</source>
-        <target>__find a tutorial</target>
+        <target>vind een tutorial</target>
       </trans-unit>
       <trans-unit id=".VTlqC4" resname="applications">
         <source>applications</source>
@@ -2155,7 +2285,7 @@
       </trans-unit>
       <trans-unit id="Y8LHTj." resname="add tutorial">
         <source>add tutorial</source>
-        <target>__add tutorial</target>
+        <target>tutorial toevoegen</target>
       </trans-unit>
       <trans-unit id="FEEVvo_" resname="see all positions">
         <source>see all positions</source>
@@ -2179,15 +2309,15 @@
       </trans-unit>
       <trans-unit id="Xpunqcc" resname="add challenge">
         <source>add challenge</source>
-        <target>__add challenge</target>
+        <target>challenge toevoegen</target>
       </trans-unit>
       <trans-unit id="EeBpPUz" resname="see all challenges">
         <source>see all challenges</source>
-        <target>__see all challenges</target>
+        <target>bekijk alle challenges</target>
       </trans-unit>
       <trans-unit id="P1g_ckM" resname="no challanges found">
         <source>no challanges found</source>
-        <target>__no challanges found</target>
+        <target>geen challanges gevonden</target>
       </trans-unit>
       <trans-unit id="QGkf8Ie" resname="add your first challenge!">
         <source>add your first challenge!</source>
@@ -2207,7 +2337,7 @@
       </trans-unit>
       <trans-unit id="Qf.Yt2r" resname="details">
         <source>details</source>
-        <target>__details</target>
+        <target>details</target>
       </trans-unit>
       <trans-unit id="_HRFVMp" resname="no internships found">
         <source>no internships found</source>
@@ -2219,7 +2349,7 @@
       </trans-unit>
       <trans-unit id="NO_UoOo" resname="participants">
         <source>participants</source>
-        <target>__participants</target>
+        <target>deelnemers</target>
       </trans-unit>
       <trans-unit id="Lsh2Wr_" resname="add your first participant!">
         <source>add your first participant!</source>
@@ -2227,7 +2357,7 @@
       </trans-unit>
       <trans-unit id="cFrYp9m" resname="find a participant">
         <source>find a participant</source>
-        <target>__find a participant</target>
+        <target>zoek een deelnemer</target>
       </trans-unit>
       <trans-unit id="tkess_l" resname="propositions">
         <source>propositions</source>
@@ -2243,7 +2373,7 @@
       </trans-unit>
       <trans-unit id="dLmuA30" resname="challange">
         <source>challange</source>
-        <target>__challange</target>
+        <target>challenge</target>
       </trans-unit>
       <trans-unit id="ZU3hSLd" resname="add your first proposition!">
         <source>add your first proposition!</source>
@@ -2299,15 +2429,15 @@
       </trans-unit>
       <trans-unit id="Z7aWRoY" resname="Dashboard">
         <source>Dashboard</source>
-        <target>__Dashboard</target>
+        <target>Dashboard</target>
       </trans-unit>
       <trans-unit id="QLnI9ES" resname="Challenges">
         <source>Challenges</source>
-        <target>__Challenges</target>
+        <target>Challenges</target>
       </trans-unit>
       <trans-unit id="J88Xkve" resname="Challenge">
         <source>Challenge</source>
-        <target>__Challenge</target>
+        <target>Challenge</target>
       </trans-unit>
       <trans-unit id="s9bSrcH" resname="Challenge name">
         <source>Challenge name</source>
@@ -2319,23 +2449,19 @@
       </trans-unit>
       <trans-unit id="czch4xb" resname="Geen requirements">
         <source>Geen requirements</source>
-        <target>__Geen requirements</target>
+        <target>Geen requirements</target>
       </trans-unit>
       <trans-unit id="CvlqjtY" resname="budget">
         <source>budget</source>
-        <target>__budget</target>
+        <target>begroting</target>
       </trans-unit>
       <trans-unit id="gOq4ShA" resname="close date">
         <source>close date</source>
-        <target>__close date</target>
-      </trans-unit>
-      <trans-unit id="FQn1YfJ" resname="Save">
-        <source>Save</source>
-        <target>__Save</target>
+        <target>sluitingsdatum</target>
       </trans-unit>
       <trans-unit id="g0z8HuI" resname="Proposals">
-        <source>Proposals</source>
-        <target>__Proposals</target>
+        <source>proposals</source>
+        <target>voorstellen</target>
       </trans-unit>
       <trans-unit id="qWQl_jM" resname="These people have applied to your position">
         <source>These people have applied to your position</source>
@@ -2343,27 +2469,23 @@
       </trans-unit>
       <trans-unit id="3NHVIj9" resname="Name">
         <source>Name</source>
-        <target>__Name</target>
+        <target>naam</target>
       </trans-unit>
-      <trans-unit id=".7JiOq0" resname="Date Created">
-        <source>Date Created</source>
-        <target>__Date Created</target>
+      <trans-unit id="f7JiOq0" resname="date created">
+        <source>date created</source>
+        <target>datum gecreeërd</target>
       </trans-unit>
-      <trans-unit id="T3g4QC8" resname="Verified">
-        <source>Verified</source>
-        <target>__Verified</target>
+      <trans-unit id="kg5BPH1" resname="status">
+        <source>status</source>
+        <target>status</target>
       </trans-unit>
-      <trans-unit id="kg5BPH1" resname="Status">
-        <source>Status</source>
-        <target>__Status</target>
-      </trans-unit>
-      <trans-unit id="ZM.xMZ0" resname="Action">
-        <source>Action</source>
-        <target>__Action</target>
+      <trans-unit id="ZM.xMZ0" resname="action">
+        <source>action</source>
+        <target>actie</target>
       </trans-unit>
       <trans-unit id="CgzFu_T" resname="Reset Pass">
         <source>Reset Pass</source>
-        <target>__Reset Pass</target>
+        <target>Pas opnieuw instellen</target>
       </trans-unit>
       <trans-unit id="VY0Sm8C" resname="View&#10;                                                Details">
         <source>View
@@ -2377,7 +2499,7 @@
       </trans-unit>
       <trans-unit id="7aBkAJs" resname="Select profile photo">
         <source>Select profile photo</source>
-        <target>__Select profile photo</target>
+        <target>Selecteer profielfoto</target>
       </trans-unit>
       <trans-unit id="K0hFXD0" resname="Choose Image">
         <source>Choose Image</source>
@@ -2389,11 +2511,7 @@
       </trans-unit>
       <trans-unit id="l8g7cxE" resname="Select cover photo">
         <source>Select cover photo</source>
-        <target>__Select cover photo</target>
-      </trans-unit>
-      <trans-unit id="JQKXgtY" resname="If you are dealing with a (social) challenge concerning your organization, write it down and ask the students to come up with a solution.">
-        <source>If you are dealing with a (social) challenge concerning your organization, write it down and ask the students to come up with a solution.</source>
-        <target>__If you are dealing with a (social) challenge concerning your organization, write it down and ask the students to come up with a solution.</target>
+        <target>Selecteer omslagfoto</target>
       </trans-unit>
       <trans-unit id="JSWN0mX" resname="Fresh eyes..:)">
         <source>Fresh eyes..:)</source>
@@ -2401,11 +2519,11 @@
       </trans-unit>
       <trans-unit id="_hhDO4D" resname="Positions">
         <source>Positions</source>
-        <target>__Positions</target>
+        <target>Posities</target>
       </trans-unit>
       <trans-unit id="bQMa8Q2" resname="Position">
         <source>Position</source>
-        <target>__Position</target>
+        <target>Positie</target>
       </trans-unit>
       <trans-unit id="6ouCpcQ" resname="temporary">
         <source>temporary</source>
@@ -2429,7 +2547,7 @@
       </trans-unit>
       <trans-unit id="dht62K1" resname="summary">
         <source>summary</source>
-        <target>__summary</target>
+        <target>samenvatting</target>
       </trans-unit>
       <trans-unit id="dtqhOOn" resname="applicants">
         <source>applicants</source>
@@ -2441,19 +2559,19 @@
       </trans-unit>
       <trans-unit id="XKdjpWk" resname="date created">
         <source>date created</source>
-        <target>__date created</target>
+        <target>datum gecreeërd</target>
       </trans-unit>
       <trans-unit id="vZOMaI9" resname="action">
         <source>action</source>
-        <target>__action</target>
+        <target>actie</target>
       </trans-unit>
       <trans-unit id="Fi1Q9Iy" resname="no email available">
         <source>no email available</source>
-        <target>__no email available</target>
+        <target>geen e-mail beschikbaar</target>
       </trans-unit>
       <trans-unit id="lXR3Fcn" resname="view details">
         <source>view details</source>
-        <target>__view details</target>
+        <target>details bekijken</target>
       </trans-unit>
       <trans-unit id="uNEr1WK" resname="delete application">
         <source>delete application</source>
@@ -2489,11 +2607,11 @@
       </trans-unit>
       <trans-unit id="jZ9mmS3" resname="Tutorials">
         <source>Tutorials</source>
-        <target>__Tutorials</target>
+        <target>Tutorials</target>
       </trans-unit>
       <trans-unit id="wmmCsUJ" resname="Tutorial">
         <source>Tutorial</source>
-        <target>__Tutorial</target>
+        <target>Tutorial</target>
       </trans-unit>
       <trans-unit id="_0Pfzko" resname="Tutorial name">
         <source>Tutorial name</source>
@@ -2515,53 +2633,26 @@
         <source>Tutorial text</source>
         <target>__Tutorial text</target>
       </trans-unit>
-      <trans-unit id="FMu6RKF" resname="werkomgeving">
-        <source>werkomgeving</source>
-        <target>__werkomgeving</target>
-      </trans-unit>
+
       <trans-unit id="j7bV836" resname="setup">
         <source>setup</source>
-        <target>__setup</target>
+        <target>setup</target>
       </trans-unit>
       <trans-unit id="HcWuW2g" resname="layout">
         <source>layout</source>
-        <target>__layout</target>
+        <target>layout</target>
       </trans-unit>
-      <trans-unit id="m32paL9" resname="datamodellen">
-        <source>datamodellen</source>
-        <target>__datamodellen</target>
-      </trans-unit>
-      <trans-unit id="sO10O8U" resname="Tutorial time required">
-        <source>Tutorial time required</source>
-        <target>__Tutorial time required</target>
-      </trans-unit>
-      <trans-unit id="O3uSPG3" resname="The time required to read the tutorial...">
-        <source>The time required to read the tutorial...</source>
-        <target>__The time required to read the tutorial...</target>
-      </trans-unit>
-      <trans-unit id="aGN0NWa" resname="Educational credential">
-        <source>Educational credential</source>
-        <target>__Educational credential</target>
-      </trans-unit>
-      <trans-unit id="qBTsZYJ" resname="The level of education required for this tutorial...">
-        <source>The level of education required for this tutorial...</source>
-        <target>__The level of education required for this tutorial...</target>
-      </trans-unit>
+      <trans-unit id="HJEBW2g" resname="these people are following your tutorial">
+              <source>these people are following your tutorial</source>
+              <target>deze mensen volgen je tutorial</target>
+            </trans-unit>
       <trans-unit id="cerZk4m" resname="video url">
         <source>video url</source>
-        <target>__video url</target>
+        <target>video url</target>
       </trans-unit>
-      <trans-unit id="0cl9xpV" resname="A url for a video as an example...">
-        <source>A url for a video as an example...</source>
-        <target>__A url for a video as an example...</target>
-      </trans-unit>
-      <trans-unit id="H.mc3cs" resname="Occupational Credential">
-        <source>Occupational Credential</source>
-        <target>__Occupational Credential</target>
-      </trans-unit>
-      <trans-unit id="K__vDdo" resname="Tutorials help us all to gain and gather knowledge.">
-        <source>Tutorials help us all to gain and gather knowledge.</source>
-        <target>__Tutorials help us all to gain and gather knowledge.</target>
+      <trans-unit id="K__vDdo" resname="tutorials help us all to gain and gather knowledge.">
+        <source>tutorials help us all to gain and gather knowledge.</source>
+        <target>tutorials helpen ons allemaal om kennis op te doen en te vergaren.</target>
       </trans-unit>
       <trans-unit id="vinfrK3" resname="In general but also custom made for your organization.">
         <source>In general but also custom made for your organization.</source>
@@ -2593,7 +2684,7 @@
       </trans-unit>
       <trans-unit id="6P1yk37" resname="add new">
         <source>add new</source>
-        <target>__add new</target>
+        <target>nieuwe toevoegen</target>
       </trans-unit>
       <trans-unit id="j1QQj1Y" resname="chamber of commerce">
         <source>chamber of commerce</source>
