@@ -141,7 +141,7 @@ class DashboardOrganizationController extends AbstractController
             //Get current application
             $variables['application'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'applications', 'id' => $variables['internship']['application']['id']]);
             //get employee
-            $variables['employee'] = $commonGroundService->getResource('https://dev.zuid-drecht.nl/api/v1/mrc'.$variables['application']['employee']);
+            $variables['employee'] = $commonGroundService->getResource($variables['application']['employee']);
         }
 
         return $variables;

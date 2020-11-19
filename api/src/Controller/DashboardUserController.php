@@ -26,7 +26,6 @@ class DashboardUserController extends AbstractController
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
-        $personUrl = $this->getUser()->getPerson();
 
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
@@ -38,13 +37,14 @@ class DashboardUserController extends AbstractController
 
         //  Getting the participant @todo this needs to be more foolproof
         if ($this->getUser()) {
+            $personUrl = $this->getUser()->getPerson();
             $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> $personUrl]])['hydra:member'];
-        } else {
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person' => 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
+
+            if (count($participants) > 0) {
+                $variables['participant'] = $participants[0];
+            }
         }
-        if (count($participants) > 0) {
-            $variables['participant'] = $participants[0];
-        }
+
         //employee connected to user
         $employee = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees', ['person' => $personUrl]])['hydra:member'];
         if (count($employee) > 0) {

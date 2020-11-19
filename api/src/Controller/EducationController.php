@@ -66,8 +66,6 @@ class EducationController extends AbstractController
         //  Getting the participant @todo this needs to be more foolproof and part of a service
         if ($this->getUser()) {
             $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> $this->getUser()->getPerson()]])['hydra:member'];
-        } else {
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> 'https://dev.zuid-drecht.nl/api/v1/cc/people/d961291d-f5c1-46f4-8b4a-6abb41df88db']])['hydra:member'];
         }
         if (count($participants) > 0) {
             $variables['participants'] = $participants;
