@@ -33,8 +33,10 @@
                     {% endif %}
 
 
+                {% if tutorial.organization is defined and tutorial.organization is not empty %}
                     <input type="hidden" name="organization" id="organization"
-                           value="https://dev.zuid-drecht.nl/api/v1/wrc/organizations/c571bdad-f34c-4e24-94e7-74629cfaccc9">
+                           value="{{ tutorial.organization }}">
+                {% endif %}
 
 
                     <div class="row">
