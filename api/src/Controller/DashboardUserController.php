@@ -47,7 +47,7 @@ class DashboardUserController extends AbstractController
 
         //employee connected to user
         $employee = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees', ['person' => $personUrl]])['hydra:member'];
-        if (count($employee) > 0){
+        if (count($employee) > 0) {
             $employee = $employee[0];
         }
         //applications ophalen die gemaakt zijn door de user
