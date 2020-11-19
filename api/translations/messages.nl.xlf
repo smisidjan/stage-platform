@@ -2895,6 +2895,46 @@
         <source>students can showcase their products and results</source>
         <target>__students can showcase their products and results</target>
       </trans-unit>
+      <trans-unit id="JCARODZ" resname="Conduction Academy provides both matchmaking and an online internship platform">
+        <source>Conduction Academy provides both matchmaking and an online internship platform</source>
+        <target>__Conduction Academy provides both matchmaking and an online internship platform</target>
+      </trans-unit>
+      <trans-unit id="F3.rUVi" resname="Conduction">
+        <source>Conduction</source>
+        <target>__Conduction</target>
+      </trans-unit>
+      <trans-unit id="tLWAqa2" resname="About us">
+        <source>About us</source>
+        <target>__About us</target>
+      </trans-unit>
+      <trans-unit id="TtyL_vx" resname="Products">
+        <source>Products</source>
+        <target>__Products</target>
+      </trans-unit>
+      <trans-unit id="mLZwY8_" resname="Contact Us">
+        <source>Contact Us</source>
+        <target>__Contact Us</target>
+      </trans-unit>
+      <trans-unit id="PAvwTzR" resname="The Academy">
+        <source>The Academy</source>
+        <target>__The Academy</target>
+      </trans-unit>
+      <trans-unit id="4.yngfo" resname="The latest stageplatform news, articles, and resources, sent straight to your inbox every month.">
+        <source>The latest stageplatform news, articles, and resources, sent straight to your inbox every month.</source>
+        <target>__The latest stageplatform news, articles, and resources, sent straight to your inbox every month.</target>
+      </trans-unit>
+      <trans-unit id="cjTKgVQ" resname="We’ll never share your details. See our">
+        <source>We’ll never share your details. See our</source>
+        <target>__We’ll never share your details. See our</target>
+      </trans-unit>
+      <trans-unit id="UG.zlGI" resname="Privacy Policy">
+        <source>Privacy Policy</source>
+        <target>__Privacy Policy</target>
+      </trans-unit>
+      <trans-unit id="vko3pnY" resname="All rights reserved">
+        <source>All rights reserved</source>
+        <target>__All rights reserved</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
