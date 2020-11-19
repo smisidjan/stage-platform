@@ -194,12 +194,12 @@
                                 </div>
                             </a>
                         </td>
-                        <td><span class="font-weight-normal">{{ participant.created|date("d-m-Y", "Europe/Paris") }}</span>
+                        <td><span class="font-weight-normal">{{ participant.dateCreated|date("d-m-Y", "Europe/Paris") }}</span>
                         </td>
                         <td><span class="font-weight-normal">
                                 <span class="fas fa-check-circle text-success mr-2"></span>Email</span>
                         </td>
-                        <td><span class="font-weight-normal text-success">{{ participant.results }}</span></td>
+                        <td><span class="font-weight-normal text-success">{# participant.results #}</span></td>
                         <td>
                             <div class="btn-group">
                                 <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"

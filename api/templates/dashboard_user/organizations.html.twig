@@ -1,0 +1,132 @@
+{% extends "dashboard/base.html.twig" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="page-inner">
+            <div class="row row-card-no-pd">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-head-row">
+                                <h4 class="card-title">{{ "Choose your organization"|trans|capitalize }}</h4>
+                                <div class="card-tools">
+                                    {#                                    <button class="btn btn-icon btn-link btn-primary btn-xs"><span#}
+                                    {#                                            class="fa fa-angle-down"></span></button>#}
+                                    <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><a
+                                            href="{{ path(path) }}"><span
+                                                class="fa fa-sync-alt"></span></a></button>
+                                    {#                                    <button class="btn btn-icon btn-link btn-primary btn-xs"><span#}
+                                    {#                                            class="fa fa-times"></span></button>#}
+                                    <button style="margin-top: 2px" class="btn btn-link btn-primary btn-xs"><a
+                                            href="{{ '#add'~type|capitalize~'Modal' }}" data-toggle="modal"
+                                            data-target="{{ '#add'~type|capitalize~'Modal' }}">
+                                            <span style="font-size: medium"
+                                                  class="fa fa-plus"> Add new</span></a></button>
+                                </div>
+                            </div>
+                            <p class="card-category">
+                                Select your organization</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive table-hover table-sales">
+                                        <form method="post" action="{{ path(path) }}">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Select</th>
+                                                    <th>{{ 'name'|trans|capitalize }}</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% if items|default %}
+                                                    {% for item in items %}
+                                                        <tr>
+                                                            <td><input type="radio" name="organization"
+                                                                       value="{{ item['@id'] }}"
+                                                                       {% if app.user.organization|default and app.user.organization == item['@id'] %}checked{% endif %}>
+                                                            </td>
+                                                            <td>{{ item.name }}</td>
+                                                            <td class="text-right">
+                                                                <a href="{{ path(pathToSingular,{'id': item.id}) }}}">{{ 'view'|trans|capitalize }}</a>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                {% elseif organization|default %}
+                                                    <tr>
+                                                        <td><input type="radio" name="organization"
+                                                                   value="{{ organization['@id'] }}"
+                                                                   checked>
+                                                        </td>
+                                                        <td>{{ organization.name }}</td>
+                                                        <td class="text-right">
+                                                            <a href="{{ path(pathToSingular,{'id': organization.id}) }}}">{{ 'view'|trans|capitalize }}</a>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <a href="{{ '#edit'~organization.id~'Modal' }}"
+                                                               data-toggle="modal"
+                                                               data-target="{{ '#edit'~organization.id~'Modal' }}"><i
+                                                                    class="fa fa-edit"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                {% else %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ 'no results have been found'|trans|capitalize }}
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                {% endif %}
+                                                </tbody>
+                                            </table>
+                                            <div class="d-flex justify-content-around">
+                                                <button class="d-inline-block float-right btn btn-success col-md-3"
+                                                        type="submit">{{ 'save'|trans|capitalize }}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mapcontainer">
+                                        <div id="map-example" class="vmap"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#  Modal for new object #}
+    {% include 'dashboard_user/modals/edit_object.html.twig' with {
+        'path': pathToSingular,
+        'type': type,
+    } %}
+
+    {% set counter = 0 %}
+    {#  Modals editing existing objects  #}
+    {% if items|default %}
+        {% for item in items %}
+            {% include 'dashboard_user/modals/edit_object.html.twig' with {
+                'path': pathToSingular,
+                'item': item,
+                'type': type
+            } %}
+        {% endfor %}
+    {% elseif organization|default %}
+        {% include 'dashboard_user/modals/edit_object.html.twig' with {
+            'path': pathToSingular,
+            'item': organization,
+            'type': type
+        } %}
+    {% endif %}
+
+{% endblock %}
