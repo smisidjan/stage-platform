@@ -2935,6 +2935,10 @@
         <source>All rights reserved</source>
         <target>__All rights reserved</target>
       </trans-unit>
+      <trans-unit id="T_6ag8M" resname="email address">
+        <source>email address</source>
+        <target>__email address</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
