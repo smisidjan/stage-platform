@@ -55,10 +55,20 @@
                                              src="{{ organization.style.favicon.base64 }}" alt="">
                                     {% endif %}
                                     {% if challenge.submitter is defined and challenge.submitter is not empty %}
-                                        <h6 class="text-muted small ml-2 mb-0">{{ challenge.submitter }}</h6>
+                                        {% if 'http' in challenge.submitter %}
+                                            {% set submitter = commonground_is_resource(challenge.submitter) %}
+                                            {% if submitter != false %}
+                                                {% set submitter = submitter.name %}
+                                            {% else %}
+                                                {% set submitter = challenge.submitter %}
+                                            {% endif %}
+                                        {% else %}
+                                            {% set submitter = challenge.submitter %}
+                                        {% endif %}
+
+                                        <h6 class="text-muted small ml-2 mb-0">{{ submitter }}</h6>
                                     {% endif %}
                                 </div>
-
                                 {% if challenge.dateClose is defined and challenge.dateClose is not empty %}
                                     <div class="d-flex align-items-center my-4"><h6
                                             class="text-muted small ml-2 mb-0">{{ 'closing date: '|trans|capitalize }}{{ challenge.dateClose|date("d-m-Y", "Europe/Paris") }}</h6>
@@ -66,7 +76,7 @@
                                 {% endif %}
                                 {% if challenge.budget is defined and challenge.budget is not empty %}
                                     <div class="d-flex align-items-center my-4"><h6
-                                            class="text-muted small ml-2 mb-0">{{ 'reward: '|trans|capitalize }}{{ challenge.budget }}</h6>
+                                            class="text-muted small ml-2 mb-0">{{ 'reward: '|trans|capitalize }}&euro;{{ challenge.budget }}</h6>
                                     </div>
                                 {% endif %}
                                 <p class="mb-0">{{ challenge.description }}</p>

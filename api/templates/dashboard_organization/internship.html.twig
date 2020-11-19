@@ -204,7 +204,6 @@
                     </thead>
                     {#for loop voor de applications op de position maken #}
                     {% if internship.application is defined and internship.application is not empty %}
-                        {% set application = internship.application %}
                         {% for application in internship.application %}
                     <tbody>
                         <tr>
