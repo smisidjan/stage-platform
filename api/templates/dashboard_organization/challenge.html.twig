@@ -65,7 +65,8 @@
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-group">
-                                <label for="name">{{ 'name'|trans|capitalize }}</label>
+                                <label for="name">{{ 'name'|trans|capitalize }}
+                                    <span class="text-danger">*</span></label>
                                 <input class="form-control" id="name" name="name" type="text"
                                        required=""
                                     {% if challenge.name is defined and challenge.name is not empty %}
@@ -76,7 +77,8 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
-                                <label for="submitter">{{ 'submitter'|trans|capitalize }}</label>
+                                <label for="submitter">{{ 'submitter'|trans|capitalize }}
+                                    <span class="text-danger">*</span></label>
                                 <select class="form-control" id="submitter" name="submitter" type="text" required=""
                                         {% if challenge.submitter is defined and challenge.submitter is not empty %}disabled{% endif %}>
                                     {% for bedrijf in organizations %}
