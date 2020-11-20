@@ -268,6 +268,9 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
+
+        $variables['organization'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'organizations']);
+
         return $variables;
     }
 }
