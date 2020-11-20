@@ -84,7 +84,6 @@ class StudentController extends AbstractController
             }
         }
 
-
         return $variables;
     }
 }
