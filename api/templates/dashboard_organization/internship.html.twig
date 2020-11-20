@@ -114,15 +114,12 @@
                             <div class="form-group">
                                 <label for="hiringOrganization"> {{ 'organization'|trans|capitalize }} </label>
                                 <select class="form-control" id="hiringOrganization" name="hiringOrganization">
-                                    {% if organizations is defined %}
-                                        {% for bedrijf in organizations %}
-                                            <option value="{{ bedrijf['@id'] }}">{{ bedrijf.name }}</option>
-                                        {% endfor %}
-                                    {% elseif internship.hiringOrganization is defined and internship.hiringOrganization is not empty %}
+                                    {% for bedrijf in organizations %}
+                                        {% set organizationUrl = commonground_cleanurl({'component': 'wrc', 'type': 'organizations', 'id': bedrijf.id}) %}
                                         <option
-                                            value="{{ internship.hiringOrganization }}">{{ commonground_resource(internship.hiringOrganization).name }}</option>
-
-                                    {% endif %}
+                                            {% if internship.hiringOrganization is defined and internship.hiringOrganization is not empty and internship.hiringOrganization == organizationUrl %}selected{% endif %}
+                                            value="{{ organizationUrl }}">{{ bedrijf.name }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -166,7 +163,7 @@
                             <label for="jobStartDate">{{ 'start date of the internship'|trans|capitalize }}</label>
                             <input class="form-control" id="jobStartDate" type="datetime-local"
                                 {% if internship.jobStartDate is defined and internship.jobStartDate is not empty %}
-                                value="{{ internship.jobStartDate }}"{% else %}
+                                value="{{ internship.jobStartDate|date("Y-m-d\\TH:i") }}"{% else %}
                                    placeholder="format jaar-maand-dag"{% endif %} name="jobStartDate" required>
                         </div>
                     </div>
@@ -175,7 +172,7 @@
                             <label for="validThrough">{{ 'end date of the internship'|trans|capitalize }}</label>
                             <input class="form-control" id="validThrough" type="datetime-local"
                                 {% if internship.validThrough is defined and internship.validThrough is not empty %}
-                                    value="{{ internship.validThrough }}"{% else %}
+                                    value="{{ internship.validThrough|date("Y-m-d\\TH:i") }}"{% else %}
                                    placeholder="format jaar-maand-dag" {% endif %} name="validThrough" required>
                         </div>
                     </div>
@@ -222,27 +219,24 @@
                     {#for loop voor de applications op de position maken #}
                     {% if applications is defined and applications is not empty %}
                         {% for application in applications %}
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="form-check dashboard-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="userCheck1">
-                                        <label class="form-check-label" for="userCheck1"></label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="#" class="d-flex align-items-center"><img
-                                            src="../../assets/img/team/profile-picture-1.jpg"
-                                            class="user-avatar rounded-circle mr-3" alt="Avatar">
-                                        <div class="d-block"><span
-                                                class="font-weight-bold">{{ commonground_resource(employee.person).name }}</span>
-                                            <div class="small text-gray">
-                                                {% if commonground_resource(employee.person).emais is defined and commonground_resource(employee.person).emais is not empty %}
-                                                    {{ commonground_resource(employee.person).emais[0] }}
-                                                {% else %}
-                                                    {{ 'no email available'|trans|capitalize }}
-                                                {% endif %}
-                                            </div>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="form-check dashboard-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="userCheck1">
+                                    <label class="form-check-label" for="userCheck1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="#" class="d-flex align-items-center"><img src="../../assets/img/team/profile-picture-1.jpg" class="user-avatar rounded-circle mr-3" alt="Avatar">
+                                    {% set employee = commonground_resource(application.employee) %}
+                                    <div class="d-block"><span class="font-weight-bold">{{ commonground_resource(employee.person).name }}</span>
+                                        <div class="small text-gray">
+                                            {% if commonground_resource(employee.person).emais is defined and commonground_resource(employee.person).emais is not empty %}
+                                            {{ commonground_resource(employee.person).emais[0] }}
+                                            {% else %}
+                                                {{ 'no email available'|trans|capitalize }}
+                                            {% endif %}
                                         </div>
                                     </a>
                                 </td>
