@@ -1907,6 +1907,10 @@
         <source>this student follows these programs</source>
         <target>deze student volgt deze programma's</target>
       </trans-unit>
+      <trans-unit id="u1h2Baw" resname="this student is in these teams">
+        <source>this student is in these teams</source>
+        <target>deze student zit in deze teams</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -52,7 +52,6 @@ class StudentController extends AbstractController
      */
     public function portfolioAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // Get Resource student
@@ -60,6 +59,8 @@ class StudentController extends AbstractController
         $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['person' => $variables['student']['@id']])['hydra:member'];
 
         $programIds = [];
+        $courseIds = [];
+        $groupIds = [];
         foreach ($variables['participants'] as $participant) {
             if (isset($participant['program']) && $participant['program']) {
                 if (!in_array($participant['program']['id'], $programIds)) {
@@ -67,14 +68,18 @@ class StudentController extends AbstractController
                     $programIds[] = $participant['id'];
                 }
             }
-        }
-
-        $courseIds = [];
-        foreach ($variables['participants'] as $participant) {
             if (isset($participant['course']) && $participant['course']) {
                 if (!in_array($participant['course']['id'], $courseIds)) {
                     $variables['courses'][] = $participant['course'];
                     $courseIds[] = $participant['course']['id'];
+                }
+            }
+            if (isset($participant['groups']) && $participant['groups']) {
+                foreach ($participant['groups'] as $group) {
+                    if (!in_array($group['id'], $groupIds)) {
+                        $variables['groups'][] = $group;
+                        $groupIds[] = $group['id'];
+                    }
                 }
             }
         }
