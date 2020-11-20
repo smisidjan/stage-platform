@@ -60,8 +60,7 @@ class StudentController extends AbstractController
      * @Route("/{id}")
      * @Template
      */
-    public
-    function portfolioAction(CommonGroundService $commonGroundService, Request $request, $id)
+    public function portfolioAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
 
