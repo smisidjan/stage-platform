@@ -31,7 +31,6 @@ class StudentController extends AbstractController
         // Get resource students
         $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], $variables['query'])['hydra:member'];
 
-//        var_dump($variables['participants']);
         // Remove duplicate persons to get students
         $personIds = [];
         foreach ($variables['participants'] as $participant) {
@@ -39,7 +38,18 @@ class StudentController extends AbstractController
                 if (isset($participant['person']) && $participant['person']) {
                     $variables['students'][] = $commonGroundService->getResource($participant['person']);
                 }
-                $personIds[] = $participant['id'];
+            }
+            $personIds[] = $participant['id'];
+        }
+
+        // If somehow a student is a hydra collection add the members to the array and unset the hydra collection
+        // Weird bug tho
+        foreach ($variables['students'] as $i => $stud) {
+            if (isset($stud['hydra:member'])) {
+                foreach ($stud['hydra:member'] as $student) {
+                    $variables['students'][] = $student;
+                }
+                unset($variables['students'][$i]);
             }
         }
 
@@ -50,13 +60,21 @@ class StudentController extends AbstractController
      * @Route("/{id}")
      * @Template
      */
-    public function portfolioAction(CommonGroundService $commonGroundService, Request $request, $id)
+    public
+    function portfolioAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
 
         // Get Resource student
         $variables['student'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'people', 'id' => $id]);
         $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['person' => $variables['student']['@id']])['hydra:member'];
+
+        $variables['portfolio'] = $commonGroundService->getResourceList(['component' => 'pfc', 'type' => 'portfolios'], ['owner' => $variables['student']['@id']])['hydra:member'];
+        if (isset($variables['portfolio']) && $variables['portfolio']) {
+            $variables['portfolio'] = $variables['portfolio'][0];
+        } else {
+            unset($variables['portfolio']);
+        }
 
         $programIds = [];
         $courseIds = [];
@@ -82,6 +100,20 @@ class StudentController extends AbstractController
                     }
                 }
             }
+        }
+
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+
+            if (isset($resource['contactMoment']) && $resource['contactMoment']) {
+                $resource['contactMoment']['receiver'] = $variables['student']['@id'];
+                $resource['contactMoment']['sender'] = $variables['student']['@id'];
+                $resource['contactMoment']['channel'] = 'Direct message';
+                $resource['contactMoment']['topic'] = 'Direct message';
+            }
+
+            // Save to the commonground component
+            $variables['contactMoment'] = $commonGroundService->saveResource($resource['contactMoment'], 'https://cmc.dev.zuid-drecht.nl/contact_moments');
         }
 
         return $variables;

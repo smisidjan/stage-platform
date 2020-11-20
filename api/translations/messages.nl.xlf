@@ -3230,7 +3230,7 @@
       </trans-unit>
       <trans-unit id="g_FMsAQ" resname="view portfolio">
         <source>view portfolio</source>
-        <target>bekijk portfilio</target>
+        <target>bekijk portfolio</target>
       </trans-unit>
       <trans-unit id="XpyLMgd" resname="you need to login before you can submit">
         <source>you need to login before you can submit</source>
