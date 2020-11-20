@@ -3094,7 +3094,7 @@
       </trans-unit>
       <trans-unit id="KGPfSyJ" resname="occupational credential">
         <source>occupational credential</source>
-        <target>__occupational credential</target>
+        <target>beroepskwalificatie</target>
       </trans-unit>
       <trans-unit id="HJmWRsg" resname="showing">
         <source>showing</source>
