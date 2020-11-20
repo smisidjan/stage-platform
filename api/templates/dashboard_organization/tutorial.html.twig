@@ -1,25 +1,25 @@
 {% extends "dashboard/base.html.twig" %}
 
 {% block content %}
-<!-- breadcrumbs -->
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-    <div class="d-block mb-4 mb-md-0">
-        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span
-                            class="fas fa-home"></span></a></li>
-                <li class="breadcrumb-item"><a
-                        href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
-                <li class="breadcrumb-item"><a
-                        href="{{ path('app_dashboardorganization_tutorials') }}">{{ 'Tutorials'|trans|capitalize }}</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ 'Tutorial'|trans|capitalize }}</li>
-            </ol>
-        </nav>
-        <h2 class="h4">{{ tutorial.name }}</h2>
-        <p class="mb-0">{{ 'tutorials help us all to gain and gather knowledge.'|trans|capitalize }}</p>
+    <!-- breadcrumbs -->
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+        <div class="d-block mb-4 mb-md-0">
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                    <li class="breadcrumb-item"><a href="{{ path('app_default_index') }}"><span
+                                class="fas fa-home"></span></a></li>
+                    <li class="breadcrumb-item"><a
+                            href="{{ path('app_dashboard_index') }}">{{ 'Dashboard'|trans|capitalize }}</a></li>
+                    <li class="breadcrumb-item"><a
+                            href="{{ path('app_dashboardorganization_tutorials') }}">{{ 'Tutorials'|trans|capitalize }}</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ 'Tutorial'|trans|capitalize }}</li>
+                </ol>
+            </nav>
+            <h2 class="h4">{{ tutorial.name }}</h2>
+            <p class="mb-0">{{ 'tutorials help us all to gain and gather knowledge.'|trans|capitalize }}</p>
+        </div>
     </div>
-</div>
 
     <div class="row">
         <div class="col-12 col-xl-8">
@@ -48,7 +48,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
@@ -70,7 +69,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
@@ -101,7 +99,7 @@
                                             {% if app.user.organization is defined and app.user.organization == organizationUrl %} selected
                                             {% elseif tutorial.organization is defined and tutorial.organization == organizationUrl %} selected
                                             {% endif %}
-                                                value="{{ organizationUrl }}">{{ organization.name }}
+                                            value="{{ organizationUrl }}">{{ organization.name }}
                                         </option>
                                     {% endfor %}
                                 </select>
@@ -143,7 +141,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
@@ -165,7 +162,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
@@ -192,7 +188,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="mt-3">
                         <button type="submit" class="btn btn-primary">{{ 'save all'|trans|capitalize }}</button>
@@ -211,86 +206,86 @@
                 <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                     <table class="table table-hover">
                         <thead>
-                            <tr>
-                                <th class="border-0">
-                                    <div class="form-check dashboard-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="userCheck55">
-                                        <label class="form-check-label" for="userCheck55"></label>
-                                    </div>
-                                </th>
-                                <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
-                                <th class="border-0" >{{ 'date created'|trans|capitalize }}</th>
-                                <th class="border-0" >{{ 'verified'|trans|capitalize }}</th>
-                                <th class="border-0" >{{ 'status'|trans|capitalize }}</th>
-                                <th class="border-0" >{{ 'action'|trans|capitalize }}</th>
-                            </tr>
+                        <tr>
+                            <th class="border-0">
+                                <div class="form-check dashboard-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="userCheck55">
+                                    <label class="form-check-label" for="userCheck55"></label>
+                                </div>
+                            </th>
+                            <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
+                            <th class="border-0" >{{ 'date created'|trans|capitalize }}</th>
+                            <th class="border-0" >{{ 'verified'|trans|capitalize }}</th>
+                            <th class="border-0" >{{ 'status'|trans|capitalize }}</th>
+                            <th class="border-0" >{{ 'action'|trans|capitalize }}</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            {% if participants is defined and participants is not empty %}
-                                {% for participant in participants %}
-                                    {% if participant.person is defined and participant.person is not empty and commonground_is_resource(participant.person) %}
-                                        {% set participantPerson = commonground_resource(participant.person) %}
-                                    {% endif %}
-                                    <tr>
-                                        <td>
-                                            <div class="form-check dashboard-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="userCheck1">
-                                                <label class="form-check-label" for="userCheck1"></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="d-flex align-items-center">
-                                                <img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg"
-                                                     class="user-avatar rounded-circle mr-3" alt="Avatar">
-                                                <div class="d-block">
+                        {% if participants is defined and participants is not empty %}
+                            {% for participant in participants %}
+                                {% if participant.person is defined and participant.person is not empty and commonground_is_resource(participant.person) %}
+                                    {% set participantPerson = commonground_resource(participant.person) %}
+                                {% endif %}
+                                <tr>
+                                    <td>
+                                        <div class="form-check dashboard-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="userCheck1">
+                                            <label class="form-check-label" for="userCheck1"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="d-flex align-items-center">
+                                            <img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg"
+                                                 class="user-avatar rounded-circle mr-3" alt="Avatar">
+                                            <div class="d-block">
                                                     <span class="font-weight-bold">
                                                         {% if participantPerson.name is defined %}
                                                             {{ participantPerson.name }}
                                                         {% endif %}
                                                     </span>
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <span class="font-weight-normal">{{ participant.dateCreated|date("d-m-Y", "Europe/Paris") }}</span>
-                                        </td>
-                                        <td>
-                                            <span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>{{ 'email'|trans|capitalize }}</span>
-                                        </td>
-                                        <td>
-                                            <span class="font-weight-normal text-success">{# participant.results #}</span></td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
-                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-normal">{{ participant.dateCreated|date("d-m-Y", "Europe/Paris") }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>{{ 'email'|trans|capitalize }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="font-weight-normal text-success">{# participant.results #}</span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="icon icon-sm">
                                                         <span class="fas fa-ellipsis-h icon-dark"></span>
                                                     </span>
-                                                    <span class="sr-only">{{ 'Toggle Dropdown'|trans|capitalize }}</span>
-                                                </button>
+                                                <span class="sr-only">{{ 'Toggle Dropdown'|trans|capitalize }}</span>
+                                            </button>
 
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">
-                                                        <span class="fas fa-user-shield mr-2"></span>
-                                                        {{ 'Reset Pass'|trans|capitalize }}
-                                                    </a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <span class="fas fa-eye mr-2"></span>
-                                                        {{ 'View Details'|trans|capitalize }}
-                                                    </a>
-                                                    <a class="dropdown-item text-danger" href="#">
-                                                        <span class="fas fa-user-times mr-2"></span>
-                                                        {{ 'suspend'|trans|capitalize }}
-                                                    </a>
-                                                </div>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">
+                                                    <span class="fas fa-user-shield mr-2"></span>
+                                                    {{ 'Reset Pass'|trans|capitalize }}
+                                                </a>
+                                                <a class="dropdown-item" href="#">
+                                                    <span class="fas fa-eye mr-2"></span>
+                                                    {{ 'View Details'|trans|capitalize }}
+                                                </a>
+                                                <a class="dropdown-item text-danger" href="#">
+                                                    <span class="fas fa-user-times mr-2"></span>
+                                                    {{ 'suspend'|trans|capitalize }}
+                                                </a>
                                             </div>
+                                        </div>
 
-                                            <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"
-                                               data-original-title="Delete"><span class="fas fa-times-circle"></span></a>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                            {% endif %}
+                                        <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"
+                                           data-original-title="Delete"><span class="fas fa-times-circle"></span></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
                         </tbody>
                     </table>
                     <div class="card-footer px-3 d-flex align-items-center justify-content-between">
@@ -346,13 +341,13 @@
                                                    value="/requirements/{{ requirement.id }}"
                                                    id="{{ requirement.id }}Checkbox"
                                                    name="requirements[]"
-                                                   {% if tutorial.requirements|default %}
-                                                       {% for act in tutorial.requirements %}
-                                                           {% if requirement.id == act.id %}
-                                                               checked
-                                                           {% endif %}
-                                                       {% endfor %}
-                                                   {% endif %}
+                                                {% if tutorial.requirements|default %}
+                                                    {% for act in tutorial.requirements %}
+                                                        {% if requirement.id == act.id %}
+                                                            checked
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
                                             >
                                             <label
                                                 class="form-check-label"
@@ -408,45 +403,45 @@
 
                     {# TODO: Remove the following code? (This is some old code for modals? not sure if this is still needed here?) #}
 
-    {#                    {% if requirements|default %}#}
-    {#                        {% for requirement in requirements %}#}
-    {#                            <div class="modal fade" id="{{ requirement.id }}" tabindex="-1" role="dialog"#}
-    {#                                 aria-labelledby="modal-default" aria-hidden="true">#}
-    {#                                <div class="modal-dialog modal-dialog-centered" role="document">#}
-    {#                                    <div class="modal-content">#}
-    {#                                        <div class="modal-header">#}
-    {#                                            <h6 class="modal-title">Edit {{ requirement.id }}</h6>#}
-    {#                                            <button type="button" class="close" data-dismiss="modal"#}
-    {#                                                    aria-label="Close">#}
-    {#                                                <span aria-hidden="true">&times;</span>#}
-    {#                                            </button>#}
-    {#                                        </div>#}
-    {#                                        <div class="modal-body">#}
-    {#                                            <p>With less than a month to go before the European Union enacts new#}
-    {#                                                consumer privacy laws for its citizens, companies around the#}
-    {#                                                world#}
-    {#                                                are updating their terms of service agreements to comply.</p>#}
-    {#                                            <p>The European Union's General Data Protection Regulation#}
-    {#                                                (G.D.P.R.)#}
-    {#                                                goes into effect on May 25 and is meant to ensure a common set#}
-    {#                                                of#}
-    {#                                                data rights in the European Union. It requires organizations to#}
-    {#                                                notify users as#}
-    {#                                                soon as possible of high-risk data breaches that could#}
-    {#                                                personally#}
-    {#                                                affect them.</p>#}
-    {#                                        </div>#}
-    {#                                        <div class="modal-footer">#}
-    {#                                            <button type="button" class="btn btn-sm btn-secondary">I Got It#}
-    {#                                            </button>#}
-    {#                                            <button type="button" class="btn btn-link text-danger ml-auto"#}
-    {#                                                    data-dismiss="modal">Close</button>#}
-    {#                                        </div>#}
-    {#                                    </div>#}
-    {#                                </div>#}
-    {#                            </div>#}
-    {#                        {% endfor %}#}
-    {#                    {% endif %}#}
+                    {#                    {% if requirements|default %}#}
+                    {#                        {% for requirement in requirements %}#}
+                    {#                            <div class="modal fade" id="{{ requirement.id }}" tabindex="-1" role="dialog"#}
+                    {#                                 aria-labelledby="modal-default" aria-hidden="true">#}
+                    {#                                <div class="modal-dialog modal-dialog-centered" role="document">#}
+                    {#                                    <div class="modal-content">#}
+                    {#                                        <div class="modal-header">#}
+                    {#                                            <h6 class="modal-title">Edit {{ requirement.id }}</h6>#}
+                    {#                                            <button type="button" class="close" data-dismiss="modal"#}
+                    {#                                                    aria-label="Close">#}
+                    {#                                                <span aria-hidden="true">&times;</span>#}
+                    {#                                            </button>#}
+                    {#                                        </div>#}
+                    {#                                        <div class="modal-body">#}
+                    {#                                            <p>With less than a month to go before the European Union enacts new#}
+                    {#                                                consumer privacy laws for its citizens, companies around the#}
+                    {#                                                world#}
+                    {#                                                are updating their terms of service agreements to comply.</p>#}
+                    {#                                            <p>The European Union's General Data Protection Regulation#}
+                    {#                                                (G.D.P.R.)#}
+                    {#                                                goes into effect on May 25 and is meant to ensure a common set#}
+                    {#                                                of#}
+                    {#                                                data rights in the European Union. It requires organizations to#}
+                    {#                                                notify users as#}
+                    {#                                                soon as possible of high-risk data breaches that could#}
+                    {#                                                personally#}
+                    {#                                                affect them.</p>#}
+                    {#                                        </div>#}
+                    {#                                        <div class="modal-footer">#}
+                    {#                                            <button type="button" class="btn btn-sm btn-secondary">I Got It#}
+                    {#                                            </button>#}
+                    {#                                            <button type="button" class="btn btn-link text-danger ml-auto"#}
+                    {#                                                    data-dismiss="modal">Close</button>#}
+                    {#                                        </div>#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        {% endfor %}#}
+                    {#                    {% endif %}#}
                 </div>
             </div>
         </div>
@@ -548,46 +543,46 @@
 
                     {# TODO: Remove the following code? (This is some old code for modals? not sure if this is still needed here?) #}
 
-{#                    {% if activities|default %}#}
-{#                        {% for activity in activities %}#}
-{#                            <div class="modal fade" id="{{ activity.id }}" tabindex="-1" role="dialog"#}
-{#                                 aria-labelledby="modal-default" aria-hidden="true">#}
-{#                                <div class="modal-dialog modal-dialog-centered" role="document">#}
-{#                                    <div class="modal-content">#}
-{#                                        <div class="modal-header">#}
-{#                                            <h6 class="modal-title">Edit {{ activity.id }}</h6>#}
-{#                                            <button type="button" class="close" data-dismiss="modal"#}
-{#                                                    aria-label="Close">#}
-{#                                                <span aria-hidden="true">&times;</span>#}
-{#                                            </button>#}
-{#                                        </div>#}
-{#                                        <div class="modal-body">#}
-{#                                            <p>With less than a month to go before the European Union enacts new#}
-{#                                                consumer privacy laws for its citizens, companies around the#}
-{#                                                world#}
-{#                                                are updating their terms of service agreements to comply.</p>#}
-{#                                            <p>The European Union's General Data Protection Regulation#}
-{#                                                (G.D.P.R.)#}
-{#                                                goes into effect on May 25 and is meant to ensure a common set#}
-{#                                                of#}
-{#                                                data rights in the European Union. It requires organizations to#}
-{#                                                notify users as#}
-{#                                                soon as possible of high-risk data breaches that could#}
-{#                                                personally#}
-{#                                                affect them.</p>#}
-{#                                        </div>#}
-{#                                        <div class="modal-footer">#}
-{#                                            <button type="button" class="btn btn-sm btn-secondary">I Got It#}
-{#                                            </button>#}
-{#                                            <button type="button" class="btn btn-link text-danger ml-auto"#}
-{#                                                    data-dismiss="modal">Close#}
-{#                                            </button>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        {% endfor %}#}
-{#                    {% endif %}#}
+                    {#                    {% if activities|default %}#}
+                    {#                        {% for activity in activities %}#}
+                    {#                            <div class="modal fade" id="{{ activity.id }}" tabindex="-1" role="dialog"#}
+                    {#                                 aria-labelledby="modal-default" aria-hidden="true">#}
+                    {#                                <div class="modal-dialog modal-dialog-centered" role="document">#}
+                    {#                                    <div class="modal-content">#}
+                    {#                                        <div class="modal-header">#}
+                    {#                                            <h6 class="modal-title">Edit {{ activity.id }}</h6>#}
+                    {#                                            <button type="button" class="close" data-dismiss="modal"#}
+                    {#                                                    aria-label="Close">#}
+                    {#                                                <span aria-hidden="true">&times;</span>#}
+                    {#                                            </button>#}
+                    {#                                        </div>#}
+                    {#                                        <div class="modal-body">#}
+                    {#                                            <p>With less than a month to go before the European Union enacts new#}
+                    {#                                                consumer privacy laws for its citizens, companies around the#}
+                    {#                                                world#}
+                    {#                                                are updating their terms of service agreements to comply.</p>#}
+                    {#                                            <p>The European Union's General Data Protection Regulation#}
+                    {#                                                (G.D.P.R.)#}
+                    {#                                                goes into effect on May 25 and is meant to ensure a common set#}
+                    {#                                                of#}
+                    {#                                                data rights in the European Union. It requires organizations to#}
+                    {#                                                notify users as#}
+                    {#                                                soon as possible of high-risk data breaches that could#}
+                    {#                                                personally#}
+                    {#                                                affect them.</p>#}
+                    {#                                        </div>#}
+                    {#                                        <div class="modal-footer">#}
+                    {#                                            <button type="button" class="btn btn-sm btn-secondary">I Got It#}
+                    {#                                            </button>#}
+                    {#                                            <button type="button" class="btn btn-link text-danger ml-auto"#}
+                    {#                                                    data-dismiss="modal">Close#}
+                    {#                                            </button>#}
+                    {#                                        </div>#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        {% endfor %}#}
+                    {#                    {% endif %}#}
                 </div>
             </div>
         </div>
