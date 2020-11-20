@@ -3090,7 +3090,7 @@
       </trans-unit>
       <trans-unit id="mC2ePrm" resname="text">
         <source>text</source>
-        <target>__text</target>
+        <target>tekst</target>
       </trans-unit>
       <trans-unit id="KGPfSyJ" resname="occupational credential">
         <source>occupational credential</source>
@@ -3098,15 +3098,15 @@
       </trans-unit>
       <trans-unit id="HJmWRsg" resname="showing">
         <source>showing</source>
-        <target>__showing</target>
+        <target>getoond</target>
       </trans-unit>
       <trans-unit id="paIYYYS" resname="out of">
         <source>out of</source>
-        <target>__out of</target>
+        <target>van de</target>
       </trans-unit>
       <trans-unit id="h9Bc0Ig" resname="entries">
         <source>entries</source>
-        <target>__entries</target>
+        <target>objecten</target>
       </trans-unit>
       <trans-unit id="rNpsyuv" resname="Add new">
         <source>Add new</source>
