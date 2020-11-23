@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="name">{{ 'name'|trans|capitalize }}<span class="text-danger">*</span></label>
+                                <label for="name">{{ 'name'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="name"
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="title">{{ 'title'|trans|capitalize }}<span class="text-danger">*</span></label>
+                                <label for="title">{{ 'title'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="title"
@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="employmentType">{{ 'type of work'|trans|capitalize }}<span class="text-danger">*</span></label>
+                                <label for="employmentType">{{ 'type of work'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <select class="form-control" id="employmentType" name="employmentType" required>
                                     <option
                                         {% if internship.employmentType|default and internship.employmentType == 'internship' %}
@@ -112,7 +112,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="standardHours"> {{ 'standard weekly hours'|trans|capitalize }}<span class="text-danger">*</span></label>
+                                <label for="standardHours"> {{ 'standard weekly hours'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="standardHours"
@@ -259,7 +259,7 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="form-group">
-                                <label for="jobStartDate">{{ 'start date of the position'|trans|capitalize }}</label>
+                                <label for="jobStartDate">{{ 'start date of the position'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="jobStartDate"
@@ -271,6 +271,7 @@
                                         placeholder="format jaar-maand-dag"
                                     {% endif %}
                                     name="jobStartDate"
+                                    required
                                 >
                             </div>
                         </div>
@@ -302,13 +303,13 @@
                                 <label for="description">{{ 'description'|trans|capitalize }}</label>
                                 {% if internship.description is defined and internship.description is not empty %}
                                     <textarea class="form-control" id="description" name="description"
-                                              rows="3" cols="6">{{ internship.description }}
-                                    </textarea>
+                                              rows="3" cols="6"
+                                    >{{ internship.description }}</textarea>
                                 {% else %}
                                     <textarea class="form-control" id="description" name="description"
                                               placeholder="{{ 'extensive description of the position'|trans|capitalize }}"
-                                              rows="3" cols="6">
-                                    </textarea>
+                                              rows="3" cols="6"
+                                    ></textarea>
                                 {% endif %}
                             </div>
                         </div>
@@ -348,9 +349,11 @@
                         <tbody>
                             {% if applications|default %}
                                 {% for application in applications %}
-                                    {% set employee = commonground_resource({'component':'mrc', 'type':application.employee}) %}
-                                    {% if employee.person is defined and employee.person is not empty and commonground_is_resource(employee.person) %}
-                                        {% set employeePerson = commonground_resource(employee.person) %}
+                                    {% if commonground_is_resource(application.employee) %}
+                                        {% set employee = commonground_resource(application.employee) %}
+                                        {% if employee.person is defined and employee.person is not empty and commonground_is_resource(employee.person) %}
+                                            {% set employeePerson = commonground_resource(employee.person) %}
+                                        {% endif %}
                                     {% endif %}
                                     <tr>
                                         <td>

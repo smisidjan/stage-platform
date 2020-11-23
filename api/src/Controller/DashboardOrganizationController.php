@@ -98,6 +98,7 @@ class DashboardOrganizationController extends AbstractController
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resources Interschips
+        // TODO:make sure only the internships of the correct organization(s?) are loaded
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         return $variables;
@@ -134,10 +135,7 @@ class DashboardOrganizationController extends AbstractController
             // Add the post data to the already aquired resource data
 //            $resource = array_merge($variables['internship'], $resource);
 
-            // Make sure there is no invalid input for jobStartDate and validThrough
-            if (empty($resource['jobStartDate'])) {
-                unset($resource['jobStartDate']);
-            }
+            // Make sure there is no invalid input for validThrough
             if (empty($resource['validThrough'])) {
                 unset($resource['validThrough']);
             }
