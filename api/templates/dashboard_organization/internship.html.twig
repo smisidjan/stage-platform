@@ -349,11 +349,8 @@
                         <tbody>
                             {% if applications|default %}
                                 {% for application in applications %}
-                                    {% if commonground_is_resource(application.employee) %}
-                                        {% set employee = commonground_resource(application.employee) %}
-                                        {% if employee.person is defined and employee.person is not empty and commonground_is_resource(employee.person) %}
-                                            {% set employeePerson = commonground_resource(employee.person) %}
-                                        {% endif %}
+                                    {% if application.employee.person|default and commonground_is_resource(application.employee.person) %}
+                                        {% set employeePerson = commonground_resource(application.employee.person) %}
                                     {% endif %}
                                     <tr>
                                         <td>

@@ -75,7 +75,7 @@ class InternshipController extends AbstractController
 
             $variables['application'] = [];
             $resource = $request->request->all();
-            $resource['employee'] = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'employees', 'id' => $variables['employee']['id']]);
+            $resource['employee'] = '/employees/'.$variables['employee']['id'];
             $resource['jobPosting'] = '/job_postings/'.$variables['internship']['id'];
             $resource['status'] = 'applied';
             // Update to the commonground component
