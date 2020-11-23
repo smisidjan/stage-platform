@@ -212,9 +212,9 @@
                                             </div>
                                             <div
                                                 class="col-12 col-md-6 d-flex align-items-center justify-content-md-end">
-                                                <a href="#"
+                                                <a href="{{ path('app_internship_position', {id: job.id}) }}#apply"
                                                    class="btn btn-secondary mr-3 animate-up-2 m-0">{{ 'apply'|trans|capitalize }}</a>
-                                                <a href="#"
+                                                <a href="{{ path('app_internship_position', {id: job.id}) }}"
                                                    class="btn btn-primary animate-up-2 m-0"><i
                                                         class="fas fa-clipboard-list mr-2"></i>{{ 'view'|trans|capitalize }}
                                                 </a>
