@@ -18,8 +18,7 @@
             <thead class="thead-light">
             <tr>
                 <th scope="col">{{ 'name'|trans|capitalize }}</th>
-                <th scope="col">{{ 'end date'|trans|capitalize }}</th>
-                <th scope="col">Page Value</th>
+                <th scope="col">{{ 'hiring organization'|trans|capitalize }}</th>
                 <th scope="col">{{ 'details'|trans|capitalize }}</th>
             </tr>
             </thead>
@@ -27,8 +26,11 @@
             {% for internship in internships|slice(0, 10) %}
                 <tr>
                     <th>{{ internship.name }}</th>
-                    <td>{{ commonground_resource(internship.hiringOrganization).name }}</td>
-                    <td>$20</td>
+                    {% if commonground_is_resource(internship.hiringOrganization) %}
+                        <td>{{ commonground_resource(internship.hiringOrganization).name }}</td>
+                    {% else %}
+                        <td>{{ 'no organization found'|trans|capitalize }}</td>
+                    {% endif %}
                     <td>
                     {% if editPath is  defined %}
                         <a href="{{ path(editPath, {'id':internship.id }) }}" class="btn btn-primary">{{ 'edit'|trans|capitalize }}</a>
