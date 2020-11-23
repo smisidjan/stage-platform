@@ -38,7 +38,7 @@
     </div>
     {% else %}
     <div class="card-body text-center">
-        <p>{{ 'no applications found'|trans|capitalize }}</p>
+        <p>{{ 'no challenges found'|trans|capitalize }}</p>
         {% if addPath is  defined %}
             <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add your first proposition!'|trans|capitalize }}</a>
         {% else %}

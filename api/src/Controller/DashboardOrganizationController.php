@@ -58,13 +58,15 @@ class DashboardOrganizationController extends AbstractController
     public function tutorialAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
-        $variables['activities'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
         $variables['additionalType'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
+        $variables['organizations'] = $commonGroundService->getResourceList(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
+        $variables['activities'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
+        $variables['requirements'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
 
         if ($id != 'new') {
             // Get resource tutorial (known as course component side)
-            $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['courses.id' => $id])['hydra:member'];
             $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
+            $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['course.id' => $id])['hydra:member'];
         } else {
             $variables['tutorial'] = ['id' => 'new'];
             $variables['tutorial']['name'] = 'new tutorial';
@@ -131,14 +133,14 @@ class DashboardOrganizationController extends AbstractController
         // Get resource Interschip
         if ($id != 'new') {
             $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id' => $id]);
+
+            //get applications from current job_posting
+            $variables['applications'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'applications'], ['jobPosting.id' => $id])['hydra:member'];
         } else {
             $variables['internship'] = [];
         }
         //Get resources Organizations
         $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
-
-        //get applications from current job_posting
-        $variables['applications'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'applications'], ['jobPosting.id' => $id])['hydra:member'];
 
         return $variables;
     }
@@ -170,8 +172,8 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
-        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
-        $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
+        $variables['organizations'] = $commonGroundService->getResourceList(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
+        $variables['tutorials'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
 
         if ($id != 'new') {
             // Get resource challenges (known as tender component side)
@@ -188,7 +190,14 @@ class DashboardOrganizationController extends AbstractController
             // Add the post data to the already aquired resource data
             $resource = array_merge($variables['challenge'], $resource);
 
-//            var_dump($resource);die;
+            //lets see if we have child objects in an existing tender if so we set those to the @id of the object
+            //@todo function to do this
+            if (isset($resource['stages'])) {
+                foreach ($resource['stages'] as &$stage) {
+                    $stage = '/tender_stages/'.$stage['id'];
+                }
+            }
+
             // Update to the commonground component
             $variables['challenge'] = $commonGroundService->saveResource($resource, ['component' => 'chrc', 'type' => 'tenders']);
 
@@ -259,6 +268,9 @@ class DashboardOrganizationController extends AbstractController
     public function settingsAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
+
+
+        $variables['organization'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'organizations']);
 
         return $variables;
     }
