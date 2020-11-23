@@ -121,6 +121,11 @@ class DashboardUserController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
+        // Get resources Interschips
+        // TODO:make sure only the internships of this user are loaded
+        $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
+
+
         return $variables;
     }
 
