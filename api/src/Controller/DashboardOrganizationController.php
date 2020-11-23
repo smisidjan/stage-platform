@@ -58,14 +58,15 @@ class DashboardOrganizationController extends AbstractController
     public function tutorialAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
         $variables = [];
-        $variables['activities'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
         $variables['additionalType'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
         $variables['organizations'] = $commonGroundService->getResourceList(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
+        $variables['activities'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
+        $variables['requirements'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
 
         if ($id != 'new') {
             // Get resource tutorial (known as course component side)
-            $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['courses.id' => $id])['hydra:member'];
             $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
+            $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['course.id' => $id])['hydra:member'];
         } else {
             $variables['tutorial'] = ['id' => 'new'];
             $variables['tutorial']['name'] = 'new tutorial';
@@ -267,6 +268,9 @@ class DashboardOrganizationController extends AbstractController
     public function settingsAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
+
+
+        $variables['organization'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'organizations']);
 
         return $variables;
     }
