@@ -41,6 +41,7 @@
                                                 <p class="card-text my-2">{{ email.email }}</p>
                                             {% endfor %}
                                         {% endif %}
+                                        {% if student.id|default %}
                                         <ul class="social-buttons pt-3">
                                             <li>
                                                 <a class="btn btn-primary"
@@ -48,6 +49,7 @@
 
                                             </li>
                                         </ul>
+                                        {% endif %}
                                         {% if student.socials|default %}
                                             <ul class="social-buttons pt-3">
                                                 {% if student.socials.0.facebook|default %}
