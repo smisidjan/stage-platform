@@ -125,7 +125,6 @@ class DashboardUserController extends AbstractController
         // TODO:make sure only the internships of this user are loaded
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
-
         return $variables;
     }
 
@@ -236,13 +235,13 @@ class DashboardUserController extends AbstractController
             $person = $variables['person'];
             $person['name'] = $name;
             $person['emails'][0] = [];
-            $person['emails'][0]['name'] = 'email for ' . $name;
+            $person['emails'][0]['name'] = 'email for '.$name;
             $person['emails'][0]['email'] = $email;
             $person['telephones'][0] = [];
-            $person['telephones'][0]['name'] = 'telephone for ' . $name;
+            $person['telephones'][0]['name'] = 'telephone for '.$name;
             $person['telephones'][0]['telephone'] = $request->get('telephone');
             $address = [];
-            $address['name'] = 'address for ' . $name;
+            $address['name'] = 'address for '.$name;
             $address['street'] = $request->get('street');
             $address['houseNumber'] = $request->get('houseNumber');
             $address['houseNumberSuffix'] = $request->get('houseNumberSuffix');
