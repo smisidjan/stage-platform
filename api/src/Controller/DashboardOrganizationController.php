@@ -98,6 +98,7 @@ class DashboardOrganizationController extends AbstractController
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resources Interschips
+        // TODO:make sure only the internships of the correct organization(s?) are loaded
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         return $variables;
@@ -116,7 +117,7 @@ class DashboardOrganizationController extends AbstractController
         //Get resources Organizations
         // TODO:this should be all organizations of a specific wrc.contact -> cc/organization.type (Participant in cc/StageFixtures)
         // TODO:or maybe this shouldn't be here at all, this is only used for selecting the hiringOrganization, but the hiringOrganization might just be set without user input
-        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'])['hydra:member']; // , $variables['query']
 
         // Get resource Interschip
         if ($id != 'new') {
@@ -134,10 +135,7 @@ class DashboardOrganizationController extends AbstractController
             // Add the post data to the already aquired resource data
 //            $resource = array_merge($variables['internship'], $resource);
 
-            // Make sure there is no invalid input for jobStartDate and validThrough
-            if (empty($resource['jobStartDate'])) {
-                unset($resource['jobStartDate']);
-            }
+            // Make sure there is no invalid input for validThrough
             if (empty($resource['validThrough'])) {
                 unset($resource['validThrough']);
             }
