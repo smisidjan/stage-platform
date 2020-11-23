@@ -218,6 +218,49 @@ class DashboardUserController extends AbstractController
     {
         $variables = [];
 
+        if ($this->getUser()) {
+            $variables['person'] = $commonGroundService->getResource($this->getUser()->getPerson());
+            $variables['person'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'people', 'id' => $variables['person']['id']]);
+        }
+
+        if ($request->isMethod('POST') && $request->get('updateInfo')) {
+            $name = $request->get('name');
+            $email = $request->get('email');
+
+            // Update (or create) the cc/person of this user
+            $person = $variables['person'];
+            $person['name'] = $name;
+            $person['emails'][0] = [];
+            $person['emails'][0]['name'] = 'email for ' . $name;
+            $person['emails'][0]['email'] = $email;
+            $person['telephones'][0] = [];
+            $person['telephones'][0]['name'] = 'telephone for ' . $name;
+            $person['telephones'][0]['telephone'] = $request->get('telephone');
+            $address = [];
+            $address['name'] = 'address for ' . $name;
+            $address['street'] = $request->get('street');
+            $address['houseNumber'] = $request->get('houseNumber');
+            $address['houseNumberSuffix'] = $request->get('houseNumberSuffix');
+            $address['postalCode'] = $request->get('postalCode');
+            $address['locality'] = $request->get('locality');
+            $person['adresses'][0] = $address;
+
+            $person = $commonGroundService->saveResource($person, ['component' => 'cc', 'type' => 'people']);
+
+            // If this user has no person the user.person should be set to this $person?
+            $users = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'users'], ['username' => $this->getUser()->getUsername()])['hydra:member'];
+            if (count($users) > 0) {
+                $user = $users[0];
+
+                if (!isset($user['person'])) {
+                    $user['person'] = $commonGroundService->cleanUrl(['component' => 'cc', 'type' => 'people', 'id' => $person['id']]);
+                    $commonGroundService->updateResource($user);
+                }
+            }
+
+            return $this->redirect($this->generateUrl('app_dashboarduser_settings'));
+        }
+
         return $variables;
     }
 

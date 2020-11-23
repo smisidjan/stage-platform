@@ -3164,6 +3164,10 @@
         <source>Login here</source>
         <target>__Login here</target>
       </trans-unit>
+      <trans-unit id="Ugky2qI" resname="to login">
+        <source>to login</source>
+        <target>om in te loggen</target>
+      </trans-unit>
       <trans-unit id="HJQ74Vg" resname="what is rocket?">
         <source>what is rocket?</source>
         <target>__what is rocket?</target>
