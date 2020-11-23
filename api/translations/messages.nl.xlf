@@ -2028,6 +2028,14 @@
         <source>post a new vacancy via our form</source>
         <target>plaats een nieuwe vacature via ons formulier</target>
       </trans-unit>
+      <trans-unit id="9G-MDNn" resname="post tutorial">
+        <source>post tutorial</source>
+        <target>tutorial plaatsen</target>
+      </trans-unit>
+      <trans-unit id="6rNy1YT" resname="post a new tutorial via our form">
+        <source>post a new tutorial via our form</source>
+        <target>plaats een nieuwe tutorial via ons formulier</target>
+      </trans-unit>
       <trans-unit id="9M291Ne" resname="you are currently still checked in">
         <source>you are currently still checked in</source>
         <target>u bent momenteel nog ingechecked</target>

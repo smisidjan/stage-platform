@@ -16,8 +16,13 @@
                     <li class="breadcrumb-item active" aria-current="page">{{ 'Tutorial'|trans|capitalize }}</li>
                 </ol>
             </nav>
-            <h2 class="h4">{{ tutorial.name }}</h2>
-            <p class="mb-0">{{ 'tutorials help us all to gain and gather knowledge.'|trans|capitalize }}</p>
+            {% if tutorial['@id'] is defined and tutorial['@id'] is not empty %}
+                <h2 class="h4">{{ tutorial.name }} {{ 'To adjust'|trans|capitalize }}</h2>
+                <p class="mb-0">{{ 'change your tutorial here'|trans|capitalize }}</p>
+            {% else %}
+                <h2 class="h4">{{ 'post tutorial'|trans|capitalize }}</h2>
+                <p class="mb-0">{{ 'post a new tutorial via our form'|trans|capitalize }}</p>
+            {% endif %}
         </div>
     </div>
 
@@ -33,7 +38,7 @@
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="Tutorial name">{{ 'name'|trans|capitalize }} <span style="color: red; font-weight: bold">*</span></label>
+                                <label for="Tutorial name">{{ 'name'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="name"
@@ -53,7 +58,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="description">{{ 'description'|trans|capitalize }} <span style="color: red; font-weight: bold">*</span></label>
+                                <label for="description">{{ 'description'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="description"
@@ -113,10 +118,30 @@
                             <div class="form-group">
                                 <label for="additionalType">{{ 'type'|trans|capitalize }}</label>
                                 <select class="form-control" name="additionalType" id="additionalType">
-                                    <option value="werkomgeving">{{ 'working environment'|trans }}</option>
-                                    <option value="setup">{{ 'setup'|trans }}</option>
-                                    <option value="layout"> {{ 'layout'|trans }} </option>
-                                    <option value="datamodellen">{{ 'data models'|trans }}</option>
+                                    <option
+                                        {% if tutorial.additionalType|default and tutorial.additionalType == 'werkomgeving' %}
+                                            selected
+                                        {% endif %}
+                                        value="werkomgeving">{{ 'working environment'|trans }}
+                                    </option>
+                                    <option
+                                        {% if tutorial.additionalType|default and tutorial.additionalType == 'setup' %}
+                                            selected
+                                        {% endif %}
+                                        value="setup">{{ 'setup'|trans }}
+                                    </option>
+                                    <option
+                                        {% if tutorial.additionalType|default and tutorial.additionalType == 'layout' %}
+                                            selected
+                                        {% endif %}
+                                        value="layout"> {{ 'layout'|trans }}
+                                    </option>
+                                    <option
+                                        {% if tutorial.additionalType|default and tutorial.additionalType == 'datamodellen' %}
+                                            selected
+                                        {% endif %}
+                                        value="datamodellen">{{ 'data models'|trans }}
+                                    </option>
                                 </select>
                             </div>
                         </div>
@@ -125,12 +150,11 @@
                     <div class="row align-items-center">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="time required">{{ 'time required'|trans|capitalize }} <span style="color: red; font-weight: bold">*</span></label>
+                                <label for="time required">{{ 'time required'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="description"
                                     type="text"
-                                    required=""
                                     {% if tutorial.timeRequired is defined and tutorial.timeRequired is not empty %}
                                         value="{{ tutorial.timeRequired }}"
                                     {% else %}
@@ -146,12 +170,11 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="educationalCredentialAwarded">{{ 'educational credential'|trans|capitalize }} <span style="color: red; font-weight: bold">*</span></label>
+                                <label for="educationalCredentialAwarded">{{ 'educational credential'|trans|capitalize }} <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="educationalCredentialAwarded"
                                     type="text"
-                                    required=""
                                     {% if tutorial.educationalCredentialAwarded is defined and tutorial.educationalCredentialAwarded is not empty %}
                                         value="{{ tutorial.educationalCredentialAwarded }}"
                                     {% else %}
@@ -168,8 +191,17 @@
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
                                 <label for="video">{{ 'video url'|trans|capitalize }}</label>
-                                <input class="form-control" id="video" type="text" name="video"
-                                       placeholder="{{ 'a url for a video as an example'|trans|capitalize }}">
+                                <input
+                                    class="form-control"
+                                    id="video"
+                                    type="text"
+                                    {% if tutorial.video is defined and tutorial.video is not empty %}
+                                        value="{{ tutorial.video }}"
+                                    {% else %}
+                                        placeholder="{{ 'a url for a video as an example'|trans|capitalize }}"
+                                    {% endif %}
+                                    name="video"
+                                >
                             </div>
                         </div>
                     </div>
@@ -207,19 +239,19 @@
                         <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                             <table class="table table-hover">
                                 <thead>
-                                <tr>
-                                    <th class="border-0">
-                                        <div class="form-check dashboard-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="userCheck55">
-                                            <label class="form-check-label" for="userCheck55"></label>
-                                        </div>
-                                    </th>
-                                    <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
-                                    <th class="border-0" >{{ 'date created'|trans|capitalize }}</th>
-                                    <th class="border-0" >{{ 'verified'|trans|capitalize }}</th>
-                                    <th class="border-0" >{{ 'status'|trans|capitalize }}</th>
-                                    <th class="border-0" >{{ 'action'|trans|capitalize }}</th>
-                                </tr>
+                                    <tr>
+                                        <th class="border-0">
+                                            <div class="form-check dashboard-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="userCheck55">
+                                                <label class="form-check-label" for="userCheck55"></label>
+                                            </div>
+                                        </th>
+                                        <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
+                                        <th class="border-0" >{{ 'date created'|trans|capitalize }}</th>
+                                        <th class="border-0" >{{ 'verified'|trans|capitalize }}</th>
+                                        <th class="border-0" >{{ 'status'|trans|capitalize }}</th>
+                                        <th class="border-0" >{{ 'action'|trans|capitalize }}</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {% if participants is defined and participants is not empty %}
@@ -239,11 +271,20 @@
                                                     <img src="/bundles/rocket/assets/img/team/profile-picture-1.jpg"
                                                          class="user-avatar rounded-circle mr-3" alt="Avatar">
                                                     <div class="d-block">
-                                                            <span class="font-weight-bold">
-                                                                {% if participantPerson.name is defined %}
-                                                                    {{ participantPerson.name }}
-                                                                {% endif %}
-                                                            </span>
+                                                        <span class="font-weight-bold">
+                                                            {% if participantPerson.name is defined and participantPerson.name is not empty %}
+                                                                {{ participantPerson.name }}
+                                                            {% else %}
+                                                                {{ 'no name available'|trans|capitalize }}
+                                                            {% endif %}
+                                                        </span>
+                                                        <div class="small text-gray">
+                                                            {% if employeePerson.emais is defined and employeePerson.emais is not empty %}
+                                                                {{ employeePerson.emais[0] }}
+                                                            {% else %}
+                                                                {{ 'no email available'|trans|capitalize }}
+                                                            {% endif %}
+                                                        </div>
                                                     </div>
                                                 </a>
                                             </td>
