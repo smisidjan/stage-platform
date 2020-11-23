@@ -155,10 +155,11 @@
                                 {% if challenge.dateClose is defined and challenge.dateClose is not empty %}
                                     <input class="form-control" id="dateClose" name="dateClose" type="datetime-local"
                                            required=""
-                                           value="{{ challenge.dateClose|date("Y-m-d", "Europe/Paris")~'T'~challenge.dateClose|date("H:i:s", "Europe/Paris") }}"
+                                           value="{{ challenge.dateClose|date("Y-m-d\\TH:i", "Europe/Paris") }}"
                                            readonly>
                                 {% else %}
                                     <input class="form-control" id="dateClose" name="dateClose" type="datetime-local"
+                                           min="{{ "now"|date("Y-m-d\\TH:i") }}"
                                            required="">
                                 {% endif %}
                             </div>

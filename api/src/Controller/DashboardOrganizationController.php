@@ -100,23 +100,6 @@ class DashboardOrganizationController extends AbstractController
         // Get resources Interschips
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
-        // Lets see if there is a post to procces
-        if ($request->isMethod('POST')) {
-            //array legen voor posten van nieuwe stage
-            $variables['internship'] = [];
-            //array waar mn form inzit
-            $resource = $request->request->all();
-
-            $resource['standardHours'] = (int) $resource['standardHours'];
-            $resource['baseSalary'] = (int) $resource['baseSalary'];
-
-            // Add the post data to the already aquired internship data
-            $variables['internship'] = array_merge($variables['internship'], $resource);
-
-            // Save to the commonground component
-            $variables['internship'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'job_postings']);
-        }
-
         return $variables;
     }
 
@@ -130,6 +113,11 @@ class DashboardOrganizationController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
+        //Get resources Organizations
+        // TODO:this should be all organizations of a specific wrc.contact -> cc/organization.type (Participant in cc/StageFixtures)
+        // TODO:or maybe this shouldn't be here at all, this is only used for selecting the hiringOrganization, but the hiringOrganization might just be set without user input
+        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+
         // Get resource Interschip
         if ($id != 'new') {
             $variables['internship'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id' => $id]);
@@ -137,10 +125,36 @@ class DashboardOrganizationController extends AbstractController
             //get applications from current job_posting
             $variables['applications'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'applications'], ['jobPosting.id' => $id])['hydra:member'];
         } else {
-            $variables['internship'] = [];
+            $variables['internship'] = ['id' => 'new'];
+            $variables['internship']['name'] = 'new internship';
         }
-        //Get resources Organizations
-        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+        // Lets see if there is a post to procces
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+            // Add the post data to the already aquired resource data
+//            $resource = array_merge($variables['internship'], $resource);
+
+            // Make sure there is no invalid input for jobStartDate and validThrough
+            if (empty($resource['jobStartDate'])) {
+                unset($resource['jobStartDate']);
+            }
+            if (empty($resource['validThrough'])) {
+                unset($resource['validThrough']);
+            }
+
+            // Make sure there is no invalid input for standardHours and baseSalary
+            $resource['standardHours'] = (int) $resource['standardHours'];
+            if (empty($resource['baseSalary'])) {
+                unset($resource['baseSalary']);
+            } else {
+                $resource['baseSalary'] = (int) $resource['baseSalary'];
+            }
+
+            // Update or create to the commonground component
+            $variables['internship'] = $commonGroundService->saveResource($resource, ['component' => 'mrc', 'type' => 'job_postings']);
+
+            return $this->redirect($this->generateUrl('app_dashboardorganization_internships'));
+        }
 
         return $variables;
     }
