@@ -117,7 +117,7 @@ class DashboardOrganizationController extends AbstractController
         //Get resources Organizations
         // TODO:this should be all organizations of a specific wrc.contact -> cc/organization.type (Participant in cc/StageFixtures)
         // TODO:or maybe this shouldn't be here at all, this is only used for selecting the hiringOrganization, but the hiringOrganization might just be set without user input
-        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'], $variables['query'])['hydra:member'];
+        $variables['organizations'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations'])['hydra:member']; // , $variables['query']
 
         // Get resource Interschip
         if ($id != 'new') {
