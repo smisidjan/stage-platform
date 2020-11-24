@@ -2034,6 +2034,14 @@
         <source>post a new vacancy via our form</source>
         <target>plaats een nieuwe vacature via ons formulier</target>
       </trans-unit>
+      <trans-unit id="9G-MDNn" resname="post tutorial">
+        <source>post tutorial</source>
+        <target>tutorial plaatsen</target>
+      </trans-unit>
+      <trans-unit id="6rNy1YT" resname="post a new tutorial via our form">
+        <source>post a new tutorial via our form</source>
+        <target>plaats een nieuwe tutorial via ons formulier</target>
+      </trans-unit>
       <trans-unit id="9M291Ne" resname="you are currently still checked in">
         <source>you are currently still checked in</source>
         <target>u bent momenteel nog ingechecked</target>
@@ -3168,6 +3176,10 @@
         <source>Login here</source>
         <target>hier inloggen</target>
       </trans-unit>
+      <trans-unit id="Ugky2qI" resname="to login">
+        <source>to login</source>
+        <target>om in te loggen</target>
+      </trans-unit>
       <trans-unit id="HJQ74Vg" resname="what is rocket?">
         <source>what is rocket?</source>
         <target>wat is rocket?</target>
@@ -3272,6 +3284,34 @@
         <source>find an internship</source>
         <target>vind een stage</target>
       </trans-unit>
+      <trans-unit id="chebc9t" resname="hiring organization">
+          <source>hiring organization</source>
+          <target>verhuurorganisatie</target>
+        </trans-unit>
+    <trans-unit id="chebctt" resname="title">
+              <source>title</source>
+              <target>titel</target>
+            </trans-unit>
+      <trans-unit id="394ufRH" resname="title of the position">
+              <source>title of the position</source>
+              <target>titel van de functie</target>
+            </trans-unit>
+    <trans-unit id="hetxyaH" resname="standard weekly hours">
+            <source>standard weekly hours</source>
+            <target>standaard wekelijkse uren</target>
+          </trans-unit>
+    <trans-unit id="dheyxat" resname="your internship standard hours">
+            <source>your internship standard hours</source>
+            <target>je standaard stage uren</target>
+          </trans-unit>
+    <trans-unit id="dwaaddH" resname="salary indication">
+            <source>salary indication</source>
+            <target>salarisindicatie</target>
+          </trans-unit>
+    <trans-unit id="dwertdH" resname="your internship salary indication">
+                <source>your internship salary indication</source>
+                <target>uw stagesalarisindicatie</target>
+              </trans-unit>
       <trans-unit id="Uoy9WRH" resname="place an internship">
         <source>place an internship</source>
         <target>plaats een stage</target>
@@ -3292,6 +3332,103 @@
         <source>you need to login before you can submit</source>
         <target>je moet eerst inloggen voor je kan indienen</target>
       </trans-unit>
+
+      <trans-unit id="238769t" resname="summary note">
+              <source>summary note</source>
+              <target>samenvattende opmerking</target>
+            </trans-unit>
+            <trans-unit id="cdfre9t" resname="your internship summary note">
+                <source>your internship summary note</source>
+                <target>je stageoverzicht</target>
+              </trans-unit>
+          <trans-unit id="mnvbctt" resname="position conditions (everything that the applicant must meet)">
+                    <source>position conditions (everything that the applicant must meet)</source>
+                    <target>functievoorwaarden (alles waaraan de sollicitant moet voldoen)</target>
+                  </trans-unit>
+            <trans-unit id="3cmvhrH" resname="new condition">
+                    <source>new condition</source>
+                    <target>nieuwe voorwaarde</target>
+                  </trans-unit>
+          <trans-unit id="hetqeaH" resname="enter a condition here">
+                  <source>enter a condition here</source>
+                  <target>voer hier een voorwaarde in</target>
+                </trans-unit>
+
+      <trans-unit id="UohevaH" resname="location of the position">
+              <source>location of the position</source>
+              <target>locatie van de positie</target>
+            </trans-unit>
+            <trans-unit id="k88asLp" resname="your internship job location">
+              <source>your internship job location</source>
+              <target>je stageplaats</target>
+            </trans-unit>
+            <trans-unit id="5122sC7" resname="start date of the position">
+              <source>start date of the position</source>
+              <target>startdatum van de functie</target>
+            </trans-unit>
+            <trans-unit id="ghcyatQ" resname="end date of the position">
+              <source>end date of the position</source>
+              <target>einddatum van de functie</target>
+            </trans-unit>
+            <trans-unit id="lkmcogd" resname="extensive description of the position">
+              <source>extensive description of the position</source>
+              <target>uitgebreide omschrijving van de functie</target>
+            </trans-unit>
+    <trans-unit id="6664ZC7" resname="example: Education: MBO 3 ICT administrator">
+            <source>example: Education: MBO 3 ICT administrator</source>
+            <target>voorbeeld: Opleiding: MBO 3 ICT-beheerder</target>
+          </trans-unit>
+
+    <trans-unit id="UbcgstH" resname="choose the requirements for your tutorial">
+            <source>choose the requirements for your tutorial</source>
+            <target>kies de voorwaarden voor uw tutorial</target>
+          </trans-unit>
+          <trans-unit id="93hx7Lp" resname="the checked activities are the requirements of your tutorial">
+            <source>the checked activities are the requirements of your tutorial</source>
+            <target>de aangevinkte activiteiten zijn de vereisten van je tutorial</target>
+          </trans-unit>
+          <trans-unit id="526st57" resname="you can select the requirements for your tutorial here">
+            <source>you can select the requirements for your tutorial here</source>
+            <target>u kunt hier de voorwaarden voor uw tutorial selecteren</target>
+          </trans-unit>
+
+     <trans-unit id="UnRchdH" resname="choose the activities for your tutorial">
+             <source>choose the activities for your tutorial</source>
+             <target>kies de activiteiten voor je tutorial</target>
+           </trans-unit>
+           <trans-unit id="kBDHSYp" resname="the checked activities are the activities of your tutorial">
+             <source>the checked activities are the activities of your tutorial</source>
+             <target>de aangevinkte activiteiten zijn de activiteiten van je tutorial</target>
+           </trans-unit>
+           <trans-unit id="NWBXYC7" resname="you can select the activities for your tutorial here">
+             <source>you can select the activities for your tutorial here</source>
+             <target>je kunt hier de activiteiten voor je tutorial selecteren</target>
+           </trans-unit>
+           <trans-unit id="QHS54AQ" resname="view portfolio">
+             <source>view portfolio</source>
+             <target>bekijk portfolio</target>
+           </trans-unit>
+           <trans-unit id="9KTXMgd" resname="you need to login before you can submit">
+             <source>you need to login before you can submit</source>
+             <target>je moet eerst inloggen voor je kan indienen</target>
+           </trans-unit>
+
+      <trans-unit id="kRRRTYp" resname="there are currently no requirements to choose from">
+                   <source>there are currently no requirements to choose from</source>
+                   <target>er zijn momenteel geen voorwaarden om uit te kiezen</target>
+                 </trans-unit>
+                 <trans-unit id="NBDHXC7" resname="there are currently no requirements on this tutorial">
+                   <source>there are currently no requirements on this tutorial</source>
+                   <target>er zijn momenteel geen voorwaarden voor deze tutorial</target>
+                 </trans-unit>
+                 <trans-unit id="QHhetDQ" resname="there are currently no activities on this tutorial">
+                   <source>there are currently no activities on this tutorial</source>
+                   <target>er zijn momenteel geen activiteiten om uit te kiezen</target>
+                 </trans-unit>
+                 <trans-unit id="NXhstgd" resname="you need to login before you can submit">
+                   <source>you need to login before you can submit</source>
+                   <target>je moet eerst inloggen voor je kan indienen</target>
+                 </trans-unit>
     </body>
   </file>
 </xliff>
