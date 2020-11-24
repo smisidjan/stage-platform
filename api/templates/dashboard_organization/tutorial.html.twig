@@ -376,7 +376,6 @@
                                     </div>
                                 </th>
                                 <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
-                                {#                                <th class="border-0" >{{ 'action'|trans|capitalize }}</th>#}
                             </tr>
                             </thead>
                             <tbody>
@@ -410,27 +409,6 @@
                                                     <span class="font-weight-bold">{{ requirement.name }}</span>
                                                 </a>
                                             </td>
-                                            {#                                            <td>#}
-                                            {#                                                <div class="btn-group">#}
-                                            {#                                                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"#}
-                                            {#                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-                                            {#                                                        <span class="icon icon-sm">#}
-                                            {#                                                            <span class="fas fa-ellipsis-h icon-dark"></span>#}
-                                            {#                                                        </span>#}
-                                            {#                                                        <span class="sr-only">{{ 'Toggle Dropdown'|trans|capitalize }}</span>#}
-                                            {#                                                    </button>#}
-
-                                            {#                                                    <div class="dropdown-menu">#}
-                                            {#                                                        <a class="dropdown-item" href="#">#}
-                                            {#                                                            <span class="fas fa-user-shield mr-2"></span>#}
-                                            {#                                                            {{ 'do something?'|trans|capitalize }}#}
-                                            {#                                                        </a>#}
-                                            {#                                                    </div>#}
-                                            {#                                                </div>#}
-
-                                            {#                                                <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"#}
-                                            {#                                                   data-original-title="Delete"><span class="fas fa-times-circle"></span></a>#}
-                                            {#                                            </td>#}
                                         </tr>
                                     {% endif %}
                                 {% endfor %}
@@ -451,48 +429,6 @@
                             </nav>
                             <div class="font-weight-bold small">{{ 'showing'|trans|capitalize }} <b>5</b>  {{ 'out of'|trans }} <b>25</b> {{ 'entries'|trans }}</div>
                         </div>
-
-                        {# TODO: Remove the following code? (This is some old code for modals? not sure if this is still needed here?) #}
-
-                        {#                        {% if requirements|default %}#}
-                        {#                            {% for requirement in requirements %}#}
-                        {#                                <div class="modal fade" id="{{ requirement.id }}" tabindex="-1" role="dialog"#}
-                        {#                                     aria-labelledby="modal-default" aria-hidden="true">#}
-                        {#                                    <div class="modal-dialog modal-dialog-centered" role="document">#}
-                        {#                                        <div class="modal-content">#}
-                        {#                                            <div class="modal-header">#}
-                        {#                                                <h6 class="modal-title">Edit {{ requirement.id }}</h6>#}
-                        {#                                                <button type="button" class="close" data-dismiss="modal"#}
-                        {#                                                        aria-label="Close">#}
-                        {#                                                    <span aria-hidden="true">&times;</span>#}
-                        {#                                                </button>#}
-                        {#                                            </div>#}
-                        {#                                            <div class="modal-body">#}
-                        {#                                                <p>With less than a month to go before the European Union enacts new#}
-                        {#                                                    consumer privacy laws for its citizens, companies around the#}
-                        {#                                                    world#}
-                        {#                                                    are updating their terms of service agreements to comply.</p>#}
-                        {#                                                <p>The European Union's General Data Protection Regulation#}
-                        {#                                                    (G.D.P.R.)#}
-                        {#                                                    goes into effect on May 25 and is meant to ensure a common set#}
-                        {#                                                    of#}
-                        {#                                                    data rights in the European Union. It requires organizations to#}
-                        {#                                                    notify users as#}
-                        {#                                                    soon as possible of high-risk data breaches that could#}
-                        {#                                                    personally#}
-                        {#                                                    affect them.</p>#}
-                        {#                                            </div>#}
-                        {#                                            <div class="modal-footer">#}
-                        {#                                                <button type="button" class="btn btn-sm btn-secondary">I Got It#}
-                        {#                                                </button>#}
-                        {#                                                <button type="button" class="btn btn-link text-danger ml-auto"#}
-                        {#                                                        data-dismiss="modal">Close</button>#}
-                        {#                                            </div>#}
-                        {#                                        </div>#}
-                        {#                                    </div>#}
-                        {#                                </div>#}
-                        {#                            {% endfor %}#}
-                        {#                        {% endif %}#}
                     </div>
                 </div>
             </div>
@@ -526,7 +462,6 @@
                                     </div>
                                 </th>
                                 <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
-                                {#                                <th class="border-0" >{{ 'action'|trans|capitalize }}</th>#}
                             </tr>
                             </thead>
                             <tbody>
@@ -559,27 +494,6 @@
                                                 <span class="font-weight-bold">{{ activity.name }}</span>
                                             </a>
                                         </td>
-                                        {#                                        <td>#}
-                                        {#                                            <div class="btn-group">#}
-                                        {#                                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"#}
-                                        {#                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-                                        {#                                                    <span class="icon icon-sm">#}
-                                        {#                                                        <span class="fas fa-ellipsis-h icon-dark"></span>#}
-                                        {#                                                    </span>#}
-                                        {#                                                    <span class="sr-only">{{ 'Toggle Dropdown'|trans|capitalize }}</span>#}
-                                        {#                                                </button>#}
-
-                                        {#                                                <div class="dropdown-menu">#}
-                                        {#                                                    <a class="dropdown-item" href="#">#}
-                                        {#                                                        <span class="fas fa-user-shield mr-2"></span>#}
-                                        {#                                                        {{ 'do something?'|trans|capitalize }}#}
-                                        {#                                                    </a>#}
-                                        {#                                                </div>#}
-                                        {#                                            </div>#}
-
-                                        {#                                            <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"#}
-                                        {#                                               data-original-title="Delete"><span class="fas fa-times-circle"></span></a>#}
-                                        {#                                        </td>#}
                                     </tr>
                                 {% endfor %}
                             {% endif %}
@@ -599,49 +513,6 @@
                             </nav>
                             <div class="font-weight-bold small">{{ 'showing'|trans|capitalize }} <b>5</b>  {{ 'out of'|trans }} <b>25</b> {{ 'entries'|trans }}</div>
                         </div>
-
-                        {# TODO: Remove the following code? (This is some old code for modals? not sure if this is still needed here?) #}
-
-                        {#                        {% if activities|default %}#}
-                        {#                            {% for activity in activities %}#}
-                        {#                                <div class="modal fade" id="{{ activity.id }}" tabindex="-1" role="dialog"#}
-                        {#                                     aria-labelledby="modal-default" aria-hidden="true">#}
-                        {#                                    <div class="modal-dialog modal-dialog-centered" role="document">#}
-                        {#                                        <div class="modal-content">#}
-                        {#                                            <div class="modal-header">#}
-                        {#                                                <h6 class="modal-title">Edit {{ activity.id }}</h6>#}
-                        {#                                                <button type="button" class="close" data-dismiss="modal"#}
-                        {#                                                        aria-label="Close">#}
-                        {#                                                    <span aria-hidden="true">&times;</span>#}
-                        {#                                                </button>#}
-                        {#                                            </div>#}
-                        {#                                            <div class="modal-body">#}
-                        {#                                                <p>With less than a month to go before the European Union enacts new#}
-                        {#                                                    consumer privacy laws for its citizens, companies around the#}
-                        {#                                                    world#}
-                        {#                                                    are updating their terms of service agreements to comply.</p>#}
-                        {#                                                <p>The European Union's General Data Protection Regulation#}
-                        {#                                                    (G.D.P.R.)#}
-                        {#                                                    goes into effect on May 25 and is meant to ensure a common set#}
-                        {#                                                    of#}
-                        {#                                                    data rights in the European Union. It requires organizations to#}
-                        {#                                                    notify users as#}
-                        {#                                                    soon as possible of high-risk data breaches that could#}
-                        {#                                                    personally#}
-                        {#                                                    affect them.</p>#}
-                        {#                                            </div>#}
-                        {#                                            <div class="modal-footer">#}
-                        {#                                                <button type="button" class="btn btn-sm btn-secondary">I Got It#}
-                        {#                                                </button>#}
-                        {#                                                <button type="button" class="btn btn-link text-danger ml-auto"#}
-                        {#                                                        data-dismiss="modal">Close#}
-                        {#                                                </button>#}
-                        {#                                            </div>#}
-                        {#                                        </div>#}
-                        {#                                    </div>#}
-                        {#                                </div>#}
-                        {#                            {% endfor %}#}
-                        {#                        {% endif %}#}
                     </div>
                 </div>
             </div>
