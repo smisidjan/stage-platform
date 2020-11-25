@@ -2728,18 +2728,6 @@
         <source>setup</source>
         <target>setup</target>
       </trans-unit>
-      <trans-unit id="O3uSPG3" resname="The time required to read the tutorial...">
-        <source>The time required to read the tutorial...</source>
-        <target>__The time required to read the tutorial...</target>
-      </trans-unit>
-      <trans-unit id="aGN0NWa" resname="Educational credential">
-        <source>Educational credential</source>
-        <target>__Educational credential</target>
-      </trans-unit>
-      <trans-unit id="qBTsZYJ" resname="The level of education required for this tutorial...">
-        <source>The level of education required for this tutorial...</source>
-        <target>__The level of education required for this tutorial...</target>
-      </trans-unit>
       <trans-unit id="vinfrK3" resname="In general but also custom made for your organization.">
         <source>In general but also custom made for your organization.</source>
         <target>over het algemeen maar ook op maat gemaakt voor uw organisatie.</target>
@@ -2778,7 +2766,7 @@
       </trans-unit>
       <trans-unit id="HKQc70u" resname="social service number (rsin)">
         <source>social service number (rsin)</source>
-        <target>__social service number (rsin)</target>
+        <target>burgerservicenummer (rsin)</target>
       </trans-unit>
       <trans-unit id="rpjFKHl" resname="click here if you also want to make a new user group">
         <source>click here if you also want to make a new user group</source>
@@ -3080,29 +3068,21 @@
         <source>Get your self found by the best challenge leads and organizations and join today</source>
         <target>__Get your self found by the best challenge leads and organizations and join today</target>
       </trans-unit>
-      <trans-unit id="FQn1YfJ" resname="Save">
-        <source>Save</source>
-        <target>Save</target>
-      </trans-unit>
-      <trans-unit id="3NHVIj9" resname="Name">
-        <source>Name</source>
-        <target>__Name</target>
-      </trans-unit>
       <trans-unit id=".7JiOq0" resname="Date Created">
         <source>Date Created</source>
-        <target>__Date Created</target>
+        <target>datum gecreeërd</target>
       </trans-unit>
       <trans-unit id="T3g4QC8" resname="Verified">
         <source>Verified</source>
-        <target>__Verified</target>
+        <target>geverifieerd</target>
       </trans-unit>
       <trans-unit id="kg5BPH1" resname="Status">
         <source>Status</source>
-        <target>__Status</target>
+        <target>status</target>
       </trans-unit>
       <trans-unit id="ZM.xMZ0" resname="Action">
         <source>Action</source>
-        <target>__Action</target>
+        <target>actie</target>
       </trans-unit>
       <trans-unit id="koyy5cz" resname="salary currency">
         <source>salary currency</source>
@@ -3170,7 +3150,7 @@
       </trans-unit>
       <trans-unit id="JqWNACs" resname="I agree to the">
         <source>I agree to the</source>
-        <target>__I agree to the</target>
+        <target>Ik ga akkoord met de</target>
       </trans-unit>
       <trans-unit id="vYlwZG0" resname="Login here">
         <source>Login here</source>
@@ -3247,7 +3227,7 @@
                   </trans-unit>
                   <trans-unit id="r3haiBy" resname="traffic share">
                           <source>traffic share</source>
-                          <target>__traffic share</target>
+                          <target>verkeersaandeel</target>
                         </trans-unit>
                         <trans-unit id="ehx5xBy" resname="mobile web">
                                 <source>mobile web</source>
