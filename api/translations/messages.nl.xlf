@@ -1487,6 +1487,10 @@
         <source>closing time</source>
         <target>sluitingstijd</target>
       </trans-unit>
+      <trans-unit id="9shxzF6" resname="an online platform to find and place a suitable internship">
+              <source>an online platform to find and place a suitable internship</source>
+              <target>een online platform om een ​​geschikte stageplaats te vinden en te plaatsen</target>
+            </trans-unit>
       <trans-unit id="bse4eIC" resname="public access">
         <source>public access</source>
         <target>publieke toegang</target>
@@ -2530,7 +2534,7 @@
       </trans-unit>
       <trans-unit id="YuzdArs" resname="add your first requierement!">
         <source>add your first requierement!</source>
-        <target>__add your first requierement!</target>
+        <target>voeg uw eerste requierement toe!</target>
       </trans-unit>
       <trans-unit id="wJkUK8M" resname="results">
         <source>results</source>
@@ -2554,7 +2558,7 @@
       </trans-unit>
       <trans-unit id="ykFq3OD" resname="you havn't yet aquired a position">
         <source>you havn't yet aquired a position</source>
-        <target>__you havn't yet aquired a position</target>
+        <target>je hebt nog geen positie verworven</target>
       </trans-unit>
       <trans-unit id="uh42fGz" resname="find a position">
         <source>find a position</source>
@@ -3076,6 +3080,10 @@
         <source>Verified</source>
         <target>geverifieerd</target>
       </trans-unit>
+      <trans-unit id="T3DBGC8" resname="find the best talent for your challenge or internship ">
+              <source>find the best talent for your challenge or internship</source>
+              <target>vind het beste talent voor jouw challenge of stage</target>
+            </trans-unit>
       <trans-unit id="kg5BPH1" resname="Status">
         <source>Status</source>
         <target>status</target>
@@ -3409,6 +3417,15 @@
                    <source>you need to login before you can submit</source>
                    <target>je moet eerst inloggen voor je kan indienen</target>
                  </trans-unit>
+
+                 <trans-unit id="NSTARCd" resname="get your self found by the best challenge leads and organizations and join today">
+                                    <source>get your self found by the best challenge leads and organizations and join today</source>
+                                    <target>vind jezelf door de beste uitdagingsleads en organisaties en doe vandaag nog mee</target>
+                                  </trans-unit>
+                 <trans-unit id="NXBCtDQ" resname="lets lift off">
+                                    <source>lets lift off</source>
+                                    <target>laten we opstijgen</target>
+                                  </trans-unit>
     </body>
   </file>
 </xliff>
