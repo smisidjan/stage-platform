@@ -62,7 +62,7 @@
                                     {% if internship.title is defined and internship.title is not empty %}
                                         value="{{ internship.title }}"
                                     {% else %}
-                                        placeholder="{{ 'Title of the position'|trans|capitalize }}"
+                                        placeholder="{{ 'title of the position'|trans|capitalize }}"
                                     {% endif %}
                                     name="title"
                                     required
@@ -212,7 +212,7 @@
                         <div class="col-md-3 mb-0">
                             <br>
                             <button type="button" class="btn btn-sm btn-primary" onclick="addRequirements();">
-                                {{ 'New condition'|trans|capitalize }}
+                                {{ 'new condition'|trans|capitalize }}
                             </button>
                         </div>
                         <div class="col-md-12 mb-3 form-group" id="Requirements">
@@ -223,7 +223,7 @@
                                         id="educationRequirements[]"
                                         type="text"
                                         value="{{ educationRequirement }}"
-                                        placeholder="{{ 'Enter a condition here'|trans|capitalize }}"
+                                        placeholder="{{ 'enter a condition here'|trans|capitalize }}"
                                         name="educationRequirements[]"
                                     >
                                 {% endfor %}
@@ -232,7 +232,7 @@
                                     class="form-control"
                                     id="educationRequirements[]"
                                     type="text"
-                                    placeholder="{{ 'Example: Education: MBO 3 ICT administrator' }}"
+                                    placeholder="{{'example: Education: MBO 3 ICT administrator'|trans|capitalize }}"
                                     name="educationRequirements[]"
                                 >
                             {% endif %}

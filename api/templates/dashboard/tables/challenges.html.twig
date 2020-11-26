@@ -10,7 +10,7 @@
                        class="btn btn-primary">{{ 'add'|trans|capitalize }}</a>
                 {% else %}
                     <a href="{{ path('app_challenge_index') }}"
-                       class="btn btn-sm btn-secondary">{{ 'see all challenges'|trans|capitalize }}</a>
+                       class="btn btn-sm btn-secondary">{{ 'see all challenges '|trans|capitalize }}</a>
                 {% endif %}
             </div>
         </div>
@@ -52,7 +52,7 @@
         </div>
     {% else %}
         <div class="card-body text-center">
-            <p>{{ 'no challanges found'|trans|capitalize }}</p>
+            <p>{{ 'no challenges found'|trans|capitalize }}</p>
             {% if addPath is  defined %}
                 <a href="{{ path(addPath, {'id':'new' }) }}"
                    class="btn btn-primary">{{ 'add your first challenge!'|trans|capitalize }}</a>

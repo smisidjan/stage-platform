@@ -433,9 +433,9 @@
                 </div>
             </div>
         {% elseif tutorial.id == 'new' %}
-            <p class="mb-0">There are currently no requirements to choose from</p>
+            <p class="mb-0">{{ 'there are currently no requirements to choose from'|trans|capitalize }}</p>
         {% else %}
-            <p class="mb-0">There are currently no requirements on this tutorial</p>
+            <p class="mb-0"></p>{{ 'there are currently no requirements on this tutorial'|trans|capitalize }}
         {% endif %}
         <br>
 
@@ -517,9 +517,9 @@
                 </div>
             </div>
         {% elseif tutorial.id == 'new' %}
-            <p class="mb-0">There are currently no activities to choose from</p>
+            <p class="mb-0">{{ 'there are currently no activities to choose from'|trans|capitalize }}</p>
         {% else %}
-            <p class="mb-0">There are currently no activities on this tutorial</p>
+            <p class="mb-0">{{ 'there are currently no activities on this tutorial'|trans|capitalize }}</p>
         {% endif %}
     </form>
 {% endblock %}
