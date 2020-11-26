@@ -15,7 +15,26 @@
                     <p class="lead">{{ 'find the best talent for your challenge or internship '|trans|capitalize }}</p>
                 </div>
             </div>
+        <form action="{{ path('app_student_index', query) }}">
+            <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div class="input-group input-group-merge shadow-none">
+                            <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0"><i class="fas fa-search"></i></span></div>
+                            <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2"
+                                   placeholder="{{ 'search for a student'|trans|capitalize }}..." required=""
+                                   {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-block btn-primary rounded-pill">{{ 'search'|trans|capitalize }}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
         </div>
+
+
         <div class="pattern bottom"></div>
     </section>
     <section class="section section-lg pt-0">

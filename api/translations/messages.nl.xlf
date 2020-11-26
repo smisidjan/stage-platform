@@ -1873,11 +1873,11 @@
       </trans-unit>
       <trans-unit id="ZqQkqal" resname="every">
         <source>every</source>
-        <target>__every</target>
+        <target>elke</target>
       </trans-unit>
       <trans-unit id="Dp.NB8G" resname="month(s)">
         <source>month(s)</source>
-        <target>__month(s)</target>
+        <target>maand(en)</target>
       </trans-unit>
       <trans-unit id="iX1h7EO" resname="resume subscription">
         <source>resume subscription</source>
@@ -2418,7 +2418,7 @@
       </trans-unit>
       <trans-unit id="1m31yk1" resname="add your first tutorial!">
         <source>add your first tutorial!</source>
-        <target>_voeg je eerste tutorial toe!</target>
+        <target>voeg je eerste tutorial toe!</target>
       </trans-unit>
       <trans-unit id="buMQ4eL" resname="find a tutorial">
         <source>find a tutorial</source>
@@ -2522,7 +2522,7 @@
       </trans-unit>
       <trans-unit id="ZU3hSLd" resname="add your first proposition!">
         <source>add your first proposition!</source>
-        <target>__add your first proposition!</target>
+        <target>voeg je eerste voorstel toe!</target>
       </trans-unit>
       <trans-unit id="k2HGVAf" resname="find a challenge to propose to">
         <source>find a challenge to propose to</source>
@@ -2618,7 +2618,7 @@
       </trans-unit>
       <trans-unit id="SUjhNBg" resname="Suspend">
         <source>Suspend</source>
-        <target>__Suspend</target>
+        <target>opschorten</target>
       </trans-unit>
       <trans-unit id="7aBkAJs" resname="Select profile photo">
         <source>Select profile photo</source>
@@ -3070,7 +3070,7 @@
       </trans-unit>
       <trans-unit id="6jKS.Tn" resname="Get your self found by the best challenge leads and organizations and join today">
         <source>Get your self found by the best challenge leads and organizations and join today</source>
-        <target>__Get your self found by the best challenge leads and organizations and join today</target>
+        <target>vind jezelf door de beste uitdagingsleads en organisaties en doe vandaag nog mee</target>
       </trans-unit>
       <trans-unit id=".7JiOq0" resname="Date Created">
         <source>Date Created</source>
@@ -3150,7 +3150,7 @@
       </trans-unit>
       <trans-unit id="eYyizhi" resname="Create account">
         <source>Create account</source>
-        <target>__Create account</target>
+        <target>maak een account aan</target>
       </trans-unit>
       <trans-unit id="hgM.daT" resname="Create an account">
         <source>Create an account</source>
@@ -3400,7 +3400,10 @@
              <source>you need to login before you can submit</source>
              <target>je moet eerst inloggen voor je kan indienen</target>
            </trans-unit>
-
+     <trans-unit id="BDhxtgd" resname="no contact info">
+                  <source>no contact info</source>
+                  <target>geen contact info</target>
+                </trans-unit>
       <trans-unit id="kRRRTYp" resname="there are currently no requirements to choose from">
                    <source>there are currently no requirements to choose from</source>
                    <target>er zijn momenteel geen voorwaarden om uit te kiezen</target>
@@ -3426,6 +3429,10 @@
                                     <source>lets lift off</source>
                                     <target>laten we opstijgen</target>
                                   </trans-unit>
+                 <trans-unit id="UBDxyTH" resname="search for a student">
+                             <source>search for a student</source>
+                             <target>zoek een student</target>
+                           </trans-unit>
     </body>
   </file>
 </xliff>
