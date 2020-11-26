@@ -18,176 +18,256 @@
             </nav>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-12">
-            <nav id="sidebarMenu" class="sidebar d-md-block bg-primary text-white collapse px-4">
-                {% include 'dashboard/menu.html.twig' %}
-            </nav>
-            <main class="content">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-                    <div class="btn-toolbar">
-                        <button class="btn btn-primary btn-sm mr-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-plus mr-2"></span>{{ 'new task'|trans|capitalize }}</button>
-                        <div class="dropdown-menu dashboard-dropdown dropdown-menu-left mt-2"><a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-tasks mr-2"></span>{{ 'new task'|trans|capitalize }}</a> <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-cloud-upload-alt mr-2"></span>Upload Files</a> <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-user-shield mr-2"></span>Preview Security</a>
-                            <div role="separator" class="dropdown-divider"></div><a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-rocket text-danger mr-2"></span>{{ 'upgrade to pro'|trans|capitalize }}</a></div>
-                    </div>
-                    <div class="btn-group mr-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">{{ 'share'|trans|capitalize }}</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">{{ 'export'|trans|capitalize }}</button>
-                    </div>
-                </div>
-                <div class="row justify-content-md-center">
-                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                        <div class="card border-light shadow-sm">
-                            <div class="card-body">
-                                <div class="row d-block d-xl-flex align-items-center">
-                                    <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
-                                        <div class="icon icon-shape icon-md icon-shape-primary rounded mr-4 mr-sm-0"><span class="fas fa-chart-line"></span></div>
-                                        <div class="d-sm-none">
-                                            <h2 class="h5">{{ 'total visits'|trans|capitalize }}</h2>
-                                            <h3 class="mb-1">345,678</h3></div>
-                                    </div>
-                                    <div class="col-12 col-xl-7 px-xl-0">
-                                        <div class="d-none d-sm-block">
-                                            <h2 class="h5">{{ 'total visits'|trans|capitalize }}</h2>
-                                            <h3 class="mb-1">345,678</h3></div><small>Feb 1 - Apr 1, <span class="icon icon-small"><span class="fas fa-globe-europe"></span></span> {{ 'worldwide'|trans|capitalize }}</small>
-                                        <div class="small mt-2"><span class="fas fa-angle-up text-success"></span> <span class="text-success font-weight-bold">18.2%</span>{{ 'since last month'|trans|capitalize }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                        <div class="card border-light shadow-sm">
-                            <div class="card-body">
-                                <div class="row d-block d-xl-flex align-items-center">
-                                    <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
-                                        <div class="icon icon-shape icon-md icon-shape-tertiary rounded mr-4"><span class="fas fa-users"></span></div>
-                                        <div class="d-sm-none">
-                                            <h2 class="h5">{{ 'new users'|trans|capitalize }}</h2>
-                                            <h3 class="mb-1">5,342</h3></div>
-                                    </div>
-                                    <div class="col-12 col-xl-7 px-xl-0">
-                                        <div class="d-none d-sm-block">
-                                            <h2 class="h5">{{ 'new users'|trans|capitalize }}</h2>
-                                            <h3 class="mb-1">5,342</h3></div><small>Feb 1 - Apr 1, <span class="icon icon-small"><span class="fas fa-globe-europe"></span></span> {{ 'worldwide'|trans|capitalize }}</small>
-                                        <div class="small mt-2"><span class="fas fa-angle-up text-success"></span> <span class="text-success font-weight-bold">28.2%</span>{{ 'since last month'|trans|capitalize }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-xl-4 mb-4">
-                        <div class="card border-light shadow-sm">
-                            <div class="card-body">
-                                <div class="row d-block d-xl-flex align-items-center">
-                                    <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
-                                        <div class="ct-chart-traffic-share ct-golden-section ct-series-a"></div>
-                                    </div>
-                                    <div class="col-12 col-xl-7 px-xl-0">
-                                        <h2 class="h5">{{ 'traffic share'|trans|capitalize }}</h2>
-                                        <div class="mb-3 small">Feb 1 - Apr 1, <span class="icon icon-small"><span class="fas fa-globe-europe"></span></span>{{ 'worldwide'|trans|capitalize }}</div>
-                                        <h6 class="font-weight-normal text-gray"><span class="icon w-20 icon-xs icon-secondary mr-1"><span class="fas fa-desktop"></span></span>{{ 'desktop'|trans|capitalize }}<a href="#" class="h6">70%</a></h6>
-                                        <h6 class="font-weight-normal text-gray"><span class="icon w-20 icon-xs icon-primary mr-1"><span class="fas fa-mobile-alt"></span></span>{{ 'mobile web'|trans|capitalize }} <a href="#" class="h6">30%</a></h6></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                <label for="coc">{{ 'coc'|trans|capitalize }}</label>
-                                <input class="form-control" id="coc" name="coc" type="text"
-                                       value="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                <label for="vatID">{{ 'vatID'|trans|capitalize }}</label>
-                                <input class="form-control" id="vatID" name="vatID" type="text"
-                                       value="">
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-12 col-xl-8">
+            <div class="card card-body bg-white border-light shadow-sm mb-4">
+                <h2 class="h5 mb-4">{{ 'about my organization'|trans|capitalize }}</h2>
 
-                    <div class="row">
-                        <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                                <label for="adresses[]">{{ 'adresses'|trans|capitalize }}</label>
-                                <input class="form-control" id="adresses[]" name="adresses[]" type="text"
-                                       value="">
-                            </div>
-                        </div>
-                    </div>
+                {% if app.user|default %}
 
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                <label for="telephones[]">{{ 'telephones'|trans|capitalize }}</label>
-                                <input class="form-control" id="telephones[]" name="telephones[]" type="text"
-                                       value="">
+                    <!-- Form -->
+                    <form action="{{ path('app_dashboardorganization_settings') }}" method="post">
+                        <div class="row">
+                            <div class="col-12 col-md-12 mb-0">
+
+                                <!-- Name -->
+                                <div class="form-group">
+                                    <label for="name">{{ 'name'|trans|capitalize }} <span style="color: red; font-weight: bold">*</span></label>
+                                    <input required class="form-control" name="name" id="name" type="text" placeholder="{{ 'name'|trans|capitalize }}"
+                                        {% if organization.name|default %}
+                                            value="{{ organization.name }}"
+                                        {% endif %}>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                <label for="emails[]">{{ 'emails'|trans|capitalize }}</label>
-                                <input class="form-control" id="emails[]" name="emails[]" type="text"
-                                       value="">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+
+                                <!-- KVK -->
+                                <div class="form-group">
+                                    <label for="chamberOfComerce">{{ 'coc'|trans|capitalize }} </label>
+                                    <input class="form-control" id="chamberOfComerce" name="chamberOfComerce" type="text" placeholder="{{ 'coc'|trans|capitalize }}"
+                                        {% if organization.chamberOfComerce|default %}
+                                            value="{{ organization.chamberOfComerce }}"
+                                        {% endif %}>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+
+                                <!-- Rsin -->
+                                <div class="form-group">
+                                    <label for="rsin">{{ 'rsin'|trans|capitalize }}</label>
+                                    <input class="form-control" id="rsin" name="rsin" type="text" placeholder="{{ 'rsin'|trans|capitalize }}"
+                                        {% if organization.rsin|default %}
+                                            value="{{ organization.rsin }}"
+                                        {% endif %}>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                {% if organization.socials.0.facebook|default %}
-                                <label for="socials.facebook">{{ 'facebook'|trans|capitalize }}</label>
-                                <input class="form-control" id="socials.facebook" name="socials.facebook" type="text"
-                                       value="{{ organization.socials.0.facebook }}">
-                                {% endif %}
+
+                        <h2 class="h5">{{ 'address'|trans|capitalize }}</h2>
+
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <!-- Street -->
+                                <div class="form-group">
+                                    <label for="street">{{ 'street'|trans|capitalize }}</label>
+                                    <input class="form-control" name="street" id="street" type="text" placeholder="{{ 'street'|trans|capitalize }}"
+                                        {% if organizationContact.adresses[0].street|default %}
+                                        value="{{ organizationContact.adresses[0].street }}"
+                                        {% endif %}>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <!-- House number -->
+                                <div class="form-group">
+                                    <label for="houseNumber">{{ 'house number'|trans|capitalize }}</label>
+                                    <input class="form-control" name="houseNumber" id="houseNumber" type="text" placeholder="{{ 'house number'|trans|capitalize }}"
+                                        {% if organizationContact.adresses[0].houseNumber|default %}
+                                        value="{{ organizationContact.adresses[0].houseNumber }}"
+                                        {% endif %}>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <!-- House number suffix -->
+                                <div class="form-group">
+                                    <label for="email">{{ 'suffix'|trans|capitalize }}</label>
+                                    <input class="form-control" name="houseNumberSuffix" id="houseNumberSuffix" type="text" placeholder="{{ 'suffix'|trans|capitalize }}"
+                                        {% if organizationContact.adresses[0].houseNumberSuffix|default %}
+                                        value="{{ organizationContact.adresses[0].houseNumberSuffix }}"
+                                        {% endif %}>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="form-group">
-                                {% if organization.socials.0.twitter|default %}
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+
+                                <!-- Postal code -->
+                                <div class="form-group">
+                                    <label for="postalCode">{{ 'postal code'|trans|capitalize }}</label>
+                                    <input class="form-control" name="postalCode" id="postalCode" type="text" placeholder="{{ 'postal code'|trans|capitalize }}"
+                                        {% if organizationContact.adresses[0].postalCode|default %}
+                                        value="{{ organizationContact.adresses[0].postalCode }}"
+                                        {% endif %}>
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <!-- Locality -->
+                                <div class="form-group">
+                                    <label for="locality">{{ 'locality'|trans|capitalize }}</label>
+                                    <input class="form-control" name="locality" id="locality" type="text" placeholder="{{ 'locality'|trans|capitalize }}"
+                                        {% if organizationContact.adresses[0].locality|default %}
+                                        value="{{ organizationContact.adresses[0].locality }}"
+                                        {% endif %}>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="h5">{{ 'contact'|trans|capitalize }}</h2>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label for="email">{{ 'email'|trans|capitalize }} </label>
+                                    <input class="form-control" name="email" id="email" type="email" placeholder="{{ 'name@provider.com'|trans }}"
+                                        {% if organizationContact.emails|default and organizationContact.emails|length > 0 %}
+                                        value="{{ organizationContact.emails[0].email }}"
+                                        {% endif %}>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+
+                                <!-- Telephone -->
+                                <div class="form-group">
+                                    <label for="telephone">{{ 'telephone number'|trans|capitalize }}</label>
+                                    <input class="form-control" name="telephone" id="telephone" type="tel" placeholder="0612345678"
+                                        {% if organizationContact.telephones|default and organizationContact.telephones|length > 0 %}
+                                        value="{{ organizationContact.telephones[0].telephone }}"
+                                        {% endif %}>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <h2 class="h5">{{ 'socials'|trans|capitalize }}</h2>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-0">
+                                <div class="form-group">
+                                    <label for="socials.facebook">{{ 'facebook'|trans|capitalize }}</label>
+                                    <input class="form-control" id="socials.facebook" name="socials.facebook" type="text"
+                                        {% if organizationContact.socials.0.facebook|default %}
+                                           value="{{ organizationContact.socials.0.facebook }}"
+                                        {% endif %}
+                                    >
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-0">
+                                <div class="form-group">
                                     <label for="socials.twitter">{{ 'twitter'|trans|capitalize }}</label>
                                     <input class="form-control" id="socials.twitter" name="socials.twitter" type="text"
-                                           value="{{ organization.socials.0.twitter }}">
-                                {% endif %}
+                                        {% if organizationContact.socials.0.twitter|default %}
+                                           value="{{ organizationContact.socials.0.twitter }}"
+                                        {% endif %}
+                                    >
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="form-group">
-                                {% if organization.socials.0.linkedin|default %}
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
                                     <label for="socials.linkedin">{{ 'linkedin'|trans|capitalize }}</label>
                                     <input class="form-control" id="socials.linkedin" name="socials.linkedin" type="text"
-                                           value="{{ organization.socials.0.linkedin }}">
-                                {% endif %}
+                                        {% if organizationContact.socials.0.linkedin|default %}
+                                           value="{{ organizationContact.socials.0.linkedin }}"
+                                        {% endif %}
+                                    >
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="form-group">
-                                {% if organization.socials.0.instagram|default %}
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
                                     <label for="socials.instagram">{{ 'instagram'|trans|capitalize }}</label>
                                     <input class="form-control" id="socials.instagram" name="socials.instagram" type="text"
-                                           value="{{ organization.socials.0.instagram }}">
-                                {% endif %}
+                                        {% if organizationContact.socials.0.instagram|default %}
+                                           value="{{ organizationContact.socials.0.instagram }}"
+                                        {% endif %}
+                                    >
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="form-group">
-                                {% if organization.socials.0.website|default %}
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
                                     <label for="socials.website">{{ 'website'|trans|capitalize }}</label>
                                     <input class="form-control" id="socials.website" name="socials.website" type="text"
-                                           value="{{ organization.socials.0.website }}">
-                                {% endif %}
+                                        {% if organizationContact.socials.0.website|default %}
+                                           value="{{ organizationContact.socials.0.website }}"
+                                        {% endif %}
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-auto">
+
+                                <!-- Button -->
+                                <button class="btn btn-block btn-primary" name="updateInfo" value="true" type="submit">
+                                    {{ 'save changes'|trans|capitalize }}
+                                </button>
+
+                            </div>
+                        </div>
+                    </form>
+                {% else %}
+                    <h4 class="mb-0">
+                        {{ 'login required'|trans|capitalize }}
+                    </h4>
+                    <p>
+                        {{ 'you need to login before you can view this page'|trans|capitalize }}<br>
+                        {{ 'click'|trans|capitalize }} <a href="{{ path('app_user_idvault') }}">{{ 'here'|trans }}</a> {{ 'to login'|trans }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if app.user|default %}
+            <div class="col-12 col-xl-4">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-xl-12">
+                        <div class="card card-body bg-white border-light shadow-sm mb-4">
+                            <h2 class="h5 mb-4">{{ 'Select profile photo'|trans|capitalize }}</h2>
+                            <div class="d-xl-flex align-items-center">
+                                <div>
+                                    <!-- Avatar -->
+                                    <div class="user-avatar xl-avatar mb-3">
+                                        <img class="rounded" src="/bundles/rocket/assets/img/team/profile-picture-3.jpg"
+                                             alt="change avatar">
+                                    </div>
+                                </div>
+                                <div class="file-field">
+                                    <div class="d-flex justify-content-xl-center ml-xl-3">
+                                        <div class="d-flex">
+                                            <span class="icon icon-md"><span class="fas fa-paperclip mr-3"></span></span>
+                                            <input type="file">
+                                            <div class="d-md-block text-left">
+                                                <div class="font-weight-normal text-dark mb-1">{{ 'Choose Image'|trans|capitalize }}</div>
+                                                <div class="text-gray small">{{ 'JPG, GIF or PNG. Max size of 800K'|trans|capitalize }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">{{ 'save'|trans|capitalize }}</button>
-                    </div>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 {% endblock %}
