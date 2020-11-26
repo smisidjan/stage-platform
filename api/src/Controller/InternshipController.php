@@ -154,10 +154,10 @@ class InternshipController extends AbstractController
         $internshipUrl = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
         if ($this->getUser()) {
             if ($commonGroundService->isResource($this->getUser()->getPerson())) {
-                $likes = $commonGroundService->getResource(['component' => 'rc', 'type' => 'likes'], ['resource' => $internshipUrl, 'author' => $this->getUser()->getPerson() ])['hydra:member'];
+                $likes = $commonGroundService->getResource(['component' => 'rc', 'type' => 'likes'], ['resource' => $internshipUrl, 'author' => $this->getUser()->getPerson()])['hydra:member'];
                 if (count($likes) > 0) {
                     $like = $likes[0];
-                    // Delete this existing like
+                // Delete this existing like
                 } else {
                     // Create a new like
                     $like['resource'] = $internshipUrl;
