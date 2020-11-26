@@ -225,7 +225,7 @@ class DashboardUserController extends AbstractController
         $variables = [];
 
         if ($this->getUser()) {
-            if ($commonGroundService->isResource($this->getUser()->getOrganization())) {
+            if ($commonGroundService->isResource($this->getUser()->getPerson())) {
                 $variables['person'] = $commonGroundService->getResource($this->getUser()->getPerson());
                 $variables['person'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'people', 'id' => $variables['person']['id']]);
 
