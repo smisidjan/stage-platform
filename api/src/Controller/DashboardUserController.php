@@ -322,10 +322,12 @@ class DashboardUserController extends AbstractController
         $variables['items'] = [];
         $organizationIds = [];
         foreach ($userGroups as $userGroup) {
-            $organization = $commonGroundService->getResource($userGroup['organization']);
-            if (!in_array($organization['id'], $organizationIds)) {
-                $variables['items'][] = $organization;
-                $organizationIds[] = $organization['id'];
+            if ($commonGroundService->isResource($userGroup['organization'])) {
+                $organization = $commonGroundService->getResource($userGroup['organization']);
+                if (!in_array($organization['id'], $organizationIds)) {
+                    $variables['items'][] = $organization;
+                    $organizationIds[] = $organization['id'];
+                }
             }
         }
 
