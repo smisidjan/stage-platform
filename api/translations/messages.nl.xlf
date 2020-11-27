@@ -2546,7 +2546,7 @@
       </trans-unit>
       <trans-unit id="wJkUK8M" resname="results">
         <source>results</source>
-        <target>resultaat</target>
+        <target>resultaten</target>
       </trans-unit>
       <trans-unit id="2JxJggo" resname="see all teams">
         <source>see all teams</source>
@@ -3446,6 +3446,10 @@
                                     <source>lets lift off</source>
                                     <target>laten we opstijgen</target>
                                   </trans-unit>
+      <trans-unit id="ujh12Na" resname="from">
+          <source>from</source>
+          <target>van</target>
+       </trans-unit>
     </body>
   </file>
 </xliff>

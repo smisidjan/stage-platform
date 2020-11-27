@@ -62,7 +62,7 @@ class EducationController extends AbstractController
 
         // Get resource tutorial
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
-        
+
         // Get other tutorials from this org
         if (isset($variables['tutorial']['organization'])) {
             $tutorials = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'], ['organization'=>$variables['tutorial']['organization']])['hydra:member'];
@@ -132,7 +132,7 @@ class EducationController extends AbstractController
         $variables = [];
 
         // Get resource program
-        $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'programs', 'id' => $id]);
+        $variables['program'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'programs', 'id' => $id]);
 
         return $variables;
     }
