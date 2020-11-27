@@ -158,10 +158,10 @@ class InternshipController extends AbstractController
     }
 
     /**
-     * @Route("/internships/like/{id}")
+     * @Route("/internships/like/{id}/{backUrl}")
      * @Template
      */
-    public function likeAction(CommonGroundService $commonGroundService, Request $request, $id)
+    public function likeAction(CommonGroundService $commonGroundService, Request $request, $id, $backUrl)
     {
         // Get resource internship
         $internship = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
@@ -184,6 +184,10 @@ class InternshipController extends AbstractController
             }
         }
 
-        return $this->redirect($this->generateUrl('app_internship_index').'#'.$internship['id']);
+        if ($backUrl == 'app_internship_index') {
+            return $this->redirect($this->generateUrl('app_internship_index').'#'.$internship['id']);
+        } else {
+            return $this->redirect($this->generateUrl($backUrl));
+        }
     }
 }

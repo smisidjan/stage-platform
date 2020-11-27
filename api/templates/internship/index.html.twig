@@ -116,7 +116,7 @@
 
 {#                                  <button type="submit" class="btn btn-secondary mr-3 animate-up-2 m-0"><i class="fas fa-heart"></i></button>#}
                                     {% if app.user is defined and app.user is not null %}
-                                        <a href="{{ path('app_internship_like', {id: internship.id}) }}" class="btn btn-secondary mr-3 animate-up-2 m-0">
+                                        <a href="{{ path('app_internship_like', {id: internship.id, backUrl: 'app_internship_index'}) }}" class="btn btn-secondary mr-3 animate-up-2 m-0">
                                             <i
                                                 {% if internship.like|default %}
                                                     class="fal fa-heart"
