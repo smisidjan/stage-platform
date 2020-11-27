@@ -124,8 +124,7 @@ class DashboardUserController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        // Get resources Interschips
-        // TODO:make sure only the internships of this user are loaded
+        // Get Interschip resources
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         return $variables;
@@ -203,6 +202,9 @@ class DashboardUserController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
+        // Get team resources
+        $variables['teams'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups'], $variables['query'])['hydra:member'];
+
         return $variables;
     }
 
@@ -213,6 +215,33 @@ class DashboardUserController extends AbstractController
     public function teamAction(CommonGroundService $commonGroundService, Request $request)
     {
         $variables = [];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/likes")
+     * @Template
+     */
+    public function likesAction(Request $request, CommonGroundService $commonGroundService)
+    {
+        // Get all Internship resources
+        $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'])['hydra:member'];
+
+        // If user is logged in get/set every Internship this user liked
+        if ($this->getUser()) {
+            if ($commonGroundService->isResource($this->getUser()->getPerson())) {
+                $internships = [];
+                foreach ($variables['internships'] as $internship) {
+                    $internshipUrl = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$internship['id']]);
+                    $likes = $commonGroundService->getResourceList(['component' => 'rc', 'type' => 'likes'], ['resource' => $internshipUrl, 'author' => $this->getUser()->getPerson()])['hydra:member'];
+                    if (count($likes) > 0) {
+                        array_push($internships, $internship);
+                    }
+                }
+                $variables['internships'] = $internships;
+            }
+        }
 
         return $variables;
     }
@@ -323,10 +352,12 @@ class DashboardUserController extends AbstractController
         $variables['items'] = [];
         $organizationIds = [];
         foreach ($userGroups as $userGroup) {
-            $organization = $commonGroundService->getResource($userGroup['organization']);
-            if (!in_array($organization['id'], $organizationIds)) {
-                $variables['items'][] = $organization;
-                $organizationIds[] = $organization['id'];
+            if ($commonGroundService->isResource($userGroup['organization'])) {
+                $organization = $commonGroundService->getResource($userGroup['organization']);
+                if (!in_array($organization['id'], $organizationIds)) {
+                    $variables['items'][] = $organization;
+                    $organizationIds[] = $organization['id'];
+                }
             }
         }
 

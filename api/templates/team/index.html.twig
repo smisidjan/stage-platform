@@ -78,11 +78,9 @@
                                                                class="h3">{{ team.name|trans|capitalize }}</a>
                                 <p class="mb-0">{{ team.description|trans|capitalize }}</p>
                                 <div class="d-flex">
-                                    {% if team.participants is defined and team.participants is not empty %}
-                                        {% for person in team.participants %}
-                                            <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span
-                                                    class="h6 text-sm ml-2">{{ person|length }}</span></span>
-                                        {% endfor %}
+                                    {% if team.participants|default %}
+                                        <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span
+                                                class="h6 text-sm ml-2">{{ team.participants|length }}</span></span>
                                     {% else %}
                                         <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span
                                                 class="h6 text-sm ml-2">0</span></span>
