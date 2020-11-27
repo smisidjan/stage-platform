@@ -150,12 +150,24 @@ class InternshipController extends AbstractController
      */
     public function likeAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
-        // On an index route we might want to filter based on user input
-        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+        // Get resource internship
+        $internshipUrl = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        if ($this->getUser()) {
+            if ($commonGroundService->isResource($this->getUser()->getPerson())) {
+                $likes = $commonGroundService->getResource(['component' => 'rc', 'type' => 'likes'], ['resource' => $internshipUrl, 'author' => $this->getUser()->getPerson()])['hydra:member'];
+                if (count($likes) > 0) {
+                    $like = $likes[0];
+                // Delete this existing like
+                } else {
+                    // Create a new like
+                    $like['resource'] = $internshipUrl;
+                    $like['author'] = $this->getUser()->getPerson();
+//                    $like['organization'] = '?';
+//                    $commonGroundService->createResource($like, ['component' => 'rc', 'type' => 'likes']);
+                }
+            }
+        }
 
-        // Get resources like
-        $variables['like'] = $commonGroundService->getResource(['component' => 'rc', 'type' => 'likes'], $variables['query'])['hydra:member'];
-
-        return $variables;
+        return $this->redirect($this->generateUrl('app_internship_index'));
     }
 }
