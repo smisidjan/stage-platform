@@ -7,6 +7,10 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-center mb-4">
                     <h1 class="display-2 font-weight-extreme mb-4">{{ student.name }}</h1>
+                    {% if student.aboutMe|default %}
+                        <h3>{{ 'about me'|trans|capitalize }}</h3>
+                        <p>{{ student.aboutMe }}</p>
+                    {% endif %}
                     <div class="d-flex flex-column flex-lg-row justify-content-center">
                         {% if student.birthday|default %}
                             <span class="h5 mb-3 mb-lg-0"><i class="fal fa-birthday-cake"></i><span

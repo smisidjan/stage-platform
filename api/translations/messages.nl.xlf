@@ -49,6 +49,10 @@
         <source>name</source>
         <target>naam</target>
       </trans-unit>
+      <trans-unit id="0VhlQZ6" resname="full name">
+        <source>full name</source>
+        <target>voor- en achternaam</target>
+      </trans-unit>
       <trans-unit id="QG7.sen" resname="created">
         <source>created</source>
         <target>aangemaakt</target>
@@ -619,8 +623,8 @@
         <source>gender</source>
         <target>geslacht</target>
       </trans-unit>
-      <trans-unit id="oAvqVDp" resname="adres">
-        <source>adres</source>
+      <trans-unit id="oAvqVDp" resname="address">
+        <source>address</source>
         <target>adres</target>
       </trans-unit>
       <trans-unit id="EdQEF5W" resname="business">
@@ -1847,6 +1851,10 @@
         <source>email</source>
         <target>email</target>
       </trans-unit>
+      <trans-unit id="GXNz37J" resname="name@provider.com">
+        <source>name@provider.com</source>
+        <target>naam@provider.com</target>
+      </trans-unit>
       <trans-unit id="Uy4_u9Q" resname="join as organisation">
         <source>join as organisation</source>
         <target>meedoen als organisatie</target>
@@ -2799,6 +2807,18 @@
       <trans-unit id="srZkiB8" resname="about me">
         <source>about me</source>
         <target>over mij</target>
+      </trans-unit>
+      <trans-unit id="nEZjBW5" resname="About you Profile text">
+        <source>'About you' Profile text</source>
+        <target>'Over mij' Profiel tekst</target>
+      </trans-unit>
+      <trans-unit id="fLEPJqd" resname="a text that you want to show on your profile">
+        <source>a text that you want to show on your profile</source>
+        <target>een tekst die u op uw profiel wilt weergeven</target>
+      </trans-unit>
+      <trans-unit id="U5pIJMA" resname="about my organization">
+        <source>about my organization</source>
+        <target>over mijn organisatie</target>
       </trans-unit>
       <trans-unit id="ls5uYZO" resname="First Name">
         <source>First Name</source>
