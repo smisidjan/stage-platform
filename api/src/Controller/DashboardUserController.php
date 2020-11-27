@@ -217,6 +217,33 @@ class DashboardUserController extends AbstractController
     }
 
     /**
+     * @Route("/likes")
+     * @Template
+     */
+    public function likesAction(Request $request, CommonGroundService $commonGroundService)
+    {
+        // Get all Internship resources
+        $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'])['hydra:member'];
+
+        // If user is logged in get/set every Internship this user liked
+        if ($this->getUser()) {
+            if ($commonGroundService->isResource($this->getUser()->getPerson())) {
+                $internships = [];
+                foreach ($variables['internships'] as $internship) {
+                    $internshipUrl = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$internship['id']]);
+                    $likes = $commonGroundService->getResourceList(['component' => 'rc', 'type' => 'likes'], ['resource' => $internshipUrl, 'author' => $this->getUser()->getPerson()])['hydra:member'];
+                    if (count($likes) > 0) {
+                        array_push($internships, $internship);
+                    }
+                }
+                $variables['internships'] = $internships;
+            }
+        }
+
+        return $variables;
+    }
+
+    /**
      * @Route("/settings")
      * @Template
      */

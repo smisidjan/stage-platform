@@ -2496,9 +2496,21 @@
         <source>no internships found</source>
         <target>geen stageplaatsen gevonden</target>
       </trans-unit>
-      <trans-unit id=".jki9p4" resname="add your first internship!">
+      <trans-unit id=".jki9p4" resname="Here you can find everything you liked.">
+        <source>Here you can find everything you liked.</source>
+        <target>Hier vind je alles wat je leuk vond.</target>
+      </trans-unit>
+      <trans-unit id="uNW7Fu0" resname="remove like">
+        <source>remove like</source>
+        <target>like verwijderen</target>
+      </trans-unit>
+      <trans-unit id="UIxD3YA" resname="add your first internship!">
         <source>add your first internship!</source>
         <target>voeg je eerste stage toe!</target>
+      </trans-unit>
+      <trans-unit id="PvEXpbY" resname="you have not liked any internships yet">
+        <source>you have not liked any internships yet</source>
+        <target>je hebt nog geen stages leuk gevonden</target>
       </trans-unit>
       <trans-unit id="NO_UoOo" resname="participants">
         <source>participants</source>
