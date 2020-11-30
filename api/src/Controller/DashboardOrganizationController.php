@@ -45,10 +45,10 @@ class DashboardOrganizationController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        if($this->getUser() && $this->getUser()->getOrganization()) {
+        if ($this->getUser() && $this->getUser()->getOrganization()) {
             $variables['query'][] = ['organization' => $this->getUser()->getOrganization()];
-        // Get resource tutorials (known as cources component side)
-        $variables['tutorials'] = $commonGroundService->getResourceList(['component'=>'edu', 'type'=>'courses'], ['organization'=> $commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>$commonGroundService->getUuidFromUrl($this->getUser()->getOrganization())]) ])['hydra:member'];
+            // Get resource tutorials (known as cources component side)
+            $variables['tutorials'] = $commonGroundService->getResourceList(['component'=>'edu', 'type'=>'courses'], ['organization'=> $commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>$commonGroundService->getUuidFromUrl($this->getUser()->getOrganization())])])['hydra:member'];
         }
 
         return $variables;
