@@ -34,12 +34,14 @@ class StudentController extends AbstractController
         // Remove duplicate persons to get students
         $personIds = [];
         foreach ($variables['participants'] as $participant) {
-            if (!in_array($participant['id'], $personIds)) {
-                if (isset($participant['person']) && $participant['person']) {
+            if (isset($participant['person']) && $participant['person']) {
+                if (!in_array($participant['person'], $personIds)) {
+//                var_dump($personIds );
+//                var_dump($participant['id']);
                     $variables['students'][] = $commonGroundService->getResource($participant['person']);
+                    $personIds[] = $participant['person'];
                 }
             }
-            $personIds[] = $participant['id'];
         }
 
         // If somehow a student is a hydra collection add the members to the array and unset the hydra collection
