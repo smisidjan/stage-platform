@@ -281,7 +281,80 @@ class DashboardOrganizationController extends AbstractController
     {
         $variables = [];
 
-        $variables['organization'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'organizations']);
+        if ($this->getUser()) {
+            if ($commonGroundService->isResource($this->getUser()->getOrganization())) {
+                $variables['organization'] = $commonGroundService->getResource($this->getUser()->getOrganization());
+            }
+
+            if (isset($variables['organization']['contact']) and $commonGroundService->isResource($variables['organization']['contact'])) {
+                $variables['organizationContact'] = $commonGroundService->getResource($variables['organization']['contact']);
+                $variables['organizationContact'] = $commonGroundService->getResource(['component' => 'cc', 'type' => 'organizations', 'id' => $variables['organizationContact']['id']]);
+            }
+        }
+
+        if ($request->isMethod('POST') && $request->get('updateInfo')) {
+            $name = $request->get('name');
+
+            // Update (or create) the wrc/organization of this user
+            if (isset($variables['organization'])) {
+                $organization = $variables['organization'];
+            }
+            $organization['name'] = $name;
+            $organization['description'] = $name;
+            $organization['chamberOfComerce'] = $request->get('chamberOfComerce');
+            $organization['rsin'] = $request->get('rsin');
+
+            // Update (or create) the cc/organization of this user
+            if (isset($variables['organizationContact'])) {
+                $organizationContact = $variables['organizationContact'];
+            }
+            $organizationContact['name'] = $name;
+            $organizationContact['emails'][0] = [];
+            $organizationContact['emails'][0]['name'] = 'email for '.$name;
+            $organizationContact['emails'][0]['email'] = $request->get('email');
+            $organizationContact['telephones'][0] = [];
+            $organizationContact['telephones'][0]['name'] = 'telephone for '.$name;
+            $organizationContact['telephones'][0]['telephone'] = $request->get('telephone');
+
+            $address = [];
+            $address['name'] = 'address for '.$name;
+            $address['street'] = $request->get('street');
+            $address['houseNumber'] = $request->get('houseNumber');
+            $address['houseNumberSuffix'] = $request->get('houseNumberSuffix');
+            $address['postalCode'] = $request->get('postalCode');
+            $address['locality'] = $request->get('locality');
+            $organizationContact['adresses'][0] = $address;
+
+            $socials = [];
+            $socials['name'] = 'socials for '.$name;
+            $socials['description'] = 'socials for '.$name;
+            $socials['facebook'] = $request->get('facebook');
+            $socials['twitter'] = $request->get('twitter');
+            $socials['linkedin'] = $request->get('linkedin');
+            $socials['instagram'] = $request->get('instagram');
+            $organizationContact['socials'][0] = $socials;
+
+            $organizationContact = $commonGroundService->saveResource($organizationContact, ['component' => 'cc', 'type' => 'organizations']);
+
+            $organization['contact'] = $commonGroundService->cleanUrl(['component' => 'cc', 'type' => 'organizations', 'id' => $organizationContact['id']]);
+            $organization = $commonGroundService->saveResource($organization, ['component' => 'wrc', 'type' => 'organizations']);
+
+            // If this user has no organization the user.organization should be set to this $organization?
+            $users = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'users'], ['username' => $this->getUser()->getUsername()])['hydra:member'];
+            if (count($users) > 0) {
+                $user = $users[0];
+
+                if (!$commonGroundService->isResource($this->getUser()->getOrganization()) or !isset($user['organization'])) {
+                    $user['organization'] = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
+                    foreach ($user['userGroups'] as &$userGroup) {
+                        $userGroup = '/groups/'.$userGroup['id'];
+                    }
+                    $commonGroundService->updateResource($user);
+                }
+            }
+
+            return $this->redirect($this->generateUrl('app_dashboardorganization_settings'));
+        }
 
         return $variables;
     }

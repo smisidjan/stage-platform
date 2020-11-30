@@ -32,6 +32,19 @@ class InternshipController extends AbstractController
         // Get resources Interschips
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
+        // If user is loged in check for every Internship if this user liked it
+        if ($this->getUser()) {
+            if ($commonGroundService->isResource($this->getUser()->getPerson())) {
+                foreach ($variables['internships'] as &$internship) {
+                    $internshipUrl = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$internship['id']]);
+                    $likes = $commonGroundService->getResourceList(['component' => 'rc', 'type' => 'likes'], ['resource' => $internshipUrl, 'author' => $this->getUser()->getPerson()])['hydra:member'];
+                    if (count($likes) > 0) {
+                        $internship['like'] = $likes[0];
+                    }
+                }
+            }
+        }
+
         return $variables;
     }
 
@@ -145,17 +158,36 @@ class InternshipController extends AbstractController
     }
 
     /**
-     * @Route("/internships/like/{id}")
+     * @Route("/internships/like/{id}/{backUrl}")
      * @Template
      */
-    public function likeAction(CommonGroundService $commonGroundService, Request $request, $id)
+    public function likeAction(CommonGroundService $commonGroundService, Request $request, $id, $backUrl)
     {
-        // On an index route we might want to filter based on user input
-        $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
+        // Get resource internship
+        $internship = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
+        $internshipUrl = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$id]);
 
-        // Get resources like
-        $variables['like'] = $commonGroundService->getResource(['component' => 'rc', 'type' => 'likes'], $variables['query'])['hydra:member'];
+        if ($this->getUser()) {
+            if ($commonGroundService->isResource($this->getUser()->getPerson())) {
+                $likes = $commonGroundService->getResourceList(['component' => 'rc', 'type' => 'likes'], ['resource' => $internshipUrl, 'author' => $this->getUser()->getPerson()])['hydra:member'];
+                if (count($likes) > 0) {
+                    $like = $likes[0];
+                    // Delete this existing like
+                    $commonGroundService->deleteResource($like);
+                } else {
+                    // Create a new like
+                    $like['resource'] = $internshipUrl;
+                    $like['author'] = $this->getUser()->getPerson();
+                    $like['organization'] = $internship['hiringOrganization'];
+                    $commonGroundService->createResource($like, ['component' => 'rc', 'type' => 'likes']);
+                }
+            }
+        }
 
-        return $variables;
+        if ($backUrl == 'app_internship_index') {
+            return $this->redirect($this->generateUrl('app_internship_index').'#'.$internship['id']);
+        } else {
+            return $this->redirect($this->generateUrl($backUrl));
+        }
     }
 }

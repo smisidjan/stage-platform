@@ -76,6 +76,11 @@
 
 
                                     <!-- het weegeven van aantal tutorials -->
+                                    {% set challenges = commonground_resource_list({'component': 'edu', 'type': 'courses'}, {'organization': org['@id']})['hydra:member'] %}
+                                    {% if tutorials|default and tutorials|length > 0 %}
+                                        {{ tutorials|length }}
+                                    {% endif %}
+
                                     {% set tutorials = commonground_resource_list({'component': 'edu', 'type': 'courses'}, {'organization': org['@id']})['hydra:member'] %}
                                     {% if tutorials|default and tutorials|length > 0 %}
                                         {{ tutorials|length }}
