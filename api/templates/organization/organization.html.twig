@@ -45,7 +45,6 @@
                 <div class="col">
                     <div class="card shadow-soft border-light p-4 p-md-5">
                         <div class="card-body">{{ organization.description }}</div>
-
                     </div>
                 </div>
             </div>
@@ -80,7 +79,7 @@
                                                 <div class="d-flex">
                                                     {#<a href="#" class="stretched-link">#}<i
                                                         class="fas fa-map-marker-alt"></i><span
-                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
+                                                        class="h6 text-sm ml-2">{{ 'Sillicon Valley, CA'|trans|capitalize }}</span>{#</a>#}
 
                                                     {% if chal.budget|default %}
                                                         <span class="ml-4"><i
@@ -140,7 +139,7 @@
                                                 <div class="d-flex">
                                                     {#<a href="#" class="stretched-link">#}<i
                                                         class="fas fa-map-marker-alt"></i><span
-                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
+                                                        class="h6 text-sm ml-2">{{ 'Sillicon Valley, CA'|trans|capitalize }}</span>{#</a>#}
 
                                                     {#                                                {% if chal.budget|default %}#}
                                                     {#                                                <span class="ml-4"><i class="fas fa-money-bill text-secondary"></i>#}
@@ -200,7 +199,7 @@
                                                 <div class="d-flex">
                                                     {#<a href="#" class="stretched-link">#}<i
                                                         class="fas fa-map-marker-alt"></i><span
-                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
+                                                        class="h6 text-sm ml-2">{{ 'Sillicon Valley, CA'|trans|capitalize }}</span>{#</a>#}
 
                                                     {% if job.standardHours|default and job.employmentType|default %}
                                                         <span class="ml-4"><i class="fas fa-clock text-secondary"></i>
@@ -230,5 +229,4 @@
             </div>
         </section>
     {% endif %}
-
 {% endblock %}

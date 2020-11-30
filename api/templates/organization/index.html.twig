@@ -74,21 +74,33 @@
                                         <p class="mb-0">{{ org.description }}</p>
                                     {% endif %}
 
+                                    <br>
 
-                                    <!-- het weegeven van aantal tutorials -->
-                                    {% set challenges = commonground_resource_list({'component': 'edu', 'type': 'courses'}, {'organization': org['@id']})['hydra:member'] %}
-                                    {% if tutorials|default and tutorials|length > 0 %}
-                                        {{ tutorials|length }}
-                                    {% endif %}
+                                    <div>
+                                         <span class="ml-lg-2 mb-3 mb-lg-0 h5"><i class="fas fa-briefcase"></i>
+                                             <span class="ml-3">
+                                                 {% if jobPostings is defined and jobPostings is not empty %}
+                                        {{ jobPostings|length }} {% else %}
+                                                     0{% endif %}</span></span>
 
-                                    {% set tutorials = commonground_resource_list({'component': 'edu', 'type': 'courses'}, {'organization': org['@id']})['hydra:member'] %}
-                                    {% if tutorials|default and tutorials|length > 0 %}
-                                        {{ tutorials|length }}
-                                    {% endif %}
+                                        <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-bullseye-arrow"></i>
+                                            <span class="ml-3">
+                                                {% if challenges is defined and challenges is not empty %}
+                                        {{ challenges|length }} {% else %}
+                                                    0{% endif %}</span></span>
 
+                                        <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-alt"></i>
+                                            <span class="ml-3">
+                                                {% if courses is defined and courses is not empty %}
+                                        {{ courses|length }} {% else %}
+                                                    0{% endif %}</span></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
+
 
                     {% endfor %}
 

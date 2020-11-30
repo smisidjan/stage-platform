@@ -122,25 +122,25 @@
                                         {% if tutorial.additionalType|default and tutorial.additionalType == 'werkomgeving' %}
                                             selected
                                         {% endif %}
-                                        value="werkomgeving">{{ 'working environment'|trans }}
+                                        value="code">{{ 'code'|trans }}
                                     </option>
                                     <option
                                         {% if tutorial.additionalType|default and tutorial.additionalType == 'setup' %}
                                             selected
                                         {% endif %}
-                                        value="setup">{{ 'setup'|trans }}
+                                        value="Soft skills">{{ 'soft skills'|trans }}
                                     </option>
                                     <option
                                         {% if tutorial.additionalType|default and tutorial.additionalType == 'layout' %}
                                             selected
                                         {% endif %}
-                                        value="layout"> {{ 'layout'|trans }}
+                                        value="life"> {{ 'life'|trans }}
                                     </option>
                                     <option
                                         {% if tutorial.additionalType|default and tutorial.additionalType == 'datamodellen' %}
                                             selected
                                         {% endif %}
-                                        value="datamodellen">{{ 'data models'|trans }}
+                                        value="onboarding">{{ 'onboarding'|trans }}
                                     </option>
                                 </select>
                             </div>
@@ -348,7 +348,7 @@
                     </div>
                 </div>
             {% else %}
-                <p class="mb-0">There are currently no participants on this tutorial</p>
+                <p class="mb-0">{{ 'there are currently no participants on this tutorial'|trans }}</p>
             {% endif %}
             <br>
         {% endif %}

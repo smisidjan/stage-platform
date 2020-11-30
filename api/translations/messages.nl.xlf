@@ -3432,6 +3432,10 @@
              <source>you need to login before you can submit</source>
              <target>je moet eerst inloggen voor je kan indienen</target>
            </trans-unit>
+           <trans-unit id="xjsudgd" resname="there are currently no participants on this tutorial">
+                        <source>there are currently no participants on this tutorial</source>
+                        <target>er zijn momenteel geen deelnemers aan deze tutorial</target>
+                      </trans-unit>
      <trans-unit id="BDhxtgd" resname="no contact info">
                   <source>no contact info</source>
                   <target>geen contact info</target>
