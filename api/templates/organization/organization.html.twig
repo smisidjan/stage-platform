@@ -30,7 +30,6 @@
                                         {{ courses|length }} {% else %}
                                         0{% endif %}</span></span>
                         </div>
-
                 </div>
                 <div class="col col-12 text-center"><a href="{{ path('app_education_tutorials') }}" class="btn btn-secondary text-white animate-up-2 mr-3"><i class="fas fa-arrow-left mr-2"></i>{{'all organizations'|trans|capitalize}}</a></div>
             </div>
@@ -62,7 +61,6 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-
                     {% if challenges|default %}
                         {% for chal in challenges|slice(0, 5) %}
                             <div class="col-12 col-lg-10 mb-4">

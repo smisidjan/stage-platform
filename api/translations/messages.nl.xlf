@@ -3452,6 +3452,10 @@
                    <source>there are currently no activities on this tutorial</source>
                    <target>er zijn momenteel geen activiteiten om uit te kiezen</target>
                  </trans-unit>
+                 <trans-unit id="QsdcvDQ" resname="create your own team today and take on the challenges together">
+                                    <source>create your own team today and take on the challenges together</source>
+                                    <target>creëer vandaag nog je eigen team en ga samen de uitdagingen aan</target>
+                                  </trans-unit>
                  <trans-unit id="NXhstgd" resname="you need to login before you can submit">
                    <source>you need to login before you can submit</source>
                    <target>je moet eerst inloggen voor je kan indienen</target>
@@ -3469,6 +3473,18 @@
           <source>from</source>
           <target>van</target>
        </trans-unit>
+       <trans-unit id="uNDHc6a" resname="create a team">
+                 <source>create a team</source>
+                 <target>start een team</target>
+              </trans-unit>
+        <trans-unit id="BAGXc6a" resname="create your own team">
+                         <source>create your own team</source>
+                         <target>Stel je eigen team samen</target>
+                      </trans-unit>
+        <trans-unit id="BXvzx6a" resname="post a challenge for students ">
+                                 <source>post a challenge for students </source>
+                                 <target>plaats een challenge voor studenten</target>
+                              </trans-unit>
     </body>
   </file>
 </xliff>

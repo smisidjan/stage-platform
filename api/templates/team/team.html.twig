@@ -8,13 +8,23 @@
                     <h1 class="display-2 font-weight-extreme mb-4">{{ team.name|trans|capitalize }}</h1>
                     <p class="lead">{{ team.description }}</p>
                     <div class="d-flex flex-column flex-lg-row justify-content-center">
+
                         {% if team.participants|default %}
-                            <span class="h5 mb-3 mb-lg-0"><i class="fas fa-user-tie text-secondary"></i><span
-                                    class="ml-3">{{ team.participants|length }}</span></span>
+                            <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span
+                                    class="h6 text-sm ml-2">{{ team.participants|length }}</span></span>
+                        {% else %}
+                            <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span
+                                    class="h6 text-sm ml-2">0</span></span>
                         {% endif %}
+
 {#                        /* @todo hier moeten het aantal challenges komen waar een team aan mee doet#}
-                            <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-bullseye-arrow text-primary"></i>
-                                <span class="ml-3">{{ numberOfEntries }}</span></span>
+                        {% if team.numberOfEntries|default %}
+                            <span class="ml-4"><i class="fas fa-bullseye-arrow text-primary"></i><span
+                                    class="h6 text-sm ml-2">{{ numberOfEntries|length }}</span></span>
+                        {% else %}
+                            <span class="ml-4"><i class="fas fa-bullseye-arrow text-primary"></i><span
+                                    class="h6 text-sm ml-2">0</span></span>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col col-12 text-center"><a href="{{ path('app_team_index') }}"
@@ -73,8 +83,7 @@
                         </form>
                     {% else %}
                         <p class="mt-4 text-center">{{ 'you need to be logged in to register for a tutorial'|trans|capitalize }}</p>
-                        <a class="mt-2 text-center btn btn-secondary"
-                           href="{{ path('app_user_idvault') }}">{{ 'click here to log in'|trans|capitalize }} </a>
+                        <a class="mt-2 text-center btn btn-secondary" href="{{ path('app_user_idvault') }}">{{ 'click here to log in'|trans|capitalize }} </a>
                     {% endif %}
                 </div>
             </div>
