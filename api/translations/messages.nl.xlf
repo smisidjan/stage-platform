@@ -3382,6 +3382,19 @@
               <source>your internship job location</source>
               <target>je stageplaats</target>
             </trans-unit>
+
+            <trans-unit id="NahXtsH" resname="post a tutorial">
+                          <source>post a tutorial</source>
+                          <target>plaats een tutorial</target>
+                        </trans-unit>
+                        <trans-unit id="OapXCLp" resname="post a tutorial for students">
+                          <source>post a tutorial for students</source>
+                          <target>plaats een tutorial voor studenten</target>
+                        </trans-unit>
+            <trans-unit id="gNcbatQ" resname="think about problem solving">
+                          <source>think about problem solving</source>
+                          <target>denk aan probleem oplossen</target>
+                        </trans-unit>
             <trans-unit id="5122sC7" resname="start date of the position">
               <source>start date of the position</source>
               <target>startdatum van de functie</target>
@@ -3485,6 +3498,27 @@
                                  <source>post a challenge for students </source>
                                  <target>plaats een challenge voor studenten</target>
                               </trans-unit>
+        <trans-unit id="BSGxztQ" resname="propose challenges">
+                      <source>propose challenges</source>
+                      <target>voorstellen challenges </target>
+                    </trans-unit>
+
+       <trans-unit id="tLCXZa2" resname="prices">
+               <source>prices</source>
+               <target>prijzen</target>
+             </trans-unit>
+       <trans-unit id="BsgXTC7" resname="reward for solutions">
+               <source>reward for solutions</source>
+               <target>beloning voor oplossingen</target>
+             </trans-unit>
+       <trans-unit id="KANZGYp" resname="conduction Academy provides both matchmaking and an online internship platform">
+                    <source>conduction Academy provides both matchmaking and an online internship platform</source>
+                    <target>conduction academy verzorgt zowel matching als een online stageplatform</target>
+                  </trans-unit>
+       <trans-unit id="BSHXTYp" resname="the latest stageplatform news, articles, and resources, sent straight to your inbox every month.">
+                           <source>the latest stageplatform news, articles, and resources, sent straight to your inbox every month.</source>
+                           <target>het laatse nieuws over het stageplatform, elke maand rechtstreeks in jouw mailbox</target>
+                         </trans-unit>
     </body>
   </file>
 </xliff>
