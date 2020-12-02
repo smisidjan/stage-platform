@@ -18,17 +18,17 @@
             </nav>
             {% if tutorial['@id'] is defined and tutorial['@id'] is not empty %}
                 <h2 class="h4">{{ tutorial.name }} {{ 'To adjust'|trans|capitalize }}</h2>
-                <p class="mb-0">{{ 'change your tutorial here'|trans|capitalize }}</p>
+                <p class="mb-0">{{ 'change your tutorial here'|trans|capitalize }}.</p>
             {% else %}
                 <h2 class="h4">{{ 'post tutorial'|trans|capitalize }}</h2>
-                <p class="mb-0">{{ 'post a new tutorial via our form'|trans|capitalize }}</p>
+                <p class="mb-0">{{ 'post a new tutorial via our form'|trans|capitalize }}.</p>
             {% endif %}
         </div>
     </div>
 
     <form action="{{ path('app_dashboardorganization_tutorial',{'id': tutorial.id}) }}" method="post">
         <div class="row">
-            <div class="col-12 col-xl-8">
+            <div class="col-12 ">
                 <div class="card card-body bg-white border-light shadow-sm mb-4">
                     <h2 class="h5 mb-4">{{ 'general information'|trans|capitalize }}</h2>
 
@@ -38,12 +38,13 @@
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="Tutorial name">{{ 'name'|trans|capitalize }} <span class="text-danger">*</span></label>
+                                <label for="Tutorial name">{{ 'name'|trans|capitalize }} <span
+                                        class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="name"
                                     type="text"
-                                    {% if tutorial.name is defined and tutorial.name is not empty %}
+                                    {% if tutorial.name|default %}
                                         value="{{ tutorial.name }}"
                                     {% else %}
                                         placeholder="{{ 'your tutorial name'|trans|capitalize }}"
@@ -67,7 +68,7 @@
                                     {% if tutorial.description is defined and tutorial.description is not empty %}
                                         value="{{ tutorial.description }}"
                                     {% else %}
-                                        placeholder="{{'your tutorial description'|trans|capitalize }}"
+                                        placeholder="{{ 'your tutorial description'|trans|capitalize }}"
                                     {% endif %}
                                     name="description"
                                     required
@@ -86,7 +87,7 @@
                                     </textarea>
                                 {% else %}
                                     <textarea class="form-control" id="text" name="text"
-                                              placeholder="{{'the text of your tutorial will be displayed here'|trans|capitalize }}"
+                                              placeholder="{{ 'the text of your tutorial will be displayed here'|trans|capitalize }}"
                                               rows="3" cols="6">
                                     </textarea>
                                 {% endif %}
@@ -97,18 +98,30 @@
                     <div class="row align-items-center">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="additionalType">{{ 'organization'|trans|capitalize }}</label>
+                                <label for="organization">{{ 'organization'|trans|capitalize }}</label>
                                 <select class="form-control" name="organization" id="organization">
-                                    {% for organization in organizations %}
-                                        {% set organizationUrl = commonground_cleanurl({'component':'wrc', 'type':'organizations', 'id':organization.id}) %}
-                                        <option
-                                            {% if app.user.organization is defined and app.user.organization == organizationUrl %} selected
-                                            {% elseif tutorial.organization is defined and tutorial.organization == organizationUrl %} selected
-                                            {% endif %}
-                                            value="{{ organizationUrl }}">{{ organization.name }}
-                                        </option>
-                                    {% endfor %}
+                                    {#                                    {% for organization in organizations %}#}
+                                    {#                                        {% set organizationUrl = commonground_cleanurl({'component':'wrc', 'type':'organizations', 'id':organization.id}) %}#}
+                                    {#                                        <option#}
+                                    {#                                            {% if app.user.organization is defined and app.user.organization == organizationUrl %} selected#}
+                                    {#                                            {% elseif tutorial.organization is defined and tutorial.organization == organizationUrl %} selected#}
+                                    {#                                            {% endif %}#}organization
+                                    {#                                            value="{{ organizationUrl }}">{{ .name }}#}
+                                    {#                                        </option>#}
+                                    {#                                    {% endfor %}#}
+{#                                    {% if app.user.organization|default %}#}
+{#                                        {% set org = commonground_resource(app.user.organization) %}#}
+{#                                        <option style="background: #f5f8fb" class="form-control" id="organizationInput"#}
+{#                                                type="text" value="{{ org['@id'] }}"#}
+{#                                                selected>{{ org.name|capitalize }}</option>#}
+{#                                    {% endif %}#}
                                 </select>
+                                {#                                {% if app.user.organization|default %}#}
+                                {#                                    {% set org = commonground_resource(app.user.organization) %}#}
+                                {#                                    <input style="background: #f5f8fb" class="form-control" id="organizationInput"#}
+                                {#                                           type="text"#}
+                                {#                                           name="organization" value="{{ org.name|capitalize }}" disabled>#}
+                                {#                                {% endif %}#}
                             </div>
                         </div>
                     </div>
@@ -150,7 +163,8 @@
                     <div class="row align-items-center">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="time required">{{ 'time required'|trans|capitalize }} <span class="text-danger">*</span></label>
+                                <label for="time required">{{ 'time required'|trans|capitalize }} <span
+                                        class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="description"
@@ -170,7 +184,9 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="educationalCredentialAwarded">{{ 'educational credential'|trans|capitalize }} <span class="text-danger">*</span></label>
+                                <label
+                                    for="educationalCredentialAwarded">{{ 'educational credential'|trans|capitalize }}
+                                    <span class="text-danger">*</span></label>
                                 <input
                                     class="form-control"
                                     id="educationalCredentialAwarded"
@@ -209,12 +225,15 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 mb-3">
                             <div class="form-group">
-                                <label for="occupationalCredentialAwarded">{{ 'occupational credential'|trans|capitalize }}</label>
+                                <label
+                                    for="occupationalCredentialAwarded">{{ 'occupational credential'|trans|capitalize }}</label>
                                 {% if tutorial.occupationalCredentialAwarded is defined and tutorial.occupationalCredentialAwarded is not empty %}
-                                    <textarea class="form-control" id="occupationalCredentialAwarded" name="occupationalCredentialAwarded"
+                                    <textarea class="form-control" id="occupationalCredentialAwarded"
+                                              name="occupationalCredentialAwarded"
                                               rows="3" cols="6">{{ tutorial.occupationalCredentialAwarded }}</textarea>
                                 {% else %}
-                                    <textarea class="form-control" id="occupationalCredentialAwarded" name="occupationalCredentialAwarded"
+                                    <textarea class="form-control" id="occupationalCredentialAwarded"
+                                              name="occupationalCredentialAwarded"
                                               placeholder="{{ 'indicate in the tutorial which professional certificate you receive'|trans|capitalize }}"
                                               rows="3" cols="6"></textarea>
                                 {% endif %}
@@ -235,23 +254,19 @@
                 <p class="mb-0">{{ 'these people are following your tutorial'|trans|capitalize }}</p>
 
                 <div class="row">
-                    <div class="col-12 col-xl-10">
+                    <div class="col-12">
                         <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>
-                                        <th class="border-0">
-                                            <div class="form-check dashboard-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="userCheck55">
-                                                <label class="form-check-label" for="userCheck55"></label>
-                                            </div>
-                                        </th>
-                                        <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
-                                        <th class="border-0" >{{ 'date created'|trans|capitalize }}</th>
-                                        <th class="border-0" >{{ 'verified'|trans|capitalize }}</th>
-                                        <th class="border-0" >{{ 'status'|trans|capitalize }}</th>
-                                        <th class="border-0" >{{ 'action'|trans|capitalize }}</th>
-                                    </tr>
+                                <tr>
+                                    <th class="border-0">
+                                    </th>
+                                    <th class="border-0">{{ 'name'|trans|capitalize }}</th>
+                                    <th class="border-0">{{ 'date created'|trans|capitalize }}</th>
+                                    <th class="border-0">{{ 'verified'|trans|capitalize }}</th>
+                                    <th class="border-0">{{ 'status'|trans|capitalize }}</th>
+                                    <th class="border-0">{{ 'action'|trans|capitalize }}</th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 {% if participants is defined and participants is not empty %}
@@ -262,7 +277,8 @@
                                         <tr>
                                             <td>
                                                 <div class="form-check dashboard-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="userCheck1">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="userCheck1">
                                                     <label class="form-check-label" for="userCheck1"></label>
                                                 </div>
                                             </td>
@@ -289,21 +305,28 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <span class="font-weight-normal">{{ participant.dateCreated|date("d-m-Y", "Europe/Paris") }}</span>
+                                                <span
+                                                    class="font-weight-normal">{{ participant.dateCreated|date("d-m-Y", "Europe/Paris") }}</span>
                                             </td>
                                             <td>
-                                                <span class="font-weight-normal"><span class="fas fa-check-circle text-success mr-2"></span>{{ 'email'|trans|capitalize }}</span>
+                                                <span class="font-weight-normal"><span
+                                                        class="fas fa-check-circle text-success mr-2"></span>{{ 'email'|trans|capitalize }}</span>
                                             </td>
                                             <td>
-                                                <span class="font-weight-normal text-success">{# participant.results #}</span></td>
+                                                <span
+                                                    class="font-weight-normal text-success">{# participant.results #}</span>
+                                            </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
-                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button
+                                                        class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
                                                             <span class="icon icon-sm">
                                                                 <span class="fas fa-ellipsis-h icon-dark"></span>
                                                             </span>
-                                                        <span class="sr-only">{{ 'Toggle Dropdown'|trans|capitalize }}</span>
+                                                        <span
+                                                            class="sr-only">{{ 'Toggle Dropdown'|trans|capitalize }}</span>
                                                     </button>
 
                                                     <div class="dropdown-menu">
@@ -323,7 +346,8 @@
                                                 </div>
 
                                                 <a href="#" class="text-danger ml-2" title="" data-toggle="tooltip"
-                                                   data-original-title="Delete"><span class="fas fa-times-circle"></span></a>
+                                                   data-original-title="Delete"><span
+                                                        class="fas fa-times-circle"></span></a>
                                             </td>
                                         </tr>
                                     {% endfor %}
@@ -333,22 +357,25 @@
                             <div class="card-footer px-3 d-flex align-items-center justify-content-between">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination mb-0">
-                                        <li class="page-item"><a class="page-link" href="#">{{ 'Previous'|trans|capitalize }}</a></li>
+                                        <li class="page-item"><a class="page-link"
+                                                                 href="#">{{ 'Previous'|trans|capitalize }}</a></li>
                                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                                         <li class="page-item active"><a class="page-link" href="#">2</a></li>
                                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                                         <li class="page-item"><a class="page-link" href="#">4</a></li>
                                         <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">{{ 'Next'|trans|capitalize }}</a></li>
+                                        <li class="page-item"><a class="page-link"
+                                                                 href="#">{{ 'Next'|trans|capitalize }}</a></li>
                                     </ul>
                                 </nav>
-                                <div class="font-weight-bold small">{{ 'showing'|trans|capitalize }} <b>5</b>  {{ 'out of'|trans }} <b>25</b> {{ 'entries'|trans }}</div>
+                                <div class="font-weight-bold small">{{ 'showing'|trans|capitalize }}
+                                    <b>5</b> {{ 'out of'|trans }} <b>25</b> {{ 'entries'|trans }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             {% else %}
-                <p class="mb-0">{{ 'there are currently no participants on this tutorial'|trans }}</p>
+                <p class="mb-0">{{ 'there are currently no participants on this tutorial'|trans|capitalize }}.</p>
             {% endif %}
             <br>
         {% endif %}
@@ -356,26 +383,22 @@
         <h3 class="h4">{{ 'requirements'|trans|capitalize }}</h3>
         {% if requirements|default %}
             {% if tutorial.id == 'new' %}
-                <p class="mb-0">{{ 'choose the requirements for your tutorial'|trans|capitalize }}</p>
+                <p class="mb-0">{{ 'choose the requirements for your tutorial'|trans|capitalize }}.</p>
             {% elseif tutorial.coursePrerequisites|default %}
-                <p class="mb-0">{{ 'the checked activities are the requirements of your tutorial'|trans|capitalize }}</p>
+                <p class="mb-0">{{ 'the checked activities are the requirements of your tutorial'|trans|capitalize }}.</p>
             {% else %}
-                <p class="mb-0">{{ 'you can select the requirements for your tutorial here'|trans|capitalize }}</p>
+                <p class="mb-0">{{ 'you can select the requirements for your tutorial here'|trans|capitalize }}.</p>
             {% endif %}
 
             <div class="row">
-                <div class="col-12 col-xl-10">
+                <div class="col-12">
                     <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                         <table class="table table-hover">
                             <thead>
                             <tr>
                                 <th class="border-0">
-                                    <div class="form-check dashboard-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="userCheck55">
-                                        <label class="form-check-label" for="userCheck55"></label>
-                                    </div>
                                 </th>
-                                <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
+                                <th class="border-0">{{ 'name'|trans|capitalize }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -387,12 +410,12 @@
                                                 <div class="form-check dashboard-check">
                                                     <input class="form-check-input"
                                                            type="checkbox"
-                                                           value="{{ requirement['@id'] }}"
+                                                           value="/courses/{{ requirement.id }}"
                                                            id="{{ requirement.id }}Checkbox"
                                                            name="coursePrerequisites[]"
                                                         {% if tutorial.coursePrerequisites|default %}
                                                             {% for act in tutorial.coursePrerequisites %}
-                                                                {% if requirement['@id'] == act %}
+                                                                {% if requirement['id'] == act|split('/')[2] %}
                                                                     checked
                                                                 {% endif %}
                                                             {% endfor %}
@@ -405,7 +428,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="{{ path('app_dashboardorganization_tutorial',{'id': requirement.id}) }}" class="d-flex align-items-center">
+                                                <a href="{{ path('app_dashboardorganization_tutorial',{'id': requirement.id}) }}"
+                                                   class="d-flex align-items-center">
                                                     <span class="font-weight-bold">{{ requirement.name }}</span>
                                                 </a>
                                             </td>
@@ -418,16 +442,19 @@
                         <div class="card-footer px-3 d-flex align-items-center justify-content-between">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination mb-0">
-                                    <li class="page-item"><a class="page-link" href="#">{{ 'Previous'|trans|capitalize }}</a></li>
+                                    <li class="page-item"><a class="page-link"
+                                                             href="#">{{ 'Previous'|trans|capitalize }}</a></li>
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item active"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item"><a class="page-link" href="#">4</a></li>
                                     <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">{{ 'Next'|trans|capitalize }}</a></li>
+                                    <li class="page-item"><a class="page-link"
+                                                             href="#">{{ 'Next'|trans|capitalize }}</a></li>
                                 </ul>
                             </nav>
-                            <div class="font-weight-bold small">{{ 'showing'|trans|capitalize }} <b>5</b>  {{ 'out of'|trans }} <b>25</b> {{ 'entries'|trans }}</div>
+                            <div class="font-weight-bold small">{{ 'showing'|trans|capitalize }}
+                                <b>5</b> {{ 'out of'|trans }} <b>25</b> {{ 'entries'|trans }}</div>
                         </div>
                     </div>
                 </div>
@@ -450,18 +477,14 @@
             {% endif %}
 
             <div class="row">
-                <div class="col-12 col-xl-10">
+                <div class="col-12">
                     <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                         <table class="table table-hover">
                             <thead>
                             <tr>
                                 <th class="border-0">
-                                    <div class="form-check dashboard-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="userCheck55">
-                                        <label class="form-check-label" for="userCheck55"></label>
-                                    </div>
                                 </th>
-                                <th class="border-0" >{{ 'name'|trans|capitalize }}</th>
+                                <th class="border-0">{{ 'name'|trans|capitalize }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -502,16 +525,19 @@
                         <div class="card-footer px-3 d-flex align-items-center justify-content-between">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination mb-0">
-                                    <li class="page-item"><a class="page-link" href="#">{{ 'Previous'|trans|capitalize }}</a></li>
+                                    <li class="page-item"><a class="page-link"
+                                                             href="#">{{ 'Previous'|trans|capitalize }}</a></li>
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item active"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item"><a class="page-link" href="#">4</a></li>
                                     <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">{{ 'Next'|trans|capitalize }}</a></li>
+                                    <li class="page-item"><a class="page-link"
+                                                             href="#">{{ 'Next'|trans|capitalize }}</a></li>
                                 </ul>
                             </nav>
-                            <div class="font-weight-bold small">{{ 'showing'|trans|capitalize }} <b>5</b>  {{ 'out of'|trans }} <b>25</b> {{ 'entries'|trans }}</div>
+                            <div class="font-weight-bold small">{{ 'showing'|trans|capitalize }}
+                                <b>5</b> {{ 'out of'|trans }} <b>25</b> {{ 'entries'|trans }}</div>
                         </div>
                     </div>
                 </div>
