@@ -3462,6 +3462,18 @@
           <source>from</source>
           <target>van</target>
        </trans-unit>
+      <trans-unit id="E12Afs2" resname="add your first tutorial">
+          <source>add your first tutorial</source>
+          <target>voeg je eerste tutorial toe</target>
+       </trans-unit>
+      <trans-unit id="i12n3Na" resname="there are currently no participants on this tutorial">
+          <source>there are currently no participants on this tutorial</source>
+          <target>er zijn momenteel geen deelnemers voor deze tutorial</target>
+       </trans-unit>
+      <trans-unit id="Uj12N2z" resname="change your tutorial here">
+          <source>change your tutorial here</source>
+          <target>Pas hier uw tutorial aan</target>
+       </trans-unit>
     </body>
   </file>
 </xliff>
