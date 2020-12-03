@@ -3511,6 +3511,11 @@
                <source>reward for solutions</source>
                <target>beloning voor oplossingen</target>
              </trans-unit>
+       <trans-unit id="BXHCTC7" resname="organizations are always looking for creative, driven and talented newbies. View the challenges and internships and respond or apply!">
+                      <source>organizations are always looking for creative, driven and talented newbies. View the challenges and internships and respond or apply!</source>
+                      <target>organisaties zijn altijd op zoek naar creatieve, gedreven en getalenteerde newbies. Bekijk de challenges en stages en reageer of solliciteer!
+                              </target>
+                    </trans-unit>
        <trans-unit id="KANZGYp" resname="conduction Academy provides both matchmaking and an online internship platform">
                     <source>conduction Academy provides both matchmaking and an online internship platform</source>
                     <target>conduction academy verzorgt zowel matching als een online stageplatform</target>
@@ -3519,6 +3524,34 @@
                            <source>the latest stageplatform news, articles, and resources, sent straight to your inbox every month.</source>
                            <target>het laatse nieuws over het stageplatform, elke maand rechtstreeks in jouw mailbox</target>
                          </trans-unit>
+       <trans-unit id="AQESYC7" resname="join!">
+                    <source>join!</source>
+                    <target>doe mee!</target>
+                  </trans-unit>
+                  <trans-unit id="MKL54AQ" resname="create a profile and find the best challenges and organization for your internship">
+                    <source>create a profile and find the best challenges and organization for your internship</source>
+                    <target>maak een profiel aan en vind de leukste challenges en organisatie voor jouw stage</target>
+                  </trans-unit>
+       <trans-unit id="tXDsaa2" resname="become part of the community!">
+                      <source>become part of the community!</source>
+                      <target>word onderdeel van de community! </target>
+                    </trans-unit>
+              <trans-unit id="BPLkmC7" resname="to find the best internships, challenges and tutorials that can boost your career">
+                      <source>to find the best internships, challenges and tutorials that can boost your career</source>
+                      <target>om de beste stages, challenges  en tutorials te vinden die je carrière een boost kunnen geven</target>
+                    </trans-unit>
+       <trans-unit id="NxgZZa2" resname="do you as an organization have a (digital) issue or a challenge? And do you want a fresh look or an innovative solution? Post a challenge and invite students to respond and pitch their ideas and / or products!">
+                      <source>do you as an organization have a (digital) issue or a challenge? And do you want a fresh look or an innovative solution? Post a challenge and invite students to respond and pitch their ideas and / or products!</source>
+                      <target>heeft u als organisatie een (digitaal) vraagstuk of een uitdaging? En wilt u een frisse blik of een innovatieve oplossing ? Plaats een challenge en nodig studenten uit om te reageren en hun ideeën en / of producten te pitchen!</target>
+                    </trans-unit>
+       <trans-unit id="BsgXCZa" resname="by starting your own team, you can attract teammates and take on challenges / challenges together. There is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.">
+                 <source>by starting your own team, you can attract teammates and take on challenges / challenges together. There is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.</source>
+                 <target>door je eigen team te starten, kun je teamgenoten aantrekken en samen uitdagingen / uitdagingen aangaan. Er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team van studenten van verschillende studies.</target>
+              </trans-unit>
+        <trans-unit id="NAZKsai" resname="the choice is yours!">
+                            <source>the choice is yours!</source>
+                            <target>de keuze is aan jou!</target>
+                          </trans-unit>
     </body>
   </file>
 </xliff>
