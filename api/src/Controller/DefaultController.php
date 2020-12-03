@@ -4,6 +4,7 @@
 
 namespace App\Controller;
 
+use App\Service\MailingService;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +27,7 @@ class DefaultController extends AbstractController
      * @Route("/")
      * @Template
      */
-    public function indexAction(CommonGroundService $commonGroundService, Request $request, ParameterBagInterface $params)
+    public function indexAction(CommonGroundService $commonGroundService, MailingService $mailingService, Request $request, ParameterBagInterface $params)
     {
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
@@ -38,6 +39,8 @@ class DefaultController extends AbstractController
             $employees = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $personUrl])['hydra:member'];
 
             if (!count($employees) > 0) {
+                $mailingService->sendMail('mails/welcome_mail.html.twig', 'no-reply@conduction.nl', $this->getUser()->getUsername(), 'Welkom op conduction.academy');
+
                 $employee = [];
                 $employee['person'] = $personUrl;
 
