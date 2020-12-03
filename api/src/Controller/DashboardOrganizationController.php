@@ -45,8 +45,11 @@ class DashboardOrganizationController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        // Get resource tutorials (known as cources component side)
-        $variables['tutorials'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses'], $variables['query'])['hydra:member'];
+        if ($this->getUser() && $this->getUser()->getOrganization()) {
+            $variables['query'][] = ['organization' => $this->getUser()->getOrganization()];
+            // Get resource tutorials (known as cources component side)
+            $variables['tutorials'] = $commonGroundService->getResourceList(['component'=>'edu', 'type'=>'courses'], ['organization'=> $commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>$commonGroundService->getUuidFromUrl($this->getUser()->getOrganization())])])['hydra:member'];
+        }
 
         return $variables;
     }
@@ -77,6 +80,8 @@ class DashboardOrganizationController extends AbstractController
             // Add the post data to the already aquired resource data
 //            $resource = array_merge($variables['tutorial'], $resource);
             // Update to the commonground component
+            var_dump($resource);
+//            die;
             $variables['tutorial'] = $commonGroundService->saveResource($resource, ['component' => 'edu', 'type' => 'courses']);
 
             return $this->redirect($this->generateUrl('app_dashboardorganization_tutorials'));

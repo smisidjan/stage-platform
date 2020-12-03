@@ -108,6 +108,7 @@ class DashboardUserController extends AbstractController
         $variables = [];
 
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
+        $variables['tutorial']['results'][0] = ['id'=>'1234', 'name'=>'test result'];
 
         return $variables;
     }
