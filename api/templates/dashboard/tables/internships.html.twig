@@ -18,24 +18,40 @@
             <thead class="thead-light">
             <tr>
                 <th scope="col">{{ 'name'|trans|capitalize }}</th>
-                <th scope="col">{{ 'end date'|trans|capitalize }}</th>
-                <th scope="col">Page Value</th>
+                <th scope="col">{{ 'hiring organization'|trans|capitalize }}</th>
                 <th scope="col">{{ 'details'|trans|capitalize }}</th>
+                {% if backUrl is defined %}
+                    <th scope="col">{{ 'remove like'|trans|capitalize }}</th>
+                {% endif %}
             </tr>
             </thead>
             <tbody>
             {% for internship in internships|slice(0, 10) %}
                 <tr>
                     <th>{{ internship.name }}</th>
-                    <td>{{ commonground_resource(internship.hiringOrganization).name }}</td>
-                    <td>$20</td>
-                    <td>
-                    {% if editPath is  defined %}
-                        <a href="{{ path(editPath, {'id':internship.id }) }}" class="btn btn-primary">{{ 'edit'|trans|capitalize }}</a>
+                    {% if commonground_is_resource(internship.hiringOrganization) %}
+                        <td>{{ commonground_resource(internship.hiringOrganization).name }}</td>
                     {% else %}
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ internship.id }}">{{ 'edit'|trans|capitalize }}</button>
+                        <td>{{ 'no organization found'|trans|capitalize }}</td>
                     {% endif %}
-                    </td>
+                    {% if editPath is defined %}
+                        <td>
+                            <a href="{{ path(editPath, {'id':internship.id }) }}" class="btn btn-primary">{{ 'edit'|trans|capitalize }}</a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <a href="{{ path('app_internship_position', {id: internship.id}) }}" class="btn btn-primary">{{ 'view'|trans|capitalize }}</a>
+                        </td>
+                    {% endif %}
+                    {% if backUrl is defined %}
+                        <td>
+                            {% if backUrl == 'app_dashboarduser_likes' %}
+                                <a href="{{ path('app_internship_like', {id: internship.id, backUrl: backUrl}) }}" class="btn btn-secondary mr-3 animate-up-2 m-0">
+                                    <i class="fal fa-heart"></i>
+                                </a>
+                            {% endif %}
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>

@@ -2,7 +2,7 @@
     <div class="card-header">
         <div class="row align-items-center">
             <div class="col">
-                <h2 class="h5">{{ 'results'|trans|capitalize }}</h2>
+                <h2 class="h5">{{ 'programs'|trans|capitalize }}</h2>
             </div>
             <div class="col text-right">
             {% if addPath is  defined %}
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    {% if results is  defined and results|length > 0 %}
+    {% if programs is  defined and programs|length > 0 %}
     <div class="table-responsive">
         <table class="table align-items-center table-flush">
             <thead class="thead-light">
@@ -23,31 +23,27 @@
             </tr>
             </thead>
             <tbody>
-            {% for result in results|slice(0, 10) %}
+            {% for program in programs|slice(0, 10) %}
                 <tr>
-                    <td>{{ result.name|capitalize }}</td>
-                    <td class="float-right">
-                        {% if editPath is  defined %}
-                            <a href="{{ path(editPath, {'id':tutorial.id }) }}" class="btn btn-primary">{{ 'edit'|trans|capitalize }}</a>
-                        {% endif %}
-                    </td>
+                    <td>{{ program.name|capitalize }}</td>
+                    <td class="float-right"></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
-    {% for result in results|slice(0, 10) %}
-        {% include 'dashboard/modals/result.html.twig' with {
-            'id': result.id,
-            'result':result
-        }%}
-    {% endfor %}
+{#    {% for result in results|slice(0, 10) %}#}
+{#        {% include 'dashboard/modals/result.html.twig' with {#}
+{#            'id': result.id,#}
+{#            'result':result#}
+{#        }%}#}
+{#    {% endfor %}#}
     {% else %}
 
-    {% include 'dashboard/modals/result.html.twig' with {'id': 'new'}%}
+{#    {% include 'dashboard/modals/result.html.twig' with {'id': 'new'}%}#}
 
     <div class="card-body text-center">
-        <p>{{ 'no tutorials found'|trans|capitalize }}</p>
+        <p>{{ 'no programs found'|trans|capitalize }}</p>
         {% if addPath is  defined %}
             <a href="{{ path(addPath, {'id':'new' }) }}" class="btn btn-primary">{{ 'add your first tutorial!'|trans|capitalize }}</a>
         {% else %}
