@@ -32,35 +32,53 @@ class DashboardUserController extends AbstractController
 
         // Get random unfilterd data
         $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
-        $variables['teams'] = [];
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'], $variables['query'])['hydra:member'];
 
         //  Getting the participant @todo this needs to be more foolproof
         if ($this->getUser()) {
             $personUrl = $this->getUser()->getPerson();
-            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person'=> $personUrl]])['hydra:member'];
 
-            if (count($participants) > 0) {
-                $variables['participant'] = $participants[0];
+            $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person' => $personUrl]])['hydra:member'];
+            $employee = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees', ['person' => $personUrl]])['hydra:member'];
+            if (count($employee) > 0) {
+                $employee = $employee[0];
             }
         }
 
         //employee connected to user
-        $employee = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees', ['person' => $personUrl]])['hydra:member'];
-        if (count($employee) > 0) {
-            $employee = $employee[0];
-        }
+
         //applications ophalen die gemaakt zijn door de user
         $variables['applications'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'applications', ['employee' => $employee['@id']]])['hydra:member'];
 
-        if (!empty($variables['participant']['courses'])) {
-            $variables['courses'] = $variables['participant']['courses'];
-        }
-        if (!empty($variables['participant']['programs'])) {
-            $variables['programs'] = $variables['participant']['programs'];
-        }
-        if (!empty($variables['participant']['programs'])) {
-            $variables['results'] = $variables['participant']['results'];
+//        if (!empty($variables['participant']['courses'])) {
+//            $variables['courses'] = $variables['participant']['courses'];
+//        }
+//        if (!empty($variables['participant']['programs'])) {
+//            $variables['programs'] = $variables['participant']['programs'];
+//        }
+//        if (!empty($variables['participant']['programs'])) {
+//            $variables['results'] = $variables['participant']['results'];
+//        }
+
+        if (isset($variables['participants'])) {
+            $courseIds = [];
+            $groupIds = [];
+            foreach ($variables['participants'] as $participant) {
+                if (isset($participant['course']) && $participant['course']) {
+                    if (!in_array($participant['course']['id'], $courseIds)) {
+                        $variables['courses'][] = $participant['course'];
+                        $courseIds[] = $participant['course']['id'];
+                    }
+                }
+                if (isset($participant['groups']) && $participant['groups']) {
+                    foreach ($participant['groups'] as $group) {
+                        if (!in_array($group['id'], $groupIds)) {
+                            $variables['groups'][] = $group;
+                            $groupIds[] = $group['id'];
+                        }
+                    }
+                }
+            }
         }
 
         return $variables;
@@ -108,7 +126,7 @@ class DashboardUserController extends AbstractController
         $variables = [];
 
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
-        $variables['tutorial']['results'][0] = ['id'=>'1234', 'name'=>'test result'];
+        $variables['tutorial']['results'][0] = ['id' => '1234', 'name' => 'test result'];
 
         return $variables;
     }
@@ -233,7 +251,7 @@ class DashboardUserController extends AbstractController
             if ($commonGroundService->isResource($this->getUser()->getPerson())) {
                 $internships = [];
                 foreach ($variables['internships'] as $internship) {
-                    $internshipUrl = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'job_postings', 'id'=>$internship['id']]);
+                    $internshipUrl = $commonGroundService->cleanUrl(['component' => 'mrc', 'type' => 'job_postings', 'id' => $internship['id']]);
                     $likes = $commonGroundService->getResourceList(['component' => 'rc', 'type' => 'likes'], ['resource' => $internshipUrl, 'author' => $this->getUser()->getPerson()])['hydra:member'];
                     if (count($likes) > 0) {
                         array_push($internships, $internship);
@@ -276,14 +294,14 @@ class DashboardUserController extends AbstractController
             $person['name'] = $name;
             $person['aboutMe'] = $request->get('aboutMe');
             $person['emails'][0] = [];
-            $person['emails'][0]['name'] = 'email for '.$name;
+            $person['emails'][0]['name'] = 'email for ' . $name;
             $person['emails'][0]['email'] = $request->get('email');
             $person['telephones'][0] = [];
-            $person['telephones'][0]['name'] = 'telephone for '.$name;
+            $person['telephones'][0]['name'] = 'telephone for ' . $name;
             $person['telephones'][0]['telephone'] = $request->get('telephone');
 
             $address = [];
-            $address['name'] = 'address for '.$name;
+            $address['name'] = 'address for ' . $name;
             $address['street'] = $request->get('street');
             $address['houseNumber'] = $request->get('houseNumber');
             $address['houseNumberSuffix'] = $request->get('houseNumberSuffix');
@@ -292,8 +310,8 @@ class DashboardUserController extends AbstractController
             $person['adresses'][0] = $address;
 
             $socials = [];
-            $socials['name'] = 'socials for '.$name;
-            $socials['description'] = 'socials for '.$name;
+            $socials['name'] = 'socials for ' . $name;
+            $socials['description'] = 'socials for ' . $name;
             $socials['facebook'] = $request->get('facebook');
             $socials['twitter'] = $request->get('twitter');
             $socials['linkedin'] = $request->get('linkedin');
@@ -310,7 +328,7 @@ class DashboardUserController extends AbstractController
                 if (!$commonGroundService->isResource($this->getUser()->getPerson()) or !isset($user['person'])) {
                     $user['person'] = $commonGroundService->cleanUrl(['component' => 'cc', 'type' => 'people', 'id' => $person['id']]);
                     foreach ($user['userGroups'] as &$userGroup) {
-                        $userGroup = '/groups/'.$userGroup['id'];
+                        $userGroup = '/groups/' . $userGroup['id'];
                     }
                     $commonGroundService->updateResource($user);
                 }
@@ -320,7 +338,7 @@ class DashboardUserController extends AbstractController
             if (isset($variables['portfolio'])) {
                 $portfolio = $variables['portfolio'];
             }
-            $portfolio['name'] = 'portfolio of '.$name;
+            $portfolio['name'] = 'portfolio of ' . $name;
             $portfolio['owner'] = $commonGroundService->cleanUrl(['component' => 'cc', 'type' => 'people', 'id' => $person['id']]);
             $portfolio = $commonGroundService->saveResource($portfolio, ['component' => 'pfc', 'type' => 'portfolios']);
 
@@ -408,7 +426,7 @@ class DashboardUserController extends AbstractController
             $resource = array_merge($variables['item'], $resource);
 
             if (isset($resource['style'])) {
-                $resource['style'] = '/styles/'.$resource['style']['id'];
+                $resource['style'] = '/styles/' . $resource['style']['id'];
             }
 
             // Update to the commonground component
@@ -424,19 +442,19 @@ class DashboardUserController extends AbstractController
                 $newUserGroup['title'] = $resource['nameUG'];
                 $newUserGroup['organization'] = $variables['item']['@id'];
                 $newUserGroup['canBeRegisteredFor'] = true;
-                $newUserGroup['users'][] = 'users/'.$user['id'];
+                $newUserGroup['users'][] = 'users/' . $user['id'];
 
                 $newUserGroup = $commonGroundService->saveResource($newUserGroup, ['component' => 'uc', 'type' => 'groups']);
             }
 
             if (count($variables['userGroups']) == 0) {
                 $userGroup = [];
-                $userGroup['name'] = $variables['item']['name'].'-admin';
+                $userGroup['name'] = $variables['item']['name'] . '-admin';
                 $userGroup['organization'] = $variables['item']['@id'];
                 $userGroup['description'] = 'The administrators for the organization';
-                $userGroup['code'] = $variables['item']['name'].'-admin';
+                $userGroup['code'] = $variables['item']['name'] . '-admin';
                 $userGroup['canBeRegisteredFor'] = false;
-                $userGroup['users'][] = 'users/'.$user['id'];
+                $userGroup['users'][] = 'users/' . $user['id'];
 
                 $userGroup = $commonGroundService->saveResource($userGroup, ['component' => 'uc', 'type' => 'groups']);
             } else {

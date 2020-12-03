@@ -3474,6 +3474,14 @@
           <source>change your tutorial here</source>
           <target>Pas hier uw tutorial aan</target>
        </trans-unit>
+      <trans-unit id="IO12NA3" resname="you are a member of this team">
+          <source>you are a member of this team</source>
+          <target>je bent lid van dit team</target>
+       </trans-unit>
+      <trans-unit id="JO921n2" resname="this team participates in these tutorials">
+          <source>this team participates in these tutorials</source>
+          <target>dit team doet mee met deze tutorials</target>
+       </trans-unit>
     </body>
   </file>
 </xliff>
