@@ -61,7 +61,7 @@ class TeamController extends AbstractController
             $motivation = $request->request->get('motivaton');
 
             $participant['person'] = $this->getUser()->getPerson();
-            $participant['groups'][] = "/groups/" . $variables['team']['id'];
+            $participant['groups'][] = '/groups/'.$variables['team']['id'];
             $participant = $commonGroundService->saveResource($participant, ['component' => 'edu', 'type' => 'participants']);
             $variables['team'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups', 'id' => $id]);
         }
