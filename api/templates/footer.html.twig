@@ -51,7 +51,7 @@
             <div class="col-12 col-sm-6 col-lg-4">
                 <h5>{{ 'subscribe'|trans|capitalize }}</h5>
                 <p class="font-small">{{ 'The latest stageplatform news, articles, and resources, sent straight to your inbox every month.'|trans|capitalize }}</p>
-                <form action="#">
+                <form action="{{ path('app_default_newsletter') }}">
                     <div class="form-row">
                         <div class="col-8">
                             <input type="email" class="form-control mb-2" placeholder="{{ 'e-mail address'|trans|capitalize }}" name="email" required>
