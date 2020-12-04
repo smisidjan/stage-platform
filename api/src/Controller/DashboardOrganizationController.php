@@ -152,11 +152,11 @@ class DashboardOrganizationController extends AbstractController
             }
 
             // Make sure there is no invalid input for standardHours and baseSalary
-            $resource['standardHours'] = (int)$resource['standardHours'];
+            $resource['standardHours'] = (int) $resource['standardHours'];
             if (empty($resource['baseSalary'])) {
                 unset($resource['baseSalary']);
             } else {
-                $resource['baseSalary'] = (int)$resource['baseSalary'];
+                $resource['baseSalary'] = (int) $resource['baseSalary'];
             }
 
             // Update or create to the commonground component
@@ -219,7 +219,7 @@ class DashboardOrganizationController extends AbstractController
             //@todo function to do this
             if (isset($resource['stages'])) {
                 foreach ($resource['stages'] as &$stage) {
-                    $stage = '/tender_stages/' . $stage['id'];
+                    $stage = '/tender_stages/'.$stage['id'];
                 }
             }
 
@@ -328,14 +328,14 @@ class DashboardOrganizationController extends AbstractController
             }
             $organizationContact['name'] = $name;
             $organizationContact['emails'][0] = [];
-            $organizationContact['emails'][0]['name'] = 'email for ' . $name;
+            $organizationContact['emails'][0]['name'] = 'email for '.$name;
             $organizationContact['emails'][0]['email'] = $request->get('email');
             $organizationContact['telephones'][0] = [];
-            $organizationContact['telephones'][0]['name'] = 'telephone for ' . $name;
+            $organizationContact['telephones'][0]['name'] = 'telephone for '.$name;
             $organizationContact['telephones'][0]['telephone'] = $request->get('telephone');
 
             $address = [];
-            $address['name'] = 'address for ' . $name;
+            $address['name'] = 'address for '.$name;
             $address['street'] = $request->get('street');
             $address['houseNumber'] = $request->get('houseNumber');
             $address['houseNumberSuffix'] = $request->get('houseNumberSuffix');
@@ -344,8 +344,8 @@ class DashboardOrganizationController extends AbstractController
             $organizationContact['adresses'][0] = $address;
 
             $socials = [];
-            $socials['name'] = 'socials for ' . $name;
-            $socials['description'] = 'socials for ' . $name;
+            $socials['name'] = 'socials for '.$name;
+            $socials['description'] = 'socials for '.$name;
             $socials['facebook'] = $request->get('facebook');
             $socials['twitter'] = $request->get('twitter');
             $socials['linkedin'] = $request->get('linkedin');
@@ -365,7 +365,7 @@ class DashboardOrganizationController extends AbstractController
                 if (!$commonGroundService->isResource($this->getUser()->getOrganization()) or !isset($user['organization'])) {
                     $user['organization'] = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
                     foreach ($user['userGroups'] as &$userGroup) {
-                        $userGroup = '/groups/' . $userGroup['id'];
+                        $userGroup = '/groups/'.$userGroup['id'];
                     }
                     $commonGroundService->updateResource($user);
                 }
@@ -376,7 +376,6 @@ class DashboardOrganizationController extends AbstractController
 
         return $variables;
     }
-
 
     /**
      * @Route("/participants")
@@ -396,12 +395,11 @@ class DashboardOrganizationController extends AbstractController
             unset($participation['course']);
             unset($participation['program']);
             if ($participation['status'] == 'accpeted') {
-                $participation['dateOfAcceptance'] = new Date("today");
+                $participation['dateOfAcceptance'] = new Date('today');
             } else {
                 $participation['dateOfAcceptance'] = null;
             }
             $participation = $commonGroundService->saveResource($participation, $participation['@id']);
-
         }
 
         $allParticipants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'])['hydra:member'];
@@ -414,17 +412,14 @@ class DashboardOrganizationController extends AbstractController
                     if (isset($part['course']) &&
                         isset($part['course']['organization']) &&
                         $part['course']['organization'] == $this->getUser()->getOrganization()) {
-
                         $variables['participants'][] = $part;
                     } elseif (isset($part['program']) &&
                         isset($part['program']['organization']) &&
                         $part['program']['organization'] == $this->getUser()->getOrganization()) {
-
                         $variables['participants'][] = $part;
                     } elseif (isset($part['groups']) && count($part['groups']) > 0) {
                         foreach ($part['groups'] as $group) {
                             if (isset($group['organization']) && $group['organization'] == $this->getUser()->getOrganization()) {
-
                                 $addPart = true;
                             }
                         }
@@ -437,7 +432,6 @@ class DashboardOrganizationController extends AbstractController
                 }
             }
         }
-
 
         return $variables;
     }

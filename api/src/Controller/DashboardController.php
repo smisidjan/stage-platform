@@ -10,7 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/dashboard")
- *
  */
 class DashboardController extends AbstractController
 {
@@ -25,4 +24,3 @@ class DashboardController extends AbstractController
         return $variables;
     }
 }
-
