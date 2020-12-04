@@ -80,7 +80,7 @@ class DashboardUserController extends AbstractController
                         }
                     }
                 }
-                if(!in_array($participant['id'], $participationIds) &&
+                if (!in_array($participant['id'], $participationIds) &&
                     ($participant['groups'] || $participant['program'] || $participant['course'])) {
                     $variables['participations'][] = $participant;
                     $participationIds[] = $participant['id'];

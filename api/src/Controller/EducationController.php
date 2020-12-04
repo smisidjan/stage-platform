@@ -98,8 +98,7 @@ class EducationController extends AbstractController
 
             // Create a participant
             $participant['person'] = $this->getUser()->getPerson();
-            $participant['course'] = '/courses/' . $variables['tutorial']['id'];
-
+            $participant['course'] = '/courses/'.$variables['tutorial']['id'];
 
             $participant['status'] = 'pending';
             if (isset($resource['motivation'])) {
