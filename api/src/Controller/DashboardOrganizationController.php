@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * The DashboardController test handles any calls that have not been picked up by another test, and wel try to handle the slug based against the wrc.
@@ -25,6 +26,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -39,6 +41,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function tutorialsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         $variables['addPath'] = 'app_dashboardorganization_tutorial';
@@ -48,7 +51,7 @@ class DashboardOrganizationController extends AbstractController
         if ($this->getUser() && $this->getUser()->getOrganization()) {
             $variables['query'][] = ['organization' => $this->getUser()->getOrganization()];
             // Get resource tutorials (known as cources component side)
-            $variables['tutorials'] = $commonGroundService->getResourceList(['component'=>'edu', 'type'=>'courses'], ['organization'=> $commonGroundService->cleanUrl(['component'=>'wrc', 'type'=>'organizations', 'id'=>$commonGroundService->getUuidFromUrl($this->getUser()->getOrganization())])])['hydra:member'];
+            $variables['tutorials'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'], ['organization' => $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $commonGroundService->getUuidFromUrl($this->getUser()->getOrganization())])])['hydra:member'];
         }
 
         return $variables;
@@ -60,6 +63,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function tutorialAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
         $variables['additionalType'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
         $variables['organizations'] = $commonGroundService->getResourceList(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
@@ -96,6 +100,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function internshipsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         $variables['addPath'] = 'app_dashboardorganization_internship';
@@ -115,6 +120,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function internshipAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
@@ -146,11 +152,11 @@ class DashboardOrganizationController extends AbstractController
             }
 
             // Make sure there is no invalid input for standardHours and baseSalary
-            $resource['standardHours'] = (int) $resource['standardHours'];
+            $resource['standardHours'] = (int)$resource['standardHours'];
             if (empty($resource['baseSalary'])) {
                 unset($resource['baseSalary']);
             } else {
-                $resource['baseSalary'] = (int) $resource['baseSalary'];
+                $resource['baseSalary'] = (int)$resource['baseSalary'];
             }
 
             // Update or create to the commonground component
@@ -168,6 +174,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function challengesAction(Request $request, CommonGroundService $commonGroundService)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -187,6 +194,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function challengeAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         $variables['organizations'] = $commonGroundService->getResourceList(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
@@ -211,7 +219,7 @@ class DashboardOrganizationController extends AbstractController
             //@todo function to do this
             if (isset($resource['stages'])) {
                 foreach ($resource['stages'] as &$stage) {
-                    $stage = '/tender_stages/'.$stage['id'];
+                    $stage = '/tender_stages/' . $stage['id'];
                 }
             }
 
@@ -230,6 +238,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function teamsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -246,6 +255,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function teamAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         return $variables;
@@ -257,6 +267,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function competencesAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -273,6 +284,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function competenceAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         return $variables;
@@ -284,6 +296,7 @@ class DashboardOrganizationController extends AbstractController
      */
     public function settingsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         if ($this->getUser()) {
@@ -315,14 +328,14 @@ class DashboardOrganizationController extends AbstractController
             }
             $organizationContact['name'] = $name;
             $organizationContact['emails'][0] = [];
-            $organizationContact['emails'][0]['name'] = 'email for '.$name;
+            $organizationContact['emails'][0]['name'] = 'email for ' . $name;
             $organizationContact['emails'][0]['email'] = $request->get('email');
             $organizationContact['telephones'][0] = [];
-            $organizationContact['telephones'][0]['name'] = 'telephone for '.$name;
+            $organizationContact['telephones'][0]['name'] = 'telephone for ' . $name;
             $organizationContact['telephones'][0]['telephone'] = $request->get('telephone');
 
             $address = [];
-            $address['name'] = 'address for '.$name;
+            $address['name'] = 'address for ' . $name;
             $address['street'] = $request->get('street');
             $address['houseNumber'] = $request->get('houseNumber');
             $address['houseNumberSuffix'] = $request->get('houseNumberSuffix');
@@ -331,8 +344,8 @@ class DashboardOrganizationController extends AbstractController
             $organizationContact['adresses'][0] = $address;
 
             $socials = [];
-            $socials['name'] = 'socials for '.$name;
-            $socials['description'] = 'socials for '.$name;
+            $socials['name'] = 'socials for ' . $name;
+            $socials['description'] = 'socials for ' . $name;
             $socials['facebook'] = $request->get('facebook');
             $socials['twitter'] = $request->get('twitter');
             $socials['linkedin'] = $request->get('linkedin');
@@ -352,7 +365,7 @@ class DashboardOrganizationController extends AbstractController
                 if (!$commonGroundService->isResource($this->getUser()->getOrganization()) or !isset($user['organization'])) {
                     $user['organization'] = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
                     foreach ($user['userGroups'] as &$userGroup) {
-                        $userGroup = '/groups/'.$userGroup['id'];
+                        $userGroup = '/groups/' . $userGroup['id'];
                     }
                     $commonGroundService->updateResource($user);
                 }
@@ -360,6 +373,71 @@ class DashboardOrganizationController extends AbstractController
 
             return $this->redirect($this->generateUrl('app_dashboardorganization_settings'));
         }
+
+        return $variables;
+    }
+
+
+    /**
+     * @Route("/participants")
+     * @Template
+     */
+    public function participantsAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $variables = [];
+
+        if ($request->isMethod('POST')) {
+            $resource = $request->request->all();
+            $participation = $commonGroundService->getResource($resource['id']);
+
+            $participation['status'] = $resource['status'];
+            unset($participation['groups']);
+            unset($participation['course']);
+            unset($participation['program']);
+            if ($participation['status'] == 'accpeted') {
+                $participation['dateOfAcceptance'] = new Date("today");
+            } else {
+                $participation['dateOfAcceptance'] = null;
+            }
+            $participation = $commonGroundService->saveResource($participation, $participation['@id']);
+
+        }
+
+        $allParticipants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'])['hydra:member'];
+
+        // Some code to get the right participants of this organization
+        $participantIds = [];
+        if (isset($allParticipants) && count($allParticipants) > 0) {
+            foreach ($allParticipants as $part) {
+                if (!in_array($part['id'], $participantIds)) {
+                    if (isset($part['course']) &&
+                        isset($part['course']['organization']) &&
+                        $part['course']['organization'] == $this->getUser()->getOrganization()) {
+
+                        $variables['participants'][] = $part;
+                    } elseif (isset($part['program']) &&
+                        isset($part['program']['organization']) &&
+                        $part['program']['organization'] == $this->getUser()->getOrganization()) {
+
+                        $variables['participants'][] = $part;
+                    } elseif (isset($part['groups']) && count($part['groups']) > 0) {
+                        foreach ($part['groups'] as $group) {
+                            if (isset($group['organization']) && $group['organization'] == $this->getUser()->getOrganization()) {
+
+                                $addPart = true;
+                            }
+                        }
+                        if ($addPart == true) {
+                            $variables['participants'][] = $part;
+                            $addPart = false;
+                        }
+                    }
+                    $participantIds[] = $part['id'];
+                }
+            }
+        }
+
 
         return $variables;
     }

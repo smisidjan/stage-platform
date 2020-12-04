@@ -56,12 +56,14 @@ class TeamController extends AbstractController
         $variables['participations'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], [''])['hydra:member'];
 
         if ($request->isMethod('POST') && $this->getUser()) {
-
-            // We dont do anything with this yet
-            $motivation = $request->request->get('motivaton');
-
             $participant['person'] = $this->getUser()->getPerson();
             $participant['groups'][] = "/groups/" . $variables['team']['id'];
+
+            if($request->request->get('motivaton')) {
+                $participant = $request->request->get('motivaton');
+            }
+            $participant['status'] = 'pending';
+
             $participant = $commonGroundService->saveResource($participant, ['component' => 'edu', 'type' => 'participants']);
             $variables['team'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups', 'id' => $id]);
         }

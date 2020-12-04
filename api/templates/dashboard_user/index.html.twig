@@ -54,6 +54,13 @@
                     {% include 'dashboard/widgets/teams.html.twig' %}
                 {% endif %}
             </div>
+            <div class="col-12 px-0 mb-4">
+                {% if participations|default %}
+                    {% include 'dashboard/tables/participations.html.twig' with {'items': participations} %}
+                {% else %}
+                    {% include 'dashboard/tables/participations.html.twig' %}
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}

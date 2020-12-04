@@ -25,6 +25,7 @@ class DashboardUserController extends AbstractController
      */
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -63,20 +64,26 @@ class DashboardUserController extends AbstractController
         if (isset($variables['participants'])) {
             $courseIds = [];
             $groupIds = [];
+            $participationIds = [];
             foreach ($variables['participants'] as $participant) {
-                if (isset($participant['course']) && $participant['course']) {
+                if (isset($participant['course']) && $participant['status'] && $participant['status'] == 'accepted') {
                     if (!in_array($participant['course']['id'], $courseIds)) {
                         $variables['courses'][] = $participant['course'];
                         $courseIds[] = $participant['course']['id'];
                     }
                 }
-                if (isset($participant['groups']) && $participant['groups']) {
+                if (isset($participant['groups']) && $participant['status'] && $participant['status'] == 'accepted') {
                     foreach ($participant['groups'] as $group) {
                         if (!in_array($group['id'], $groupIds)) {
                             $variables['groups'][] = $group;
                             $groupIds[] = $group['id'];
                         }
                     }
+                }
+                if(!in_array($participant['id'], $participationIds) &&
+                    ($participant['groups'] || $participant['program'] || $participant['course'])) {
+                    $variables['participations'][] = $participant;
+                    $participationIds[] = $participant['id'];
                 }
             }
         }
@@ -90,6 +97,7 @@ class DashboardUserController extends AbstractController
      */
     public function tutorialsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -123,6 +131,7 @@ class DashboardUserController extends AbstractController
      */
     public function tutorialAction(CommonGroundService $commonGroundService, Request $request, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
@@ -137,6 +146,7 @@ class DashboardUserController extends AbstractController
      */
     public function internshipsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -154,6 +164,7 @@ class DashboardUserController extends AbstractController
      */
     public function internshipAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         return $variables;
@@ -165,6 +176,7 @@ class DashboardUserController extends AbstractController
      */
     public function propositionsAction(Request $request, CommonGroundService $commonGroundService)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -179,6 +191,7 @@ class DashboardUserController extends AbstractController
      */
     public function propositionAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         return $variables;
@@ -190,6 +203,7 @@ class DashboardUserController extends AbstractController
      */
     public function challengesAction(Request $request, CommonGroundService $commonGroundService)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -204,6 +218,7 @@ class DashboardUserController extends AbstractController
      */
     public function challengeAction(Request $request, CommonGroundService $commonGroundService, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         return $variables;
@@ -215,6 +230,7 @@ class DashboardUserController extends AbstractController
      */
     public function teamsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         // On an index route we might want to filter based on user input
@@ -232,6 +248,7 @@ class DashboardUserController extends AbstractController
      */
     public function teamAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         return $variables;
@@ -243,6 +260,7 @@ class DashboardUserController extends AbstractController
      */
     public function likesAction(Request $request, CommonGroundService $commonGroundService)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         // Get all Internship resources
         $variables['internships'] = $commonGroundService->getResource(['component' => 'mrc', 'type' => 'job_postings'])['hydra:member'];
 
@@ -270,6 +288,7 @@ class DashboardUserController extends AbstractController
      */
     public function settingsAction(CommonGroundService $commonGroundService, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
         if ($this->getUser()) {
