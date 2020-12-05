@@ -833,7 +833,7 @@
       </trans-unit>
       <trans-unit id="tKgT4QH" resname="You can do this individually or with others.">
         <source>You can do this individually or with others.</source>
-        <target>U kunt dit individueel of met anderen doen.</target>
+        <target>Je kunt dit individueel of met anderen doen.</target>
       </trans-unit>
       <trans-unit id="wvQOvjX" resname="Looking for team players watch">
         <source>Looking for team players watch</source>
@@ -981,7 +981,7 @@
       </trans-unit>
       <trans-unit id="8r6nJyn" resname="Dont worry, joining the comunnity and adding the your organizations unqiue value to it is a breazey. Just register and add it under organizations">
         <source>Dont worry, joining the comunnity and adding the your organizations unqiue value to it is a breazey. Just register and add it under organizations</source>
-        <target>Maak je geen zorgen, lid worden van de gemeenschap en de unieke waarde van je organisatie eraan toevoegen is een fluitje van een cent. Gewoon registreren en toevoegen onder organisaties</target>
+        <target>Maak je geen zorgen, lid worden van de gemeenschap en de unieke waarde van je organisatie eraan toevoegen is een fluitje van een cent! Gewoon registreren en toevoegen onder organisaties.</target>
       </trans-unit>
       <trans-unit id="gge8raz" resname="Lift off your career">
         <source>Lift off your career</source>
@@ -3473,6 +3473,14 @@
       <trans-unit id="Uj12N2z" resname="change your tutorial here">
           <source>change your tutorial here</source>
           <target>Pas hier uw tutorial aan</target>
+       </trans-unit>
+      <trans-unit id="IO12NA3" resname="you are a member of this team">
+          <source>you are a member of this team</source>
+          <target>je bent lid van dit team</target>
+       </trans-unit>
+      <trans-unit id="JO921n2" resname="this team participates in these tutorials">
+          <source>this team participates in these tutorials</source>
+          <target>dit team doet mee met deze tutorials</target>
        </trans-unit>
     </body>
   </file>
