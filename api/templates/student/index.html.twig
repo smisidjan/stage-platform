@@ -15,7 +15,26 @@
                     <p class="lead">{{ 'find the best talent for your challenge or internship '|trans|capitalize }}</p>
                 </div>
             </div>
+        <form action="{{ path('app_student_index', query) }}">
+            <div class="form-group bg-white shadow-soft rounded-pill mb-4 px-3 py-2">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div class="input-group input-group-merge shadow-none">
+                            <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0"><i class="fas fa-search"></i></span></div>
+                            <input name="search" id="search" type="text" class="form-control border-0 form-control-flush shadow-none pb-2"
+                                   placeholder="{{ 'search for a student'|trans|capitalize }}..." required=""
+                                   {% if query.search is defined and query.search is not empty %}value="{{ query.search }}"{% endif %}>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-block btn-primary rounded-pill">{{ 'search'|trans|capitalize }}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
         </div>
+
+
         <div class="pattern bottom"></div>
     </section>
     <section class="section section-lg pt-0">
@@ -78,7 +97,6 @@
                                                            class="btn btn-link btn-facebook">
                                                             <i class="fab fa-facebook-f"></i>
                                                         </a>
-                                                    </li>
                                                     </li>
                                                 {% endif %}
                                                 {% if student.socials.0.twitter|default %}
@@ -145,8 +163,8 @@
             <div class="container z-2">
                 <div class="row justify-content-center">
                     <div class="col-md-10 text-center">
-                        <h2 class="h1">{{ 'lets lift off'|trans|capitalize }}</h2>
-                        <p>{{ 'Your profile belong here and you know it.'|trans|capitalize }} {{ 'get your self found by the best challenge leads and organizations and join today'|trans|capitalize }}</p>
+                        <h2 class="h1">{{ 'join!'|trans|capitalize }}</h2>
+                        <p>{{ 'create a profile and find the best challenges and organization for your internship'|trans|capitalize }}</p>
                         <p class="lead py-4 text-gray"></p><a href="{{ path('app_user_idvault') }}"
                                                               class="btn btn-lg btn-secondary animate-up-2">{{ 'aanmelden'|trans|capitalize }}</a>
                     </div>
