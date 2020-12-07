@@ -112,7 +112,7 @@
                 {% if commonground_is_resource(internship.hiringOrganization) %}
                     {% set organization = commonground_resource(internship.hiringOrganization) %}
                     <div class="card bg-white border-light shadow-soft flex-lg-row no-gutters p-4">
-                        <a href="#" class="col-10 col-lg-2">
+                        <a href="{{ path('app_organization_organization', {id: organization.id}) }}" class="col-10 col-lg-2">
                             <img src="https://picsum.photos/400/400" alt="" class="card-img-top"></a>
                         <div class="card-body py-4 p-lg-5">
                             <a href="{{ path('app_organization_organization', {id: organization.id}) }}" class="mb-3 d-block">
