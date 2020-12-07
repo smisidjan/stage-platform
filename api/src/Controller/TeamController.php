@@ -57,7 +57,7 @@ class TeamController extends AbstractController
 
         if ($request->isMethod('POST') && $this->getUser()) {
             $participant['person'] = $this->getUser()->getPerson();
-            $participant['groups'][] = '/groups/'.$variables['team']['id'];
+            $participant['groupColumn'] = '/groups/'.$variables['team']['id'];
 
             if ($request->request->get('motivaton')) {
                 $participant['motiviation'] = $request->request->get('motivaton');
@@ -65,7 +65,6 @@ class TeamController extends AbstractController
             $participant['status'] = 'pending';
 
             $participant = $commonGroundService->saveResource($participant, ['component' => 'edu', 'type' => 'participants']);
-            var_dump($participant['id']);
 
             $variables['team'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups', 'id' => $id]);
         }
@@ -74,7 +73,6 @@ class TeamController extends AbstractController
             foreach ($variables['team']['participations'] as $part) {
                 if ($part['person'] == $this->getUser()->getPerson()) {
                     $variables['userIsInTeam'] = true;
-                    var_dump($variables['userIsInTeam']);
                 }
             }
         }
