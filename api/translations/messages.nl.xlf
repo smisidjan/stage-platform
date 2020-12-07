@@ -49,6 +49,10 @@
         <source>name</source>
         <target>naam</target>
       </trans-unit>
+      <trans-unit id="WXKCQud" resname="deadline for which you can register">
+        <source>deadline for which you can register</source>
+        <target>uiterlijke datum waarvoor je kan inschrijven</target>
+      </trans-unit>
       <trans-unit id="0VhlQZ6" resname="full name">
         <source>full name</source>
         <target>voor- en achternaam</target>
