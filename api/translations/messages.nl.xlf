@@ -151,7 +151,7 @@
       </trans-unit>
       <trans-unit id="qDoxMg2" resname="resume">
         <source>resume</source>
-        <target>cv</target>
+        <target>portfolio</target>
       </trans-unit>
       <trans-unit id="2BxV9Jx" resname="saved">
         <source>saved</source>
@@ -285,7 +285,7 @@
       </trans-unit>
       <trans-unit id="enfFFYe" resname="stages">
         <source>stages</source>
-        <target>stadia</target>
+        <target>stappen</target>
       </trans-unit>
       <trans-unit id="K2uFPJ5" resname="in progress">
         <source>in progress</source>
@@ -501,7 +501,7 @@
       </trans-unit>
       <trans-unit id="qvq498b" resname="job applications">
         <source>job applications</source>
-        <target>solicitaties</target>
+        <target>aanvragen</target>
       </trans-unit>
       <trans-unit id="nXV1Fkg" resname="cources">
         <source>cources</source>
@@ -513,15 +513,15 @@
       </trans-unit>
       <trans-unit id="G4vKHHU" resname="tenders">
         <source>tenders</source>
-        <target>uitvragen</target>
+        <target>challenges</target>
       </trans-unit>
       <trans-unit id="IjZUFsW" resname="pitches">
         <source>pitches</source>
-        <target>voorstellen</target>
+        <target>pitches</target>
       </trans-unit>
       <trans-unit id="2LiW76m" resname="relevant requests that you have made in the past that share a great amount of characteristic with the request">
         <source>relevant requests that you have made in the past that share a great amount of characteristic with the request</source>
-        <target>relevante verzoeken die u in het verleden heeft ingediend die overlappen met uw huidige proces</target>
+        <target>relevante verzoeken die u in het verleden heeft gedaan en die veel kenmerken gemeen hebben met het verzoek</target>
       </trans-unit>
       <trans-unit id="UTMi1ew" resname="you need to login before you can view relevant requests">
         <source>you need to login before you can view relevant requests</source>
@@ -633,7 +633,7 @@
       </trans-unit>
       <trans-unit id="hiQXuef" resname="events">
         <source>events</source>
-        <target>afspraken</target>
+        <target>__</target>
       </trans-unit>
       <trans-unit id="UFoOj8N" resname="start date">
         <source>start date</source>
@@ -677,7 +677,7 @@
       </trans-unit>
       <trans-unit id="MkJZV0T" resname="we are always looking for creative, talented self-starters to join the Front family. Check out our open positions and fill out an application.">
         <source>we are always looking for creative, talented self-starters to join the Front family. Check out our open positions and fill out an application.</source>
-        <target>we zijn altijd op zoek naar creatieve, getalenteerde zelfstarters om lid te worden van de Front-familie. Bekijk onze openstaande vacatures en vul een sollicitatie in.</target>
+        <target>we zijn altijd op zoek naar creatieve, getalenteerde zelfstarters om lid te worden van de Front-familie. Bekijk onze openstaande stages en vul een sollicitatie in.</target>
       </trans-unit>
       <trans-unit id="Dntbauq" resname="no requirements found">
         <source>no requirements found</source>
@@ -733,7 +733,7 @@
       </trans-unit>
       <trans-unit id="NIGeVBY" resname="For some internships it is going through a few tutorials is a must, you will then submit a little after watching test so that the company can see that you have acquired the knowledge.">
         <source>For some internships it is going through a few tutorials is a must, you will then submit a little after watching test so that the company can see that you have acquired the knowledge.</source>
-        <target>voor sommige stages is het doorlopen van een paar tutorials een must, je levert dan na het bekijken een stukje test in zodat het bedrijf kan zien dat je de kennis hebt opgedaan.</target>
+        <target>voor sommige stages is het doorlopen van een paar tutorials een must, na het bekijken beloop je een test zodat het bedrijf kan zien dat je de kennis hebt opgedaan.</target>
       </trans-unit>
       <trans-unit id="_pRhi4M" resname="That also makes it much easier for you to immediately join your internship company">
         <source>That also makes it much easier for you to immediately join your internship company</source>
@@ -785,7 +785,7 @@
       </trans-unit>
       <trans-unit id="UnYEgOt" resname="by providing tutorials you don\'t just support the next generation of profesional\'s, you activly help them onboard for your ecosystem">
         <source>by providing tutorials you don\'t just support the next generation of profesional\'s, you activly help them onboard for your ecosystem</source>
-        <target>door tutorials aan te bieden, ondersteunt u niet alleen de volgende generatie professionele gebruikers, maar helpt u hen actief mee aan boord voor uw ecosysteem</target>
+        <target>door tutorials aan te bieden, ondersteunt u niet alleen de volgende generatie professionele gebruikers, maar helpt u hen actief mee onboard voor uw ecosysteem</target>
       </trans-unit>
       <trans-unit id="aw2euVV" resname="register now to post your tutorials">
         <source>register now to post your tutorials</source>
@@ -901,7 +901,7 @@
       </trans-unit>
       <trans-unit id="77UKBKH" resname="The stages">
         <source>The stages</source>
-        <target>de stadia</target>
+        <target>de stappen</target>
       </trans-unit>
       <trans-unit id="5ENitEK" resname="there are no rewards">
         <source>there are no rewards</source>
@@ -909,7 +909,7 @@
       </trans-unit>
       <trans-unit id="dz06zN_" resname="This challenge consists of several stages">
         <source>This challenge consists of several stages</source>
-        <target>deze challenge bestaat uit verschillende fasen</target>
+        <target>deze challenge bestaat uit verschillende stappen</target>
       </trans-unit>
       <trans-unit id="FV_BbAQ" resname="Submit">
         <source>Submit</source>
@@ -1061,7 +1061,7 @@
       </trans-unit>
       <trans-unit id="ayzhd9M" resname="onboard your interns">
         <source>onboard your interns</source>
-        <target>onboarding van uw stagiaires</target>
+        <target>onboard uw stagiaires</target>
       </trans-unit>
       <trans-unit id="1GPVVQY" resname="progress interviews">
         <source>progress interviews</source>
@@ -1093,7 +1093,7 @@
       </trans-unit>
       <trans-unit id="YXITO8h" resname="think about problems instead of positions">
         <source>think about problems instead of positions</source>
-        <target>denk aan problemen in plaats van aan posities</target>
+        <target>denk aan problemen in plaats van aan stages</target>
       </trans-unit>
       <trans-unit id="7Nkc66x" resname="interns can help us to solve challenges we experience inside or outside our organizations. They have a fresh and new perspective on things. Let/s focus on what interns need to learn to transform their fresh brain to strategic problem-solving skills. So instead of offering a student an internship, provide them with a challenge to solve.">
         <source>interns can help us to solve challenges we experience inside or outside our organizations. They have a fresh and new perspective on things. Let/s focus on what interns need to learn to transform their fresh brain to strategic problem-solving skills. So instead of offering a student an internship, provide them with a challenge to solve.</source>
@@ -1165,7 +1165,7 @@
       </trans-unit>
       <trans-unit id="2AK3nWi" resname="onboard inters with the propper knowledge and skills">
         <source>onboard inters with the propper knowledge and skills</source>
-        <target>stagiaires aan boord met de juiste kennis en vaardigheden</target>
+        <target>stagiaires onboarden met de juiste kennis en vaardigheden</target>
       </trans-unit>
       <trans-unit id="algAhEh" resname="challenges">
         <source>challenges</source>
@@ -1913,7 +1913,7 @@
       </trans-unit>
       <trans-unit id="8k_PiN8" resname="it helps students to blend in easily :)">
         <source>it helps students to blend in easily :)</source>
-        <target>het helpt studenten om gemakkelijk op te gaan :)</target>
+        <target>het helpt studenten om gemakkelijk in te blenden :)</target>
       </trans-unit>
       <trans-unit id="VCwofe1" resname="general information">
         <source>general information</source>
@@ -2394,7 +2394,7 @@
       </trans-unit>
       <trans-unit id="9Qhx0Uw" resname="positions">
         <source>positions</source>
-        <target>posities</target>
+        <target>stages</target>
       </trans-unit>
       <trans-unit id="zeD7Dew" resname="settings">
         <source>settings</source>
@@ -2434,7 +2434,7 @@
       </trans-unit>
       <trans-unit id=".VTlqC4" resname="applications">
         <source>applications</source>
-        <target>solicitaties</target>
+        <target>aanvragen</target>
       </trans-unit>
       <trans-unit id="Y8LHTj." resname="add tutorial">
         <source>add tutorial</source>
@@ -2442,7 +2442,7 @@
       </trans-unit>
       <trans-unit id="FEEVvo_" resname="see all positions">
         <source>see all positions</source>
-        <target>bekijk alle posities</target>
+        <target>bekijk alle stages</target>
       </trans-unit>
       <trans-unit id="3aGKDiG" resname="candidate">
         <source>candidate</source>
@@ -2450,7 +2450,7 @@
       </trans-unit>
       <trans-unit id="CIrMBTD" resname="no applications found">
         <source>no applications found</source>
-        <target>geen solicitaties gevonden</target>
+        <target>geen aanvragen gevonden</target>
       </trans-unit>
       <trans-unit id="GybUA6y" resname="add your first application!">
         <source>add your first application!</source>
@@ -2526,15 +2526,15 @@
       </trans-unit>
       <trans-unit id="tkess_l" resname="propositions">
         <source>propositions</source>
-        <target>proposities</target>
+        <target>voorstellen</target>
       </trans-unit>
       <trans-unit id="rAUXELG" resname="add proposition">
         <source>add proposition</source>
-        <target>proposities toevoegen</target>
+        <target>voorstellen toevoegen</target>
       </trans-unit>
       <trans-unit id="BTt9CiQ" resname="see all propositions">
         <source>see all propositions</source>
-        <target>bekijk alle proposities</target>
+        <target>bekijk alle voorstellen</target>
       </trans-unit>
       <trans-unit id="dLmuA30" resname="challange">
         <source>challange</source>
@@ -2542,7 +2542,7 @@
       </trans-unit>
       <trans-unit id="ZU3hSLd" resname="add your first proposition!">
         <source>add your first proposition!</source>
-        <target>voeg je eerste propositie toe!</target>
+        <target>voeg je eerste voorstel toe!</target>
       </trans-unit>
       <trans-unit id="k2HGVAf" resname="find a challenge to propose to">
         <source>find a challenge to propose to</source>
@@ -2662,7 +2662,7 @@
       </trans-unit>
       <trans-unit id="_hhDO4D" resname="Positions">
         <source>Positions</source>
-        <target>Posities</target>
+        <target>stages</target>
       </trans-unit>
       <trans-unit id="bQMa8Q2" resname="Position">
         <source>Position</source>
@@ -2886,7 +2886,7 @@
       </trans-unit>
       <trans-unit id="Osxgtsy" resname="by providing tutorials you don't just support the next generation of profesional's, you activly help them onboard for your ecosystem">
         <source>by providing tutorials you don't just support the next generation of profesional's, you activly help them onboard for your ecosystem</source>
-        <target>door tutorials aan te bieden, ondersteun je niet alleen de volgende generatie professionals, je helpt ze ook actief aan boord voor je ecosysteem</target>
+        <target>door tutorials aan te bieden, ondersteun je niet alleen de volgende generatie professionals, je helpt ze ook actief onboard je ecosysteem</target>
       </trans-unit>
       <trans-unit id="tiNNLqD" resname="english">
         <source>english</source>
@@ -2918,11 +2918,11 @@
       </trans-unit>
       <trans-unit id="cfZMht." resname="open positions">
         <source>open positions</source>
-        <target>vacatures</target>
+        <target>open stageplekken</target>
       </trans-unit>
       <trans-unit id="dM5BbE." resname="dosn't have any open positions">
         <source>dosn't have any open positions</source>
-        <target>heeft geen vacatures</target>
+        <target>heeft geen stages</target>
       </trans-unit>
       <trans-unit id="TX_fPyE" resname="for students">
         <source>for students</source>
@@ -2958,7 +2958,7 @@
       </trans-unit>
       <trans-unit id="AtBGIwp" resname="post an open positions">
         <source>post an open positions</source>
-        <target>plaat vacatures</target>
+        <target>plaat stage</target>
       </trans-unit>
       <trans-unit id="sMkyMxc" resname="challange students">
         <source>challange students</source>
@@ -3146,7 +3146,7 @@
       </trans-unit>
       <trans-unit id="paIYYYS" resname="out of">
         <source>out of</source>
-        <target>uit van</target>
+        <target>__</target>
       </trans-unit>
       <trans-unit id="h9Bc0Ig" resname="entries">
         <source>entries</source>
