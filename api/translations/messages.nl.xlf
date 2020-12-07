@@ -3542,11 +3542,11 @@
       </trans-unit>
       <trans-unit id="EqOdKaT" resname="Vacature informatie">
         <source>Vacature informatie</source>
-        <target>__Vacature informatie</target>
+        <target>Vacature informatie</target>
       </trans-unit>
       <trans-unit id="kb.Ac5d" resname="name of the position">
         <source>name of the position</source>
-        <target>__name of the position</target>
+        <target>naam van de positie</target>
       </trans-unit>
       <trans-unit id="eYTKUDF" resname="no name available">
         <source>no name available</source>

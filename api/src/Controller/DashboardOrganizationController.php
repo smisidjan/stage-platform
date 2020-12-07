@@ -435,4 +435,38 @@ class DashboardOrganizationController extends AbstractController
 
         return $variables;
     }
+
+    /**
+     * @Route("/invoices")
+     * @Template
+     */
+    public function invoicesAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $variables = [];
+
+        $variables['invoices'] = $commonGroundService->getResourceList(['component' => 'bc', 'type' => 'invoices'])['hydra:member'];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/invoice")
+     * @Template
+     */
+    public function invoiceAction(CommonGroundService $commonGroundService, Request $request, $id)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $variables = [];
+
+        $variables['invoice'] = $commonGroundService->getResource(['component' => 'bc', 'type' => 'invoices', 'id' => $id]);
+        $variables['organization'] = $commonGroundService->getResource($variables['invoice']['targetOrganization']);
+        $variables['organization']['contact'] = $commonGroundService->getResource($variables['organization']['contact']);
+        $variables['style'] = $variables['organization']['style'];
+        $variables['customer'] = $commonGroundService->getResource($variables['invoice']['customer']);
+
+        /*@todo make payment process*/
+
+        return $variables;
+    }
 }
