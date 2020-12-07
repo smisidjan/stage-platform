@@ -331,12 +331,7 @@ class DashboardUserController extends AbstractController
 
             if($request->files->get('personalPhoto')) {
                 $person['personalPhoto'] = base64_encode(file_get_contents($request->files->get('personalPhoto')));
-                var_dump($request->files->get('personalPhoto'));
-                die;
             }
-
-            var_dump($_FILES);
-            die;
 
             $person['name'] = $name;
             $person['aboutMe'] = $request->get('aboutMe');
