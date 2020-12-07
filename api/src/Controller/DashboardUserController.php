@@ -239,21 +239,21 @@ class DashboardUserController extends AbstractController
         // Get all teams for when there is no user defined
         $variables['teams'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups'], $variables['query'])['hydra:member'];
 
-//        //  Getting the participants
-//        $participants = [];
-//        if ($this->getUser()) {
-//            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person' => $this->getUser()->getPerson()]])['hydra:member'];
-//        }
-//        if (count($participants) > 0) {
-//            // Get all groups for each participant of this user
-//            $teams = [];
-//            foreach ($participants as $participant) {
-//                if (isset($participant['groups'])) {
-//                    array_push($teams, $participant['groups']);
-//                }
-//            }
-//            $variables['teams'] = $teams;
-//        }
+        //  Getting the participants
+        $participants = [];
+        if ($this->getUser()) {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person' => $this->getUser()->getPerson()]])['hydra:member'];
+        }
+        if (count($participants) > 0) {
+            // Get all groups for each participant of this user
+            $teams = [];
+            foreach ($participants as $participant) {
+                if (isset($participant['group'])) {
+                    array_push($teams, $participant['group']);
+                }
+            }
+            $variables['teams'] = $teams;
+        }
 
         return $variables;
     }
