@@ -10,7 +10,10 @@
                     <div class="d-flex flex-column flex-lg-row justify-content-center">
                         <span class="h5 mb-3 mb-lg-0"><i class="fas fa-map-marker-alt"></i><span class="ml-3">{{ internship.jobLocationType|trans }}</span></span>
                         <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-user-tie"></i><span class="ml-3">{{ internship.employmentType|trans }}</span></span>
-                        <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-invoice-dollar"></i><span class="ml-3">{{ internship.salaryCurrency }} {{ internship.baseSalary }}</span></span>
+                        <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fal fa-calendar-times text-secondary"></i><span class="ml-3">{{ internship.validThrough|date("H:m d-m-Y") }}</span></span>
+                        {% if internship.baseSalary|default %}
+                            <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-file-invoice-dollar"></i><span class="ml-3">{% if internship.salaryCurrency|default %}{{ internship.salaryCurrency }}{% endif%} {{ internship.baseSalary }}</span></span>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col col-12 text-center"><a href="{{ path('app_internship_index') }}" class="btn btn-secondary text-white animate-up-2 mr-3"><i class="fas fa-arrow-left mr-2"></i>{{'all postitions'|trans|capitalize}}</a>
@@ -63,11 +66,21 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
+                                    <label class="form-label" for="NameLabel">{{'deadline for which you can register'|trans|capitalize}}</label>
+                                    <br>
+                                    <span class="form-control-feedback h6"><i class="fal fa-calendar-times text-secondary"></i><span class="ml-3">{{ internship.validThrough|date("H:m d-m-Y") }}</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
                                     <label class="form-label text-muted" for="NameLabel">{{'name'|trans|capitalize}}</label>
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-user-alt"></i></span></div>
-                                        <input class="form-control" id="NameLabel" placeholder="{{ app.user.name }}"
+                                        <input class="form-control ml-0" id="NameLabel" placeholder=" {{ app.user.name }}"
                                                type="text" disabled>
                                     </div>
                                 </div>
@@ -117,26 +130,26 @@
             </div>
             <div class="row">
                 {% if positions is defined and positions is not empty%}
-                {% for position in positions %}
-                    {% if position['@id'] != internship['@id'] %}
-                <div class="col-12 col-xl-4 mb-4">
-                    <div class="card bg-white border-light shadow-soft p-3">
-                        <div class="card-header p-4">
-                            <h3 class="mb-3 h4">{{ position.name }}</h3>
-                            <div class="d-flex small"><a href="{{ path('app_internship_position', {id: position.id}) }}" class="text-gray">
-                                    <span class="icon-primary"><i class="fas fa-map-marker-alt"></i></span>
-                                    <span class="ml-2">{{ position.jobLocationType }}</span></a>
-                                    <span class="icon-primary ml-4"><i class="fas fa-user-tie"></i><span class="ml-2 text-gray">{{ position.employmentType }}</span></span>
+                    {% for position in positions %}
+                        {% if position['@id'] != internship['@id'] %}
+                            <div class="col-12 col-xl-4 mb-4">
+                                <div class="card bg-white border-light shadow-soft p-3">
+                                    <div class="card-header p-4">
+                                        <h3 class="mb-3 h4">{{ position.name }}</h3>
+                                        <div class="d-flex small"><a href="{{ path('app_internship_position', {id: position.id}) }}" class="text-gray">
+                                                <span class="icon-primary"><i class="fas fa-map-marker-alt"></i></span>
+                                                <span class="ml-2">{{ position.jobLocationType }}</span></a>
+                                                <span class="icon-primary ml-4"><i class="fas fa-user-tie"></i><span class="ml-2 text-gray">{{ position.employmentType }}</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-4 pt-0">
+                                        <p class="mb-4">{{ position.summary }}</p>
+                                        <div class="d-flex"><a href="{{ path('app_internship_position', {id: position.id}) }}#apply" class="btn btn-sm btn-secondary mr-3 animate-up-2 px-3">Apply Now</a> <a href="{{ path('app_internship_position', {id: position.id}) }}" class="btn btn-sm btn-primary animate-up-2 px-3"><i class="fas fa-clipboard-list mr-2"></i>See Details</a></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-body px-4 pt-0">
-                            <p class="mb-4">{{ position.summary }}</p>
-                            <div class="d-flex"><a href="{{ path('app_internship_position', {id: position.id}) }}#apply" class="btn btn-sm btn-secondary mr-3 animate-up-2 px-3">Apply Now</a> <a href="{{ path('app_internship_position', {id: position.id}) }}" class="btn btn-sm btn-primary animate-up-2 px-3"><i class="fas fa-clipboard-list mr-2"></i>See Details</a></div>
-                        </div>
-                    </div>
-                </div>
-                    {% endif %}
-                {% endfor %}
+                        {% endif %}
+                    {% endfor %}
                 {% else %}
                     <div class="col-12 col-xl-4 mb-4">
                         <div class="card bg-white border-light shadow-soft p-3">
