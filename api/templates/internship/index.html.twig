@@ -102,14 +102,16 @@
                                         <span class="ml-4"><i class="fas fa-building text-secondary"></i><span class="h6 text-sm ml-2">{{ commonground_resource(internship.hiringOrganization).name }}</span></span>
                                         <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span class="h6 text-sm ml-2">{{ internship.employmentType|trans|capitalize }}</span></span>
                                         <span class="ml-4"><i class="fas fa-stopwatch text-secondary"></i><span class="h6 text-sm ml-2">{{ internship.standardHours }}</span></span>
-                                        <span class="ml-4"><i class="fal fa-calendar-times text-secondary"></i><span class="h6 text-sm ml-2"> {{ internship.validThrough|date("Y-m-d H:m") }}</span></span>
-                                        <span class="ml-4"><i class="fas fa-file-certificate text-secondary"></i><span class="h6 text-sm ml-2">
+                                        <span class="ml-4"><i class="fal fa-calendar-times text-secondary"></i><span class="h6 text-sm ml-2">{{ internship.validThrough|date("H:m d-m-Y") }}</span></span>
+                                        <span class="ml-4"><i class="fas fa-file-certificate text-secondary"></i>
+                                            <span class="h6 text-sm ml-2">
                                                 {% if internship.educationRequirements is defined and internship.educationRequirements is not empty  %}
                                                     {{ internship.educationRequirements['0'] }}
                                                 {% else %}
                                                     {{ 'no requirements found'|trans|capitalize }}
                                                 {% endif %}
-                                            </span></span>
+                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-12 d-flex align-items-center justify-content-md-end">
