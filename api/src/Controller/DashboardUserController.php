@@ -321,13 +321,23 @@ class DashboardUserController extends AbstractController
             }
         }
 
-        if ($request->isMethod('POST') && $request->get('updateInfo')) {
+        if ($request->isMethod('POST')){
             $name = $request->get('name');
 
             // Update (or create) the cc/person of this user
             if (isset($variables['person'])) {
                 $person = $variables['person'];
             }
+
+            if($request->files->get('personalPhoto')) {
+                $person['personalPhoto'] = base64_encode(file_get_contents($request->files->get('personalPhoto')));
+                var_dump($request->files->get('personalPhoto'));
+                die;
+            }
+
+            var_dump($_FILES);
+            die;
+
             $person['name'] = $name;
             $person['aboutMe'] = $request->get('aboutMe');
             $person['emails'][0] = [];
