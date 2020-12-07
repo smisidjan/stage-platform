@@ -3052,6 +3052,10 @@
         <source>The latest stageplatform news, articles, and resources, sent straight to your inbox every month.</source>
         <target>Het laatse nieuws over het stage platform, elke maand rechtstreeks in jouw mailbox</target>
       </trans-unit>
+      <trans-unit id="DMTatxq" resname="newsletter">
+        <source>newsletter</source>
+        <target>niewsbrief</target>
+      </trans-unit>
       <trans-unit id="cjTKgVQ" resname="We’ll never share your details. See our">
         <source>We’ll never share your details. See our</source>
         <target>we zullen uw gegevens nooit delen. Zie onze</target>
