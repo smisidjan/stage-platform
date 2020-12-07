@@ -27,8 +27,7 @@ class InternshipController extends AbstractController
      */
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
-
-        if ($request->query->get('organization') && empty($this->getUser()->getOrganization())){
+        if ($request->query->get('organization') && empty($this->getUser()->getOrganization())) {
             return $this->redirect($this->generateUrl('app_default_organization').'?backUrl='.$request->getUri());
         }
 
@@ -121,7 +120,6 @@ class InternshipController extends AbstractController
                 ];
 
                 $mailingService->sendMail('mails/internship_application.html.twig', 'no-reply@stage-platform.nl', $receiver, 'stage inschrijving', $data);
-
             }
         }
 

@@ -26,8 +26,7 @@ class ChallengeController extends AbstractController
      */
     public function indexAction(Request $request, CommonGroundService $commonGroundService)
     {
-
-        if ($request->query->get('organization') && empty($this->getUser()->getOrganization())){
+        if ($request->query->get('organization') && empty($this->getUser()->getOrganization())) {
             return $this->redirect($this->generateUrl('app_default_organization').'?backUrl='.$request->getUri());
         }
 

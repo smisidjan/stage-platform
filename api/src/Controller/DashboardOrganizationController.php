@@ -185,7 +185,6 @@ class DashboardOrganizationController extends AbstractController
             $organization = $commonGroundService->getResource($this->getUser()->getOrganization());
             $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
             $variables['challenges'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'tenders'], ['submitter' => $organizationUrl])['hydra:member'];
-
         } else {
             $variables['challenges'] = [];
         }

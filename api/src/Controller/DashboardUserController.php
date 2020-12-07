@@ -477,7 +477,7 @@ class DashboardUserController extends AbstractController
                     $resource['technicalContact'] = $userUrl;
                     $resource['administrationContact'] = $userUrl;
                 }
-                            }
+            }
 
             // Update to the commonground component
             $variables['item'] = $commonGroundService->saveResource($resource, ['component' => 'wrc', 'type' => 'organizations']);

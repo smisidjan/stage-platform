@@ -25,8 +25,7 @@ class OrganizationController extends AbstractController
      */
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
-
-        if ($request->query->get('organization') && empty($this->getUser()->getOrganization())){
+        if ($request->query->get('organization') && empty($this->getUser()->getOrganization())) {
             return $this->redirect($this->generateUrl('app_default_organization').'?backUrl='.$request->getUri());
         }
 
