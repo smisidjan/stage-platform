@@ -20,6 +20,13 @@
     </div>
 
     <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            {% if account is defined %}
+                {% include 'dashboard_user/widgets/balance.html.twig' %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
         <!-- left collum -->
         <div class="col-12 col-xl-8">
             <div class="card card-body bg-white border-light shadow-sm mb-4">
@@ -35,9 +42,9 @@
 
                         <div class="page-inner">
                             <div class="row">
-                                <div class="col-12 col-xl-8">
+                                <div class="col-12">
                                     <div class="row">
-                                        <div class="col-12 col-xl-8">
+                                        <div class="col-12">
                                             <h1 class="d-inline-block">{{ item.name|capitalize }}</h1>
                                             <button class="d-inline-block float-right btn btn-primary"
                                                     type="submit">{{ 'save'|trans|capitalize }}</button>

@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ path('app_dashboard_transactions', {organization: organization.id}) }}" method="post">
+                <form action="{{ path('app_dashboarduser_transactions', {organization: organization.id}) }}" method="post">
                     <div class="form-group">
                         <label for="amount">{{ 'select amount you wish to add to account'|trans|capitalize }}</label>
                         <select class="form-control" onchange="calculatePrice()" name="amount" id="amount">
@@ -25,7 +25,7 @@
 
                     <p class="text-muted">{{ 'amount with taxes:'|trans|capitalize }} <span id="amountWithTax">€30.25</span></p>
 
-                    <input type="hidden" name="redirectUrl" value="{{ path('app_dashboard_transactions', {organization: organization.id}) }}">
+                    <input type="hidden" name="redirectUrl" value="{{ path('app_dashboarduser_transactions', {organization: organization.id}) }}">
                     <button class="btn btn-success btn-block">{{ 'add funds'|trans|capitalize }}</button>
                 </form>
             </div>
