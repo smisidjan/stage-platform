@@ -238,8 +238,24 @@ class DashboardUserController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        // Get team resources
+        // Get all teams for when there is no user defined
         $variables['teams'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups'], $variables['query'])['hydra:member'];
+
+        //  Getting the participants
+        $participants = [];
+        if ($this->getUser()) {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person' => $this->getUser()->getPerson()]])['hydra:member'];
+        }
+        if (count($participants) > 0) {
+            // Get all groups for each participant of this user
+            $teams = [];
+            foreach ($participants as $participant) {
+                if (isset($participant['group'])) {
+                    array_push($teams, $participant['group']);
+                }
+            }
+            $variables['teams'] = $teams;
+        }
 
         return $variables;
     }
@@ -305,13 +321,23 @@ class DashboardUserController extends AbstractController
             }
         }
 
-        if ($request->isMethod('POST') && $request->get('updateInfo')) {
+        if ($request->isMethod('POST')){
             $name = $request->get('name');
 
             // Update (or create) the cc/person of this user
             if (isset($variables['person'])) {
                 $person = $variables['person'];
             }
+
+            if($request->files->get('personalPhoto')) {
+                $person['personalPhoto'] = base64_encode(file_get_contents($request->files->get('personalPhoto')));
+                var_dump($request->files->get('personalPhoto'));
+                die;
+            }
+
+            var_dump($_FILES);
+            die;
+
             $person['name'] = $name;
             $person['aboutMe'] = $request->get('aboutMe');
             $person['emails'][0] = [];
