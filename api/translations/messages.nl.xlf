@@ -147,7 +147,7 @@
       </trans-unit>
       <trans-unit id="7uZB9Ww" resname="telecommute">
         <source>telecommute</source>
-        <target>telewerken</target>
+        <target>thuiswerken</target>
       </trans-unit>
       <trans-unit id="qDoxMg2" resname="resume">
         <source>resume</source>
