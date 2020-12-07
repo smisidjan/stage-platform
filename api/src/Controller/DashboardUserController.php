@@ -4,10 +4,12 @@
 
 namespace App\Controller;
 
+use Conduction\BalanceBundle\Service\BalanceService;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -236,8 +238,24 @@ class DashboardUserController extends AbstractController
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
-        // Get team resources
+        // Get all teams for when there is no user defined
         $variables['teams'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups'], $variables['query'])['hydra:member'];
+
+        //  Getting the participants
+        $participants = [];
+        if ($this->getUser()) {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants', ['person' => $this->getUser()->getPerson()]])['hydra:member'];
+        }
+        if (count($participants) > 0) {
+            // Get all groups for each participant of this user
+            $teams = [];
+            foreach ($participants as $participant) {
+                if (isset($participant['group'])) {
+                    array_push($teams, $participant['group']);
+                }
+            }
+            $variables['teams'] = $teams;
+        }
 
         return $variables;
     }
@@ -303,13 +321,23 @@ class DashboardUserController extends AbstractController
             }
         }
 
-        if ($request->isMethod('POST') && $request->get('updateInfo')) {
+        if ($request->isMethod('POST')){
             $name = $request->get('name');
 
             // Update (or create) the cc/person of this user
             if (isset($variables['person'])) {
                 $person = $variables['person'];
             }
+
+            if($request->files->get('personalPhoto')) {
+                $person['personalPhoto'] = base64_encode(file_get_contents($request->files->get('personalPhoto')));
+                var_dump($request->files->get('personalPhoto'));
+                die;
+            }
+
+            var_dump($_FILES);
+            die;
+
             $person['name'] = $name;
             $person['aboutMe'] = $request->get('aboutMe');
             $person['emails'][0] = [];
@@ -421,17 +449,36 @@ class DashboardUserController extends AbstractController
      * @Template
      * @Route("/organizations/{id}")
      */
-    public function organizationAction(CommonGroundService $commonGroundService, Request $request, $id = null)
+    public function organizationAction(CommonGroundService $commonGroundService, BalanceService $balanceService, Request $request, $id = null)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
+
+        $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
+
+        $account = $balanceService->getAcount($organizationUrl);
+
+        if ($account !== false) {
+            $account['balance'] = $balanceService->getBalance($organizationUrl);
+            $variables['account'] = $account;
+            $variables['payments'] = $commonGroundService->getResourceList(['component' => 'bare', 'type' => 'payments'], ['acount.id' => $account['id'], 'order[dateCreated]' => 'desc'])['hydra:member'];
+        }
+
+        $groups = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'groups'], ['organization' => $organizationUrl])['hydra:member'];
+        if (count($groups) > 0) {
+            $group = $groups[0];
+            $variables['users'] = $group['users'];
+        }
+
         $redirectToPlural = false;
         if ($id && $id != 'new') {
             $variables['item'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations', 'id' => $id]);
+            $newOrganization = false;
         } else {
             $variables['item'] = [];
             $variables['item']['name'] = 'New';
 
+            $newOrganization = true;
             $redirectToPlural = true;
         }
         $variables['path'] = 'app_dashboarduser_organization';
@@ -448,8 +495,23 @@ class DashboardUserController extends AbstractController
                 $resource['style'] = '/styles/'.$resource['style']['id'];
             }
 
+            if ($newOrganization) {
+                $users = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'users'], ['username' => $this->getUser()->getUsername()])['hydra:member'];
+                if (count($users) > 0) {
+                    $userUrl = $commonGroundService->cleanUrl(['component' => 'uc', 'type' => 'users', 'id' => $users[0]['id']]);
+                    $resource['privacyContact'] = $userUrl;
+                    $resource['technicalContact'] = $userUrl;
+                    $resource['administrationContact'] = $userUrl;
+                }
+            }
+
             // Update to the commonground component
             $variables['item'] = $commonGroundService->saveResource($resource, ['component' => 'wrc', 'type' => 'organizations']);
+
+            if ($newOrganization) {
+                $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $variables['item']['id']]);
+                $balanceService->createAccount($organizationUrl);
+            }
 
             $variables['userGroups'] = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'groups'], ['organization' => $variables['item']['@id']])['hydra:member'];
 
@@ -484,11 +546,60 @@ class DashboardUserController extends AbstractController
                 unset($user['userGroups']);
                 $user = $commonGroundService->saveResource($user, ['component' => 'uc', 'type' => 'users']);
             }
+            if (isset($resource['backUrl'])) {
+                return $this->redirect($resource['backUrl']);
+            }
             if ($redirectToPlural === true) {
                 return $this->redirectToRoute($variables['pathToPlural']);
             } else {
                 return $this->redirectToRoute($variables['path'], ['id' => $variables['item']['id']]);
             }
+        }
+
+        return $variables;
+    }
+
+    /**
+     * @Template
+     * @Route("/transactions/{organization}")
+     */
+    public function transactionsAction(Session $session, CommonGroundService $commonGroundService, BalanceService $balanceService, Request $request, $organization)
+    {
+        // On an index route we might want to filter based on user input
+        $variables = [];
+
+        $organization = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization]);
+        $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
+        $variables['organization'] = $organization;
+
+        if ($session->get('mollieCode')) {
+            $mollieCode = $session->get('mollieCode');
+            $session->remove('mollieCode');
+            $result = $balanceService->processMolliePayment($mollieCode, $organizationUrl);
+
+            if ($result['status'] == 'paid') {
+                $variables['message'] = 'Payment processed successfully! <br> €'.$result['amount'].'.00 was added to your balance. <br>  Invoice with reference: '.$result['reference'].' is created.';
+            } else {
+                $variables['message'] = 'Something went wrong, the status of the payment is: '.$result['status'].' please try again.';
+            }
+        }
+
+        $account = $balanceService->getAcount($organizationUrl);
+
+        if ($account !== false) {
+            $account['balance'] = $balanceService->getBalance($organizationUrl);
+            $variables['account'] = $account;
+            $variables['payments'] = $commonGroundService->getResourceList(['component' => 'bare', 'type' => 'payments'], ['acount.id' => $account['id'], 'order[dateCreated]' => 'desc'])['hydra:member'];
+        }
+
+        if ($request->isMethod('POST')) {
+            $amount = $request->get('amount') * 1.21;
+            $amount = (number_format($amount, 2));
+
+            $payment = $balanceService->createMolliePayment($amount, $request->get('redirectUrl'));
+            $session->set('mollieCode', $payment['id']);
+
+            return $this->redirect($payment['redirectUrl']);
         }
 
         return $variables;

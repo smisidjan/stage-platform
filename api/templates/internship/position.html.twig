@@ -23,41 +23,28 @@
         <div class="pattern bottom"></div>
     </section>
 
-
-    {% if requirements|default %}
-    <section class="section section-lg pt-0">
-        <div class="container mt-n8 mt-lg-n11 z-2">
-            <div class="row justify-content-center">
-                <div class="col">
-                    <div class="card shadow-soft border-light p-4 p-md-5">
-                        <div class="card-body">
-                            <h2>{{'requirements'|trans|capitalize}}</h2>
-                            <ul class="list-unstyled mb-5">
-                                {% for educationRequirements in internship['educationRequirements'] %}
-                                <li class="py-3 lead">
-                                    <div class="media"><span class="icon icon-sm mr-3 mt-2"><i class="fas fa-plus-circle"></i></span>
-                                        <div>{{ educationRequirements }}</div>
-                                    </div>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-
     <article class="section section-lg pt-0">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col">
+                <div class="col-12 col-xl-8 mb-2 mb-xl-0">
                     <div class="card shadow-soft border-light p-4 p-md-5">
                         <div class="card-body">
                             <h2>{{ 'description'|trans|capitalize }}</h2>
                             {{ internship.description }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4">
+                    <div class="card shadow-soft border-light p-4 p-md-5">
+                        <div class="card-body">
+                            <h4>{{ 'requirements'|trans|capitalize }}:</h4>
+                            <div>
+                                <ul>
+                                    {% for requirement in internship.educationRequirements %}
+                                        <li>{{ requirement }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
