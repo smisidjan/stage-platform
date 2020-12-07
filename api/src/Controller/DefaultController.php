@@ -100,6 +100,25 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/organization")
+     * @Template
+     */
+    public function organizationAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $variables = [];
+
+        if (!$this->getUser()) {
+            return $this->redirect($this->generateUrl('app_user_idvault').'?backUrl='.$request->getUri());
+        }
+
+        if ($request->query->get('backUrl')) {
+            $variables['backUrl'] = $request->query->get('backUrl');
+        }
+
+        return $variables;
+    }
+
+    /**
      * @Route("/newsletter")
      * @Template
      */

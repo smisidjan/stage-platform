@@ -90,7 +90,13 @@
 
 <body>
 <header class="header-global">
-    {% include 'menu.html.twig' %}
+    {% if solidMenu is defined %}
+        {% include 'menu.html.twig' with {
+            'solidMenu': solidMenu
+        } %}
+    {% else %}
+        {% include 'menu.html.twig' %}
+    {% endif %}
 </header>
 
 <main>
