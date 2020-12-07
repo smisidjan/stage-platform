@@ -19,7 +19,7 @@
                                         {% if address.postalCode|default %}{{ address.postalCode }}{% endif %}
                                         {% if address.locality|default %}{{ address.locality }}{% endif %}
                                         {% else %}
-                                        Geen contact info{% endif %}</span></span>
+                                        {{ 'no contact info'|trans|capitalize }}{% endif %}</span></span>
                             <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-briefcase"></i><span class="ml-3">{% if jobPostings is defined and jobPostings is not empty %}
                                         {{ jobPostings|length }} {% else %}
                                         0{% endif %}</span></span>
@@ -30,7 +30,6 @@
                                         {{ courses|length }} {% else %}
                                         0{% endif %}</span></span>
                         </div>
-
                 </div>
                 <div class="col col-12 text-center"><a href="{{ path('app_education_tutorials') }}" class="btn btn-secondary text-white animate-up-2 mr-3"><i class="fas fa-arrow-left mr-2"></i>{{'all organizations'|trans|capitalize}}</a></div>
             </div>
@@ -45,7 +44,6 @@
                 <div class="col">
                     <div class="card shadow-soft border-light p-4 p-md-5">
                         <div class="card-body">{{ organization.description }}</div>
-
                     </div>
                 </div>
             </div>
@@ -63,7 +61,6 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-
                     {% if challenges|default %}
                         {% for chal in challenges|slice(0, 5) %}
                             <div class="col-12 col-lg-10 mb-4">
@@ -80,7 +77,7 @@
                                                 <div class="d-flex">
                                                     {#<a href="#" class="stretched-link">#}<i
                                                         class="fas fa-map-marker-alt"></i><span
-                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
+                                                        class="h6 text-sm ml-2">{{ 'Sillicon Valley, CA'|trans|capitalize }}</span>{#</a>#}
 
                                                     {% if chal.budget|default %}
                                                         <span class="ml-4"><i
@@ -140,7 +137,7 @@
                                                 <div class="d-flex">
                                                     {#<a href="#" class="stretched-link">#}<i
                                                         class="fas fa-map-marker-alt"></i><span
-                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
+                                                        class="h6 text-sm ml-2">{{ 'Sillicon Valley, CA'|trans|capitalize }}</span>{#</a>#}
 
                                                     {#                                                {% if chal.budget|default %}#}
                                                     {#                                                <span class="ml-4"><i class="fas fa-money-bill text-secondary"></i>#}
@@ -200,7 +197,7 @@
                                                 <div class="d-flex">
                                                     {#<a href="#" class="stretched-link">#}<i
                                                         class="fas fa-map-marker-alt"></i><span
-                                                        class="h6 text-sm ml-2">Sillicon Valley, CA</span>{#</a>#}
+                                                        class="h6 text-sm ml-2">{{ 'Sillicon Valley, CA'|trans|capitalize }}</span>{#</a>#}
 
                                                     {% if job.standardHours|default and job.employmentType|default %}
                                                         <span class="ml-4"><i class="fas fa-clock text-secondary"></i>
@@ -230,5 +227,4 @@
             </div>
         </section>
     {% endif %}
-
 {% endblock %}

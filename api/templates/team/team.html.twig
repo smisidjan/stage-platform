@@ -8,9 +8,13 @@
                     <h1 class="display-2 font-weight-extreme mb-4">{{ team.name|trans|capitalize }}</h1>
                     <p class="lead">{{ team.description }}</p>
                     <div class="d-flex flex-column flex-lg-row justify-content-center">
+
                         {% if team.participants|default %}
-                            <span class="h5 mb-3 mb-lg-0"><i class="fas fa-user-tie text-secondary"></i><span
-                                    class="ml-3">{{ team.participants|length }}</span></span>
+                            <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span
+                                    class="h6 text-sm ml-2">{{ team.participants|length }}</span></span>
+                        {% else %}
+                            <span class="ml-4"><i class="fas fa-user-tie text-secondary"></i><span
+                                    class="h6 text-sm ml-2">0</span></span>
                         {% endif %}
                         {#                        /* @todo hier moeten het aantal challenges komen waar een team aan mee doet#}
                         {% if numberOfEntries|default and numberOfEntries != 0 %}
@@ -66,40 +70,29 @@
         <div class="row justify-content-center pb-5">
             <div class="col">
                 <div class="card bg-soft shadow-soft border-light p-4 p-md-5">
-                    {% if userIsInTeam|default and userIsInTeam == true %}
-                        <div class="mb-1 text-center">
-                            <h2 class="h1">{{ 'you are a member of this team'|trans|capitalize }}</h2>
-                        </div>
-                    {% else %}
-                        <div class="mb-1 text-center">
-                            <h2 class="h1">{{ 'apply for this team'|trans|capitalize }}</h2>
-                        </div>
-                        {% if app.user is defined and app.user is not null %}
-                            <form action="{{ path('app_team_team', {id: team.id}) }}" method="post">
-                                <div class="row">
-                                    <div class="col col-12 mt-4">
-                                        <div class="form-group">
-                                            <label class="form-label text-muted"
-                                                   for="motivation">{{ 'motivation'|trans|capitalize }} <span
-                                                    class="text-danger">*</span></label>
-                                            <textarea class="form-control"
-                                                      placeholder="{{ 'motivate your application'|trans|capitalize }}"
-                                                      id="motivation" name="motivation" rows="8" required=""></textarea>
-                                        </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-secondary mt-4"><span class="mr-2"><i
-                                                        class="fas fa-paper-plane"></i></span> {{ 'register'|trans|capitalize }}
-                                            </button>
-                                        </div>
+                    <div class="mb-1 text-center">
+                        <h2 class="h1">{{ 'apply for this team'|trans|capitalize }}</h2>
+                    </div>
+
+                    {% if app.user is defined and app.user is not null %}
+                        <form action="{{ path('app_team_team', {id: team.id}) }}" method="post">
+                            <div class="row">
+                                <div class="col col-12 mt-4">
+                                    <div class="form-group">
+                                        <label class="form-label text-muted"
+                                               for="motivation">{{ 'motivation'|trans|capitalize }} <span
+                                                class="text-danger">*</span></label>
+                                        <textarea class="form-control"
+                                                  placeholder="{{ 'motivate your application'|trans|capitalize }}"
+                                                  id="motivation" name="motivation" rows="8" required=""></textarea>
                                     </div>
                                 </div>
-                            </form>
-                        {% else %}
-                            <p class="mt-4 text-center">{{ 'you need to be logged in to register for a tutorial'|trans|capitalize }}</p>
-                            <a class="mt-2 text-center btn btn-secondary"
-                               href="{{ path('app_user_idvault') }}">{{ 'click here to log in'|trans|capitalize }} </a>
-                        {% endif %}
-
+                            </div>
+                        </form>
+                    {% else %}
+                        <p class="mt-4 text-center">{{ 'you need to be logged in to register for a tutorial'|trans|capitalize }}</p>
+                        <a class="mt-2 text-center btn btn-secondary"
+                           href="{{ path('app_user_idvault') }}">{{ 'click here to log in'|trans|capitalize }} </a>
                     {% endif %}
                 </div>
             </div>
