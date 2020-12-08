@@ -70,10 +70,10 @@
             </div>
         {% endif %}
 
-        {% if tutorial.results|default %}
+        {% if results|default and results|length > 0 %}
             <div class="col-12 mb-3">
                 {% include 'dashboard/tables/results.html.twig' with {
-                    'results': tutorial.results,
+                    'results': results,
                     'dontShowAllButton': 'true',
                     'organization': organization.name
                 } %}
