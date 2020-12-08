@@ -729,6 +729,10 @@
         <source>click here to log in</source>
         <target>klik hier om in te loggen</target>
       </trans-unit>
+      <trans-unit id="A6HPOvW" resname="click here to register a new organization">
+        <source>click here to register a new organization</source>
+        <target>klik hier om een nieuwe organisatie te registreren</target>
+      </trans-unit>
       <trans-unit id="tGaOY4N" resname="We collect as many tutorials as possible that share your knowledge and which increases the chance of a great internship!">
         <source>We collect as many tutorials as possible that share your knowledge and which increases the chance of a great internship!</source>
         <target>we verzamelen zoveel mogelijk tutorials die jouw kennis delen en die de kans op een toffe stage vergroten!</target>
@@ -3762,6 +3766,10 @@
       <trans-unit id="S5LF0LA" resname="you need to be logged in to contact a student">
         <source>you need to be logged in to contact a student</source>
         <target>je moet ingelogd zijn om contact op te nemen met een student</target>
+      </trans-unit>
+      <trans-unit id="tL3fPYa" resname="you need to be part of an organization to contact a student">
+        <source>you need to be part of an organization to contact a student</source>
+        <target>je moet deel uitmaken van een organisatie om contact op te nemen met een student</target>
       </trans-unit>
       <trans-unit id="uPcpigv" resname="interns can help us to solve challenges we experience inside or outside our organizations.">
         <source>interns can help us to solve challenges we experience inside or outside our organizations.</source>
