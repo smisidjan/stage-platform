@@ -40,7 +40,7 @@ class DefaultController extends AbstractController
             $employees = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'employees'], ['person' => $personUrl])['hydra:member'];
 
             if (!count($employees) > 0) {
-                $mailingService->sendMail('mails/welcome_mail.html.twig', 'no-reply@conduction.nl', $this->getUser()->getUsername(), 'Welkom op conduction.academy');
+                $mailingService->sendMail('mails/welcome_mail.html.twig', 'no-reply@conduction.academy', $this->getUser()->getUsername(), 'Welkom op conduction.academy');
 
                 $employee = [];
                 $employee['person'] = $personUrl;
