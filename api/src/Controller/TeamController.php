@@ -64,9 +64,9 @@ class TeamController extends AbstractController
             }
             $participant['status'] = 'pending';
 
-            $participant = $commonGroundService->saveResource($participant, ['component' => 'edu', 'type' => 'participants']);
+            $commonGroundService->createResource($participant, ['component' => 'edu', 'type' => 'participants']);
 
-            $variables['team'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups', 'id' => $id]);
+            return $this->redirect($this->generateUrl('app_team_team', ['id' => $id]));
         }
 
         if (isset($variables['team']['participants']) && count($variables['team']['participants']) > 0) {
