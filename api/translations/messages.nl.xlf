@@ -3871,6 +3871,14 @@
         <source>in the old world we used to do onboaring and on the job trainging, that is now no longer possible. We need to find a new way for interns and new employees to onboard themselfs into the workspace</source>
         <target>in de oude wereld deden we aan onboaring en on the job trainging, dat is nu niet meer mogelijk. We moeten een nieuwe manier vinden voor stagiaires en nieuwe medewerkers om zichzelf in de werkruimte te begevenF</target>
       </trans-unit>
+      <trans-unit id="EqW_Zue" resname="inloggen met deze organisatie">
+        <source>inloggen met deze organisatie</source>
+        <target>inloggen met deze organisatie</target>
+      </trans-unit>
+      <trans-unit id="gpbqaoV" resname="we have listed all the companies that are looking for an intern for you. So that you can make a choice for which internship you would like to go.">
+        <source>we have listed all the companies that are looking for an intern for you. So that you can make a choice for which internship you would like to go.</source>
+        <target>We hebben alle bedrijven op een rijtje gezet die voor jou op zoek zijn naar een stagiair. Zodat je een keuze kunt maken voor welke stage jij wilt gaan.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
