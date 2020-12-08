@@ -42,6 +42,11 @@ class DashboardOrganizationController extends AbstractController
     public function tutorialsAction(CommonGroundService $commonGroundService, Request $request)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        if (empty($this->getUser()->getOrganization())) {
+            return $this->redirect($this->generateUrl('app_default_organization').'?backUrl='.$this->generateUrl('app_dashboardorganization_tutorials'));
+        }
+
         $variables = [];
 
         $variables['addPath'] = 'app_dashboardorganization_tutorial';
@@ -101,6 +106,11 @@ class DashboardOrganizationController extends AbstractController
     public function internshipsAction(CommonGroundService $commonGroundService, Request $request)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        if (empty($this->getUser()->getOrganization())) {
+            return $this->redirect($this->generateUrl('app_default_organization').'?backUrl='.$this->generateUrl('app_dashboardorganization_internships'));
+        }
+
         $variables = [];
 
         $variables['addPath'] = 'app_dashboardorganization_internship';
@@ -175,6 +185,11 @@ class DashboardOrganizationController extends AbstractController
     public function challengesAction(Request $request, CommonGroundService $commonGroundService)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        if (empty($this->getUser()->getOrganization())) {
+            return $this->redirect($this->generateUrl('app_default_organization').'?backUrl='.$this->generateUrl('app_dashboardorganization_challenges'));
+        }
+
         $variables = [];
 
         // On an index route we might want to filter based on user input
