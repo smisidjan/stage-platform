@@ -3477,7 +3477,6 @@
                       <source>propose challenges</source>
                       <target>challenges voorstellen</target>
                     </trans-unit>
-
        <trans-unit id="tLCXZa2" resname="prices">
                <source>prices</source>
                <target>prijzen</target>
@@ -3506,6 +3505,10 @@
                     <source>join!</source>
                     <target>doe mee!</target>
                   </trans-unit>
+                  <trans-unit id="ABSHZC7" resname="Sign Out">
+                                      <source>Sign Out</source>
+                                      <target>uitloggen</target>
+                                    </trans-unit>
                   <trans-unit id="MKL54AQ" resname="create a profile and find the best challenges and organization for your internship">
                     <source>create a profile and find the best challenges and organization for your internship</source>
                     <target>maak een profiel aan en vind de leukste challenges en organisatie voor jouw stage</target>
