@@ -74,6 +74,8 @@ class DashboardOrganizationController extends AbstractController
         $variables['organizations'] = $commonGroundService->getResourceList(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
         $variables['activities'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'activities'])['hydra:member'];
         $variables['requirements'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
+        $variables['skills'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'skills'])['hydra:member'];
+        $variables['competences'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'competences'])['hydra:member'];
 
         if ($this->getUser()->getOrganization()) {
             $organization = $commonGroundService->getResource($this->getUser()->getOrganization());
