@@ -233,10 +233,10 @@
                                                     </div>
                                                 </form>
                                             {% else %}
-                                                <p class="mt-4 text-center">{{ 'you need to be logged in to contact a student'|trans|capitalize }}</p>
+                                                <p class="mt-4 text-center">{{ 'you need to be part of an organization to contact a student'|trans|capitalize }}</p>
                                                 <div class="mb-5 mb-lg-6 text-center">
                                                     <a class="mt-2 text-center btn btn-secondary"
-                                                       href="{{ path('app_default_organization') }}?backUrl={{ path('app_student_portfolio', {id: student.id}) }}">{{ 'click here to log in'|trans|capitalize }} </a>
+                                                       href="{{ path('app_default_organization') }}?backUrl={{ path('app_student_portfolio', {id: student.id}) }}">{{ 'click here to register a new organization'|trans|capitalize }} </a>
                                                 </div>
                                             {% endif %}
                                         {% else %}
