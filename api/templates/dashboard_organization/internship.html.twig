@@ -286,8 +286,6 @@
                                     type="datetime-local"
                                     {% if internship.jobStartDate is defined and internship.jobStartDate is not empty %}
                                         min="{{ internship.jobStartDate|date("Y-m-d\\TH:i") }}"
-                                    {% else %}
-                                        min="{{ "now"|date("Y-m-d\\TH:i") }}"
                                     {% endif %}
                                     {% if internship.validThrough is defined and internship.validThrough is not empty %}
                                         value="{{ internship.validThrough|date("Y-m-d\\TH:i") }}"
