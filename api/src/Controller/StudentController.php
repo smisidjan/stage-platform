@@ -77,7 +77,7 @@ class StudentController extends AbstractController
         $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['person' => $variables['student']['@id']])['hydra:member'];
 
         if ($this->getUser()) {
-            $variables['sender'] = ($commonGroundService->isResource($this->getUser()->getPerson()));
+            $variables['sender'] = ($commonGroundService->isResource($this->getUser()->getOrganization()));
         }
 
         $variables['portfolio'] = $commonGroundService->getResourceList(['component' => 'pfc', 'type' => 'portfolios'], ['owner' => $variables['student']['@id']])['hydra:member'];
