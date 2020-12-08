@@ -454,10 +454,11 @@ class DashboardOrganizationController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
-        $organization = $this->commonGroundService->getResource($this->getUser()->getOrganization());
-        $organizationUrl = $this->commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
-        $variables['invoices'] = $commonGroundService->getResourceList(['component' => 'bc', 'type' => 'invoices'], ['customer' => $organizationUrl])['hydra:member'];
-
+        if (!empty($this->getUser()->getOrganization())) {
+            $organization = $commonGroundService->getResource($this->getUser()->getOrganization());
+            $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
+            $variables['invoices'] = $commonGroundService->getResourceList(['component' => 'bc', 'type' => 'invoices'], ['customer' => $organizationUrl])['hydra:member'];
+        }
         return $variables;
     }
 
@@ -471,13 +472,6 @@ class DashboardOrganizationController extends AbstractController
         $variables = [];
 
         $variables['invoice'] = $commonGroundService->getResource(['component' => 'bc', 'type' => 'invoices', 'id' => $id]);
-        $variables['organization'] = $commonGroundService->getResource($variables['invoice']['targetOrganization']);
-
-        if (!empty($variables['organization']['contact'])) {
-            $variables['organization']['contact'] = $commonGroundService->getResource($variables['organization']['contact']);
-        }
-        $variables['style'] = $variables['organization']['style'];
-        $variables['customer'] = $commonGroundService->getResource($variables['invoice']['customer']);
 
         /*@todo make payment process*/
 
