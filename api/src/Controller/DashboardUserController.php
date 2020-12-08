@@ -465,7 +465,7 @@ class DashboardUserController extends AbstractController
             $group = $groups[0];
             $variables['users'] = $group['users'];
         } else {
-            $user = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'users'],['username' => $this->getUser()->getUsername()])['hydra:member'][0];
+            $user = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'users'], ['username' => $this->getUser()->getUsername()])['hydra:member'][0];
             $variables['users'][] = $user;
         }
 
