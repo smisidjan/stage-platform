@@ -94,11 +94,9 @@ class DashboardOrganizationController extends AbstractController
         // Lets see if there is a post to procces
         if ($request->isMethod('POST')) {
             $resource = $request->request->all();
-            // Add the post data to the already aquired resource data
-//            $resource = array_merge($variables['tutorial'], $resource);
-            // Update to the commonground component
-            var_dump($resource);
-//            die;
+
+            $resource['organization'] = $organizationUrl;
+
             $variables['tutorial'] = $commonGroundService->saveResource($resource, ['component' => 'edu', 'type' => 'courses']);
 
             return $this->redirect($this->generateUrl('app_dashboardorganization_tutorials'));
