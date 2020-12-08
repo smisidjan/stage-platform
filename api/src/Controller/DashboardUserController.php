@@ -4,6 +4,7 @@
 
 namespace App\Controller;
 
+use App\Service\MailingService;
 use Conduction\BalanceBundle\Service\BalanceService;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -558,7 +559,7 @@ class DashboardUserController extends AbstractController
      * @Template
      * @Route("/transactions/{organization}")
      */
-    public function transactionsAction(Session $session, CommonGroundService $commonGroundService, BalanceService $balanceService, Request $request, $organization)
+    public function transactionsAction(Session $session, CommonGroundService $commonGroundService, BalanceService $balanceService, MailingService $mailingService, Request $request, $organization)
     {
         // On an index route we might want to filter based on user input
         $variables = [];
@@ -571,6 +572,13 @@ class DashboardUserController extends AbstractController
             $mollieCode = $session->get('mollieCode');
             $session->remove('mollieCode');
             $result = $balanceService->processMolliePayment($mollieCode, $organizationUrl);
+
+            $person = $commonGroundService->getResource($this->getUser()->getPerson());
+            $data = [];
+            $data['receiver'] = $person['name'];
+            $data['invoice'] = $result['invoice'];
+
+            $mailingService->sendMail('mails/invoice.html.twig', 'no-reply@conduction.academy', $this->getUser()->getUsername(), 'invoice', $data);
 
             if ($result['status'] == 'paid') {
                 $variables['message'] = 'Payment processed successfully! <br> €'.$result['amount'].'.00 was added to your balance. <br>  Invoice with reference: '.$result['reference'].' is created.';

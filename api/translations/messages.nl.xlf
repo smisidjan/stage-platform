@@ -3784,6 +3784,18 @@
         <source>we need to find a new way for interns and new employees to onboard themselfs into the workspace</source>
         <target>__we need to find a new way for interns and new employees to onboard themselfs into the workspace</target>
       </trans-unit>
+      <trans-unit id="X01E36o" resname="dear">
+        <source>dear</source>
+        <target>beste</target>
+      </trans-unit>
+      <trans-unit id="z5IPGYD" resname="this is your invoice created by conduction academy">
+        <source>this is your invoice created by conduction academy</source>
+        <target>dus is uw factuur gemaakt door conduction academy</target>
+      </trans-unit>
+      <trans-unit id="r35_gnV" resname="thanks for your order">
+        <source>thanks for your order</source>
+        <target>bedankt voor uw bestelling</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
