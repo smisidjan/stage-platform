@@ -459,13 +459,15 @@ class DashboardOrganizationController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
-        $variables['invoices'] = $commonGroundService->getResourceList(['component' => 'bc', 'type' => 'invoices'])['hydra:member'];
+        $organization = $this->commonGroundService->getResource($this->getUser()->getOrganization());
+        $organizationUrl = $this->commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
+        $variables['invoices'] = $commonGroundService->getResourceList(['component' => 'bc', 'type' => 'invoices'], ['customer' => $organizationUrl])['hydra:member'];
 
         return $variables;
     }
 
     /**
-     * @Route("/invoice")
+     * @Route("/invoice/{id}")
      * @Template
      */
     public function invoiceAction(CommonGroundService $commonGroundService, Request $request, $id)
@@ -475,7 +477,10 @@ class DashboardOrganizationController extends AbstractController
 
         $variables['invoice'] = $commonGroundService->getResource(['component' => 'bc', 'type' => 'invoices', 'id' => $id]);
         $variables['organization'] = $commonGroundService->getResource($variables['invoice']['targetOrganization']);
-        $variables['organization']['contact'] = $commonGroundService->getResource($variables['organization']['contact']);
+
+        if (!empty($variables['organization']['contact'])) {
+            $variables['organization']['contact'] = $commonGroundService->getResource($variables['organization']['contact']);
+        }
         $variables['style'] = $variables['organization']['style'];
         $variables['customer'] = $commonGroundService->getResource($variables['invoice']['customer']);
 
