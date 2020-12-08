@@ -322,7 +322,7 @@ class DashboardOrganizationController extends AbstractController
             // Add the post data to the already aquired resource data
             $resource = array_merge($variables['product'], $resource);
 
-            $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', ' type' => 'organizations', 'id' => $variables['organization']['id']]);
+            $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $variables['organization']['id']]);
 
             $resource['sourceOrganization'] = $organizationUrl;
             $resource['requiresAppointment'] = false;
