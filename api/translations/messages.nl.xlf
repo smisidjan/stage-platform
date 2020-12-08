@@ -801,6 +801,10 @@
         <source>you have already registerd for this cource</source>
         <target>u heeft zich al aangemeld voor deze cursus</target>
       </trans-unit>
+      <trans-unit id="XqJhLJZ" resname="you have already applied for this team">
+        <source>you have already applied for this team</source>
+        <target>je hebt je al aangemeld voor dit team</target>
+      </trans-unit>
       <trans-unit id="JrgRo3s" resname="click here to participate">
         <source>click here to participate</source>
         <target>klik hier om deel te nemen</target>
