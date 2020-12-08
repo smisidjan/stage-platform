@@ -3849,7 +3849,7 @@
       </trans-unit>
       <trans-unit id="t.CPCtX" resname="no invoices found">
         <source>no invoices found</source>
-        <target>geen facturen gevonden</target>
+        <target>Geen facturen gevonden</target>
       </trans-unit>
       <trans-unit id="2VHqN.d" resname="interns are of big value, they bring new and fresh energy to your organization! Also they are the future employees :)">
         <source>interns are of big value, they bring new and fresh energy to your organization! Also they are the future employees :)</source>
@@ -3857,7 +3857,7 @@
       </trans-unit>
       <trans-unit id="XMk8PWA" resname="invoice details">
         <source>invoice details</source>
-        <target>factuurgegevens</target>
+        <target>factuur details</target>
       </trans-unit>
       <trans-unit id="_SNx8Qv" resname="they say 1+1=3, so that’s why we recommend students to work in teams on challenges! Together you can come up with the best solutions for challenges.">
         <source>they say 1+1=3, so that’s why we recommend students to work in teams on challenges! Together you can come up with the best solutions for challenges.</source>
