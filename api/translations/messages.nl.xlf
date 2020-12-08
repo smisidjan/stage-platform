@@ -669,10 +669,14 @@
         <source>find your perfect internship</source>
         <target>vind je perfecte stageplek</target>
       </trans-unit>
-      <trans-unit id="gpbqaoV" resname="we have listed all the companies that are looking for an intern for you. So that you can make a choice for which internship you would like to go.">
+      <trans-unit id="gpbqaoV" resname="we have listed all the companies that are looking for an intern for you.">
         <source>we have listed all the companies that are looking for an intern for you. So that you can make a choice for which internship you would like to go.</source>
-        <target>we hebben alle bedrijven voor je op een rijtje gezet die op zoek zijn naar een stagiair. Zodat je een keuze kunt maken voor welke stage je wilt gaan.</target>
+        <target>we hebben alle bedrijven op een rijtje gezet die voor jou op zoek zijn naar een stagiair.</target>
       </trans-unit>
+      <trans-unit id="BATZRj6" resname="so that you can make a choice for which internship you would like to go.">
+              <source>so that you can make a choice for which internship you would like to go.</source>
+              <target>zodat je een keuze kunt maken voor welke stage jij wilt gaan.</target>
+            </trans-unit>
       <trans-unit id="rtfgGj6" resname="internship">
         <source>internship</source>
         <target>stage</target>
@@ -3482,11 +3486,14 @@
                <source>reward for solutions</source>
                <target>beloning voor oplossingen</target>
              </trans-unit>
-       <trans-unit id="BXHCTC7" resname="organizations are always looking for creative, driven and talented newbies. View the challenges and internships and respond or apply!">
+       <trans-unit id="BXHCTC7" resname="organizations are always looking for creative, driven and talented newbies.">
                       <source>organizations are always looking for creative, driven and talented newbies. View the challenges and internships and respond or apply!</source>
-                      <target>organisaties zijn altijd op zoek naar creatieve, gedreven en getalenteerde newbies. Bekijk de challenges en stages en reageer of solliciteer!
-                              </target>
+                      <target>organisaties zijn altijd op zoek naar creatieve, gedreven en getalenteerde newbies.</target>
                     </trans-unit>
+        <trans-unit id="BBATZC7" resname="view the challenges and internships and respond or apply!">
+                             <source>view the challenges and internships and respond or apply!</source>
+                             <target>bekijk de challenges en stages en reageer of solliciteer!</target>
+                           </trans-unit>
        <trans-unit id="KANZGYp" resname="conduction Academy provides both matchmaking and an online internship platform">
                     <source>conduction Academy provides both matchmaking and an online internship platform</source>
                     <target>conduction academy verzorgt zowel matching als een online stageplatform</target>
@@ -3511,18 +3518,32 @@
                       <source>to find the best internships, challenges and tutorials that can boost your career</source>
                       <target>om de beste stages, challenges  en tutorials te vinden die je carrière een boost kunnen geven</target>
                     </trans-unit>
-       <trans-unit id="NxgZZa2" resname="do you as an organization have a (digital) issue or a challenge? And do you want a fresh look or an innovative solution? Post a challenge and invite students to respond and pitch their ideas and / or products!">
-                      <source>do you as an organization have a (digital) issue or a challenge? And do you want a fresh look or an innovative solution? Post a challenge and invite students to respond and pitch their ideas and / or products!</source>
-                      <target>heeft u als organisatie een (digitaal) vraagstuk of een challenge? En wilt u een frisse blik of een innovatieve oplossing ? Plaats een challenge en nodig studenten uit om te reageren en hun ideeën en / of producten te pitchen!</target>
+       <trans-unit id="NxgZZa2" resname="do you as an organization have a (digital) issue or a challenge?">
+                      <source>do you as an organization have a (digital) issue or a challenge?</source>
+                      <target>heeft u als organisatie een (digitaal) vraagstuk of een challenge?</target>
                     </trans-unit>
-       <trans-unit id="BsgXCZa" resname="by starting your own team, you can attract teammates and take on challenges / challenges together. There is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.">
-                 <source>by starting your own team, you can attract teammates and take on challenges / challenges together. There is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.</source>
-                 <target>door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan, er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat.</target>
+       <trans-unit id="BsgXCZa" resname="by starting your own team, you can attract teammates and take on challenges / challenges together.">
+                 <source>by starting your own team, you can attract teammates and take on challenges / challenges together.</source>
+                 <target>door je eigen team te starten, kun je teamgenoten aantrekken en samen uitdagingen / uitdagingen aangaan.</target>
               </trans-unit>
         <trans-unit id="NAZKsai" resname="the choice is yours!">
                             <source>the choice is yours!</source>
                             <target>de keuze is aan jou!</target>
                           </trans-unit>
+        <trans-unit id="KKKKsai" resname="there is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.">
+                                    <source>there is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.</source>
+                                    <target>er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team van studenten van verschillende studies.</target>
+                                  </trans-unit>
+
+        <trans-unit id="BAT5sNa" resname="and do you want a fresh look or an innovative solution?">
+                 <source>and do you want a fresh look or an innovative solution?</source>
+                 <target>en wilt u een frisse blik of een innovatieve oplossing?</target>
+              </trans-unit>
+             <trans-unit id="MakI62z" resname="post a challenge and invite students to respond and pitch their ideas and / or products!">
+                 <source>post a challenge and invite students to respond and pitch their ideas and / or products!</source>
+                 <target>plaats een challenge en nodig studenten uit om te reageren en hun ideeën en / of producten te pitchen!</target>
+              </trans-unit>
+
       <trans-unit id="E12Afs2" resname="add your first tutorial">
           <source>add your first tutorial</source>
           <target>voeg je eerste tutorial toe</target>
