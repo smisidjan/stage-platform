@@ -137,7 +137,23 @@ class DashboardUserController extends AbstractController
         $variables = [];
 
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
-        $variables['tutorial']['results'][0] = ['id' => '1234', 'name' => 'test result'];
+
+        //  Getting the participants
+        if ($this->getUser()) {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['person' => $this->getUser()->getPerson()])['hydra:member'];
+            if (count($participants) > 0) {
+                // Get the result for each participant of this user if the participant has the tutorial in course
+                $results = [];
+                foreach ($participants as $participant) {
+                    if (isset($participant['course']['id']) and $participant['course']['id'] == $id) {
+                        if (isset($participant['results'])) {
+                            array_push($results, $participant['results']);
+                        }
+                    }
+                }
+                $variables['results'] = $results;
+            }
+        }
 
         return $variables;
     }
