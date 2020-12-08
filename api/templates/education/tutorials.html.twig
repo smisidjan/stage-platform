@@ -38,7 +38,7 @@
                         <a href="{{ path('app_education_tutorials',{'additionalType': type}) }}" class="card text-center shadow-soft border-light animate-up-3">
                             <div class="card-body p-5">
                                 <div class="icon icon-shape icon-shape-primary rounded-circle mb-4"><span class="fas fa-clipboard-list"></span></div>
-                                <h6 class="text-gray mb-0">{{ type|trans|capitalize }}</h6></div>
+                                <h6 class="text-gray mb-0">{{ type|capitalize }}</h6></div>
                         </a>
                     </div>
                 {% endfor %}
@@ -65,10 +65,12 @@
                             <div class="card-body p-0 pt-4"><a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}" class="h3">{{ tutorial.name }}</a>
                                 {% if tutorial.organization is defined and tutorial.organization is not empty %}
                                     {% set organization = commonground_resource(tutorial.organization) %}
-                                    <div class="d-flex align-items-center my-4"><img class="avatar avatar-sm rounded-circle" src="{{ organization.style.favicon.base64 }}" alt="">
+                                    <div class="d-flex align-items-center mt-2 mb-2"><img class="avatar avatar-sm rounded-circle" src="{{ organization.style.favicon.base64 }}" alt="">
                                         <h6 class="text-muted small ml-2 mb-0">{{ organization.name }}</h6>
                                     </div>
-                                    {{ tutorial.additionalType }}
+                                    <div class="mb-2 font-weight-bold">
+                                        {{ tutorial.additionalType }}
+                                    </div>
                                 {% endif %}
                                 <p class="mb-0">{{ tutorial.description }}</p>
                             </div>
