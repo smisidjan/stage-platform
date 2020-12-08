@@ -516,8 +516,6 @@ class DashboardUserController extends AbstractController
                 }
             }
 
-
-
             // Update to the commonground component
             $variables['item'] = $commonGroundService->saveResource($resource, ['component' => 'wrc', 'type' => 'organizations']);
 
