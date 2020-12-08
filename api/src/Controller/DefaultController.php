@@ -54,7 +54,6 @@ class DefaultController extends AbstractController
                 $user = $users[0];
 
                 $userUrl = $commonGroundService->cleanUrl(['component' => 'uc', 'type' => 'users', 'id' => $user['id']]);
-
             }
         }
 

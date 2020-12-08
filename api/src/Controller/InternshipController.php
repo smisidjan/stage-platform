@@ -28,7 +28,6 @@ class InternshipController extends AbstractController
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
 
-
         // On an index route we might want to filter based on user input
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
