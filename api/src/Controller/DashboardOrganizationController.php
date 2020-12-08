@@ -403,7 +403,7 @@ class DashboardOrganizationController extends AbstractController
             unset($participation['groupColumn']);
             unset($participation['course']);
             unset($participation['program']);
-            if ($participation['status'] == 'accpeted') {
+            if ($participation['status'] == 'accepted') {
                 $participation['dateOfAcceptance'] = new Date('today');
             } else {
                 $participation['dateOfAcceptance'] = null;

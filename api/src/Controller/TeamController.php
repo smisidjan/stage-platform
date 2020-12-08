@@ -53,7 +53,7 @@ class TeamController extends AbstractController
         $variables['entries'] = $entries['hydra:member'];
         $variables['numberOfEntries'] = $entries['hydra:totalItems'];
 
-        $variables['participations'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], [''])['hydra:member'];
+        $variables['participants'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], [''])['hydra:member'];
 
         if ($request->isMethod('POST') && $this->getUser()) {
             $participant['person'] = $this->getUser()->getPerson();
@@ -69,8 +69,8 @@ class TeamController extends AbstractController
             $variables['team'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups', 'id' => $id]);
         }
 
-        if (isset($variables['team']['participations']) && count($variables['team']['participations']) > 0) {
-            foreach ($variables['team']['participations'] as $part) {
+        if (isset($variables['team']['participants']) && count($variables['team']['participants']) > 0) {
+            foreach ($variables['team']['participants'] as $part) {
                 if ($part['person'] == $this->getUser()->getPerson()) {
                     $variables['userIsInTeam'] = true;
                 }
