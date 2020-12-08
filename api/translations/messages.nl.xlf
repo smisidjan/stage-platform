@@ -665,9 +665,13 @@
         <source>find your perfect internship</source>
         <target>vind je perfecte stageplek</target>
       </trans-unit>
-      <trans-unit id="gpbqaoV" resname="we have listed all the companies that are looking for an intern for you. So that you can make a choice for which internship you would like to go.">
-        <source>we have listed all the companies that are looking for an intern for you. So that you can make a choice for which internship you would like to go.</source>
-        <target>we hebben alle bedrijven voor je op een rijtje gezet die op zoek zijn naar een stagiair. Zodat je een keuze kunt maken voor welke stage je wilt gaan.</target>
+      <trans-unit id="lYp6aw9" resname="we have listed all the companies that are looking for an intern for you.">
+        <source>we have listed all the companies that are looking for an intern for you.</source>
+        <target>we hebben alle bedrijven op een rijtje gezet die voor jou op zoek zijn naar een stagiair.</target>
+      </trans-unit>
+      <trans-unit id=".k_E2nj" resname="so that you can make a choice for which internship you would like to go.">
+        <source>so that you can make a choice for which internship you would like to go.</source>
+        <target>zodat je een keuze kunt maken voor welke stage jij wilt gaan.</target>
       </trans-unit>
       <trans-unit id="rtfgGj6" resname="internship">
         <source>internship</source>
@@ -675,7 +679,7 @@
       </trans-unit>
       <trans-unit id="MkJZV0T" resname="we are always looking for creative, talented self-starters to join the Front family. Check out our open positions and fill out an application.">
         <source>we are always looking for creative, talented self-starters to join the Front family. Check out our open positions and fill out an application.</source>
-        <target>we zijn altijd op zoek naar creatieve, getalenteerde zelfstarters om lid te worden van de Front-familie. Bekijk onze openstaande stages en vul een sollicitatie in.</target>
+        <target>We zijn altijd op zoek naar creatieve, getalenteerde zelfstarters om lid te worden van de Front-familie. Bekijk onze openstaande stages en vul een sollicitatie in.</target>
       </trans-unit>
       <trans-unit id="Dntbauq" resname="no requirements found">
         <source>no requirements found</source>
@@ -801,7 +805,7 @@
         <source>you have already registerd for this cource</source>
         <target>u heeft zich al aangemeld voor deze cursus</target>
       </trans-unit>
-      <trans-unit id="XqJhLJZ" resname="you have already applied for this team">
+      <trans-unit id="hd9vr_n" resname="you have already applied for this team">
         <source>you have already applied for this team</source>
         <target>je hebt je al aangemeld voor dit team</target>
       </trans-unit>
@@ -955,7 +959,7 @@
       </trans-unit>
       <trans-unit id="zwJiGsD" resname="Starting your own teams allows jou to attract teammates and tackle challenges together, there is no set definition of who should be in a team so you could either be a group of students of the same study or a multidisciplinary team consisting of different study\'s. Or you could just be a group of friends.">
         <source>Starting your own teams allows jou to attract teammates and tackle challenges together, there is no set definition of who should be in a team so you could either be a group of students of the same study or a multidisciplinary team consisting of different study\'s. Or you could just be a group of friends.</source>
-        <target>door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan, er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat. Of je zou gewoon een groep vrienden kunnen zijn.</target>
+        <target>door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan. Er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat. Of je zou gewoon een groep vrienden kunnen zijn.</target>
       </trans-unit>
       <trans-unit id="YZacozN" resname="The choice is all yours.">
         <source>The choice is all yours.</source>
@@ -983,7 +987,7 @@
       </trans-unit>
       <trans-unit id="8r6nJyn" resname="Dont worry, joining the comunnity and adding the your organizations unqiue value to it is a breazey. Just register and add it under organizations">
         <source>Dont worry, joining the comunnity and adding the your organizations unqiue value to it is a breazey. Just register and add it under organizations</source>
-        <target>maak je geen zorgen, lid worden van de gemeenschap en de unieke waarde van je organisatie eraan toevoegen is een fluitje van een cent! Gewoon registreren en toevoegen onder organisaties.</target>
+        <target>Maak je geen zorgen, lid worden van de gemeenschap en de unieke waarde van je organisatie eraan toevoegen is een fluitje van een cent! Gewoon registreren en toevoegen onder organisaties.</target>
       </trans-unit>
       <trans-unit id="gge8raz" resname="Lift off your career">
         <source>Lift off your career</source>
@@ -1099,7 +1103,7 @@
       </trans-unit>
       <trans-unit id="7Nkc66x" resname="interns can help us to solve challenges we experience inside or outside our organizations. They have a fresh and new perspective on things. Let/s focus on what interns need to learn to transform their fresh brain to strategic problem-solving skills. So instead of offering a student an internship, provide them with a challenge to solve.">
         <source>interns can help us to solve challenges we experience inside or outside our organizations. They have a fresh and new perspective on things. Let/s focus on what interns need to learn to transform their fresh brain to strategic problem-solving skills. So instead of offering a student an internship, provide them with a challenge to solve.</source>
-        <target>stagiaires kunnen ons helpen bij het oplossen van challenges die we binnen of buiten onze organisaties ervaren. Ze hebben een frisse en nieuwe kijk op dingen. Laten we ons concentreren op wat stagiaires nodig hebben om te leren om hun frisse brein om te zetten in strategische probleemoplossende vaardigheden. Dus in plaats van een student een stageplaats aan te bieden, geef ze een challenge om op te lossen.</target>
+        <target>Stagiaires kunnen ons helpen bij het oplossen van challenges die we binnen of buiten onze organisaties ervaren. Ze hebben een frisse en nieuwe kijk op dingen. Laten we ons concentreren op wat stagiaires nodig hebben om te leren om hun frisse brein om te zetten in strategische probleemoplossende vaardigheden. Dus in plaats van een student een stageplaats aan te bieden, geef ze een challenge om op te lossen.</target>
       </trans-unit>
       <trans-unit id="ugLS5Kr" resname="work together online">
         <source>work together online</source>
@@ -1155,7 +1159,7 @@
       </trans-unit>
       <trans-unit id="CRR1Bau" resname="In the old world we used to do onboaring and on the job trainging, that is now no longer possible. we need to find a new way for interns and new employees to onboard themselfs into the workspace">
         <source>In the old world we used to do onboaring and on the job trainging, that is now no longer possible. we need to find a new way for interns and new employees to onboard themselfs into the workspace</source>
-        <target>in de oude wereld deden we aan onboaring en on the job training, dat is nu niet meer mogelijk. We moeten een nieuwe manier vinden voor het onboarden van stagiaires en medewerkers.</target>
+        <target>In de oude wereld deden we aan onboaring en on the job training, dat is nu niet meer mogelijk. We moeten een nieuwe manier vinden voor het onboarden van stagiaires en medewerkers.</target>
       </trans-unit>
       <trans-unit id="LdR6a.E" resname="interhsips">
         <source>interhsips</source>
@@ -1495,7 +1499,7 @@
       </trans-unit>
       <trans-unit id="qYXWs6B" resname="an online platform to find and place a suitable internship">
         <source>an online platform to find and place a suitable internship</source>
-        <target>een online platform om een ​​geschikte stageplaats te vinden en te plaatsen</target>
+        <target>een online platform om een geschikte stageplaats te vinden en te plaatsen</target>
       </trans-unit>
       <trans-unit id="bse4eIC" resname="public access">
         <source>public access</source>
@@ -2703,7 +2707,7 @@
       </trans-unit>
       <trans-unit id="31iOZkm" resname="they say 1+1=3, so that’s why we recommend students to work in teams on challenges!">
         <source>they say 1+1=3, so that’s why we recommend students to work in teams on challenges!</source>
-        <target>ze zeggen 1 + 1 = 3, dus daarom raden we studenten aan om in teams aan uitdagingen te werken!</target>
+        <target>ze zeggen 1 + 1 = 3, dus daarom raden we studenten aan om in teams aan challenges te werken!</target>
       </trans-unit>
       <trans-unit id="jZ9mmS3" resname="Tutorials">
         <source>Tutorials</source>
@@ -2923,11 +2927,11 @@
       </trans-unit>
       <trans-unit id="qDVtgQz" resname="posistions">
         <source>posistions</source>
-        <target>vacatures</target>
+        <target>stages</target>
       </trans-unit>
       <trans-unit id="AtBGIwp" resname="post an open positions">
         <source>post an open positions</source>
-        <target>plaat stage</target>
+        <target>plaat een stage</target>
       </trans-unit>
       <trans-unit id="sMkyMxc" resname="challange students">
         <source>challange students</source>
@@ -2975,7 +2979,7 @@
       </trans-unit>
       <trans-unit id="dkzxU7r" resname="Starting your own teams allows jou to attract teammates and tackle challenges together, there is no set definition of who should be in a team so you could either be a group of students of the same study or a multidisciplinary team consisting of different study's. Or you could just be a group of friends.">
         <source>Starting your own teams allows jou to attract teammates and tackle challenges together, there is no set definition of who should be in a team so you could either be a group of students of the same study or a multidisciplinary team consisting of different study's. Or you could just be a group of friends.</source>
-        <target>door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan, er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat. Of je zou gewoon een groep vrienden kunnen zijn.</target>
+        <target>Door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan. Er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat. Of je zou gewoon een groep vrienden kunnen zijn.</target>
       </trans-unit>
       <trans-unit id="AXWrXPf" resname="online environment for internships">
         <source>online environment for internships</source>
@@ -3219,7 +3223,7 @@
       </trans-unit>
       <trans-unit id="D6ZwGqM" resname="In the Beta phase (now), the platform is free to use for everyone. This will always be free for students.">
         <source>In the Beta phase (now), the platform is free to use for everyone. This will always be free for students.</source>
-        <target>in de Beta-fase (nu), is het platform voor iedereen gratis te gebruiken. Dit is altijd gratis voor studenten.</target>
+        <target>In de Beta-fase (nu), is het platform voor iedereen gratis te gebruiken. Dit is altijd gratis voor studenten.</target>
       </trans-unit>
       <trans-unit id="WbGG9p5" resname="What makes the internship platform different from other matching sites?">
         <source>What makes the internship platform different from other matching sites?</source>
@@ -3799,6 +3803,74 @@
       <trans-unit id="r35_gnV" resname="thanks for your order">
         <source>thanks for your order</source>
         <target>bedankt voor uw bestelling</target>
+      </trans-unit>
+      <trans-unit id="OBPCwVL" resname="organizations are always looking for creative, driven and talented newbies.">
+        <source>organizations are always looking for creative, driven and talented newbies.</source>
+        <target>organisaties zijn altijd op zoek naar creatieve, gedreven en getalenteerde newbies.</target>
+      </trans-unit>
+      <trans-unit id="N85Wwpx" resname="view the challenges and internships and respond or apply!">
+        <source>view the challenges and internships and respond or apply!</source>
+        <target>bekijk de challenges en stages en reageer of solliciteer!</target>
+      </trans-unit>
+      <trans-unit id="CxhLxdU" resname="Sign Out">
+        <source>Sign Out</source>
+        <target>uitloggen</target>
+      </trans-unit>
+      <trans-unit id="2NN9JV6" resname="do you as an organization have a (digital) issue or a challenge?">
+        <source>do you as an organization have a (digital) issue or a challenge?</source>
+        <target>heeft u als organisatie een (digitaal) vraagstuk of een challenge?</target>
+      </trans-unit>
+      <trans-unit id="_MtVT4w" resname="by starting your own team, you can attract teammates and take on challenges / challenges together.">
+        <source>by starting your own team, you can attract teammates and take on challenges / challenges together.</source>
+        <target>door je eigen team te starten, kun je teamgenoten aantrekken en samen uitdagingen / uitdagingen aangaan.</target>
+      </trans-unit>
+      <trans-unit id="FV1CPYZ" resname="there is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.">
+        <source>there is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.</source>
+        <target>er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team van studenten van verschillende studies.</target>
+      </trans-unit>
+      <trans-unit id="V5jeb4o" resname="and do you want a fresh look or an innovative solution?">
+        <source>and do you want a fresh look or an innovative solution?</source>
+        <target>en wilt u een frisse blik of een innovatieve oplossing?</target>
+      </trans-unit>
+      <trans-unit id="kjm7DS7" resname="post a challenge and invite students to respond and pitch their ideas and / or products!">
+        <source>post a challenge and invite students to respond and pitch their ideas and / or products!</source>
+        <target>plaats een challenge en nodig studenten uit om te reageren en hun ideeën en / of producten te pitchen!</target>
+      </trans-unit>
+      <trans-unit id="LPCeor9" resname="are you a creative and driven student and looking for a different kind of internship? Here we offer challenges from companies with special challenges, who are looking for a suitable solution. You as a student can participate! Pitch your innovative solution / idea for these challenges and win a unique internship where you can implement your idea. You can do this individually or with others. Looking for team players watch">
+        <source>are you a creative and driven student and looking for a different kind of internship? Here we offer challenges from companies with special challenges, who are looking for a suitable solution. You as a student can participate! Pitch your innovative solution / idea for these challenges and win a unique internship where you can implement your idea. You can do this individually or with others. Looking for team players watch</source>
+        <target>__are you a creative and driven student and looking for a different kind of internship? Here we offer challenges from companies with special challenges, who are looking for a suitable solution. You as a student can participate! Pitch your innovative solution / idea for these challenges and win a unique internship where you can implement your idea. You can do this individually or with others. Looking for team players watch</target>
+      </trans-unit>
+      <trans-unit id="jlv0cgC" resname="add invoice">
+        <source>add invoice</source>
+        <target>__add invoice</target>
+      </trans-unit>
+      <trans-unit id="bJ4oG1I" resname="due to">
+        <source>due to</source>
+        <target>__due to</target>
+      </trans-unit>
+      <trans-unit id="t.CPCtX" resname="no invoices found">
+        <source>no invoices found</source>
+        <target>__no invoices found</target>
+      </trans-unit>
+      <trans-unit id="2VHqN.d" resname="interns are of big value, they bring new and fresh energy to your organization! Also they are the future employees :)">
+        <source>interns are of big value, they bring new and fresh energy to your organization! Also they are the future employees :)</source>
+        <target>__interns are of big value, they bring new and fresh energy to your organization! Also they are the future employees :)</target>
+      </trans-unit>
+      <trans-unit id="XMk8PWA" resname="invoice details">
+        <source>invoice details</source>
+        <target>__invoice details</target>
+      </trans-unit>
+      <trans-unit id="_SNx8Qv" resname="they say 1+1=3, so that’s why we recommend students to work in teams on challenges! Together you can come up with the best solutions for challenges.">
+        <source>they say 1+1=3, so that’s why we recommend students to work in teams on challenges! Together you can come up with the best solutions for challenges.</source>
+        <target>__they say 1+1=3, so that’s why we recommend students to work in teams on challenges! Together you can come up with the best solutions for challenges.</target>
+      </trans-unit>
+      <trans-unit id="63IZig5" resname="We collect as many tutorials as possible that share your knowledge and which increases the chance of a great internship! For some internships it is going through a few tutorials is a must, you will then submit a little after watching test so that the company can see that you have acquired the knowledge. That also makes it much easier for you to immediately join your internship company">
+        <source>We collect as many tutorials as possible that share your knowledge and which increases the chance of a great internship! For some internships it is going through a few tutorials is a must, you will then submit a little after watching test so that the company can see that you have acquired the knowledge. That also makes it much easier for you to immediately join your internship company</source>
+        <target>__We collect as many tutorials as possible that share your knowledge and which increases the chance of a great internship! For some internships it is going through a few tutorials is a must, you will then submit a little after watching test so that the company can see that you have acquired the knowledge. That also makes it much easier for you to immediately join your internship company</target>
+      </trans-unit>
+      <trans-unit id="cskMs54" resname="in the old world we used to do onboaring and on the job trainging, that is now no longer possible. We need to find a new way for interns and new employees to onboard themselfs into the workspace">
+        <source>in the old world we used to do onboaring and on the job trainging, that is now no longer possible. We need to find a new way for interns and new employees to onboard themselfs into the workspace</source>
+        <target>__in the old world we used to do onboaring and on the job trainging, that is now no longer possible. We need to find a new way for interns and new employees to onboard themselfs into the workspace</target>
       </trans-unit>
     </body>
   </file>
