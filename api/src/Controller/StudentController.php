@@ -25,7 +25,9 @@ class StudentController extends AbstractController
      */
     public function indexAction(CommonGroundService $commonGroundService, Request $request)
     {
-        if ($request->query->get('organization') && empty($this->getUser()->getOrganization())) {
+        if (!$this->getUser() && $request->query->get('organization')) {
+            return $this->redirect($this->generateUrl('app_user_idvault').'?backUrl='.$request->getUri());
+        } elseif ($this->getUser() && $request->query->get('organization') && empty($this->getUser()->getOrganization())) {
             return $this->redirect($this->generateUrl('app_default_organization').'?backUrl='.$request->getUri());
         }
 
