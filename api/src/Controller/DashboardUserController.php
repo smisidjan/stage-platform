@@ -417,6 +417,7 @@ class DashboardUserController extends AbstractController
         $variables['path'] = 'app_dashboarduser_organizations';
         $variables['pathToSingular'] = 'app_dashboarduser_organization';
         $variables['type'] = 'organization';
+        $variables['addPath'] = 'app_dashboarduser_organization';
 
         if ($organization = $this->getUser()->getOrganization()) {
             $variables['organization'] = $commonGroundService->getResource($organization);
