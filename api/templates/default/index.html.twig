@@ -88,7 +88,7 @@
                             </ul>
                         </div>
                         <div class="card-footer pt-0">
-                            <a href="{{ path('app_user_idvault') }}" class="btn btn-block btn-primary">{{'Join'|trans|capitalize}}<span class="icon icon-xs ml-2"><i class="fas fa-arrow-right"></i></span></a>
+                            <a href="{{ path('app_default_organization') }}?backUrl={{ path('app_dashboarduser_index') }}" class="btn btn-block btn-primary">{{'Join'|trans|capitalize}}<span class="icon icon-xs ml-2"><i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -106,4 +106,14 @@
     {# include 'widgets/code.html.twig' #}
 
     {% include 'widgets/faq.html.twig' %}
+
+    {% include 'default/modals/newsletter_message_modal.html.twig' %}
+
+    <script>
+        {% if query.message is defined %}
+        $(window).on('load', function(){
+            $('#messageModal').modal('show');
+        });
+        {% endif %}
+    </script>
 {% endblock %}

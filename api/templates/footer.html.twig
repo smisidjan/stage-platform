@@ -49,9 +49,9 @@
                 </ul>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-                <h5>{{ 'subscribe'|trans|capitalize }}</h5>
+                <h5>{{ 'newsletter'|trans|capitalize }}</h5>
                 <p class="font-small">{{ 'the latest stageplatform news, articles, and resources, sent straight to your inbox every month.'|trans|capitalize }}</p>
-                <form action="#">
+                <form action="{{ path('app_default_newsletter') }}">
                     <div class="form-row">
                         <div class="col-4">
                             <button type="submit" class="btn btn-secondary"><span>{{ 'subscribe'|trans|capitalize }}</span></button>

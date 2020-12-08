@@ -181,7 +181,13 @@ class DashboardOrganizationController extends AbstractController
         $variables['query'] = array_merge($request->query->all(), $variables['post'] = $request->request->all());
 
         // Get resource challenges (known as tender component side)
-        $variables['challenges'] = $commonGroundService->getResource(['component' => 'chrc', 'type' => 'tenders'], $variables['query'])['hydra:member'];
+        if ($this->getUser()->getOrganization()) {
+            $organization = $commonGroundService->getResource($this->getUser()->getOrganization());
+            $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
+            $variables['challenges'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'tenders'], ['submitter' => $organizationUrl])['hydra:member'];
+        } else {
+            $variables['challenges'] = [];
+        }
 
         $variables['addPath'] = 'app_dashboardorganization_challenge';
 
@@ -197,7 +203,10 @@ class DashboardOrganizationController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $variables = [];
 
-        $variables['organizations'] = $commonGroundService->getResourceList(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
+        if ($this->getUser()->getOrganization()) {
+            $variables['organization'] = $commonGroundService->getResource($this->getUser()->getOrganization());
+        }
+
         $variables['tutorials'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'courses'])['hydra:member'];
 
         if ($id != 'new') {
@@ -432,6 +441,40 @@ class DashboardOrganizationController extends AbstractController
                 }
             }
         }
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/invoices")
+     * @Template
+     */
+    public function invoicesAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $variables = [];
+
+        $variables['invoices'] = $commonGroundService->getResourceList(['component' => 'bc', 'type' => 'invoices'])['hydra:member'];
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/invoice")
+     * @Template
+     */
+    public function invoiceAction(CommonGroundService $commonGroundService, Request $request, $id)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $variables = [];
+
+        $variables['invoice'] = $commonGroundService->getResource(['component' => 'bc', 'type' => 'invoices', 'id' => $id]);
+        $variables['organization'] = $commonGroundService->getResource($variables['invoice']['targetOrganization']);
+        $variables['organization']['contact'] = $commonGroundService->getResource($variables['organization']['contact']);
+        $variables['style'] = $variables['organization']['style'];
+        $variables['customer'] = $commonGroundService->getResource($variables['invoice']['customer']);
+
+        /*@todo make payment process*/
 
         return $variables;
     }

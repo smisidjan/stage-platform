@@ -33,7 +33,7 @@ class TeamController extends AbstractController
         //@TODO filter when filter arrays are possible
 
         // Get resource
-        $variables['teams'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'groups'], $variables['query'])['hydra:member'];
+        $variables['teams'] = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'groups'])['hydra:member']; //Do not use query here?!
         $variables['entries'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'entries'], $variables['query'])['hydra:member'];
 
         return $variables;
@@ -57,14 +57,15 @@ class TeamController extends AbstractController
 
         if ($request->isMethod('POST') && $this->getUser()) {
             $participant['person'] = $this->getUser()->getPerson();
-            $participant['groups'][] = '/groups/'.$variables['team']['id'];
+            $participant['groupColumn'] = '/groups/'.$variables['team']['id'];
 
             if ($request->request->get('motivaton')) {
-                $participant = $request->request->get('motivaton');
+                $participant['motiviation'] = $request->request->get('motivaton');
             }
             $participant['status'] = 'pending';
 
             $participant = $commonGroundService->saveResource($participant, ['component' => 'edu', 'type' => 'participants']);
+
             $variables['team'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'groups', 'id' => $id]);
         }
 
