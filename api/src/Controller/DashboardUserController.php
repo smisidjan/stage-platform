@@ -491,6 +491,21 @@ class DashboardUserController extends AbstractController
                 $resource['style'] = '/styles/'.$resource['style']['id'];
             }
 
+            if (isset($resource['privacyContact'])) {
+                $userUrl = $commonGroundService->cleanUrl(['component' => 'uc', 'type' => 'users', 'id' => $resource['privacyContact']]);
+                $resource['privacyContact'] = $userUrl;
+            }
+
+            if (isset($resource['administrationContact'])) {
+                $userUrl = $commonGroundService->cleanUrl(['component' => 'uc', 'type' => 'users', 'id' => $resource['administrationContact']]);
+                $resource['administrationContact'] = $userUrl;
+            }
+
+            if (isset($resource['technicalContact'])) {
+                $userUrl = $commonGroundService->cleanUrl(['component' => 'uc', 'type' => 'users', 'id' => $resource['technicalContact']]);
+                $resource['technicalContact'] = $userUrl;
+            }
+
             if ($newOrganization) {
                 $users = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'users'], ['username' => $this->getUser()->getUsername()])['hydra:member'];
                 if (count($users) > 0) {
@@ -500,6 +515,8 @@ class DashboardUserController extends AbstractController
                     $resource['administrationContact'] = $userUrl;
                 }
             }
+
+
 
             // Update to the commonground component
             $variables['item'] = $commonGroundService->saveResource($resource, ['component' => 'wrc', 'type' => 'organizations']);
