@@ -94,12 +94,10 @@ class StudentController extends AbstractController
                     $courseIds[] = $participant['course']['id'];
                 }
             }
-            if (isset($participant['groups']) && $participant['groups']) {
-                foreach ($participant['groups'] as $group) {
-                    if (!in_array($group['id'], $groupIds)) {
-                        $variables['groups'][] = $group;
-                        $groupIds[] = $group['id'];
-                    }
+            if (isset($participant['groupColumn']) && $participant['groupColumn']) {
+                if (!in_array($participant['groupColumn']['id'], $groupIds)) {
+                    $variables['groups'][] = $participant['groupColumn'];
+                    $groupIds[] = $participant['groupColumn']['id'];
                 }
             }
         }

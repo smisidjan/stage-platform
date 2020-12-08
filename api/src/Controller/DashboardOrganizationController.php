@@ -415,10 +415,10 @@ class DashboardOrganizationController extends AbstractController
             $participation = $commonGroundService->getResource($resource['id']);
 
             $participation['status'] = $resource['status'];
-            unset($participation['groups']);
+            unset($participation['groupColumn']);
             unset($participation['course']);
             unset($participation['program']);
-            if ($participation['status'] == 'accpeted') {
+            if ($participation['status'] == 'accepted') {
                 $participation['dateOfAcceptance'] = new Date('today');
             } else {
                 $participation['dateOfAcceptance'] = null;
@@ -441,16 +441,6 @@ class DashboardOrganizationController extends AbstractController
                         isset($part['program']['organization']) &&
                         $part['program']['organization'] == $this->getUser()->getOrganization()) {
                         $variables['participants'][] = $part;
-                    } elseif (isset($part['groups']) && count($part['groups']) > 0) {
-                        foreach ($part['groups'] as $group) {
-                            if (isset($group['organization']) && $group['organization'] == $this->getUser()->getOrganization()) {
-                                $addPart = true;
-                            }
-                        }
-                        if ($addPart == true) {
-                            $variables['participants'][] = $part;
-                            $addPart = false;
-                        }
                     }
                     $participantIds[] = $part['id'];
                 }
