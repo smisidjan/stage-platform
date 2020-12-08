@@ -43,7 +43,7 @@
         <div class="
         {% if students|default and students|length > 0 %}
         container mt-n10
-{% else %}
+        {% else %}
         container
         {% endif %}">
             <div class="row mt-6">
@@ -53,24 +53,6 @@
                             <div class="profile-card mb-7">
                                 <div class="card shadow-soft border-light text-center">
                                     <div class="card-body">
-
-
-                                        {% if students|default %}
-                                        {% for student in students %}
-                                            <div>
-                                                <a href="{{ path('app_student_index', {id: student.id}) }}" style="margin-left: auto; margin-right: auto">
-                                                    <img
-                                                        {{ student.personalPhoto|default }}
-                                                            src="{{ student.personalPhoto }}"
-                                                        {% else %}
-                                                            src="/bundles/rocket/assets/img/blog/image-2.jpg"
-                                                        alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                    {% endif %}
-
                                         {% if student.name|default %}
                                             <span class="card__title"><h4>{{ student.name }}</h4></span>
                                         {% endif %}
@@ -173,6 +155,7 @@
                     <h3 class="text-center">{{ 'no students have been found'|trans|capitalize }}</h3>
                 {% endif %}
             </div>
+        </div>
     </section>
 
     {% if not app.user %}
