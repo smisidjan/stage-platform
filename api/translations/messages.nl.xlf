@@ -959,7 +959,7 @@
       </trans-unit>
       <trans-unit id="zwJiGsD" resname="Starting your own teams allows jou to attract teammates and tackle challenges together, there is no set definition of who should be in a team so you could either be a group of students of the same study or a multidisciplinary team consisting of different study\'s. Or you could just be a group of friends.">
         <source>Starting your own teams allows jou to attract teammates and tackle challenges together, there is no set definition of who should be in a team so you could either be a group of students of the same study or a multidisciplinary team consisting of different study\'s. Or you could just be a group of friends.</source>
-        <target>door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan. Er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat. Of je zou gewoon een groep vrienden kunnen zijn.</target>
+        <target>Door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan. Er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat. Of je zou gewoon een groep vrienden kunnen zijn.</target>
       </trans-unit>
       <trans-unit id="YZacozN" resname="The choice is all yours.">
         <source>The choice is all yours.</source>
@@ -3484,7 +3484,7 @@
       </trans-unit>
       <trans-unit id="l7wq8Wg" resname="by starting your own team, you can attract teammates and take on challenges / challenges together. There is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.">
         <source>by starting your own team, you can attract teammates and take on challenges / challenges together. There is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.</source>
-        <target>door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan, er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat.</target>
+        <target>Door je eigen teams te starten, kun je teamgenoten aantrekken en samen challenges aangaan. Er is geen vaste definitie van wie er in een team zou moeten zitten, dus je zou een groep studenten van dezelfde studie kunnen zijn of een multidisciplinair team dat uit verschillende studies bestaat.</target>
       </trans-unit>
       <trans-unit id="nd.Owoq" resname="the choice is yours!">
         <source>the choice is yours!</source>
@@ -3821,7 +3821,7 @@
       </trans-unit>
       <trans-unit id="_MtVT4w" resname="by starting your own team, you can attract teammates and take on challenges / challenges together.">
         <source>by starting your own team, you can attract teammates and take on challenges / challenges together.</source>
-        <target>door je eigen team te starten, kun je teamgenoten aantrekken en samen uitdagingen / uitdagingen aangaan.</target>
+        <target>Door je eigen team te starten, kun je teamgenoten aantrekken en samen uitdagingen / challenges aangaan.</target>
       </trans-unit>
       <trans-unit id="FV1CPYZ" resname="there is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.">
         <source>there is no set definition of who should be on a team, so you could be a group of students from the same study or a multidisciplinary team of students from different studies.</source>
@@ -3870,6 +3870,14 @@
       <trans-unit id="cskMs54" resname="in the old world we used to do onboaring and on the job trainging, that is now no longer possible. We need to find a new way for interns and new employees to onboard themselfs into the workspace">
         <source>in the old world we used to do onboaring and on the job trainging, that is now no longer possible. We need to find a new way for interns and new employees to onboard themselfs into the workspace</source>
         <target>in de oude wereld deden we aan onboaring en on the job trainging, dat is nu niet meer mogelijk. We moeten een nieuwe manier vinden voor stagiaires en nieuwe medewerkers om zichzelf in de werkruimte te begevenF</target>
+      </trans-unit>
+      <trans-unit id="EqW_Zue" resname="inloggen met deze organisatie">
+        <source>inloggen met deze organisatie</source>
+        <target>inloggen met deze organisatie</target>
+      </trans-unit>
+      <trans-unit id="gpbqaoV" resname="we have listed all the companies that are looking for an intern for you. So that you can make a choice for which internship you would like to go.">
+        <source>we have listed all the companies that are looking for an intern for you. So that you can make a choice for which internship you would like to go.</source>
+        <target>We hebben alle bedrijven op een rijtje gezet die voor jou op zoek zijn naar een stagiair. Zodat je een keuze kunt maken voor welke stage jij wilt gaan.</target>
       </trans-unit>
     </body>
   </file>
