@@ -35,16 +35,17 @@
         </div>
 
 
+
+
         <div class="pattern bottom"></div>
     </section>
     <section class="section section-lg pt-0">
         <div class="
         {% if students|default and students|length > 0 %}
         container mt-n10
-{% else %}
+        {% else %}
         container
-        {% endif %}
-">
+        {% endif %}">
             <div class="row mt-6">
                 {% if students|default %}
                     {% for student in students %}
@@ -52,7 +53,6 @@
                             <div class="profile-card mb-7">
                                 <div class="card shadow-soft border-light text-center">
                                     <div class="card-body">
-
                                         {% if student.name|default %}
                                             <span class="card__title"><h4>{{ student.name }}</h4></span>
                                         {% endif %}
@@ -140,9 +140,9 @@
                                                 <li>
                                                     <a class="btn btn-primary"
                                                        href="{{ path('app_student_portfolio', {id: student.id}) }}">{{ 'view portfolio'|trans|capitalize }}</a>
-
                                                 </li>
                                             </ul>
+                                            <br>
                                         {% endif %}
 
 
