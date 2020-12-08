@@ -400,7 +400,7 @@ class DashboardOrganizationController extends AbstractController
             $participation = $commonGroundService->getResource($resource['id']);
 
             $participation['status'] = $resource['status'];
-            unset($participation['group']);
+            unset($participation['groupColumn']);
             unset($participation['course']);
             unset($participation['program']);
             if ($participation['status'] == 'accpeted') {

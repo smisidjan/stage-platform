@@ -74,14 +74,14 @@ class DashboardUserController extends AbstractController
                         $courseIds[] = $participant['course']['id'];
                     }
                 }
-                if (isset($participant['group']) && $participant['status'] && $participant['status'] == 'accepted') {
-                    if (!in_array($participant['group']['id'], $groupIds)) {
-                        $variables['groups'][] = $participant['group'];
-                        $groupIds[] = $participant['group']['id'];
+                if (isset($participant['groupColumn']) && $participant['status'] && $participant['status'] == 'accepted') {
+                    if (!in_array($participant['groupColumn']['id'], $groupIds)) {
+                        $variables['groups'][] = $participant['groupColumn'];
+                        $groupIds[] = $participant['groupColumn']['id'];
                     }
                 }
                 if (!in_array($participant['id'], $participationIds) &&
-                    ($participant['group'] || $participant['program'] || $participant['course'])) {
+                    ($participant['groupColumn'] || $participant['program'] || $participant['course'])) {
                     $variables['participations'][] = $participant;
                     $participationIds[] = $participant['id'];
                 }
@@ -248,8 +248,8 @@ class DashboardUserController extends AbstractController
             // Get all groups for each participant of this user
             $teams = [];
             foreach ($participants as $participant) {
-                if (isset($participant['group'])) {
-                    array_push($teams, $participant['group']);
+                if (isset($participant['groupColumn'])) {
+                    array_push($teams, $participant['groupColumn']);
                 }
             }
             $variables['teams'] = $teams;

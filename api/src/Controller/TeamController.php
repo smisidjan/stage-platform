@@ -57,7 +57,7 @@ class TeamController extends AbstractController
 
         if ($request->isMethod('POST') && $this->getUser()) {
             $participant['person'] = $this->getUser()->getPerson();
-            $participant['group'] = '/groups/'.$variables['team']['id'];
+            $participant['groupColumn'] = '/groups/'.$variables['team']['id'];
 
             if ($request->request->get('motivaton')) {
                 $participant['motiviation'] = $request->request->get('motivaton');
