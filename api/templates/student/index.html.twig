@@ -33,17 +33,13 @@
             </div>
         </form>
         </div>
-
-
-
-
         <div class="pattern bottom"></div>
     </section>
     <section class="section section-lg pt-0">
         <div class="
         {% if students|default and students|length > 0 %}
         container mt-n10
-{% else %}
+        {% else %}
         container
         {% endif %}">
             <div class="row mt-6">
@@ -53,24 +49,16 @@
                             <div class="profile-card mb-7">
                                 <div class="card shadow-soft border-light text-center">
                                     <div class="card-body">
-
-
-                                        {% if students|default %}
-                                        {% for student in students %}
-                                            <div>
                                                 <a href="{{ path('app_student_index', {id: student.id}) }}" style="margin-left: auto; margin-right: auto">
                                                     <img
-                                                        {{ student.personalPhoto|default }}
+                                                        {% if student.personalPhoto is defined and student.personalPhoto is not empty %}
                                                             src="{{ student.personalPhoto }}"
                                                         {% else %}
                                                             src="/bundles/rocket/assets/img/blog/image-2.jpg"
+                                                        {% endif %}
                                                         alt="">
                                                 </a>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                    {% endif %}
-
+                                        <br><br>
                                         {% if student.name|default %}
                                             <span class="card__title"><h4>{{ student.name }}</h4></span>
                                         {% endif %}
@@ -173,6 +161,7 @@
                     <h3 class="text-center">{{ 'no students have been found'|trans|capitalize }}</h3>
                 {% endif %}
             </div>
+        </div>
     </section>
 
     {% if not app.user %}
