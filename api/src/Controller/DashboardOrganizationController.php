@@ -503,7 +503,7 @@ class DashboardOrganizationController extends AbstractController
         if (count($variables['stages']) > 0) {
             foreach ($variables['stages'] as &$stage) {
                 $appliedFor = false;
-                $applications = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'applications'],['jobPosting.id' => $stage['id']])['hydra:member'];
+                $applications = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'applications'], ['jobPosting.id' => $stage['id']])['hydra:member'];
                 if (count($applications) > 0) {
                     $appliedFor = true;
                 }
