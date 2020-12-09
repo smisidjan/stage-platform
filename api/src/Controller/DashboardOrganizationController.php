@@ -470,7 +470,7 @@ class DashboardOrganizationController extends AbstractController
     }
 
     /**
-     * @Route("/invoice")
+     * @Route("/invoice/{id}")
      * @Template
      */
     public function invoiceAction(CommonGroundService $commonGroundService, Request $request, $id)
