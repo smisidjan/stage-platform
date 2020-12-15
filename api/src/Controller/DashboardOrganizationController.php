@@ -466,6 +466,7 @@ class DashboardOrganizationController extends AbstractController
             $organizationUrl = $commonGroundService->cleanUrl(['component' => 'wrc', 'type' => 'organizations', 'id' => $organization['id']]);
             $variables['invoices'] = $commonGroundService->getResourceList(['component' => 'bc', 'type' => 'invoices'], ['customer' => $organizationUrl])['hydra:member'];
         }
+
         return $variables;
     }
 
@@ -481,6 +482,33 @@ class DashboardOrganizationController extends AbstractController
         $variables['invoice'] = $commonGroundService->getResource(['component' => 'bc', 'type' => 'invoices', 'id' => $id]);
 
         /*@todo make payment process*/
+
+        return $variables;
+    }
+
+    /**
+     * @Route("/conduction")
+     * @Template
+     */
+    public function conductionAction(CommonGroundService $commonGroundService, Request $request)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $variables = [];
+
+        $variables['challenges'] = $commonGroundService->getResourceList(['component' => 'chrc', 'type' => 'tenders'])['hydra:member'];
+        $variables['stages'] = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'job_postings'])['hydra:member'];
+
+        if (count($variables['stages']) > 0) {
+            foreach ($variables['stages'] as &$stage) {
+                $appliedFor = false;
+                $applications = $commonGroundService->getResourceList(['component' => 'mrc', 'type' => 'applications'], ['jobPosting.id' => $stage['id']])['hydra:member'];
+                if (count($applications) > 0) {
+                    $appliedFor = true;
+                }
+
+                $stage['appliedFor'] = $appliedFor;
+            }
+        }
 
         return $variables;
     }
