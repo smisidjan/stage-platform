@@ -346,8 +346,11 @@ class DashboardUserController extends AbstractController
                 $person = $variables['person'];
             }
 
-            if ($request->files->get('personalPhoto')) {
-                $person['personalPhoto'] = base64_encode(file_get_contents($request->files->get('personalPhoto')));
+            if (isset($_FILES['personalPhoto']) && $_FILES['personalPhoto']['error'] !== 4) {
+                $path = $_FILES['personalPhoto']['tmp_name'];
+                $type = filetype($_FILES['personalPhoto']['tmp_name']);
+                $data = file_get_contents($path);
+                $person['personalPhoto'] = 'data:image/'.$type.';base64,'.base64_encode($data);
             }
 
             $person['name'] = $name;
@@ -472,6 +475,11 @@ class DashboardUserController extends AbstractController
         $account = $balanceService->getAcount($organizationUrl);
 
         if ($account !== false) {
+            $account['balance'] = $balanceService->getBalance($organizationUrl);
+            $variables['account'] = $account;
+            $variables['payments'] = $commonGroundService->getResourceList(['component' => 'bare', 'type' => 'payments'], ['acount.id' => $account['id'], 'order[dateCreated]' => 'desc'])['hydra:member'];
+        } else {
+            $account = $balanceService->createAccount($organizationUrl);
             $account['balance'] = $balanceService->getBalance($organizationUrl);
             $variables['account'] = $account;
             $variables['payments'] = $commonGroundService->getResourceList(['component' => 'bare', 'type' => 'payments'], ['acount.id' => $account['id'], 'order[dateCreated]' => 'desc'])['hydra:member'];
