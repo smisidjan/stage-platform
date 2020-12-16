@@ -329,8 +329,6 @@ class DashboardOrganizationController extends AbstractController
             // Update to the commonground component
             $variables['product'] = $commonGroundService->saveResource($resource, ['component' => 'pdc', 'type' => 'products']);
 
-            var_dump($variables['product']);
-
             return $this->redirect($this->generateUrl('app_dashboardorganization_products'));
         }
 
