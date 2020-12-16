@@ -137,7 +137,23 @@ class DashboardUserController extends AbstractController
         $variables = [];
 
         $variables['tutorial'] = $commonGroundService->getResource(['component' => 'edu', 'type' => 'courses', 'id' => $id]);
-        $variables['tutorial']['results'][0] = ['id' => '1234', 'name' => 'test result'];
+
+        //  Getting the participants
+        if ($this->getUser()) {
+            $participants = $commonGroundService->getResourceList(['component' => 'edu', 'type' => 'participants'], ['person' => $this->getUser()->getPerson()])['hydra:member'];
+            if (count($participants) > 0) {
+                // Get the result for each participant of this user if the participant has the tutorial in course
+                $results = [];
+                foreach ($participants as $participant) {
+                    if (isset($participant['course']['id']) and $participant['course']['id'] == $id) {
+                        if (isset($participant['results'])) {
+                            array_push($results, $participant['results']);
+                        }
+                    }
+                }
+                $variables['results'] = $results;
+            }
+        }
 
         return $variables;
     }
@@ -465,9 +481,6 @@ class DashboardUserController extends AbstractController
         if (count($groups) > 0) {
             $group = $groups[0];
             $variables['users'] = $group['users'];
-        } else {
-            $user = $commonGroundService->getResourceList(['component' => 'uc', 'type' => 'users'], ['username' => $this->getUser()->getUsername()])['hydra:member'][0];
-            $variables['users'][] = $user;
         }
 
         $redirectToPlural = false;
@@ -493,21 +506,6 @@ class DashboardUserController extends AbstractController
 
             if (isset($resource['style'])) {
                 $resource['style'] = '/styles/'.$resource['style']['id'];
-            }
-
-            if (isset($resource['privacyContact'])) {
-                $userUrl = $commonGroundService->cleanUrl(['component' => 'uc', 'type' => 'users', 'id' => $resource['privacyContact']]);
-                $resource['privacyContact'] = $userUrl;
-            }
-
-            if (isset($resource['administrationContact'])) {
-                $userUrl = $commonGroundService->cleanUrl(['component' => 'uc', 'type' => 'users', 'id' => $resource['administrationContact']]);
-                $resource['administrationContact'] = $userUrl;
-            }
-
-            if (isset($resource['technicalContact'])) {
-                $userUrl = $commonGroundService->cleanUrl(['component' => 'uc', 'type' => 'users', 'id' => $resource['technicalContact']]);
-                $resource['technicalContact'] = $userUrl;
             }
 
             if ($newOrganization) {
