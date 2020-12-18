@@ -2197,6 +2197,10 @@
         <source>socials</source>
         <target>socials</target>
       </trans-unit>
+      <trans-unit id="2jAMS4_" resname="Other Social">
+        <source>Other Social</source>
+        <target>Ander Social</target>
+      </trans-unit>
       <trans-unit id="4rH7ZhE" resname="styling">
         <source>styling</source>
         <target>styling</target>
