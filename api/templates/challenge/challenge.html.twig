@@ -177,6 +177,7 @@
                             <div class="mb-5 mb-lg-6 text-center">
                                 <h2 class="h1">{{ 'Apply for this Challenge'|trans|capitalize }}</h2></div>
                             {% if app.user is defined and app.user is not null %}
+                                {% if 'false' in isApplied %}
                             <form action="{{ path('app_challenge_challenge', {id: challenge.id} ) }}" method="post">
                                 <input type="hidden" name="tender" id="tender" value="{{ challenge['id'] }}">
                                 <div class="row">
@@ -191,6 +192,7 @@
                                                             class="far fa-user-alt"></i></span>
                                                 </div>
                                                 {% if person is defined and person is not empty %}
+
                                                     <input disabled class="form-control" id="" name=""
                                                            type="text" value="{{ person.name }}">
 
@@ -206,6 +208,13 @@
                                     </div>
                                 </div>
                             </form>
+                                    {% else %}
+                                        <p class="mt-4 text-center">{{ 'you already applied for this challenge'|trans|capitalize }}</p>
+                                        <div class="mb-5 mb-lg-6 text-center">
+                                            <a class="mt-2 text-center btn btn-secondary"
+                                               href="{{ path('app_dashboarduser_index') }}">{{ 'click here to view your application'|trans|capitalize }} </a>
+                                        </div>
+                                        {% endif %}
                             {% else %}
                                 <p class="mt-4 text-center">{{ 'you need to be logged in to apply for this challenge'|trans|capitalize }}</p>
                                 <div class="mb-5 mb-lg-6 text-center">
