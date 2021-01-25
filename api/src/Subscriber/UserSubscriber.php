@@ -9,7 +9,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class UserSubscriber implements EventSubscriberInterface
 {
-
     public function __construct()
     {
     }
@@ -18,7 +17,7 @@ class UserSubscriber implements EventSubscriberInterface
     {
         return [
             IdVaultEvents::NEWUSER  => 'newUser',
-            IdVaultEvents::LOGGEDIN => 'loggedIn'
+            IdVaultEvents::LOGGEDIN => 'loggedIn',
         ];
     }
 
@@ -33,5 +32,4 @@ class UserSubscriber implements EventSubscriberInterface
         $object = $event->getResource();
         //login actions
     }
-
 }
