@@ -12,7 +12,7 @@
                 <div class="d-flex flex-column flex-lg-row justify-content-center">
                         <span class="h5 mb-3 mb-lg-0"><i class="fas fa-clock"></i><span
                                 class="ml-3">{{ tutorial.timeRequired }}</span></span>
-                    {% if tutorial.organization is defined and tutorial.organization is not empty %}
+                    {% if tutorial.organization is defined and tutorial.organization is not empty and commonground_is_resource(tutorial.organization)\ %}
                         {% set organization = commonground_resource(tutorial.organization) %}
                         <span class="ml-lg-5 mb-3 mb-lg-0 h5"><i class="fas fa-user-tie"></i><span
                                 class="ml-3">{{ organization.name }}</span></span>

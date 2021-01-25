@@ -3521,6 +3521,10 @@
         <source>likes</source>
         <target>likes</target>
       </trans-unit>
+      <trans-unit id="mkKyDWm" resname="here is a representation of the stages you have liked.">
+        <source>here is a representation of the stages you have liked.</source>
+        <target>hier een weergave van de stages die je geliket hebt.</target>
+      </trans-unit>
       <trans-unit id="mdHKjLn" resname="no organization found">
         <source>no organization found</source>
         <target>geen organisatie gevonden</target>
@@ -3703,9 +3707,9 @@
         <source>last change:</source>
         <target>laatste update:</target>
       </trans-unit>
-      <trans-unit id="ee4ZPNQ" resname="stage-platform">
-        <source>stage-platform</source>
-        <target>stage-platform</target>
+      <trans-unit id="ee4ZPNQ" resname="stageplatform">
+        <source>stageplatform</source>
+        <target>stageplatform</target>
       </trans-unit>
       <trans-unit id="sTwOoVW" resname="oke">
         <source>oke</source>

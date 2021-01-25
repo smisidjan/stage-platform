@@ -63,7 +63,7 @@
                         <div class="card bg-white border-light shadow-soft p-4 rounded">
                             <a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}"><img src="/bundles/rocket/assets/img/blog/image-2.jpg" class="card-img-top fmxh-300" alt=""></a>
                             <div class="card-body p-0 pt-4"><a href="{{ path('app_education_tutorial', {id: tutorial.id}) }}" class="h3">{{ tutorial.name }}</a>
-                                {% if tutorial.organization is defined and tutorial.organization is not empty %}
+                                {% if tutorial.organization is defined and tutorial.organization is not empty and commonground_is_resource(tutorial.organization) %}
                                     {% set organization = commonground_resource(tutorial.organization) %}
                                     <div class="d-flex align-items-center mt-2 mb-2">
                                         {%  if organization.style.favicon.base64 is defined %}

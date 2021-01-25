@@ -79,7 +79,8 @@
                                             class="text-muted small ml-2 mb-0">{{ 'reward: '|trans|capitalize }}&euro;{{ challenge.budget }}</h6>
                                     </div>
                                 {% endif %}
-                                <p class="mb-0">{{ challenge.description }}</p>
+                                <p class="mb-0">{% if challenge.description|length > 150 %}{{ challenge.description|slice(0,150)|trim }}... <a href="{{ path('app_challenge_challenge', {id: challenge.id}) }}">{{ 'read more'|trans }}</a>
+                                    {% else %}{{ challenge.description }}{% endif %}</p>
                             </div>
                         </div>
                     </div>

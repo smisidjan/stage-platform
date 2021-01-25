@@ -57,11 +57,10 @@ class ChallengeController extends AbstractController
             $variables['personUrl'] = $personUrl;
             $variables['person'] = $person;
 
-            foreach ($variables['challenge']['entries'] as $entry){
-
-                if ($entry["submitter"] == $variables['person']['@id']){
+            foreach ($variables['challenge']['entries'] as $entry) {
+                if ($entry['submitter'] == $variables['person']['@id']) {
                     $variables['isApplied'] = 'true';
-                }else{
+                } else {
                     $variables['isApplied'] = 'false';
                 }
             }
