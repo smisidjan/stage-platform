@@ -69,7 +69,7 @@ class TeamController extends AbstractController
             return $this->redirect($this->generateUrl('app_team_team', ['id' => $id]));
         }
 
-        if (isset($variables['team']['participants']) && count($variables['team']['participants']) > 0) {
+        if (isset($variables['team']['participants']) && count($variables['team']['participants']) > 0 && $this->getUser()) {
             foreach ($variables['team']['participants'] as $part) {
                 if ($part['person'] == $this->getUser()->getPerson()) {
                     $variables['userIsInTeam'] = true;
