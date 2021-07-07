@@ -24,7 +24,11 @@ spec:
     spec:
       containers:
         - name: {{ .Values.settings.name }}-php
+        {{ if eq .Values.settings.env "prod"}}
+          image: "{{ .Values.settings.registryBase }}/{{ .Values.settings.projectName }}-php:latest"
+        {{ else }}
           image: "{{ .Values.settings.registryBase }}/{{ .Values.settings.projectName }}-php:{{ .Values.settings.env }}"
+        {{ end }}
           imagePullPolicy: {{ .Values.settings.pullPolicy }}
           ports:
             - containerPort: 9000
@@ -195,6 +199,11 @@ spec:
                 configMapKeyRef:
                   name: {{ template "fullname" . }}
                   key: app-subpath-routing
+            - name: APP_SUBPATH
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ template "fullname" . }}
+                  key: app-subpath
             
             # bla bla      
             - name: CORS_ALLOW_ORIGIN
@@ -253,6 +262,13 @@ spec:
               {{- else }}
               value: https://{{ $.Values.settings.env }}.{{ $.Values.settings.domain }}
               {{- end }}
+            {{ if .Values.security.mollieKey }}
+            - name: APP_MOLLIE_KEY
+              valueFrom:
+                  secretKeyRef:
+                      name: {{ template "fullname" . }}
+                      key: app_mollie_key
+            {{ end }}
             - name: APP_APPLICATION_KEY
               valueFrom:
                 secretKeyRef:
@@ -263,7 +279,7 @@ spec:
                 secretKeyRef:
                   name: {{ template "fullname" . }}
                   key: app_user_key
-
+           
           #Redis
             - name: REDIS_HOST
               valueFrom:
